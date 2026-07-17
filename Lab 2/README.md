@@ -176,3 +176,55 @@ ps -u "$USER" -o pid,ppid,etime,%cpu,%mem,cmd \
 
 Do not delete previous SHARP result folders. Each attempt writes to a new
 timestamped result directory.
+
+## Fused CUDA Mamba, 80 epochs
+
+`setup_lab2_sharp_mamba_fused80.py` creates another isolated experiment. It
+keeps the same encoder placement and Mamba dimensions, but replaces the slow
+Python selective-scan loop with the official fused causal-convolution and
+selective-scan CUDA kernels. The monolithic `mamba_inner_fn` fast path is
+disabled because it produced an illegal memory access on the Lab 2 Turing GPUs.
+No shared environment, previous code, or previous result folder is modified.
+
+Stop any active `train.py` process before installing. Then build the new
+experiment and install its pinned Python 3.11, PyTorch 2.8, CUDA 12 wheels:
+
+```bash
+cd "/home/server00/M/Codes/Thesis/Lab 2"
+
+/home/server00/M/Codes/envs/sharp/bin/python \
+  setup_lab2_sharp_mamba_fused80.py
+
+EXPERIMENT_ROOT=$(cat \
+  /home/server00/M/Codes/LATEST_SHARP_AV2_MAMBA_FUSED80.txt)
+
+bash "$EXPERIMENT_ROOT/install_fused_mamba.sh"
+```
+
+Run the 80-epoch experiment in the foreground:
+
+```bash
+cd "$EXPERIMENT_ROOT/Code"
+bash "$EXPERIMENT_ROOT/run_av2_mamba_fused_4gpu.sh"
+```
+
+The run uses four GPUs through DDP, batch size 8 per GPU (global batch 32),
+a CPU-aware DataLoader worker count, 80 epochs, 13 warm-up epochs, and
+the article-aligned `1e-4` to `1e-5` learning-rate schedule. It saves the top
+three `minADE6` checkpoints plus the last checkpoint in a fresh result folder.
+
+Before epoch 0, output must contain all of these markers:
+
+```text
+FUSED_CUDA_MAMBA_INSTALL_OK
+FUSED_SPLIT_CUDA_MAMBA_INSTALL_OK
+FUSED_MAMBA_CUDA_SMOKE_TEST_OK
+FUSED_SPLIT_MAMBA_CUDA_STRESS_OK
+MAMBA_ACTIVE=True FUSED_MAMBA_CUDA_ACTIVE=True FUSED_SPLIT_KERNELS=True
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+```
+
+The preflight performs 160 variable-length forward/backward iterations and
+verifies that both official CUDA extensions are called on every bidirectional
+Mamba pass. The installer places all Mamba packages under the timestamped
+experiment, so PyTorch and the shared environment remain unchanged.
