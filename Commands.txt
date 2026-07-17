@@ -1,0 +1,8 @@
+mkdir -p /home/server00/M/Terminal
+
+RESULTS=$(cat /home/server00/M/Results/LATEST_SHARP_AV2_MAMBA_ARTICLE80_RUN.txt)
+
+cp "$RESULTS/full_run.log" \
+  /home/server00/M/Terminal/Terminal.txt
+
+ls -lh /home/server00/M/Terminal/Terminal.txt
