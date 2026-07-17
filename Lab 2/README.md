@@ -6,6 +6,31 @@ patching it, uses all four RTX 2080 Ti GPUs with DDP, trains for 60 epochs, and
 stores new outputs separately. Existing SHARP code and results are not deleted
 or overwritten.
 
+## Article-aligned 80-epoch Mamba run
+
+`setup_lab2_sharp_mamba_article80.py` preserves the verified Mamba architecture
+and placement from the 60-epoch experiment while matching the SHARP paper's
+AV2 optimization protocol: 80 epochs, global batch size 32, 13 warm-up epochs,
+linear warm-up to `1e-4`, cosine decay to `1e-5`, AdamW, gradient clipping and
+weight decay. It creates new `SHARP_AV2_MAMBA_ARTICLE80_<timestamp>` code and
+result directories and does not overwrite the earlier 60-epoch experiment.
+
+```bash
+cd "/home/server00/M/Codes/Thesis/Lab 2"
+
+/home/server00/M/Codes/envs/sharp/bin/python \
+  setup_lab2_sharp_mamba_article80.py
+
+EXPERIMENT_ROOT=$(cat \
+  /home/server00/M/Codes/LATEST_SHARP_AV2_MAMBA_ARTICLE80.txt)
+
+bash "$EXPERIMENT_ROOT/run_av2_mamba_4gpu.sh"
+```
+
+The launcher refuses to start while another `train.py` process is using Lab 2.
+It uses all four GPUs, batch size 8 per GPU and six DataLoader workers per DDP
+rank. The three best `minADE6` checkpoints and `last.ckpt` are retained.
+
 ## Required Lab 2 layout
 
 The scripts expect these existing paths:
