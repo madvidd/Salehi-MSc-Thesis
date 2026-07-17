@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create an article-aligned 80-epoch SHARP + fused CUDA Mamba experiment."""
+"""Create an article-aligned SHARP + stable split-kernel CUDA Mamba experiment."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import stat
 from pathlib import Path
 
 
-MAMBA_ENCODER_SOURCE = r'''"""Official fused CUDA Mamba encoder for SHARP scene tokens."""
+MAMBA_ENCODER_SOURCE = r'''"""Stable split-kernel CUDA Mamba encoder for SHARP scene tokens."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ from mamba_ssm.modules.mamba_simple import Mamba
 def fused_cuda_available() -> bool:
     return (
         mamba_simple.causal_conv1d_fn is not None
-        and mamba_simple.mamba_inner_fn is not None
+        and mamba_simple.selective_scan_fn is not None
         and hasattr(causal_conv1d_cuda, "causal_conv1d_fwd")
         and hasattr(selective_scan_cuda, "fwd")
     )
@@ -49,7 +49,7 @@ class SceneMambaEncoder(nn.Module):
     ) -> None:
         super().__init__()
         if not fused_cuda_available():
-            raise RuntimeError("Official fused Mamba CUDA kernels are unavailable")
+            raise RuntimeError("Official split fused Mamba CUDA kernels are unavailable")
         self.bidirectional = bidirectional
         self.norms = nn.ModuleList(nn.LayerNorm(dim) for _ in range(depth))
         self.layers = nn.ModuleList(
@@ -58,7 +58,7 @@ class SceneMambaEncoder(nn.Module):
                 d_state=d_state,
                 d_conv=d_conv,
                 expand=expand,
-                use_fast_path=True,
+                use_fast_path=False,
             )
             for _ in range(depth)
         )
@@ -238,27 +238,46 @@ if torch.__version__ != "2.8.0+cu128":
     raise SystemExit("Torch changed unexpectedly")
 if torch.cuda.get_device_capability(0) != (7, 5):
     raise SystemExit("Expected RTX 2080 Ti compute capability 7.5")
-if mamba_simple.causal_conv1d_fn is None or mamba_simple.mamba_inner_fn is None:
-    raise SystemExit("Official Mamba fast path is unavailable")
+if mamba_simple.causal_conv1d_fn is None or mamba_simple.selective_scan_fn is None:
+    raise SystemExit("Official split fused CUDA kernels are unavailable")
 
-calls = {{"count": 0}}
-original = mamba_simple.mamba_inner_fn
+calls = {{"conv": 0, "scan": 0}}
+original_conv = mamba_simple.causal_conv1d_fn
+original_scan = mamba_simple.selective_scan_fn
 
-def tracked(*args, **kwargs):
-    calls["count"] += 1
-    return original(*args, **kwargs)
+def tracked_conv(*args, **kwargs):
+    calls["conv"] += 1
+    return original_conv(*args, **kwargs)
 
-mamba_simple.mamba_inner_fn = tracked
-model = Mamba(d_model=128, d_state=16, d_conv=4, expand=2, use_fast_path=True).cuda()
-x = torch.randn(4, 96, 128, device="cuda", requires_grad=True)
-y = model(x)
-y.square().mean().backward()
+def tracked_scan(*args, **kwargs):
+    calls["scan"] += 1
+    return original_scan(*args, **kwargs)
+
+mamba_simple.causal_conv1d_fn = tracked_conv
+mamba_simple.selective_scan_fn = tracked_scan
+model = Mamba(d_model=128, d_state=16, d_conv=4, expand=2, use_fast_path=False).cuda()
+lengths = (64, 96, 128, 160, 192, 224, 256)
+last_shape = None
+for length in lengths:
+    x = torch.randn(8, length, 128, device="cuda", requires_grad=True)
+    y = model(x)
+    if not torch.isfinite(y).all():
+        raise SystemExit(f"Split fused Mamba produced non-finite output at length {{length}}")
+    y.square().mean().backward()
+    model.zero_grad(set_to_none=True)
+    last_shape = tuple(y.shape)
 torch.cuda.synchronize()
-if calls["count"] != 1:
-    raise SystemExit(f"Fused Mamba path was not called exactly once: {{calls['count']}}")
-if not torch.isfinite(y).all():
-    raise SystemExit("Fused Mamba produced non-finite output")
-print("FUSED_CUDA_MAMBA_INSTALL_OK", tuple(y.shape), "fast_path_calls=", calls["count"])
+expected = len(lengths)
+if calls["conv"] != expected or calls["scan"] != expected:
+    raise SystemExit(
+        f"Split fused kernels were not called as expected: {{calls}}, expected={{expected}}"
+    )
+print(
+    "FUSED_CUDA_MAMBA_INSTALL_OK",
+    last_shape,
+    f"conv_calls={{calls['conv']}} scan_calls={{calls['scan']}} split_kernels=True",
+)
+print("FUSED_SPLIT_CUDA_MAMBA_INSTALL_OK")
 PY
 
 touch "$EXPERIMENT_ROOT/FUSED_INSTALL_OK"
@@ -331,7 +350,7 @@ PY
 
 cd "$CODE_DIR"
 
-# Prove that the official fused CUDA path executes before the 80-epoch run.
+# Stress the stable split fused CUDA path before the 80-epoch run.
 "$PYTHON_BIN" - <<'PY'
 import time
 import torch
@@ -343,32 +362,56 @@ from src.model.layers.mamba_encoder import SceneMambaEncoder, fused_cuda_availab
 if not fused_cuda_available():
     raise SystemExit("Fused CUDA Mamba is unavailable")
 
-calls = {{"count": 0}}
-original = mamba_simple.mamba_inner_fn
+calls = {{"conv": 0, "scan": 0}}
+original_conv = mamba_simple.causal_conv1d_fn
+original_scan = mamba_simple.selective_scan_fn
 
-def tracked(*args, **kwargs):
-    calls["count"] += 1
-    return original(*args, **kwargs)
+def tracked_conv(*args, **kwargs):
+    calls["conv"] += 1
+    return original_conv(*args, **kwargs)
 
-mamba_simple.mamba_inner_fn = tracked
+def tracked_scan(*args, **kwargs):
+    calls["scan"] += 1
+    return original_scan(*args, **kwargs)
+
+mamba_simple.causal_conv1d_fn = tracked_conv
+mamba_simple.selective_scan_fn = tracked_scan
 device = torch.device("cuda:0")
 module = SceneMambaEncoder(dim=128, depth=1).to(device)
-x = torch.randn(4, 96, 128, device=device, requires_grad=True)
-mask = torch.ones(4, 96, dtype=torch.bool, device=device)
-mask[:, -8:] = False
-y = module(x, mask)
-y.square().mean().backward()
+lengths = (64, 96, 128, 160, 192, 224, 256, 320)
+stress_iterations = 160
+last_shape = None
+last_grad_count = 0
+for iteration in range(stress_iterations):
+    length = lengths[iteration % len(lengths)]
+    x = torch.randn(8, length, 128, device=device, requires_grad=True)
+    mask = torch.ones(8, length, dtype=torch.bool, device=device)
+    mask[:, -(iteration % 17 + 1):] = False
+    y = module(x, mask)
+    if not torch.isfinite(y).all():
+        raise SystemExit(f"Non-finite split fused output at iteration {{iteration}}")
+    y.square().mean().backward()
+    last_grad_count = sum(
+        parameter.grad is not None and torch.isfinite(parameter.grad).all().item()
+        for parameter in module.parameters()
+    )
+    if last_grad_count == 0:
+        raise SystemExit(f"Missing gradients at stress iteration {{iteration}}")
+    module.zero_grad(set_to_none=True)
+    last_shape = tuple(y.shape)
 torch.cuda.synchronize()
-grad_count = sum(
-    parameter.grad is not None and torch.isfinite(parameter.grad).all().item()
-    for parameter in module.parameters()
-)
-if y.shape != x.shape or grad_count == 0 or calls["count"] < 2:
-    raise SystemExit("Fused bidirectional Mamba smoke test failed")
+expected_calls = stress_iterations * 2
+if calls["conv"] != expected_calls or calls["scan"] != expected_calls:
+    raise SystemExit(
+        f"Split fused kernels were not called as expected: {{calls}}, "
+        f"expected={{expected_calls}}"
+    )
 
 module.eval()
+sample = torch.randn(8, 128, 128, device=device)
+mask = torch.ones(8, 128, dtype=torch.bool, device=device)
+mask[:, -8:] = False
 with torch.no_grad():
-    sample = x.detach()
     for _ in range(5):
         module(sample, mask)
     torch.cuda.synchronize()
@@ -381,9 +424,14 @@ param_count = sum(parameter.numel() for parameter in module.parameters())
 print("causal_conv1d_cuda:", causal_conv1d_cuda.__file__)
 print("selective_scan_cuda:", selective_scan_cuda.__file__)
 print(
-    f"FUSED_MAMBA_CUDA_SMOKE_TEST_OK shape={{tuple(y.shape)}} "
-    f"params={{param_count}} grads={{grad_count}} fast_path_calls={{calls['count']}} "
-    f"forward_ms={{elapsed * 1000 / 25:.3f}}"
+    f"FUSED_MAMBA_CUDA_SMOKE_TEST_OK shape={{last_shape}} "
+    f"params={{param_count}} grads={{last_grad_count}} "
+    f"conv_calls={{calls['conv']}} scan_calls={{calls['scan']}} "
+    f"forward_ms={{elapsed * 1000 / 25:.3f}} split_kernels=True"
+)
+print(
+    f"FUSED_SPLIT_MAMBA_CUDA_STRESS_OK iterations={{stress_iterations}} "
+    f"lengths={{lengths}}"
 )
 PY
 "$PYTHON_BIN" - <<'PY' > "$RESULTS_DIR/environment.txt"
@@ -406,7 +454,7 @@ for index in range(torch.cuda.device_count()):
     print(index, torch.cuda.get_device_name(index))
 PY
 
-echo "Starting SHARP + official fused CUDA Mamba on four GPUs"
+echo "Starting SHARP + stable split-kernel fused CUDA Mamba on four GPUs"
 echo "Per-GPU batch size: $BATCH_SIZE; global batch size: $((BATCH_SIZE * 4))"
 echo "CPU threads: $CPU_COUNT; DataLoader workers per process: $WORKERS; total workers: $((WORKERS * 4))"
 echo "Article-aligned schedule: 80 epochs, 13 warm-up epochs, LR 1e-4 -> 1e-5"
@@ -644,9 +692,9 @@ def main() -> None:
         "        raise RuntimeError('Mamba is not active: no mamba_encoder parameters found')\n"
         "    from src.model.layers.mamba_encoder import fused_cuda_available\n"
         "    if not fused_cuda_available():\n"
-        "        raise RuntimeError('Official fused CUDA Mamba path is unavailable')\n"
+        "        raise RuntimeError('Official split fused CUDA Mamba path is unavailable')\n"
         "    mamba_count = sum(parameter.numel() for _, parameter in mamba_params)\n"
-        "    print(f'MAMBA_ACTIVE=True FUSED_MAMBA_CUDA_ACTIVE=True '"
+        "    print(f'MAMBA_ACTIVE=True FUSED_MAMBA_CUDA_ACTIVE=True FUSED_SPLIT_KERNELS=True '"
         "          f'MAMBA_PARAMETER_TENSORS={len(mamba_params)} '"
         "          f'MAMBA_PARAMETERS={mamba_count}')\n"
         "    with open(os.path.join(output_dir, 'mamba_parameters.txt'), 'w') as handle:\n"
@@ -692,7 +740,7 @@ def main() -> None:
 
     manifest = experiment_root / "EXPERIMENT.txt"
     manifest.write_text(
-        "SHARP AV2 with official fused CUDA Mamba scene encoder\n"
+        "SHARP AV2 with stable split-kernel fused CUDA Mamba scene encoder\n"
         "Training: article-aligned 80 epochs, global batch 32, 13 warm-up epochs, "
         "LR 1e-4 to 1e-5\n"
         f"Source code: {source_code}\n"
@@ -700,7 +748,7 @@ def main() -> None:
         f"Results: {results_root}\n"
         "Placement: after positional token embedding, before dual training and "
         "instance-aware context streaming\n"
-        "Mamba: official fused CUDA Mamba-1, depth=1, d_state=16, d_conv=4, expand=2, shared bidirectional scan\n",
+        "Mamba: official fused causal-conv1d + selective-scan CUDA kernels, use_fast_path=False, depth=1, d_state=16, d_conv=4, expand=2, shared bidirectional scan\n",
         encoding="utf-8",
     )
     (base / "Codes/LATEST_SHARP_AV2_MAMBA_FUSED80.txt").write_text(

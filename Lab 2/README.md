@@ -181,8 +181,10 @@ timestamped result directory.
 
 `setup_lab2_sharp_mamba_fused80.py` creates another isolated experiment. It
 keeps the same encoder placement and Mamba dimensions, but replaces the slow
-Python selective-scan loop with the official fused CUDA Mamba implementation.
-It does not modify the shared SHARP environment or any previous code/results.
+Python selective-scan loop with the official fused causal-convolution and
+selective-scan CUDA kernels. The monolithic `mamba_inner_fn` fast path is
+disabled because it produced an illegal memory access on the Lab 2 Turing GPUs.
+No shared environment, previous code, or previous result folder is modified.
 
 Stop any active `train.py` process before installing. Then build the new
 experiment and install its pinned Python 3.11, PyTorch 2.8, CUDA 12 wheels:
@@ -215,13 +217,14 @@ Before epoch 0, output must contain all of these markers:
 
 ```text
 FUSED_CUDA_MAMBA_INSTALL_OK
+FUSED_SPLIT_CUDA_MAMBA_INSTALL_OK
 FUSED_MAMBA_CUDA_SMOKE_TEST_OK
-FUSED_MAMBA_CUDA_ACTIVE=True
-MAMBA_ACTIVE=True FUSED_MAMBA_CUDA_ACTIVE=True
+FUSED_SPLIT_MAMBA_CUDA_STRESS_OK
+MAMBA_ACTIVE=True FUSED_MAMBA_CUDA_ACTIVE=True FUSED_SPLIT_KERNELS=True
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
 ```
 
-The smoke test performs a real CUDA forward/backward pass and verifies that
-the official fused `mamba_inner_fn` fast path was called. The installer places
-all Mamba packages under the timestamped experiment, so PyTorch and the shared
-environment remain unchanged.
+The preflight performs 160 variable-length forward/backward iterations and
+verifies that both official CUDA extensions are called on every bidirectional
+Mamba pass. The installer places all Mamba packages under the timestamped
+experiment, so PyTorch and the shared environment remain unchanged.
