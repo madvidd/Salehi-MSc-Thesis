@@ -1,8 +1,20 @@
-mkdir -p /home/server00/M/Terminal
+Lab 3:
 
-RESULTS=$(cat /home/server00/M/Results/LATEST_SHARP_AV2_MAMBA_ARTICLE80_RUN.txt)
+RESULTS=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916
+RUN=$(cat "$RESULTS/LATEST_BASELINE_MHA_RESUME.txt")
+SOURCE="$RUN/train.log"
+DEST=/home/server01/M/Terminal/Terminal.txt
 
-cp "$RESULTS/full_run.log" \
-  /home/server00/M/Terminal/Terminal.txt
+mkdir -p "$(dirname "$DEST")"
 
-ls -lh /home/server00/M/Terminal/Terminal.txt
+if [ -f "$SOURCE" ]; then
+  tr '\r' '\n' < "$SOURCE" > "$DEST"
+  sync
+
+  echo "Saved one-time terminal snapshot:"
+  echo "$DEST"
+  ls -lh "$DEST"
+else
+  echo "ERROR: training log not found:"
+  echo "$SOURCE"
+fi
