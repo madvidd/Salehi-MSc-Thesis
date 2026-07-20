@@ -1,3 +1,39 @@
+Lab 2:
+
+BASE=/home/server00/M
+POINTER="$BASE/Results/LATEST_SHARP_AV2_MAMBA_FUSED80_RUN.txt"
+RUN=$(cat "$POINTER")
+DEST="$BASE/Terminal/Terminal.txt"
+
+mkdir -p "$(dirname "$DEST")"
+
+if [ -f "$RUN/full_run.log" ]; then
+  SOURCE="$RUN/full_run.log"
+elif [ -f "$RUN/train.log" ]; then
+  SOURCE="$RUN/train.log"
+else
+  SOURCE=$(find "$RUN" -type f -name "*.log" -printf "%T@ %p\n" |
+    sort -nr | head -1 | cut -d" " -f2-)
+fi
+
+echo "Run:    $RUN"
+echo "Source: $SOURCE"
+
+if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
+  tr '\r' '\n' < "$SOURCE" > "$DEST"
+  sync
+
+  echo "Saved one-time Lab 2 terminal snapshot:"
+  echo "$DEST"
+  ls -lh "$DEST"
+else
+  echo "ERROR: no training log was found under:"
+  echo "$RUN"
+fi
+
+
+
+
 Lab 3:
 
 RESULTS=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916
