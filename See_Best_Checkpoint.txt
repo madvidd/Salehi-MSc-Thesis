@@ -72,3 +72,90 @@ PY
 
 
 Lab 3:
+
+BASE=/home/server01/M
+RESULTS=$(ls -td "$BASE"/Results/SHARP_ATTENTION_ABLATION_* | head -1)
+RUN=$(cat "$RESULTS/LATEST_BASELINE_MHA_RESUME.txt")
+
+"$BASE/Codes/AV2/envs/sharp_av2/bin/python" - "$RUN" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+run = Path(sys.argv[1])
+records = []
+
+for path in run.rglob("*.ckpt"):
+    if path.name == "last.ckpt":
+        continue
+
+    # path.stem removes the final ".ckpt" before parsing.
+    metric = re.search(
+        r"minADE6[_=]([0-9]+(?:\.[0-9]+)?)", path.stem
+    )
+    epoch_match = re.search(r"epoch[_=](\d+)", path.stem)
+
+    if metric and epoch_match:
+        records.append((
+            float(metric.group(1)),
+            int(epoch_match.group(1)),
+            path,
+        ))
+
+if not records:
+    raise SystemExit("No saved best checkpoint found yet.")
+
+best_minade6, epoch, checkpoint = min(records)
+
+print(f"Run:             {run}")
+print(f"Best checkpoint: {checkpoint}")
+print(f"Epoch:           {epoch}")
+print(f"minADE6:         {best_minade6:.6f}")
+
+log = next(
+    (
+        path for path in [run / "train.log", run / "full_run.log"]
+        if path.is_file()
+    ),
+    None,
+)
+
+if not log:
+    raise SystemExit("\nCheckpoint found, but no training log was found.")
+
+text = log.read_text(errors="replace").replace("\r", "\n")
+candidates = []
+
+for line in text.splitlines():
+    if f"Epoch {epoch}:" not in line or "minADE6=" not in line:
+        continue
+
+    match = re.search(r"minADE6=([0-9]+(?:\.[0-9]+)?)", line)
+    if match:
+        difference = abs(float(match.group(1)) - best_minade6)
+        candidates.append((difference, line))
+
+if not candidates:
+    raise SystemExit(
+        "\nBest checkpoint found, but its other metrics were not "
+        "recoverable from the progress log."
+    )
+
+target = min(candidates, key=lambda item: item[0])[1]
+
+print("\nMetrics recorded for the best checkpoint:")
+for metric_name in [
+    "MR",
+    "b-minFDE6",
+    "minADE1",
+    "minADE6",
+    "minFDE1",
+    "minFDE6",
+]:
+    matches = re.findall(
+        rf"{re.escape(metric_name)}=([0-9]+(?:\.[0-9]+)?)",
+        target,
+    )
+    value = matches[-1] if matches else "not visible in log"
+    print(f"{metric_name:12s}: {value}")
+PY
