@@ -1,0 +1,74 @@
+Lab 2:
+
+BASE=/home/server00/M
+RUN=$(cat "$BASE/Results/LATEST_SHARP_AV2_MAMBA_FUSED80_RUN.txt")
+
+"$BASE/Codes/envs/sharp/bin/python" - "$RUN" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+run = Path(sys.argv[1])
+checkpoints = list((run / "run" / "checkpoints").glob("epoch_*-minADE6_*.ckpt"))
+
+if not checkpoints:
+    checkpoints = list(run.rglob("epoch_*-minADE6_*.ckpt"))
+
+records = []
+for path in checkpoints:
+    match = re.search(r"epoch_(\d+)-minADE6_([0-9.]+)\.ckpt$", path.name)
+    if match:
+        records.append((float(match.group(2)), int(match.group(1)), path))
+
+if not records:
+    raise SystemExit("No saved best checkpoint found yet.")
+
+best_minade6, epoch, checkpoint = min(records)
+print(f"Run:             {run}")
+print(f"Best checkpoint: {checkpoint}")
+print(f"Epoch:           {epoch}")
+print(f"minADE6:         {best_minade6:.6f}")
+
+log_candidates = [
+    run / "full_run.log",
+    run / "train.log",
+]
+log = next((p for p in log_candidates if p.is_file()), None)
+
+if log:
+    text = log.read_text(errors="replace").replace("\r", "\n")
+    lines = [
+        line for line in text.splitlines()
+        if re.search(rf"Epoch {epoch}:", line)
+        and "minADE6=" in line
+    ]
+
+    target = min(
+        lines,
+        key=lambda line: abs(
+            float(re.search(r"minADE6=([0-9.]+)", line).group(1))
+            - best_minade6
+        ),
+        default=None,
+    )
+
+    if target:
+        print("\nMetrics recorded around that checkpoint:")
+        for metric in ["MR", "b-minFDE6", "minADE1", "minADE6",
+                       "minFDE1", "minFDE6"]:
+            matches = re.findall(rf"{re.escape(metric)}=([0-9.]+)", target)
+            print(f"{metric:12s}: {matches[-1] if matches else 'not visible in log'}")
+    else:
+        print("\nOther metrics were not recoverable from the progress log.")
+PY
+
+
+
+
+
+
+
+
+
+
+Lab 3:
