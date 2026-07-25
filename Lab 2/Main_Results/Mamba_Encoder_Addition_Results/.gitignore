@@ -1,0 +1,9 @@
+*.ckpt
+*.pt
+*.pth
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+Terminal.txt
+full_run.log

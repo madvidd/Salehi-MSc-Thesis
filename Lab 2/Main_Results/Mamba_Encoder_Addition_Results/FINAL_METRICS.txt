@@ -1,0 +1,22 @@
+LAB 2 FINAL RESULT
+==================
+
+Model: SHARP + fused bidirectional Mamba
+Dataset: Argoverse 2
+Evaluation: validation, single-agent, K=6
+Training status: completed 80 epochs
+Final epoch: 79
+Best checkpoint epoch: 78
+
+Best checkpoint:
+/home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_78-minADE6_0.6803619265556335.ckpt
+
+MR=0.1573532074689865
+b-minFDE6=1.9264185428619385
+minADE1=1.6803642511367798
+minADE6=0.6803619265556335
+minFDE1=4.130002975463867
+minFDE6=1.2904220819473267
+
+MAMBA_CHECKPOINT_KEYS=12
+MAMBA_CHECKPOINT_PARAMETERS=116737
