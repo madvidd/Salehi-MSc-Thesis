@@ -1,0 +1,4 @@
+epoch_70-minADE6_0.6819201707839966.ckpt	57457770 bytes
+epoch_78-minADE6_0.6803619265556335.ckpt	57457770 bytes
+epoch_79-minADE6_0.6816062331199646.ckpt	57457770 bytes
+last.ckpt	57457770 bytes
