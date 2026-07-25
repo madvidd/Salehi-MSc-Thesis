@@ -1,11 +1,11 @@
 # Lab 2 terminal commands
 
-## 1. Pull the updated package with the active madviddd token
+## 1. Pull the updated package from `main` with the active madviddd token
 
 ```bash
 BASE=/home/server00/M
 REPO="$BASE/Codes/Thesis"
-BRANCH=lab2-temporal-agent-mamba-ablation
+BRANCH=main
 
 cd "$REPO"
 gh auth switch --hostname github.com --user madviddd
