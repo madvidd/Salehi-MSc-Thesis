@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create controlled SHARP baseline and temporal-agent Mamba AV2 experiments."""
+"""Create the SHARP temporal-agent Mamba AV2 experiment for Lab 2."""
 
 from __future__ import annotations
 
@@ -159,7 +159,6 @@ import torch
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("checkpoint")
-    parser.add_argument("--expect", choices=("absent", "temporal"), required=True)
     args = parser.parse_args()
 
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
@@ -172,12 +171,6 @@ def main() -> None:
     print(f"ALL_MAMBA_KEYS={len(keys)}")
     print(f"TEMPORAL_MAMBA_KEYS={len(temporal_keys)}")
     print(f"TEMPORAL_MAMBA_PARAMETERS={count}")
-
-    if args.expect == "absent":
-        if keys:
-            raise SystemExit("ERROR: baseline checkpoint unexpectedly contains Mamba")
-        print("BASELINE_CONTROL_VERIFIED=True")
-        return
 
     if not temporal_keys or count == 0:
         raise SystemExit("ERROR: temporal-agent Mamba parameters are missing")
@@ -194,7 +187,6 @@ if __name__ == "__main__":
     main()
 '''
 
-
 RUNNER_TEMPLATE = r'''#!/usr/bin/env bash
 set -euo pipefail
 
@@ -203,7 +195,6 @@ EXPERIMENT_ROOT="{experiment_root}"
 CODE_DIR="{code_dir}"
 RESULTS_ROOT="{results_root}"
 VARIANT="{variant}"
-EXPECT_MAMBA="{expect_mamba}"
 POINTER_NAME="{pointer_name}"
 FUSED_PACKAGES="{fused_packages}"
 ATTEMPT_ID=$(date +%Y%m%d-%H%M%S)
@@ -261,7 +252,7 @@ PY
 
 cd "$CODE_DIR"
 
-if [ "$EXPECT_MAMBA" = "temporal" ]; then
+# Verify fused CUDA dependencies and temporal-agent Mamba before training.
   test -f "$FUSED_PACKAGES/selective_scan_cuda.cpython-311-x86_64-linux-gnu.so"
   test -f "$FUSED_PACKAGES/causal_conv1d_cuda.cpython-311-x86_64-linux-gnu.so"
   "$PYTHON_BIN" - <<'PY'
@@ -303,7 +294,6 @@ print(
     f"parameters={{parameter_count}} gradients={{grad_count}}"
 )
 PY
-fi
 
 cat > "$RESULTS_DIR/RUN_SETTINGS.txt" <<EOF
 variant=$VARIANT
@@ -317,13 +307,15 @@ sync_batchnorm=true
 learning_rate=0.0001
 minimum_learning_rate=0.00001
 warmup_ratio=0.167
+weight_decay=0.01
+gradient_clip_val=5
 checkpoint_monitor=minADE6
 source_code=$CODE_DIR
 dataset=$DATA_DIR
 EOF
 
 echo "VARIANT=$VARIANT"
-echo "Starting controlled SHARP AV2 experiment on four GPUs"
+echo "Starting SHARP temporal-agent Mamba AV2 experiment on four GPUs"
 echo "Per-GPU batch: 8; global batch: 32; workers/process: 6"
 echo "Schedule: 80 epochs, warmup_ratio 0.167, LR 1e-4 -> 1e-5"
 
@@ -366,86 +358,13 @@ PY
 
 printf '%s\n' "$BEST_CHECKPOINT" > "$RESULTS_DIR/BEST_CHECKPOINT.txt"
 "$PYTHON_BIN" "$EXPERIMENT_ROOT/verify_checkpoint.py" \
-  "$BEST_CHECKPOINT" --expect "$EXPECT_MAMBA" \
+  "$BEST_CHECKPOINT" \
   | tee "$RESULTS_DIR/checkpoint_verification.txt"
 
-echo "SHARP_ABLATION_RUN_COMPLETE=True" | tee "$RESULTS_DIR/COMPLETED.txt"
+echo "SHARP_TEMPORAL_AGENT_MAMBA_RUN_COMPLETE=True" | tee "$RESULTS_DIR/COMPLETED.txt"
 echo "VARIANT=$VARIANT" | tee -a "$RESULTS_DIR/COMPLETED.txt"
 echo "RESULTS_DIR=$RESULTS_DIR" | tee -a "$RESULTS_DIR/COMPLETED.txt"
 echo "BEST_CHECKPOINT=$BEST_CHECKPOINT" | tee -a "$RESULTS_DIR/COMPLETED.txt"
-'''
-
-
-COMPARE_SOURCE = r'''#!/usr/bin/env python3
-from __future__ import annotations
-
-import csv
-import re
-from pathlib import Path
-
-
-BASE = Path("/home/server00/M")
-POINTERS = {
-    "baseline_control": BASE / "Results/LATEST_SHARP_AV2_BASELINE_CONTROL80_RUN.txt",
-    "temporal_agent_mamba": BASE / "Results/LATEST_SHARP_AV2_TEMPORAL_MAMBA80_RUN.txt",
-}
-METRICS = ("MR", "b-minFDE6", "minADE1", "minADE6", "minFDE1", "minFDE6")
-
-
-def read_metrics(run: Path) -> dict[str, str]:
-    log = run / "full_run.log"
-    text = log.read_text(errors="replace").replace("\r", "\n")
-    values: dict[str, str] = {}
-    for metric in METRICS:
-        matches = re.findall(
-            rf"(?:\||\u2502)\s*{re.escape(metric)}\s*(?:\||\u2502)\s*([0-9.eE+-]+)",
-            text,
-        )
-        if matches:
-            values[metric] = matches[-1]
-    return values
-
-
-rows = []
-for variant, pointer in POINTERS.items():
-    if not pointer.is_file():
-        print(f"SKIP {variant}: pointer not found: {pointer}")
-        continue
-    run = Path(pointer.read_text().strip())
-    if not run.joinpath("COMPLETED.txt").is_file():
-        print(f"SKIP {variant}: run has not completed: {run}")
-        continue
-    metrics = read_metrics(run)
-    rows.append({"variant": variant, "run": str(run), **metrics})
-
-if not rows:
-    raise SystemExit("No completed runs are available")
-
-output = BASE / "Results/SHARP_AV2_TEMPORAL_MAMBA_COMPARISON.csv"
-with output.open("w", newline="", encoding="utf-8") as handle:
-    writer = csv.DictWriter(handle, fieldnames=("variant", "run", *METRICS))
-    writer.writeheader()
-    writer.writerows(rows)
-
-print(output)
-for row in rows:
-    print(row)
-'''
-
-
-SEQUENTIAL_RUNNER_SOURCE = r'''#!/usr/bin/env bash
-set -euo pipefail
-
-ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-
-echo "Running exact no-Mamba control first."
-bash "$ROOT/run_baseline_control_4gpu.sh"
-
-echo "Control completed. Running temporal-agent Mamba."
-bash "$ROOT/run_temporal_agent_mamba_4gpu.sh"
-
-echo "Both controlled experiments completed."
-"$ROOT/compare_completed_runs.py"
 '''
 
 
@@ -539,33 +458,6 @@ def patch_common(code_dir: Path) -> None:
     train = train.replace(
         "    trainer.validate(model, datamodule.val_dataloader())\n",
         "    trainer.validate(model, datamodule=datamodule, ckpt_path='best')\n",
-    )
-    train_path.write_text(train, encoding="utf-8")
-
-
-def patch_baseline(code_dir: Path) -> None:
-    sharp_path = code_dir / "src/model/sharp.py"
-    sharp = sharp_path.read_text(encoding="utf-8")
-    if "mamba" in sharp.lower():
-        raise RuntimeError(
-            "The baseline source already contains Mamba. "
-            "Use the untouched /home/server00/M/Codes/SHARP/Code source."
-        )
-
-    train_path = code_dir / "train.py"
-    train = train_path.read_text(encoding="utf-8")
-    train = replace_once(
-        train,
-        "    model = instantiate(cfg.model.pl_module)\n",
-        "    model = instantiate(cfg.model.pl_module)\n"
-        "    unexpected_mamba = [\n"
-        "        name for name, _ in model.named_parameters()\n"
-        "        if 'mamba' in name.lower()\n"
-        "    ]\n"
-        "    if unexpected_mamba:\n"
-        "        raise RuntimeError(f'Baseline unexpectedly contains Mamba: {unexpected_mamba[:10]}')\n"
-        "    print('EXPERIMENT_VARIANT=baseline_control MAMBA_ACTIVE=False')\n",
-        "baseline runtime assertion",
     )
     train_path.write_text(train, encoding="utf-8")
 
@@ -724,23 +616,19 @@ def main() -> None:
 
     fused_packages = find_fused_packages(base)
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
-    experiment_root = base / "Codes" / f"SHARP_AV2_TEMPORAL_MAMBA_ABLATION_{stamp}"
-    results_root = base / "Results" / f"SHARP_AV2_TEMPORAL_MAMBA_ABLATION_{stamp}"
-    baseline_code = experiment_root / "baseline_control/Code"
-    temporal_code = experiment_root / "temporal_agent_mamba/Code"
+    experiment_root = base / "Codes" / f"SHARP_AV2_TEMPORAL_AGENT_MAMBA80_{stamp}"
+    results_root = base / "Results" / f"SHARP_AV2_TEMPORAL_AGENT_MAMBA80_{stamp}"
+    code_dir = experiment_root / "Code"
 
     experiment_root.mkdir(parents=True, exist_ok=False)
     results_root.mkdir(parents=True, exist_ok=False)
-    for destination in (baseline_code, temporal_code):
-        shutil.copytree(
-            source_code,
-            destination,
-            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".hydra", "outputs"),
-        )
-        patch_common(destination)
-
-    patch_baseline(baseline_code)
-    patch_temporal_mamba(temporal_code)
+    shutil.copytree(
+        source_code,
+        code_dir,
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".hydra", "outputs"),
+    )
+    patch_common(code_dir)
+    patch_temporal_mamba(code_dir)
 
     dependency_link = experiment_root / "fused_packages"
     os.symlink(fused_packages, dependency_link, target_is_directory=True)
@@ -753,71 +641,48 @@ def main() -> None:
     write_lf(verify_path, VERIFY_SOURCE)
     make_executable(verify_path)
 
-    baseline_runner = experiment_root / "run_baseline_control_4gpu.sh"
+    runner = experiment_root / "run_temporal_agent_mamba_4gpu.sh"
     write_lf(
-        baseline_runner,
+        runner,
         RUNNER_TEMPLATE.format(
             base=base,
             experiment_root=experiment_root,
-            code_dir=baseline_code,
-            results_root=results_root,
-            variant="baseline_control",
-            expect_mamba="absent",
-            pointer_name="LATEST_SHARP_AV2_BASELINE_CONTROL80_RUN.txt",
-            fused_packages=dependency_link,
-        ),
-    )
-    make_executable(baseline_runner)
-
-    temporal_runner = experiment_root / "run_temporal_agent_mamba_4gpu.sh"
-    write_lf(
-        temporal_runner,
-        RUNNER_TEMPLATE.format(
-            base=base,
-            experiment_root=experiment_root,
-            code_dir=temporal_code,
+            code_dir=code_dir,
             results_root=results_root,
             variant="temporal_agent_mamba",
-            expect_mamba="temporal",
-            pointer_name="LATEST_SHARP_AV2_TEMPORAL_MAMBA80_RUN.txt",
+            pointer_name="LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt",
             fused_packages=dependency_link,
         ),
     )
-    make_executable(temporal_runner)
-
-    sequential_runner = experiment_root / "run_control_then_temporal.sh"
-    write_lf(sequential_runner, SEQUENTIAL_RUNNER_SOURCE)
-    make_executable(sequential_runner)
-
-    compare_path = experiment_root / "compare_completed_runs.py"
-    write_lf(compare_path, COMPARE_SOURCE)
-    make_executable(compare_path)
+    make_executable(runner)
 
     manifest = experiment_root / "EXPERIMENT.txt"
     manifest.write_text(
-        "Controlled SHARP AV2 temporal-agent Mamba ablation\n"
+        "SHARP AV2 temporal-agent Mamba experiment\n"
         f"Original source: {source_code}\n"
-        f"Baseline code: {baseline_code}\n"
-        f"Temporal Mamba code: {temporal_code}\n"
+        f"Experiment code: {code_dir}\n"
         f"Results root: {results_root}\n"
         f"Reused fused packages (read-only dependency): {fused_packages}\n"
-        "Shared settings: seed 2333, 80 epochs, 4 GPUs, batch 8/GPU, "
-        "global batch 32, 6 workers/process, SyncBatchNorm, AdamW, "
-        "LR 1e-4 to 1e-5, warmup ratio 0.167, top-3 minADE6 checkpoints.\n"
-        "Baseline: untouched SHARP architecture; runtime assertion requires zero Mamba parameters.\n"
-        "Temporal variant: original four agent-history attention blocks retained; "
-        "one bidirectional Mamba block inserted between temporal blocks 2 and 3. "
-        "Separate directions, d_state=8, d_conv=3, expand=1, dropout=0.1, "
-        "per-channel LayerScale=0.01, valid observations compacted chronologically.\n"
-        "No previous code, result, checkpoint, or dependency is modified or deleted.\n",
+        "Training/runtime settings match the completed Lab 2 scene-Mamba run: "
+        "seed 2333, 80 epochs, 4-GPU DDP, batch 8/GPU, global batch 32, "
+        "6 workers/process, SyncBatchNorm, AdamW, LR 1e-4 to 1e-5, "
+        "warmup ratio 0.167, top-3 minADE6 checkpoints plus last.ckpt.\n"
+        "Architecture change: the previous scene-token Mamba is absent. "
+        "The original four SHARP agent-history attention blocks are retained, "
+        "and one bidirectional temporal-agent Mamba block is inserted between "
+        "blocks 2 and 3. It uses separate directions, d_state=8, d_conv=3, "
+        "expand=1, dropout=0.1, per-channel LayerScale=0.01, and chronologically "
+        "compacted valid observations.\n"
+        "No other SHARP architecture component is replaced. No previous code, "
+        "result, checkpoint, or dependency is modified or deleted.\n",
         encoding="utf-8",
     )
 
-    (base / "Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt").write_text(
+    (base / "Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt").write_text(
         str(experiment_root) + "\n",
         encoding="utf-8",
     )
-    (base / "Results/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt").write_text(
+    (base / "Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt").write_text(
         str(results_root) + "\n",
         encoding="utf-8",
     )
@@ -825,9 +690,7 @@ def main() -> None:
     print("SETUP_COMPLETE")
     print(f"EXPERIMENT_ROOT={experiment_root}")
     print(f"RESULTS_ROOT={results_root}")
-    print(f"BASELINE_RUNNER={baseline_runner}")
-    print(f"TEMPORAL_MAMBA_RUNNER={temporal_runner}")
-    print(f"SEQUENTIAL_RUNNER={sequential_runner}")
+    print(f"RUN_COMMAND={runner}")
 
 
 if __name__ == "__main__":

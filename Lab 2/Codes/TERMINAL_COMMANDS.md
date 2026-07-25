@@ -1,6 +1,6 @@
 # Lab 2 terminal commands
 
-## 1. Fetch this branch without username/password prompts
+## 1. Pull the updated package with the active madviddd token
 
 ```bash
 BASE=/home/server00/M
@@ -9,6 +9,7 @@ BRANCH=lab2-temporal-agent-mamba-ablation
 
 cd "$REPO"
 gh auth switch --hostname github.com --user madviddd
+test "$(gh api user --jq .login)" = "madviddd"
 
 ASKPASS="$REPO/.git/gh-token-askpass.sh"
 printf '%s\n' \
@@ -19,6 +20,9 @@ printf '%s\n' \
   'esac' > "$ASKPASS"
 chmod 700 "$ASKPASS"
 
+git config --local core.askPass "$ASKPASS"
+git config --local credential.username madviddd
+
 GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
   git fetch origin "$BRANCH"
 
@@ -27,9 +31,11 @@ git switch "$BRANCH" 2>/dev/null || \
 
 GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
   git pull --ff-only origin "$BRANCH"
+
+git log -1 --oneline
 ```
 
-## 2. Create isolated experiment copies
+## 2. Create a new isolated temporal-agent Mamba experiment
 
 ```bash
 BASE=/home/server00/M
@@ -39,107 +45,82 @@ cd "$BASE/Codes/Thesis/Lab 2/Codes"
   setup_lab2_temporal_agent_mamba_ablation.py
 
 ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
+  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
 RESULTS=$(cat \
-  "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
+  "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
 
 echo "Code:    $ROOT"
 echo "Results: $RESULTS"
 cat "$ROOT/EXPERIMENT.txt"
 ```
 
-## 3A. Recommended: run the exact control first
+Every setup execution creates a new timestamped code and results root. It does
+not overwrite a previous run.
+
+## 3. Run in the foreground on all four GPUs
 
 ```bash
 BASE=/home/server00/M
 ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
+  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
 
-cd "$ROOT/baseline_control/Code"
-bash "$ROOT/run_baseline_control_4gpu.sh"
-```
-
-After the control finishes, run temporal-agent Mamba:
-
-```bash
-BASE=/home/server00/M
-ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
-
-cd "$ROOT/temporal_agent_mamba/Code"
+cd "$ROOT/Code"
 bash "$ROOT/run_temporal_agent_mamba_4gpu.sh"
 ```
 
-## 3B. Alternative: run both sequentially
-
-Do not use this if either individual runner is already active.
+## 4. Check progress from another terminal
 
 ```bash
 BASE=/home/server00/M
-ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
+POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt"
 
-bash "$ROOT/run_control_then_temporal.sh"
-```
-
-## 4. Check status from another terminal
-
-```bash
 ps -u "$USER" -o pid,ppid,etime,%cpu,%mem,cmd |
   grep "[t]rain.py" || echo "No active SHARP training"
 
 nvidia-smi
 
-for POINTER in \
-  /home/server00/M/Results/LATEST_SHARP_AV2_BASELINE_CONTROL80_RUN.txt \
-  /home/server00/M/Results/LATEST_SHARP_AV2_TEMPORAL_MAMBA80_RUN.txt
-do
-  if [ -f "$POINTER" ]; then
-    RUN=$(cat "$POINTER")
-    echo
-    echo "Run: $RUN"
-    tail -20 "$RUN/full_run.log"
-  fi
-done
+if [ -f "$POINTER" ]; then
+  RUN=$(cat "$POINTER")
+  echo "Run: $RUN"
+  tail -20 "$RUN/full_run.log"
+fi
 ```
 
-## 5. Compare completed validations
+## 5. Save a one-time terminal log snapshot
+
+This overwrites the destination only when the block is pasted. It does not
+keep writing continuously.
 
 ```bash
 BASE=/home/server00/M
-ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_MAMBA_ABLATION.txt")
+POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt"
+DEST="$BASE/Terminal/Terminal_temporal_agent_mamba.txt"
 
-"$BASE/Codes/envs/sharp/bin/python" \
-  "$ROOT/compare_completed_runs.py"
+mkdir -p "$(dirname "$DEST")"
+RUN=$(cat "$POINTER")
+SOURCE="$RUN/full_run.log"
 
-cat "$BASE/Results/SHARP_AV2_TEMPORAL_MAMBA_COMPARISON.csv"
+if [ -f "$SOURCE" ]; then
+  tr '\r' '\n' < "$SOURCE" > "$DEST"
+  sync
+  echo "Saved: $DEST"
+  ls -lh "$DEST"
+else
+  echo "ERROR: training log not found: $SOURCE"
+fi
 ```
 
-## 6. One-time log snapshots
-
-This overwrites each destination only when the block is run. It does not keep
-writing continuously.
+## 6. Confirm completion and saved checkpoints
 
 ```bash
 BASE=/home/server00/M
-mkdir -p "$BASE/Terminal"
+RUN=$(cat \
+  "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt")
 
-for ITEM in \
-  "LATEST_SHARP_AV2_BASELINE_CONTROL80_RUN.txt:Terminal_baseline_control.txt" \
-  "LATEST_SHARP_AV2_TEMPORAL_MAMBA80_RUN.txt:Terminal_temporal_agent_mamba.txt"
-do
-  POINTER=${ITEM%%:*}
-  DEST=${ITEM#*:}
-  POINTER="$BASE/Results/$POINTER"
-
-  if [ -f "$POINTER" ]; then
-    RUN=$(cat "$POINTER")
-    if [ -f "$RUN/full_run.log" ]; then
-      tr '\r' '\n' < "$RUN/full_run.log" > "$BASE/Terminal/$DEST"
-      echo "Saved: $BASE/Terminal/$DEST"
-      ls -lh "$BASE/Terminal/$DEST"
-    fi
-  fi
-done
+echo "Run: $RUN"
+cat "$RUN/COMPLETED.txt"
+cat "$RUN/BEST_CHECKPOINT.txt"
+cat "$RUN/checkpoint_verification.txt"
+find "$RUN/run/checkpoints" -maxdepth 1 -name "*.ckpt" \
+  -printf "%TY-%Tm-%Td %TH:%TM %s %p\n" | sort
 ```
