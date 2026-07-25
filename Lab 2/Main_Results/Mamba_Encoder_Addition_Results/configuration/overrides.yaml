@@ -1,0 +1,14 @@
+- seed=2333
+- gpus=4
+- epochs=80
+- batch_size=8
+- output_dir=/home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run
+- datamodule.pl_module.data_root=/home/server00/M/Datasets/AV2/sharp_processed
+- datamodule.pl_module.num_workers=6
+- trainer.devices=4
+- trainer.strategy=ddp_find_unused_parameters_false
+- trainer.sync_batchnorm=true
+- trainer.num_sanity_val_steps=0
+- callbacks.0.save_top_k=3
+- +callbacks.0.save_last=true
+- callbacks.0.monitor=minADE6

@@ -1,0 +1,4 @@
+e3c8f319eb6a8d28ba491ad4aba49e6f7556579d27854227ba693aa70c09c191  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_78-minADE6_0.6803619265556335.ckpt
+3220e8415c3a6e06ed29e689f93e59be5b6bdba0b4aa66455e65f4c6546b1216  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/last.ckpt
+cddb10246811f82b6650381580baaf6a8bcf6eebde8aa6ba02f441081798deff  /home/server00/M/Results/Archives/Lab2_SHARP_Mamba_final_20260724-180557/run_results.tar.gz
+957b561119c414b3f7e7a109ae714b41a06aee8bd64865fa845085f8e035df10  /home/server00/M/Results/Archives/Lab2_SHARP_Mamba_final_20260724-180557/code_and_runner.tar.gz
