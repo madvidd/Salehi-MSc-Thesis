@@ -62,4 +62,6 @@ Mamba module.
 ## Running
 
 Use `TERMINAL_COMMANDS.md`. The generated runner reserves all four GPUs and
-writes to a new timestamped results directory.
+writes to a new timestamped results directory. Run the launcher with `bash`,
+not `source`, so it executes in the foreground as a child process and always
+returns control to the same terminal.
