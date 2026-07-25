@@ -5,6 +5,53 @@ These commands never call `exit` and intentionally disable interactive-shell
 terminal remains open and returns to its prompt after training succeeds or
 fails.
 
+## Stop only a previous temporal-agent Mamba run
+
+This targets the generated temporal-agent Mamba runner and training processes.
+It does not use `pkill` against every Python process and never closes the
+interactive terminal.
+
+```bash
+set +e
+set +u
+set +o pipefail 2>/dev/null
+
+PATTERN='SHARP_AV2_TEMPORAL_AGENT_MAMBA8[0]|run_temporal_agent_mamba_4gpu[.]sh'
+PIDS=$(pgrep -u "$USER" -f "$PATTERN")
+
+if [ -n "$PIDS" ]; then
+  echo "Stopping temporal-agent Mamba processes: $PIDS"
+  kill -INT $PIDS 2>/dev/null
+  sleep 10
+
+  PIDS=$(pgrep -u "$USER" -f "$PATTERN")
+  if [ -n "$PIDS" ]; then
+    echo "Processes still active; sending TERM: $PIDS"
+    kill -TERM $PIDS 2>/dev/null
+    sleep 10
+  fi
+else
+  echo "No previous temporal-agent Mamba process is active."
+fi
+
+PIDS=$(pgrep -u "$USER" -f "$PATTERN")
+if [ -n "$PIDS" ]; then
+  echo "Processes still active; sending targeted KILL: $PIDS"
+  kill -KILL $PIDS 2>/dev/null
+  sleep 3
+fi
+
+PIDS=$(pgrep -u "$USER" -f "$PATTERN")
+if [ -n "$PIDS" ]; then
+  echo "WARNING: these targeted processes remain: $PIDS"
+  ps -o pid,ppid,pgid,etime,%cpu,%mem,cmd -p $PIDS
+else
+  echo "Previous temporal-agent Mamba run is stopped."
+fi
+
+echo "Terminal remains open."
+```
+
 ## Pull, create and run in the same foreground terminal
 
 ```bash
@@ -24,15 +71,17 @@ run_lab2_temporal_agent_mamba() {
     return 1
   }
 
-  git switch main || {
-    echo "ERROR: could not switch to GitHub main"
+  git fetch origin main || {
+    echo "ERROR: could not fetch GitHub main"
     return 1
   }
 
-  git pull --ff-only origin main || {
-    echo "ERROR: could not download the latest files"
-    return 1
-  }
+  if git show-ref --verify --quiet refs/heads/main; then
+    git switch main || return 1
+    git merge --ff-only FETCH_HEAD || return 1
+  else
+    git switch -c main FETCH_HEAD || return 1
+  fi
 
   test -f "$SETUP" || {
     echo "ERROR: setup file is missing: $SETUP"
