@@ -1,76 +1,106 @@
 # Lab 2 terminal commands
 
-## 1. Pull the updated package from `main` with the active madviddd token
+These commands never call `exit` and intentionally disable interactive-shell
+`errexit`. Run the generated launcher with `bash`; do not use `source`. The
+terminal remains open and returns to its prompt after training succeeds or
+fails.
+
+## Pull, create and run in the same foreground terminal
 
 ```bash
-BASE=/home/server00/M
-REPO="$BASE/Codes/Thesis"
-BRANCH=main
+set +e
+set +u
+set +o pipefail 2>/dev/null
 
-cd "$REPO"
-gh auth switch --hostname github.com --user madviddd
-test "$(gh api user --jq .login)" = "madviddd"
+run_lab2_temporal_agent_mamba() {
+  local BASE REPO SETUP ROOT RESULTS STATUS
 
-ASKPASS="$REPO/.git/gh-token-askpass.sh"
-printf '%s\n' \
-  '#!/usr/bin/env bash' \
-  'case "$1" in' \
-  '  *Username*) printf "%s\n" "madviddd" ;;' \
-  '  *Password*) gh auth token --hostname github.com ;;' \
-  'esac' > "$ASKPASS"
-chmod 700 "$ASKPASS"
+  BASE=/home/server00/M
+  REPO="$BASE/Codes/Thesis"
+  SETUP="$REPO/Lab 2/Codes/setup_lab2_temporal_agent_mamba_ablation.py"
 
-git config --local core.askPass "$ASKPASS"
-git config --local credential.username madviddd
+  cd "$REPO" || {
+    echo "ERROR: repository not found: $REPO"
+    return 1
+  }
 
-GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
-  git fetch origin "$BRANCH"
+  git switch main || {
+    echo "ERROR: could not switch to GitHub main"
+    return 1
+  }
 
-git switch "$BRANCH" 2>/dev/null || \
-  git switch -c "$BRANCH" FETCH_HEAD
+  git pull --ff-only origin main || {
+    echo "ERROR: could not download the latest files"
+    return 1
+  }
 
-GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
-  git pull --ff-only origin "$BRANCH"
+  test -f "$SETUP" || {
+    echo "ERROR: setup file is missing: $SETUP"
+    return 1
+  }
 
-git log -1 --oneline
+  test -d "$BASE/Codes/SHARP/Code" || {
+    echo "ERROR: original SHARP source is missing"
+    return 1
+  }
+
+  test -x "$BASE/Codes/envs/sharp/bin/python" || {
+    echo "ERROR: SHARP Python environment is missing"
+    return 1
+  }
+
+  test -d "$BASE/Datasets/AV2/sharp_processed/train" || {
+    echo "ERROR: processed AV2 train data is missing"
+    return 1
+  }
+
+  test -d "$BASE/Datasets/AV2/sharp_processed/val" || {
+    echo "ERROR: processed AV2 validation data is missing"
+    return 1
+  }
+
+  cd "$REPO/Lab 2/Codes" || return 1
+
+  "$BASE/Codes/envs/sharp/bin/python" \
+    setup_lab2_temporal_agent_mamba_ablation.py || {
+      echo "ERROR: experiment setup failed"
+      return 1
+    }
+
+  ROOT=$(cat \
+    "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt") || return 1
+  RESULTS=$(cat \
+    "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt") || return 1
+
+  echo "New code:    $ROOT"
+  echo "New results: $RESULTS"
+  cat "$ROOT/EXPERIMENT.txt"
+
+  cd "$ROOT/Code" || return 1
+
+  echo "Starting foreground training on all four GPUs."
+  echo "Do not close this terminal while training is active."
+  bash "$ROOT/run_temporal_agent_mamba_4gpu.sh"
+  STATUS=$?
+
+  echo
+  echo "Training command finished with status: $STATUS"
+  echo "The terminal remains open."
+  return "$STATUS"
+}
+
+run_lab2_temporal_agent_mamba
+unset -f run_lab2_temporal_agent_mamba
 ```
 
-## 2. Create a new isolated temporal-agent Mamba experiment
+The `git pull` only downloads the code already published from the laptop. It
+does not upload or push anything from Lab 2. Every setup execution creates new
+timestamped code and results directories and preserves all previous runs.
+
+## Check progress from another terminal
 
 ```bash
-BASE=/home/server00/M
-cd "$BASE/Codes/Thesis/Lab 2/Codes"
-
-"$BASE/Codes/envs/sharp/bin/python" \
-  setup_lab2_temporal_agent_mamba_ablation.py
-
-ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
-RESULTS=$(cat \
-  "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
-
-echo "Code:    $ROOT"
-echo "Results: $RESULTS"
-cat "$ROOT/EXPERIMENT.txt"
-```
-
-Every setup execution creates a new timestamped code and results root. It does
-not overwrite a previous run.
-
-## 3. Run in the foreground on all four GPUs
-
-```bash
-BASE=/home/server00/M
-ROOT=$(cat \
-  "$BASE/Codes/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80.txt")
-
-cd "$ROOT/Code"
-bash "$ROOT/run_temporal_agent_mamba_4gpu.sh"
-```
-
-## 4. Check progress from another terminal
-
-```bash
+set +e
 BASE=/home/server00/M
 POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt"
 
@@ -83,44 +113,58 @@ if [ -f "$POINTER" ]; then
   RUN=$(cat "$POINTER")
   echo "Run: $RUN"
   tail -20 "$RUN/full_run.log"
+else
+  echo "No run pointer exists yet."
 fi
 ```
 
-## 5. Save a one-time terminal log snapshot
+## Save a one-time terminal log snapshot
 
 This overwrites the destination only when the block is pasted. It does not
 keep writing continuously.
 
 ```bash
+set +e
 BASE=/home/server00/M
 POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt"
 DEST="$BASE/Terminal/Terminal_temporal_agent_mamba.txt"
 
 mkdir -p "$(dirname "$DEST")"
-RUN=$(cat "$POINTER")
-SOURCE="$RUN/full_run.log"
 
-if [ -f "$SOURCE" ]; then
-  tr '\r' '\n' < "$SOURCE" > "$DEST"
-  sync
-  echo "Saved: $DEST"
-  ls -lh "$DEST"
+if [ -f "$POINTER" ]; then
+  RUN=$(cat "$POINTER")
+  SOURCE="$RUN/full_run.log"
+
+  if [ -f "$SOURCE" ]; then
+    tr '\r' '\n' < "$SOURCE" > "$DEST"
+    sync
+    echo "Saved: $DEST"
+    ls -lh "$DEST"
+  else
+    echo "ERROR: training log not found: $SOURCE"
+  fi
 else
-  echo "ERROR: training log not found: $SOURCE"
+  echo "ERROR: run pointer not found: $POINTER"
 fi
 ```
 
-## 6. Confirm completion and saved checkpoints
+## Confirm completion and saved checkpoints
 
 ```bash
+set +e
 BASE=/home/server00/M
-RUN=$(cat \
-  "$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt")
+POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA80_RUN.txt"
 
-echo "Run: $RUN"
-cat "$RUN/COMPLETED.txt"
-cat "$RUN/BEST_CHECKPOINT.txt"
-cat "$RUN/checkpoint_verification.txt"
-find "$RUN/run/checkpoints" -maxdepth 1 -name "*.ckpt" \
-  -printf "%TY-%Tm-%Td %TH:%TM %s %p\n" | sort
+if [ -f "$POINTER" ]; then
+  RUN=$(cat "$POINTER")
+  echo "Run: $RUN"
+  cat "$RUN/COMPLETED.txt" 2>/dev/null ||
+    echo "The run has not written its completion marker yet."
+  cat "$RUN/BEST_CHECKPOINT.txt" 2>/dev/null || true
+  cat "$RUN/checkpoint_verification.txt" 2>/dev/null || true
+  find "$RUN/run/checkpoints" -maxdepth 1 -name "*.ckpt" \
+    -printf "%TY-%Tm-%Td %TH:%TM %s %p\n" 2>/dev/null | sort
+else
+  echo "ERROR: run pointer not found: $POINTER"
+fi
 ```
