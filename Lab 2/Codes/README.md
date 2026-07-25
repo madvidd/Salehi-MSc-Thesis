@@ -1,57 +1,65 @@
-# Lab 2: Controlled SHARP Temporal-Agent Mamba Ablation
+# Lab 2: SHARP Temporal-Agent Mamba
 
-This package creates two new, isolated AV2 experiments on Lab 2:
+This package creates one new, isolated AV2 experiment:
 
-1. `baseline_control`: original SHARP with no Mamba parameters.
-2. `temporal_agent_mamba`: the same SHARP model with one gated bidirectional
-   Mamba block placed on each agent's chronological history between temporal
-   attention blocks 2 and 3.
+- Original SHARP architecture and training process from the completed Lab 2
+  scene-Mamba run.
+- The previous scene-token Mamba module is absent.
+- One bidirectional Mamba block is added to the temporal agent-history encoder.
 
-The setup copies `/home/server00/M/Codes/SHARP/Code` into two new timestamped
-directories. It never edits or deletes the original source, completed Mamba
-experiment, checkpoints, logs, or previous results.
+The setup copies `/home/server00/M/Codes/SHARP/Code` into a new timestamped
+experiment directory. It does not edit or delete the original SHARP source,
+previous Mamba code, checkpoints, logs, or results.
 
-## Controlled settings
+## Controlled training settings
 
-Both experiments use:
+The new run uses the same controllable settings as the completed Lab 2
+scene-Mamba run:
 
 - AV2 processed train and validation sets already on Lab 2
 - seed `2333`
 - 80 epochs
-- four RTX 2080 Ti GPUs with DDP
+- four RTX 2080 Ti GPUs using DDP
 - batch size 8 per GPU, global batch size 32
 - six DataLoader workers per process
 - SyncBatchNorm enabled
-- AdamW and gradient clipping 5
+- the existing SHARP AdamW optimizer and gradient clipping of 5
 - learning rate `1e-4`, minimum learning rate `1e-5`
 - warm-up ratio `0.167`
 - top three checkpoints monitored by `minADE6`, plus `last.ckpt`
-- validation from Lightning's best checkpoint
+- final validation from Lightning's best checkpoint
 
-## Temporal-agent Mamba design
+These settings provide a direct comparison with the completed Lab 2
+scene-Mamba experiment. They align the key AV2 schedule and global batch with
+the SHARP experiment, while the hardware execution remains four-GPU DDP rather
+than the paper's single-GPU hardware.
 
-The temporal module scans a real sequence: the ten chronological observations
-of one agent. It does not scan the unordered scene-token set.
+## Only architecture difference
 
-- Original four temporal self-attention blocks remain present.
-- Mamba is inserted after block 2 and before block 3.
-- Forward and backward directions use separate Mamba modules.
-- Valid observations are compacted chronologically before each scan.
-- Padding never precedes valid observations in either scan direction.
-- Forward/backward features use a learned per-channel gate.
-- A per-channel LayerScale initialized to `0.01` keeps the model close to
-  baseline at initialization.
-- Initial configuration: `d_state=8`, `d_conv=3`, `expand=1`, dropout `0.1`.
+The original SHARP agent-history encoder contains four temporal self-attention
+blocks. All four remain unchanged. The new Mamba module is inserted after
+block 2 and before block 3:
 
-The setup reuses the verified fused CUDA package directory from the completed
-Lab 2 scene-Mamba run through a symbolic link. The dependency files are not
-modified.
+`temporal attention 1 -> temporal attention 2 -> temporal-agent Mamba -> temporal attention 3 -> temporal attention 4`
+
+For every agent, Mamba scans the ten chronological observation embeddings.
+Valid observations are compacted before the scan so padding is not treated as
+history. The module uses:
+
+- separate forward and backward Mamba directions
+- `d_state=8`
+- `d_conv=3`
+- `expand=1`
+- dropout `0.1`
+- learned forward/backward fusion
+- per-channel LayerScale initialized to `0.01`
+- a residual connection back to the unmodified SHARP features
+
+The runner checks the fused CUDA kernels before training and verifies that the
+saved best checkpoint contains temporal-agent Mamba parameters and no other
+Mamba module.
 
 ## Running
 
-Use the exact commands in `TERMINAL_COMMANDS.md`. Run only one experiment at a
-time because each runner reserves all four GPUs.
-
-For the strongest comparison, run the baseline first and then the temporal
-variant. The sequential runner does this automatically, but it will occupy the
-terminal until both 80-epoch experiments finish.
+Use `TERMINAL_COMMANDS.md`. The generated runner reserves all four GPUs and
+writes to a new timestamped results directory.
