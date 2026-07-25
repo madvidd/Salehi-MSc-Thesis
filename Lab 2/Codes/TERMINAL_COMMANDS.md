@@ -5,9 +5,9 @@ These commands never call `exit` and intentionally disable interactive-shell
 terminal remains open and returns to its prompt after training succeeds or
 fails.
 
-## Stop only a previous temporal-agent Mamba run
+## Stop only a previous Lab 2 SHARP Mamba run
 
-This targets the generated temporal-agent Mamba runner and training processes.
+This targets the completed scene-Mamba or generated temporal-agent Mamba runner and training processes.
 It does not use `pkill` against every Python process and never closes the
 interactive terminal.
 
@@ -16,7 +16,7 @@ set +e
 set +u
 set +o pipefail 2>/dev/null
 
-PATTERN='SHARP_AV2_TEMPORAL_AGENT_MAMBA8[0]|run_temporal_agent_mamba_4gpu[.]sh'
+PATTERN='SHARP_AV2_(TEMPORAL_AGENT_MAMBA8[0]|MAMBA_FUSED8[0])|run_(temporal_agent_mamba_4gpu|av2_mamba_fused_4gpu_syncbn)[.]sh'
 PIDS=$(pgrep -u "$USER" -f "$PATTERN")
 
 if [ -n "$PIDS" ]; then
@@ -31,7 +31,7 @@ if [ -n "$PIDS" ]; then
     sleep 10
   fi
 else
-  echo "No previous temporal-agent Mamba process is active."
+  echo "No previous Lab 2 SHARP Mamba process is active."
 fi
 
 PIDS=$(pgrep -u "$USER" -f "$PATTERN")
@@ -46,7 +46,7 @@ if [ -n "$PIDS" ]; then
   echo "WARNING: these targeted processes remain: $PIDS"
   ps -o pid,ppid,pgid,etime,%cpu,%mem,cmd -p $PIDS
 else
-  echo "Previous temporal-agent Mamba run is stopped."
+  echo "Previous Lab 2 SHARP Mamba run is stopped."
 fi
 
 echo "Terminal remains open."
