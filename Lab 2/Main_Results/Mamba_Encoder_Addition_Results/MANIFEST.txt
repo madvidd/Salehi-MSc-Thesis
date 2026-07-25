@@ -1,0 +1,51 @@
+RUN=/home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838
+ROOT=/home/server00/M/Codes/SHARP_AV2_MAMBA_FUSED80_20260717-120414
+BEST=/home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_78-minADE6_0.6803619265556335.ckpt
+
+CHECKPOINTS:
+2026-07-22 07:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_70-minADE6_0.6819201707839966.ckpt
+2026-07-22 20:38  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_78-minADE6_0.6803619265556335.ckpt
+2026-07-22 22:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_79-minADE6_0.6816062331199646.ckpt
+2026-07-22 22:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/last.ckpt
+
+ALL RESULT FILES:
+2026-06-16 16:03  0 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/__init__.py
+2026-06-16 16:03  0 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__init__.py
+2026-06-16 16:03  1082 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/lane_embedding.py
+2026-06-16 16:03  2379 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/mln.py
+2026-06-16 16:03  4810 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/custom_transformer_blocks.py
+2026-06-16 16:03  4936 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/multimodal_decoder_attn.py
+2026-06-16 16:03  5892 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/ma_consistency_module.py
+2026-06-16 16:03  7125 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/transformer_blocks.py
+2026-07-17 12:04  11123 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/transformer_blocks.cpython-311.pyc
+2026-07-17 12:04  11571 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/__pycache__/ma_consistency_module.cpython-311.pyc
+2026-07-17 12:04  198 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/__pycache__/__init__.cpython-311.pyc
+2026-07-17 12:04  205 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/__init__.cpython-311.pyc
+2026-07-17 12:04  22461 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/pl_modules.py
+2026-07-17 12:04  2407 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/lane_embedding.cpython-311.pyc
+2026-07-17 12:04  25505 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/sharp.py
+2026-07-17 12:04  3094 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/mamba_encoder.py
+2026-07-17 12:04  31766 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/__pycache__/sharp.cpython-311.pyc
+2026-07-17 12:04  34053 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/__pycache__/pl_modules.cpython-311.pyc
+2026-07-17 12:04  4060 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/mln.cpython-311.pyc
+2026-07-17 12:04  6626 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/mamba_encoder.cpython-311.pyc
+2026-07-17 12:04  7270 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/custom_transformer_blocks.cpython-311.pyc
+2026-07-17 12:04  9047 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/model/layers/__pycache__/multimodal_decoder_attn.cpython-311.pyc
+2026-07-17 12:58  2078 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/.hydra/config.yaml
+2026-07-17 12:58  4376 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/.hydra/hydra.yaml
+2026-07-17 12:58  484 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/.hydra/overrides.yaml
+2026-07-17 12:58  592 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/environment.txt
+2026-07-17 12:58  653 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/mamba_parameters.txt
+2026-07-17 12:59  3 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/lightning_logs/version_0/hparams.yaml
+2026-07-22 07:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_70-minADE6_0.6819201707839966.ckpt
+2026-07-22 20:38  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_78-minADE6_0.6803619265556335.ckpt
+2026-07-22 22:15  14309430 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/lightning_logs/version_0/events.out.tfevents.1784289538.server00.2114031.0
+2026-07-22 22:15  19458 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/train_ddp_process_1.log
+2026-07-22 22:15  19458 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/train_ddp_process_2.log
+2026-07-22 22:15  19458 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/train_ddp_process_3.log
+2026-07-22 22:15  19458 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/train.log
+2026-07-22 22:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/epoch_79-minADE6_0.6816062331199646.ckpt
+2026-07-22 22:15  57457770 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/checkpoints/last.ckpt
+2026-07-22 22:17  174497538 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/full_run.log
+2026-07-22 22:17  533 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/mamba_checkpoint_verification.txt
+2026-07-22 22:17  702 bytes  /home/server00/M/Results/SHARP_AV2_MAMBA_FUSED80_20260717-120414/20260717-125838/run/lightning_logs/version_0/events.out.tfevents.1784755073.server00.2114031.1
