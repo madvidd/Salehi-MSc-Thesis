@@ -117,13 +117,13 @@ def main() -> int:
     local_rank = int(os.environ["LOCAL_RANK"])
     torch.cuda.set_device(local_rank)
     device = torch.device("cuda", local_rank)
-    dist.init_process_group(backend="nccl")
+    dist.init_process_group(backend="nccl", device_id=device)
     root = pointer(BASE / "Codes/LATEST_SHARP_ATTENTION_ABLATION.txt")
 
     try:
         for variant in VARIANTS:
             stress_variant(root, variant, device)
-            dist.barrier()
+            dist.barrier(device_ids=[local_rank])
             if dist.get_rank() == 0:
                 print(
                     f"CUDA_DDP_ATTENTION_STRESS_OK={variant} "

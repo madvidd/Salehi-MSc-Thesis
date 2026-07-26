@@ -19,13 +19,51 @@ export NO_COLOR=1
 export RICH_NO_COLOR=1
 """
 SITECUSTOMIZE = """\
+import os
 import warnings
 
 import numpy as np
+import torch
+import torch.distributed as _dist
 
 for _name, _value in (("bool", bool), ("int", int), ("float", float)):
     if _name not in np.__dict__:
         setattr(np, _name, _value)
+
+# Bind every NCCL process group to its rank's CUDA device. Lightning 2.4 does
+# not pass device_id to init_process_group, which makes recent PyTorch releases
+# guess the barrier device and emit a warning on every rank.
+_original_init_process_group = _dist.init_process_group
+_original_barrier = _dist.barrier
+
+
+def _sharp_init_process_group(*args, **kwargs):
+    backend = kwargs.get("backend", args[0] if args else None)
+    if str(backend).lower() == "nccl" and kwargs.get("device_id") is None:
+        local_rank = int(os.environ.get("LOCAL_RANK", "0"))
+        if torch.cuda.is_available():
+            torch.cuda.set_device(local_rank)
+            kwargs["device_id"] = torch.device("cuda", local_rank)
+    return _original_init_process_group(*args, **kwargs)
+
+
+def _sharp_barrier(*args, **kwargs):
+    if (
+        not args
+        and "device_ids" not in kwargs
+        and _dist.is_available()
+        and _dist.is_initialized()
+        and str(_dist.get_backend()).lower() == "nccl"
+        and torch.cuda.is_available()
+    ):
+        kwargs["device_ids"] = [torch.cuda.current_device()]
+    return _original_barrier(*args, **kwargs)
+
+
+_sharp_init_process_group._sharp_explicit_device_binding = True
+_sharp_barrier._sharp_explicit_device_binding = True
+_dist.init_process_group = _sharp_init_process_group
+_dist.barrier = _sharp_barrier
 
 # Compatibility warnings from pinned third-party packages. These filters do not
 # suppress training, CUDA, NCCL, numerical, or exception warnings.
@@ -36,10 +74,6 @@ warnings.filterwarnings(
 warnings.filterwarnings(
     "ignore",
     message=r"The 'frozen' attribute with value True was provided.*",
-)
-warnings.filterwarnings(
-    "ignore",
-    message=r"No device id is provided via .*",
 )
 """
 
@@ -159,6 +193,7 @@ def main() -> int:
         raise FileNotFoundError(runner)
     runtime_patch.parent.mkdir(parents=True, exist_ok=True)
     runtime_patch.write_text(SITECUSTOMIZE)
+    py_compile.compile(str(runtime_patch), doraise=True)
     patch_runner(runner)
 
     for variant in VARIANTS:
@@ -182,6 +217,7 @@ def main() -> int:
     print(f"RESULTS_ROOT={results}")
     print("TRAINING_CONFIGURATION_CHANGED=False")
     print("VALIDATION_LOG_BATCH_SIZE_EXPLICIT=True")
+    print("DISTRIBUTED_DEVICE_BINDING_PATCHED=True")
     return 0
 
 

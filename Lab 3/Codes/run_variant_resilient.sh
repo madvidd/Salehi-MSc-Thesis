@@ -77,6 +77,7 @@ echo "WORKERS_PER_RANK=$WORKERS_PER_RANK TOTAL_WORKERS=$((WORKERS_PER_RANK * 3))
 
 "$ENV/bin/python" - <<'PY'
 import torch
+import torch.distributed as dist
 
 print(f"PYTORCH_VERSION={torch.__version__}")
 print(f"PYTORCH_CUDA_RUNTIME={torch.version.cuda}")
@@ -85,6 +86,13 @@ if not torch.cuda.is_available() or torch.cuda.device_count() < 3:
     raise SystemExit("FATAL: three CUDA devices are required")
 if not torch.__version__.startswith("2.8.0") or torch.version.cuda != "12.6":
     raise SystemExit("FATAL: expected PyTorch 2.8.0 with CUDA 12.6")
+if not getattr(
+    dist.init_process_group,
+    "_sharp_explicit_device_binding",
+    False,
+):
+    raise SystemExit("FATAL: explicit NCCL device binding patch is not active")
+print("DISTRIBUTED_DEVICE_BINDING_ACTIVE=True")
 PY
 nvidia-smi
 
