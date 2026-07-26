@@ -14,6 +14,7 @@ ENV="$BASE/Codes/AV2/envs/sharp_av2"
 CONDA="$BASE/Codes/AV2/miniforge3/bin/conda"
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 REPO=$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)
+PREPARER="$SCRIPT_DIR/prepare_remaining_attention_runtime.py"
 WORK_BRANCH=lab3-sharp-attention-ablation
 VARIANTS=(qknorm talking_heads qknorm_talking_heads)
 SUITE_STAMP=$(date +%Y%m%d-%H%M%S)
@@ -29,13 +30,21 @@ echo "SUITE_LOG=$SUITE_LOG"
 echo "VARIANTS=${VARIANTS[*]}"
 echo "BASELINE_MHA_IS_EXPLICITLY_EXCLUDED=True"
 
-for required in "$TOKEN_FILE" "$ROOT/run_variant.sh" "$ENV/bin/python"; do
+for required in "$TOKEN_FILE" "$ROOT/run_variant.sh" "$ENV/bin/python" "$PREPARER"; do
   if [[ ! -e "$required" ]]; then
     echo "FATAL: required path is missing: $required"
     echo "Terminal remains open after this script returns."
     exit 1
   fi
 done
+
+"$ENV/bin/python" "$PREPARER"
+PREPARE_STATUS=$?
+if (( PREPARE_STATUS != 0 )); then
+  echo "FATAL: runtime compatibility preparation failed: $PREPARE_STATUS"
+  echo "Terminal remains open after this script returns."
+  exit "$PREPARE_STATUS"
+fi
 
 chmod 600 "$TOKEN_FILE"
 TOKEN=$("$ENV/bin/python" -c '
