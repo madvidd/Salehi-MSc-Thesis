@@ -66,22 +66,42 @@ echo "Terminal remains open."
 
 
 Lab 3:
+set +e
+set +u
+set +o pipefail 2>/dev/null
 
-RESULTS=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916
-RUN=$(cat "$RESULTS/LATEST_BASELINE_MHA_RESUME.txt")
-SOURCE="$RUN/train.log"
-DEST=/home/server01/M/Terminal/Terminal.txt
+BASE=/home/server01/M
+RESULTS=$(tr -d '\r\n' < \
+  "$BASE/Results/LATEST_SHARP_ATTENTION_ABLATION.txt")
 
+DEST="$BASE/Terminal/Terminal.txt"
 mkdir -p "$(dirname "$DEST")"
 
-if [ -f "$SOURCE" ]; then
+SOURCE=$(find "$RESULTS" -maxdepth 1 -type f \
+  -name "remaining_attention_suite_*.log" \
+  -printf "%T@ %p\n" 2>/dev/null |
+  sort -nr |
+  head -1 |
+  cut -d" " -f2-)
+
+if [ -z "$SOURCE" ]; then
+  SOURCE=$(find "$RESULTS" -type f -name "train.log" \
+    -printf "%T@ %p\n" 2>/dev/null |
+    sort -nr |
+    head -1 |
+    cut -d" " -f2-)
+fi
+
+if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
   tr '\r' '\n' < "$SOURCE" > "$DEST"
   sync
 
-  echo "Saved one-time terminal snapshot:"
-  echo "$DEST"
+  echo "Lab 3 terminal snapshot saved:"
+  echo "Source: $SOURCE"
+  echo "Output: $DEST"
   ls -lh "$DEST"
 else
-  echo "ERROR: training log not found:"
-  echo "$SOURCE"
+  echo "ERROR: no current attention-suite log was found."
 fi
+
+echo "Terminal remains open."
