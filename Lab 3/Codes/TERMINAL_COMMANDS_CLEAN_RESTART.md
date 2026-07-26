@@ -1,17 +1,8 @@
 # Lab 3 clean restart
 
-The previous restart procedure is obsolete because it used the old GitHub
-account, the CUDA 12.8 PyTorch environment, and continued after failed runs.
+Use [`TERMINAL_COMMANDS_LAB3_RECOVERY.md`](TERMINAL_COMMANDS_LAB3_RECOVERY.md).
 
-Use
-[`TERMINAL_COMMANDS_LAB3_RECOVERY.md`](TERMINAL_COMMANDS_LAB3_RECOVERY.md).
-That procedure:
-
-- uses no `sudo`;
-- removes the `madvidd` GitHub CLI credential;
-- verifies `madviddd` with a real pull/integrate/push test;
-- preserves all partial results;
-- validates PyTorch 2.8 with CUDA 12.6 on all three GPUs;
-- excludes `baseline_mha`;
-- runs `qknorm`, `talking_heads`, and `qknorm_talking_heads` in order;
-- retries one native failure and stops rather than publishing a failed run.
+The hardened foreground procedure uses pure token-authenticated system Git,
+preserves every previous run, forces the validated CUDA 12.6 environment,
+retries native failures from validated checkpoints, excludes baseline MHA, and
+publishes each small result package directly to `main` before continuing.

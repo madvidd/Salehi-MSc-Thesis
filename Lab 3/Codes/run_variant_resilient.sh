@@ -3,9 +3,9 @@ set -Eeuo pipefail
 
 VARIANT="${1:?usage: run_variant.sh VARIANT}"
 case "$VARIANT" in
-  baseline_mha|qknorm|talking_heads|qknorm_talking_heads) ;;
+  qknorm|talking_heads|qknorm_talking_heads) ;;
   *)
-    echo "Unknown variant: $VARIANT" >&2
+    echo "Unknown or excluded variant: $VARIANT" >&2
     exit 2
     ;;
 esac
@@ -27,8 +27,13 @@ for required in "$ENV/bin/python" "$CODE/train.py" "$DATA" "$PATCH/sitecustomize
   fi
 done
 
-mkdir -p "$OUT/run" "$OUT/eval" "$OUT/diagnostics"
+mkdir -p \
+  "$OUT/run/checkpoints" \
+  "$OUT/eval" \
+  "$OUT/diagnostics" \
+  "$OUT/attempt_logs"
 
+ulimit -c 0 2>/dev/null || true
 export CUDA_VISIBLE_DEVICES=0,1,2
 export PYTHONPATH="$PATCH:$CODE:${PYTHONPATH:-}"
 export PYTHONFAULTHANDLER=1
@@ -58,13 +63,18 @@ WORKERS_PER_RANK=${WORKERS_PER_RANK:-$DEFAULT_WORKERS}
 BATCH_PER_GPU=${BATCH_PER_GPU:-8}
 EPOCHS=${EPOCHS:-80}
 GLOBAL_BATCH=$(( BATCH_PER_GPU * 3 ))
+ATTEMPT_ID=${LAB3_ATTEMPT_ID:-1}
+ATTEMPT_LOG="$OUT/attempt_logs/attempt_${ATTEMPT_ID}_$(date +%Y%m%d-%H%M%S).log"
 
 echo "VARIANT=$VARIANT"
 echo "CODE=$CODE"
 echo "RESULTS=$OUT"
 echo "ENV=$ENV"
+echo "ATTEMPT_ID=$ATTEMPT_ID"
+echo "ATTEMPT_LOG=$ATTEMPT_LOG"
 echo "GPUS=3 BATCH_PER_GPU=$BATCH_PER_GPU GLOBAL_BATCH=$GLOBAL_BATCH"
 echo "WORKERS_PER_RANK=$WORKERS_PER_RANK TOTAL_WORKERS=$((WORKERS_PER_RANK * 3))"
+
 "$ENV/bin/python" - <<'PY'
 import torch
 
@@ -82,6 +92,38 @@ if [[ -f "$OUT/COMPLETE" && -s "$OUT/metrics.json" ]]; then
   echo "$VARIANT is already complete; skipping training."
   exit 0
 fi
+
+select_resume_checkpoint() {
+  "$ENV/bin/python" - "$OUT/run/checkpoints" <<'PY'
+import sys
+from pathlib import Path
+
+import torch
+
+root = Path(sys.argv[1])
+candidates = []
+last = root / "last.ckpt"
+if last.is_file():
+    candidates.append(last)
+candidates.extend(
+    sorted(
+        (path for path in root.glob("*.ckpt") if path != last),
+        key=lambda path: path.stat().st_mtime,
+        reverse=True,
+    )
+)
+
+for path in candidates:
+    try:
+        checkpoint = torch.load(path, map_location="cpu", weights_only=False)
+        if "state_dict" not in checkpoint or "epoch" not in checkpoint:
+            continue
+        print(path)
+        raise SystemExit(0)
+    except Exception as exc:
+        print(f"CHECKPOINT_REJECTED={path}: {exc}", file=sys.stderr)
+PY
+}
 
 cd "$CODE"
 ARGS=(
@@ -101,28 +143,48 @@ ARGS=(
   +trainer.num_sanity_val_steps=0
   callbacks.0.save_top_k=3
   callbacks.0.monitor=minADE6
+  ++callbacks.0.save_last=true
+  ++callbacks.0.every_n_epochs=1
 )
 
-LAST="$OUT/run/checkpoints/last.ckpt"
-if [[ -f "$LAST" ]]; then
-  echo "Resuming $VARIANT from $LAST"
-  ARGS+=(checkpoint="$LAST")
+RESUME_CHECKPOINT=$(select_resume_checkpoint)
+if [[ -n "$RESUME_CHECKPOINT" && -f "$RESUME_CHECKPOINT" ]]; then
+  echo "RESUME_CHECKPOINT=$RESUME_CHECKPOINT"
+  ARGS+=(checkpoint="$RESUME_CHECKPOINT")
+else
+  echo "RESUME_CHECKPOINT=none"
 fi
 
 START_EPOCH=$(date +%s)
 printf '%s\n' "$START_EPOCH" > "$OUT/diagnostics/training_start_epoch.txt"
+
 set +e
-"$ENV/bin/python" -u train.py "${ARGS[@]}" 2>&1 | tee -a "$OUT/train.log"
+"$ENV/bin/python" -u train.py "${ARGS[@]}" 2>&1 \
+  | tee -a "$OUT/train.log" "$ATTEMPT_LOG"
 TRAIN_RC=${PIPESTATUS[0]}
 set -e
+
+ERROR_PATTERN='Traceback|Error executing job|CUDA out of memory|Trying to infer.*batch_size|UserWarning|FutureWarning|terminated with code|(^|[[:space:]])Killed([[:space:]]|$)|non-finite|NaN'
+if (( TRAIN_RC == 0 )) && grep -aEi "$ERROR_PATTERN" "$ATTEMPT_LOG" >/dev/null; then
+  echo "FATAL: warning/error gate rejected an otherwise successful attempt." >&2
+  grep -aEi "$ERROR_PATTERN" "$ATTEMPT_LOG" \
+    > "$OUT/diagnostics/rejected_attempt_${ATTEMPT_ID}.txt"
+  TRAIN_RC=86
+fi
 
 if (( TRAIN_RC != 0 )); then
   {
     echo "variant=$VARIANT"
+    echo "attempt=$ATTEMPT_ID"
     echo "exit_code=$TRAIN_RC"
     echo "failed=$(date --iso-8601=seconds)"
+    echo "attempt_log=$ATTEMPT_LOG"
+    echo "resume_checkpoint=${RESUME_CHECKPOINT:-none}"
     echo "pytorch=$("$ENV/bin/python" -c 'import torch; print(torch.__version__)')"
     echo "cuda_runtime=$("$ENV/bin/python" -c 'import torch; print(torch.version.cuda)')"
+    echo
+    echo "===== MATCHED WARNINGS AND ERRORS ====="
+    grep -aEi "$ERROR_PATTERN" "$ATTEMPT_LOG" || echo "No textual match."
     echo
     echo "===== KERNEL EVENTS SINCE TRAINING START ====="
     journalctl -k --since "@$START_EPOCH" --no-pager 2>&1 \
@@ -131,7 +193,7 @@ if (( TRAIN_RC != 0 )); then
     echo
     echo "===== GPU STATE ====="
     nvidia-smi 2>&1
-  } > "$OUT/diagnostics/failure_$(date +%Y%m%d-%H%M%S).txt"
+  } > "$OUT/diagnostics/failure_attempt_${ATTEMPT_ID}_$(date +%Y%m%d-%H%M%S).txt"
   echo "Training failed for $VARIANT with exit code $TRAIN_RC" >&2
   exit "$TRAIN_RC"
 fi
@@ -144,6 +206,7 @@ fi
 echo "$BEST" > "$OUT/best_checkpoint.txt"
 export SHARP_METRICS_JSON="$OUT/metrics.json"
 
+EVAL_LOG="$OUT/attempt_logs/eval_$(date +%Y%m%d-%H%M%S).log"
 set +e
 "$ENV/bin/python" -u eval_to_json.py \
   seed=2333 \
@@ -153,9 +216,14 @@ set +e
   checkpoint="$BEST" \
   datamodule.pl_module.data_root="$DATA" \
   datamodule.pl_module.num_workers="$WORKERS_PER_RANK" \
-  2>&1 | tee "$OUT/eval.log"
+  2>&1 | tee "$OUT/eval.log" "$EVAL_LOG"
 EVAL_RC=${PIPESTATUS[0]}
 set -e
+
+if (( EVAL_RC == 0 )) && grep -aEi "$ERROR_PATTERN" "$EVAL_LOG" >/dev/null; then
+  echo "FATAL: evaluation warning/error gate failed." >&2
+  EVAL_RC=87
+fi
 if (( EVAL_RC != 0 )); then
   echo "Evaluation failed for $VARIANT with exit code $EVAL_RC" >&2
   exit "$EVAL_RC"
