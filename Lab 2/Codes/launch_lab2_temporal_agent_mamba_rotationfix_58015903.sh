@@ -21,6 +21,10 @@ OLD_FAILED_POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA_STABLECU
 if [ -s "$OLD_FAILED_POINTER" ]; then
   echo "Previous failed run remains preserved at: $(cat "$OLD_FAILED_POINTER")"
 fi
+CURRENT_POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA_ROTATIONFIX80_RUN.txt"
+if [ -s "$CURRENT_POINTER" ]; then
+  echo "Current partial rotation-fix run remains preserved at: $(cat "$CURRENT_POINTER")"
+fi
 
 PIDS=$(pgrep -u "$USER" -f "$PATTERN" || true)
 if [ -n "$PIDS" ]; then

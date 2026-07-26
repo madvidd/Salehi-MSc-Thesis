@@ -345,6 +345,18 @@ if "torch.inverse(rot_mat)" in sharp:
     raise SystemExit("Unsafe cuSOLVER rotation inverse is still present")
 if "rot_mat.transpose(1, 2)" not in sharp:
     raise SystemExit("Rotation-transpose patch is missing")
+pl_module = Path("src/model/pl_modules.py").read_text()
+validation_log = """        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+            batch_size=len(data[-1]["scenario_id"]),
+        )
+"""
+if pl_module.count(validation_log) != 1:
+    raise SystemExit("Explicit streaming validation batch-size patch is missing")
 for name in (
     "src/model/layers/custom_transformer_blocks.py",
     "src/model/layers/transformer_blocks.py",
@@ -359,6 +371,7 @@ from src.model.sharp import Sharp
 print("ROTATION_TRANSPOSE_PATCH_ACTIVE=True")
 print("ORIGINAL_SHARP_ATTENTION_MASK_COMPATIBILITY_ACTIVE=True")
 print("DEPRECATED_TIMM_IMPORTS_PRESENT=False")
+print("VALIDATION_LOG_BATCH_SIZE_EXPLICIT=True")
 print("SHARP_MODEL_IMPORT_OK=True")
 PY
 
@@ -431,13 +444,19 @@ CUDA_LAUNCH_BLOCKING=1 \
   trainer.sync_batchnorm=true \
   trainer.num_sanity_val_steps=0 \
   +trainer.limit_train_batches=256 \
-  +trainer.limit_val_batches=0 \
+  +trainer.limit_val_batches=2 \
   callbacks.0.save_top_k=0 \
   2>&1 | tee "$PREFLIGHT_DIR/preflight.log"
 
+if grep -Fq 'Trying to infer the `batch_size`' "$PREFLIGHT_DIR/preflight.log"; then
+  echo "ERROR: ambiguous validation batch-size warning remains after patch."
+  exit 1
+fi
+
 printf '%s\n' "REAL_AV2_PREFLIGHT_PASSED=True" \
+  "VALIDATION_BATCH_SIZE_LOGGING_OK=True" \
   > "$PREFLIGHT_DIR/PREFLIGHT_PASSED.txt"
-echo "Exact four-GPU AV2 preflight passed beyond the prior failure point. Starting the full run."
+echo "Exact four-GPU AV2 train/validation preflight passed. Starting the full run."
 
 cat > "$RESULTS_DIR/RUN_SETTINGS.txt" <<EOF
 variant=$VARIANT
@@ -460,6 +479,8 @@ rotation_inverse_backend=orthogonal_transpose_no_cusolver
 attention_mask_dtype_matched=true
 compatibility_warnings_filtered=true
 real_data_preflight_batches=256
+real_data_preflight_validation_batches=2
+validation_log_batch_size_explicit=true
 checkpoint_monitor=minADE6
 source_code=$CODE_DIR
 dataset=$DATA_DIR
@@ -669,6 +690,33 @@ def _match_attention_mask_dtypes(
         "orthogonal rotation inverse",
     )
     sharp_path.write_text(sharp, encoding="utf-8")
+
+    pl_module_path = code_dir / "src/model/pl_modules.py"
+    pl_module = pl_module_path.read_text(encoding="utf-8")
+    validation_log_without_batch_size = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+        )
+'''
+    validation_log_with_batch_size = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+            batch_size=len(data[-1]["scenario_id"]),
+        )
+'''
+    pl_module = replace_once(
+        pl_module,
+        validation_log_without_batch_size,
+        validation_log_with_batch_size,
+        "streaming validation batch-size logging",
+    )
+    pl_module_path.write_text(pl_module, encoding="utf-8")
 
     datamodule_path = code_dir / "src/datamodules/av2_datamodule.py"
     datamodule = datamodule_path.read_text(encoding="utf-8")

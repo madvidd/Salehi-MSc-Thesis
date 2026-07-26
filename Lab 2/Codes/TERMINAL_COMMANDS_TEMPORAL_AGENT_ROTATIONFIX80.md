@@ -13,6 +13,12 @@ dtypes without changing masking semantics, and narrowly filters three known
 third-party compatibility warnings. CUDA, NCCL, data, and numerical warnings are
 not hidden.
 
+The streaming validation regression-loss log now receives the real local batch
+size explicitly. This removes Lightning's ambiguous-batch warning, including
+the final partial validation batch, without changing losses, gradients, metrics,
+data order, or optimizer behavior. The preflight now executes two validation
+batches and fails before the full run if that warning is still present.
+
 ## Fetch and run in the current terminal
 
 This reads the PAT from `/home/server00/M/Token/Token.txt`, verifies the
@@ -167,6 +173,7 @@ Before full training starts, the output must contain all of these markers:
 ROTATION_TRANSPOSE_PATCH_ACTIVE=True
 ORIGINAL_SHARP_ATTENTION_MASK_COMPATIBILITY_ACTIVE=True
 DEPRECATED_TIMM_IMPORTS_PRESENT=False
+VALIDATION_LOG_BATCH_SIZE_EXPLICIT=True
 SHARP_MODEL_IMPORT_OK=True
 TEMPORAL_AGENT_MAMBA_SMOKE_TEST_OK
 MAMBA_ACTIVE=True
@@ -174,8 +181,9 @@ CAUSAL_CONV_BACKEND=torch_cuda_cudnn_conv1d
 SELECTIVE_SCAN_BACKEND=fused_selective_scan_cuda
 ```
 
-The four-GPU preflight must complete 256 real AV2 training batches. The full
-run starts only after that preflight succeeds.
+The four-GPU preflight must complete 256 real AV2 training batches and two
+validation batches. Its output must not contain Lightning's ambiguous
+batch-size warning. The full run starts only after that preflight succeeds.
 
 ## One-time Terminal.txt snapshot
 
