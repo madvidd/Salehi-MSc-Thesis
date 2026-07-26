@@ -1,0 +1,21 @@
+{
+  "created": "20260717-123916",
+  "source": "Bundled pristine SHARP source",
+  "source_sharp_sha256": "a8ba6201474f9034e2dc251b7b556ffe47804a20b2c88106b44e125be86a2745",
+  "variants": [
+    "baseline_mha",
+    "qknorm",
+    "talking_heads",
+    "qknorm_talking_heads"
+  ],
+  "dataset": "/home/server01/M/Datasets/AV2/sharp_processed",
+  "environment": "/home/server01/M/Codes/AV2/envs/sharp_av2",
+  "epochs": 80,
+  "paper_learning_rate": 0.0001,
+  "paper_min_learning_rate": 1e-05,
+  "paper_warmup_epochs": 13,
+  "gpus": 3,
+  "batch_per_gpu": 8,
+  "global_batch": 24,
+  "note": "Paper global batch is 32; three equal DDP ranks cannot reproduce 32 exactly."
+}

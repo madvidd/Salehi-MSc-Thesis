@@ -1,0 +1,2 @@
+290a2aa52b7772c55e7e7ccb60a67a1817599fe8f09d887c49021e1c5962d6ee  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_qknorm_20260726-074139/code.tar.gz
+3034bd0e2b2379e0baedd5701a5b760db04a825eff14b80d1382d94b3420e4ff  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_qknorm_20260726-074139/results_and_checkpoints.tar.gz
