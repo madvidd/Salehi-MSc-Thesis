@@ -17,7 +17,7 @@ else
   RUN=$(tr -d '\r\n' < "$POINTER")
 
   {
-    echo "Lab 2 temporal-agent Mamba terminal snapshot"
+    echo "Lab 2 corrected temporal-agent Mamba terminal snapshot"
     echo "Saved: $(date)"
     echo "Run: $RUN"
     echo
@@ -34,13 +34,19 @@ else
       echo
     fi
 
+    if [ -f "$RUN/preflight/PREFLIGHT_PASSED.txt" ]; then
+      echo "===== PREFLIGHT STATUS ====="
+      cat "$RUN/preflight/PREFLIGHT_PASSED.txt"
+      echo
+    fi
+
     if [ -f "$RUN/full_run.log" ]; then
-      echo "===== FULL TRAINING ====="
+      echo "===== FULL FOUR-GPU TRAINING ====="
       tr '\r' '\n' < "$RUN/full_run.log"
       echo
     fi
 
-    echo "===== CHECKPOINTS ====="
+    echo "===== SAVED CHECKPOINTS ====="
     find "$RUN" -name "*.ckpt" \
       -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" |
       sort
@@ -48,14 +54,12 @@ else
 
   sync
 
-  echo "Saved one-time snapshot:"
+  echo "Saved one-time Lab 2 snapshot:"
   echo "$DEST"
   ls -lh "$DEST"
 fi
 
-echo
 echo "Terminal remains open."
-
 
 
 
