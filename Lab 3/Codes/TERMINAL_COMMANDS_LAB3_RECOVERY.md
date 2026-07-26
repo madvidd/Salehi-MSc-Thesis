@@ -78,7 +78,7 @@ print(match.group(0) if match else "")
   }
   echo "PASS: active GitHub account is $ACTIVE"
 
-  git -C "$REPO" remote set-url origin https://github.com/madviddd/Thesis.git
+  git -C "$REPO" remote set-url origin https://github.com/madvidd/Thesis.git
   if ! git -C "$REPO" diff --quiet -- \
     "Lab 3/Codes/run_remaining_attention_suite.sh"; then
     BACKUP="$HOME/lab3_previous_launcher_$(date +%Y%m%d-%H%M%S).patch"

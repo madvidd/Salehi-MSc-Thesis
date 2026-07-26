@@ -108,7 +108,7 @@ USER_HTTP=$(curl -sS -o "$USER_JSON" -w '%{http_code}' \
 REPO_HTTP=$(curl -sS -o "$REPO_JSON" -w '%{http_code}' \
   -H "Authorization: Bearer $TOKEN" \
   -H "Accept: application/vnd.github+json" \
-  https://api.github.com/repos/madviddd/Thesis)
+  https://api.github.com/repos/madvidd/Thesis)
 LOGIN=$("$ENV/bin/python" -c \
   'import json,sys; print(json.load(open(sys.argv[1])).get("login",""))' \
   "$USER_JSON" 2>/dev/null)
@@ -121,7 +121,7 @@ PUSH=$("$ENV/bin/python" -c \
 rm -f "$USER_JSON" "$REPO_JSON"
 
 if [[ "$USER_HTTP" != 200 || "$REPO_HTTP" != 200 || \
-      "$LOGIN" != madviddd || "$ACCESS" != madviddd/Thesis || \
+      "$LOGIN" != madviddd || "$ACCESS" != madvidd/Thesis || \
       "$PUSH" != true ]]; then
   echo "FATAL: GitHub verification failed: user_http=$USER_HTTP repo_http=$REPO_HTTP account=$LOGIN repository=$ACCESS push=$PUSH"
   unset TOKEN
@@ -250,7 +250,7 @@ publish_completed() {
   chmod 700 "$askpass"
 
   cd "$REPO" || return 1
-  git remote set-url origin https://github.com/madviddd/Thesis.git
+  git remote set-url origin https://github.com/madvidd/Thesis.git
   GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
     git -c credential.helper= fetch --prune origin \
     "+refs/heads/$WORK_BRANCH:refs/remotes/origin/$WORK_BRANCH" \
@@ -312,7 +312,7 @@ publish_completed() {
 
   if (( status == 0 )); then
     pr_number=$(GH_TOKEN="$TOKEN" gh pr list \
-      --repo madviddd/Thesis \
+      --repo madvidd/Thesis \
       --base main \
       --head "$WORK_BRANCH" \
       --state open \
@@ -320,7 +320,7 @@ publish_completed() {
       --jq '.[0].number // empty')
     if [[ -z "$pr_number" ]]; then
       GH_TOKEN="$TOKEN" gh pr create \
-        --repo madviddd/Thesis \
+        --repo madvidd/Thesis \
         --base main \
         --head "$WORK_BRANCH" \
         --title "Publish Lab 3 $variant attention results" \
@@ -328,7 +328,7 @@ publish_completed() {
         >/dev/null || status=$?
       if (( status == 0 )); then
         pr_number=$(GH_TOKEN="$TOKEN" gh pr list \
-          --repo madviddd/Thesis \
+          --repo madvidd/Thesis \
           --base main \
           --head "$WORK_BRANCH" \
           --state open \
@@ -343,7 +343,7 @@ publish_completed() {
       status=1
     else
       GH_TOKEN="$TOKEN" gh pr merge "$pr_number" \
-        --repo madviddd/Thesis \
+        --repo madvidd/Thesis \
         --merge \
         --delete-branch=false || status=$?
     fi

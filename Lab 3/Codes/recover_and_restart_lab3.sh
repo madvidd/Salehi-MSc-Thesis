@@ -149,7 +149,7 @@ DIRTY=$(git -C "$REPO" status --porcelain)
   fail "the Thesis clone has other uncommitted changes; update was not attempted"
 }
 
-git -C "$REPO" remote set-url origin https://github.com/madviddd/Thesis.git
+git -C "$REPO" remote set-url origin https://github.com/madvidd/Thesis.git
 git -C "$REPO" switch "$WORK_BRANCH" \
   || fail "could not switch to $WORK_BRANCH"
 git -C "$REPO" fetch --prune origin \
