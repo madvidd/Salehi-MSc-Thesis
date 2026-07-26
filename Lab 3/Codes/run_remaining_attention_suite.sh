@@ -29,6 +29,7 @@ echo "RESULTS_ROOT=$RESULTS_ROOT"
 echo "SUITE_LOG=$SUITE_LOG"
 echo "VARIANTS=${VARIANTS[*]}"
 echo "BASELINE_MHA_IS_EXPLICITLY_EXCLUDED=True"
+echo "VALIDATION_LOG_BATCH_SIZE_EXPLICIT=True"
 
 for required in "$TOKEN_FILE" "$ROOT/run_variant.sh" "$ENV/bin/python" "$PREPARER"; do
   if [[ ! -e "$required" ]]; then
@@ -100,6 +101,7 @@ archive_variant() {
     echo "global_batch=24"
     echo "seed=2333"
     echo "sync_batchnorm=true"
+    echo "validation_log_batch_size=explicit_local_scenario_count"
     echo "baseline_rerun=false"
   } > "$archive/MANIFEST.txt"
 
@@ -136,6 +138,7 @@ archive_variant() {
     "$code/src/model/layers/attention_variants.py" \
     "$code/src/model/layers/custom_transformer_blocks.py" \
     "$code/src/model/layers/transformer_blocks.py" \
+    "$code/src/model/pl_modules.py" \
     "$ROOT/run_variant.sh" \
     "$ROOT/experiment_manifest.json"
   do

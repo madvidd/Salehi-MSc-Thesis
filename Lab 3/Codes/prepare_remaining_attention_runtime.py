@@ -71,6 +71,36 @@ def patch_runner(path: Path) -> None:
         path.write_text(text)
 
 
+def patch_validation_batch_size(path: Path) -> None:
+    """Make Lightning validation aggregation explicit without changing training."""
+    text = path.read_text()
+    old = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+        )
+'''
+    new = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+            batch_size=len(data[-1]["scenario_id"]),
+        )
+'''
+    if new in text:
+        return
+    if text.count(old) != 1:
+        raise RuntimeError(
+            f"Expected one streaming validation log block in {path}, "
+            f"found {text.count(old)}"
+        )
+    path.write_text(text.replace(old, new, 1))
+
+
 def smoke_test(path: Path, variant: str) -> None:
     module_name = f"_sharp_attention_smoke_{variant}"
     spec = importlib.util.spec_from_file_location(module_name, path)
@@ -140,13 +170,18 @@ def main() -> int:
             path = layers / name
             patch_timm_import(path)
             py_compile.compile(str(path), doraise=True)
+        pl_modules = root / "variants" / variant / "Code/src/model/pl_modules.py"
+        patch_validation_batch_size(pl_modules)
+        py_compile.compile(str(pl_modules), doraise=True)
         py_compile.compile(str(attention), doraise=True)
         smoke_test(attention, variant)
         print(f"ATTENTION_SMOKE_TEST_OK={variant}")
+        print(f"VALIDATION_BATCH_SIZE_LOGGING_OK={variant}")
 
     print(f"RUNTIME_COMPATIBILITY_PATCHED={root}")
     print(f"RESULTS_ROOT={results}")
     print("TRAINING_CONFIGURATION_CHANGED=False")
+    print("VALIDATION_LOG_BATCH_SIZE_EXPLICIT=True")
     return 0
 
 
