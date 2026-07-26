@@ -55,13 +55,28 @@ history. The module uses:
 - per-channel LayerScale initialized to `0.01`
 - a residual connection back to the unmodified SHARP features
 
-The runner checks the fused CUDA kernels before training and verifies that the
-saved best checkpoint contains temporal-agent Mamba parameters and no other
-Mamba module.
+The stable-CUDA runner uses PyTorch/cuDNN `Conv1d` on the GPU and keeps the
+official fused CUDA selective-scan kernel. It verifies that the saved best
+checkpoint contains temporal-agent Mamba parameters and no other Mamba module.
 
 ## Running
 
-Use `TERMINAL_COMMANDS.md`. The generated runner reserves all four GPUs and
+Use `TERMINAL_COMMANDS_TEMPORAL_AGENT_STABLECUDA80.md`. The generated runner reserves all four GPUs and
 writes to a new timestamped results directory. Run the launcher with `bash`,
 not `source`, so it executes in the foreground as a child process and always
 returns control to the same terminal.
+
+## Stable-CUDA correction after the batch-122 failure
+
+The fully custom fused temporal-agent variants are retained for diagnosis, but
+must not be resumed. Both eventually produced an illegal CUDA memory access.
+The current `stablecuda80` experiment leaves the architecture, parameters and
+80-epoch training settings unchanged. It disables only Mamba's optional custom
+`causal_conv1d_cuda` function, so the short convolution uses CUDA/cuDNN through
+`nn.Conv1d`; the fused CUDA selective scan remains enabled.
+
+Before the full run, the current launcher performs 256 real AV2 training
+batches with the exact four-GPU DDP and SyncBatchNorm path under synchronous
+CUDA error reporting. This deliberately runs beyond the earlier batch-122
+failure. Use `TERMINAL_COMMANDS_TEMPORAL_AGENT_STABLECUDA80.md` for the current
+Lab 2 command and one-time terminal snapshot.
