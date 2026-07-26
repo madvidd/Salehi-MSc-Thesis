@@ -77,13 +77,35 @@ print(match.group(0) if match else "")
 ' "$TOKEN_FILE")
   [ -n "$TOKEN" ] || { echo "ERROR: no PAT found in Token.txt"; return 1; }
 
-  LOGIN=$(GH_TOKEN="$TOKEN" gh api user --jq .login 2>/dev/null)
-  ACCESS=$(GH_TOKEN="$TOKEN" gh api repos/madviddd/Thesis --jq .full_name 2>/dev/null)
-  if [ "$LOGIN" != madvidd ] || [ "$ACCESS" != madviddd/Thesis ]; then
-    echo "ERROR: PAT verification failed: account=$LOGIN repository=$ACCESS"
+  USER_JSON=$(mktemp) || return 1
+  REPO_JSON=$(mktemp) || { rm -f "$USER_JSON"; return 1; }
+  USER_HTTP=$(curl -sS -o "$USER_JSON" -w '%{http_code}' \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github+json" \
+    https://api.github.com/user)
+  REPO_HTTP=$(curl -sS -o "$REPO_JSON" -w '%{http_code}' \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github+json" \
+    https://api.github.com/repos/madviddd/Thesis)
+  LOGIN=$("$ENV/bin/python" -c \
+    'import json,sys; print(json.load(open(sys.argv[1])).get("login", ""))' \
+    "$USER_JSON" 2>/dev/null)
+  ACCESS=$("$ENV/bin/python" -c \
+    'import json,sys; print(json.load(open(sys.argv[1])).get("full_name", ""))' \
+    "$REPO_JSON" 2>/dev/null)
+  PUSH=$("$ENV/bin/python" -c \
+    'import json,sys; print(str(json.load(open(sys.argv[1])).get("permissions", {}).get("push", False)).lower())' \
+    "$REPO_JSON" 2>/dev/null)
+  rm -f "$USER_JSON" "$REPO_JSON"
+
+  if [ "$USER_HTTP" != 200 ] || [ "$REPO_HTTP" != 200 ] || \
+     [ "$LOGIN" != madvidd ] || [ "$ACCESS" != madviddd/Thesis ] || \
+     [ "$PUSH" != true ]; then
+    echo "ERROR: PAT verification failed: user_http=$USER_HTTP repo_http=$REPO_HTTP account=$LOGIN repository=$ACCESS push=$PUSH"
     unset TOKEN
     return 1
   fi
+  echo "PAT verified for $LOGIN with push access to $ACCESS."
 
   export LAB3_GITHUB_TOKEN="$TOKEN"
   unset TOKEN
