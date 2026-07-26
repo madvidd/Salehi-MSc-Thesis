@@ -1,11 +1,11 @@
 # Clean restart of the remaining Lab 3 attention suite
 
 The supplied log contains no training exception. It contains three compatibility
-warning groups: Pydantic field metadata, the deprecated timm import path, and the
-PyTorch distributed device-id notice. The update removes the deprecated import,
-filters only those known compatibility notices, validates every custom attention
-variant with a forward/backward smoke test, and keeps all training parameters
-unchanged.
+warning groups from third-party compatibility plus Lightning batch-size
+inference. The update removes the deprecated import, filters only verified
+compatibility notices, explicitly logs the real per-rank validation batch size,
+validates every custom attention variant with a forward/backward smoke test, and
+keeps the model and all training parameters unchanged.
 
 Run this entire block in a new Lab 3 terminal. It does not close any terminal,
 does not delete previous results, explicitly excludes baseline MHA, preserves the

@@ -41,6 +41,36 @@ def patch_checkpoint_config(code: Path) -> None:
     config.write_text(text)
 
 
+def patch_validation_batch_size(code: Path) -> None:
+    path = code / "src/model/pl_modules.py"
+    text = path.read_text()
+    old = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+        )
+'''
+    new = '''        self.log_dict(
+            reg_loss_dict,
+            on_step=False,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+            batch_size=len(data[-1]["scenario_id"]),
+        )
+'''
+    if new in text:
+        return
+    if text.count(old) != 1:
+        raise RuntimeError(
+            f"Expected one streaming validation log block in {path}, "
+            f"found {text.count(old)}"
+        )
+    path.write_text(text.replace(old, new, 1))
+
+
 def patch_attention(code: Path, variant: str) -> None:
     adapter = (PACKAGE / "attention_variants.py").read_text().replace("__VARIANT__", variant)
     adapter_path = code / "src/model/layers/attention_variants.py"
@@ -257,6 +287,7 @@ def main() -> int:
         "gpus": 3,
         "batch_per_gpu": 8,
         "global_batch": 24,
+        "validation_log_batch_size": "explicit local scenario count",
         "note": "Paper global batch is 32; three equal DDP ranks cannot reproduce 32 exactly.",
     }
 
@@ -264,6 +295,7 @@ def main() -> int:
         code = code_root / "variants" / variant / "Code"
         shutil.copytree(SOURCE, code)
         patch_checkpoint_config(code)
+        patch_validation_batch_size(code)
         shutil.copy2(PACKAGE / "eval_to_json.py", code / "eval_to_json.py")
         if variant != "baseline_mha":
             patch_attention(code, variant)
