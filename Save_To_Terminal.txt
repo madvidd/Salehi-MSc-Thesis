@@ -66,42 +66,83 @@ echo "Terminal remains open."
 
 
 Lab 3:
+
 set +e
 set +u
 set +o pipefail 2>/dev/null
 
 BASE=/home/server01/M
-RESULTS=$(tr -d '\r\n' < \
-  "$BASE/Results/LATEST_SHARP_ATTENTION_ABLATION.txt")
-
+RESULTS_POINTER="$BASE/Results/LATEST_SHARP_ATTENTION_ABLATION.txt"
 DEST="$BASE/Terminal/Terminal.txt"
+
 mkdir -p "$(dirname "$DEST")"
 
-SOURCE=$(find "$RESULTS" -maxdepth 1 -type f \
-  -name "remaining_attention_suite_*.log" \
-  -printf "%T@ %p\n" 2>/dev/null |
-  sort -nr |
-  head -1 |
-  cut -d" " -f2-)
+if [ ! -s "$RESULTS_POINTER" ]; then
+  echo "ERROR: results pointer not found:"
+  echo "$RESULTS_POINTER"
+else
+  RESULTS=$(tr -d '\r\n' < "$RESULTS_POINTER")
 
-if [ -z "$SOURCE" ]; then
-  SOURCE=$(find "$RESULTS" -type f -name "train.log" \
+  SUITE_LOG=$(find "$RESULTS" -maxdepth 1 \
+    -type f -name "remaining_attention_suite_*.log" \
     -printf "%T@ %p\n" 2>/dev/null |
     sort -nr |
     head -1 |
-    cut -d" " -f2-)
-fi
+    cut -d' ' -f2-)
 
-if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
-  tr '\r' '\n' < "$SOURCE" > "$DEST"
+  {
+    echo "Lab 3 remaining-attention terminal snapshot"
+    echo "Saved: $(date)"
+    echo "Results root: $RESULTS"
+    echo "Suite log: $SUITE_LOG"
+    echo
+
+    if [ -n "$SUITE_LOG" ] && [ -f "$SUITE_LOG" ]; then
+      echo "===== REMAINING ATTENTION SUITE ====="
+      tr '\r' '\n' < "$SUITE_LOG"
+      echo
+    fi
+
+    for VARIANT in qknorm talking_heads qknorm_talking_heads; do
+      echo "===== $VARIANT ====="
+
+      if [ -f "$RESULTS/$VARIANT/train.log" ]; then
+        echo "----- TRAINING LOG -----"
+        tr '\r' '\n' < "$RESULTS/$VARIANT/train.log"
+      fi
+
+      if [ -f "$RESULTS/$VARIANT/eval.log" ]; then
+        echo "----- EVALUATION LOG -----"
+        tr '\r' '\n' < "$RESULTS/$VARIANT/eval.log"
+      fi
+
+      if [ -f "$RESULTS/$VARIANT/metrics.json" ]; then
+        echo "----- METRICS -----"
+        cat "$RESULTS/$VARIANT/metrics.json"
+      fi
+
+      echo
+    done
+
+    echo "===== PRESERVED PARTIAL RUNS ====="
+    find "$RESULTS/preserved_partial_runs" -type f \
+      -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" \
+      2>/dev/null | sort
+    echo
+
+    echo "===== CHECKPOINTS ====="
+    find "$RESULTS" -name "*.ckpt" \
+      -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" \
+      2>/dev/null | sort
+
+  } > "$DEST"
+
   sync
 
-  echo "Lab 3 terminal snapshot saved:"
-  echo "Source: $SOURCE"
-  echo "Output: $DEST"
+  echo "Saved one-time Lab 3 snapshot:"
+  echo "$DEST"
   ls -lh "$DEST"
-else
-  echo "ERROR: no current attention-suite log was found."
 fi
 
+echo
 echo "Terminal remains open."
