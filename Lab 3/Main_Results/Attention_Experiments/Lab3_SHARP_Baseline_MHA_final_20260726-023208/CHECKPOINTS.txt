@@ -1,0 +1,8 @@
+2026-07-17 17:00  56042074 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha/run/checkpoints/epoch_2-minADE6_1.3262032270431519.ckpt
+2026-07-17 18:27  56042074 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha/run/checkpoints/epoch_3-minADE6_1.4646477699279785.ckpt
+2026-07-17 19:53  56042074 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha/run/checkpoints/epoch_4-minADE6_1.1028811931610107.ckpt
+2026-07-17 19:53  56042074 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha/run/checkpoints/last.ckpt
+2026-07-23 23:27  56042202 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha_resume_20260720-201433/run/checkpoints/epoch_65-minADE6_0.6764025092124939.ckpt
+2026-07-24 00:41  56042202 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha_resume_20260720-201433/run/checkpoints/epoch_66-minADE6_0.6734600067138672.ckpt
+2026-07-24 15:29  56042202 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha_resume_20260720-201433/run/checkpoints/epoch_78-minADE6_0.678673267364502.ckpt
+2026-07-24 16:43  56042202 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha_resume_20260720-201433/run/checkpoints/last.ckpt
