@@ -228,3 +228,18 @@ The preflight performs 160 variable-length forward/backward iterations and
 verifies that both official CUDA extensions are called on every bidirectional
 Mamba pass. The installer places all Mamba packages under the timestamped
 experiment, so PyTorch and the shared environment remain unchanged.
+## Stable temporal-agent Mamba
+
+`Codes/setup_lab2_temporal_agent_mamba_chunked80.py` preserves the failed first
+temporal-agent attempt and creates a new timestamped experiment. The Mamba
+placement and trainable parameters are unchanged: one bidirectional block is
+inserted between SHARP history-attention blocks 2 and 3. The CUDA inputs are
+made contiguous and independent agent histories are padded to fixed batches of
+128 before both official fused kernels run. This avoids the variable
+agent-batch kernel fault without mixing agents or changing model semantics.
+
+Before the full four-GPU run, the launcher performs 32 real AV2 training
+batches on one GPU with synchronous CUDA error reporting. The full 80-epoch
+run starts only when that preflight passes. Use
+`Codes/TERMINAL_COMMANDS_TEMPORAL_AGENT_CHUNKED80.md` for the token-authenticated
+foreground launch and one-time `Terminal.txt` snapshot commands.
