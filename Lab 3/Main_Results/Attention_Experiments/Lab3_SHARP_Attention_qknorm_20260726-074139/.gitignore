@@ -1,0 +1,5 @@
+*.ckpt
+*.tar.gz
+*.log
+Terminal.txt
+*Token.txt

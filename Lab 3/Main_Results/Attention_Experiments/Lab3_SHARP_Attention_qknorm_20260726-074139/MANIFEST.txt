@@ -1,0 +1,13 @@
+variant=qknorm
+saved=2026-07-26T07:41:39+01:00
+training_exit_code=137
+code=/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm/Code
+results=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm
+epochs=80
+gpus=3
+batch_per_gpu=8
+global_batch=24
+seed=2333
+sync_batchnorm=true
+validation_log_batch_size=explicit_local_scenario_count
+baseline_rerun=false
