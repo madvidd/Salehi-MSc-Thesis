@@ -2,7 +2,7 @@ from typing import Optional
 
 import torch
 import torch.nn as nn
-from timm.models.layers import DropPath
+from timm.layers import DropPath
 from torch import Tensor
 
 

@@ -67,10 +67,24 @@ def write_runtime_patch(root: Path) -> Path:
     patch = root / "runtime_patch"
     patch.mkdir(parents=True)
     (patch / "sitecustomize.py").write_text(
+        "import warnings\n"
+        "\n"
         "import numpy as np\n"
         "for _name, _value in ((\"bool\", bool), (\"int\", int), (\"float\", float)):\n"
         "    if _name not in np.__dict__:\n"
         "        setattr(np, _name, _value)\n"
+        "warnings.filterwarnings(\n"
+        "    \"ignore\",\n"
+        "    message=r\"The 'repr' attribute with value False was provided.*\",\n"
+        ")\n"
+        "warnings.filterwarnings(\n"
+        "    \"ignore\",\n"
+        "    message=r\"The 'frozen' attribute with value True was provided.*\",\n"
+        ")\n"
+        "warnings.filterwarnings(\n"
+        "    \"ignore\",\n"
+        "    message=r\"No device id is provided via .*\",\n"
+        ")\n"
     )
     return patch
 
@@ -101,6 +115,12 @@ conda activate "$ENV"
 
 export CUDA_VISIBLE_DEVICES=0,1,2
 export PYTHONPATH="$PATCH:$CODE:${{PYTHONPATH:-}}"
+export PYTHONUTF8=1
+export PYTHONIOENCODING=utf-8
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
+export NO_COLOR=1
+export RICH_NO_COLOR=1
 export NCCL_DEBUG=WARN
 export NCCL_IB_DISABLE=1
 export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
