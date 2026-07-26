@@ -76,77 +76,47 @@ set +u
 set +o pipefail 2>/dev/null
 
 BASE=/home/server01/M
-RESULTS_POINTER="$BASE/Results/LATEST_SHARP_ATTENTION_ABLATION.txt"
+POINTER="$BASE/Results/LATEST_SHARP_ATTENTION_ABLATION.txt"
 DEST="$BASE/Terminal/Terminal.txt"
+
+RESULTS=$(tr -d '\r\n' < "$POINTER" 2>/dev/null)
+
+SOURCE=$(find "$RESULTS" -maxdepth 1 -type f \
+  -name "remaining_attention_suite_*.log" \
+  -printf "%T@ %p\n" 2>/dev/null |
+  sort -nr |
+  head -1 |
+  cut -d" " -f2-)
 
 mkdir -p "$(dirname "$DEST")"
 
-if [ ! -s "$RESULTS_POINTER" ]; then
-  echo "ERROR: results pointer not found:"
-  echo "$RESULTS_POINTER"
-else
-  RESULTS=$(tr -d '\r\n' < "$RESULTS_POINTER")
-
-  SUITE_LOG=$(find "$RESULTS" -maxdepth 1 \
-    -type f -name "remaining_attention_suite_*.log" \
-    -printf "%T@ %p\n" 2>/dev/null |
-    sort -nr |
-    head -1 |
-    cut -d' ' -f2-)
+if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
+  TEMP="$DEST.tmp"
 
   {
-    echo "Lab 3 remaining-attention terminal snapshot"
+    echo "Lab 3 hardened attention-suite terminal snapshot"
     echo "Saved: $(date)"
-    echo "Results root: $RESULTS"
-    echo "Suite log: $SUITE_LOG"
+    echo "Results: $RESULTS"
+    echo "Source: $SOURCE"
     echo
+    tr '\r' '\n' < "$SOURCE"
+  } > "$TEMP"
 
-    if [ -n "$SUITE_LOG" ] && [ -f "$SUITE_LOG" ]; then
-      echo "===== REMAINING ATTENTION SUITE ====="
-      tr '\r' '\n' < "$SUITE_LOG"
-      echo
-    fi
-
-    for VARIANT in qknorm talking_heads qknorm_talking_heads; do
-      echo "===== $VARIANT ====="
-
-      if [ -f "$RESULTS/$VARIANT/train.log" ]; then
-        echo "----- TRAINING LOG -----"
-        tr '\r' '\n' < "$RESULTS/$VARIANT/train.log"
-      fi
-
-      if [ -f "$RESULTS/$VARIANT/eval.log" ]; then
-        echo "----- EVALUATION LOG -----"
-        tr '\r' '\n' < "$RESULTS/$VARIANT/eval.log"
-      fi
-
-      if [ -f "$RESULTS/$VARIANT/metrics.json" ]; then
-        echo "----- METRICS -----"
-        cat "$RESULTS/$VARIANT/metrics.json"
-      fi
-
-      echo
-    done
-
-    echo "===== PRESERVED PARTIAL RUNS ====="
-    find "$RESULTS/preserved_partial_runs" -type f \
-      -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" \
-      2>/dev/null | sort
-    echo
-
-    echo "===== CHECKPOINTS ====="
-    find "$RESULTS" -name "*.ckpt" \
-      -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" \
-      2>/dev/null | sort
-
-  } > "$DEST"
-
+  mv -f "$TEMP" "$DEST"
   sync
 
-  echo "Saved one-time Lab 3 snapshot:"
+  echo "One-time terminal snapshot saved:"
   echo "$DEST"
   ls -lh "$DEST"
+  wc -l "$DEST"
+else
+  echo "ERROR: current attention-suite log was not found."
+  echo "Results directory: $RESULTS"
 fi
+
+echo
+echo "Training was not interrupted."
+echo "Terminal remains open."
 
 echo
 echo "Terminal remains open."
