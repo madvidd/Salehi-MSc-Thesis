@@ -1,35 +1,66 @@
 Lab 2:
 
+set +e
+set +u
+set +o pipefail 2>/dev/null
+
 BASE=/home/server00/M
-POINTER="$BASE/Results/LATEST_SHARP_AV2_MAMBA_FUSED80_RUN.txt"
-RUN=$(cat "$POINTER")
+POINTER="$BASE/Results/LATEST_SHARP_AV2_TEMPORAL_AGENT_MAMBA_ROTATIONFIX80_RUN.txt"
 DEST="$BASE/Terminal/Terminal.txt"
 
 mkdir -p "$(dirname "$DEST")"
 
-if [ -f "$RUN/full_run.log" ]; then
-  SOURCE="$RUN/full_run.log"
-elif [ -f "$RUN/train.log" ]; then
-  SOURCE="$RUN/train.log"
+if [ ! -s "$POINTER" ]; then
+  echo "ERROR: run pointer not found:"
+  echo "$POINTER"
 else
-  SOURCE=$(find "$RUN" -type f -name "*.log" -printf "%T@ %p\n" |
-    sort -nr | head -1 | cut -d" " -f2-)
-fi
+  RUN=$(tr -d '\r\n' < "$POINTER")
 
-echo "Run:    $RUN"
-echo "Source: $SOURCE"
+  {
+    echo "Lab 2 temporal-agent Mamba terminal snapshot"
+    echo "Saved: $(date)"
+    echo "Run: $RUN"
+    echo
 
-if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
-  tr '\r' '\n' < "$SOURCE" > "$DEST"
+    if [ -f "$RUN/RUN_SETTINGS.txt" ]; then
+      echo "===== RUN SETTINGS ====="
+      cat "$RUN/RUN_SETTINGS.txt"
+      echo
+    fi
+
+    if [ -f "$RUN/preflight/preflight.log" ]; then
+      echo "===== FOUR-GPU PREFLIGHT ====="
+      tr '\r' '\n' < "$RUN/preflight/preflight.log"
+      echo
+    fi
+
+    if [ -f "$RUN/full_run.log" ]; then
+      echo "===== FULL TRAINING ====="
+      tr '\r' '\n' < "$RUN/full_run.log"
+      echo
+    fi
+
+    echo "===== CHECKPOINTS ====="
+    find "$RUN" -name "*.ckpt" \
+      -printf "%TY-%Tm-%Td %TH:%TM  %s bytes  %p\n" |
+      sort
+  } > "$DEST"
+
   sync
 
-  echo "Saved one-time Lab 2 terminal snapshot:"
+  echo "Saved one-time snapshot:"
   echo "$DEST"
   ls -lh "$DEST"
-else
-  echo "ERROR: no training log was found under:"
-  echo "$RUN"
 fi
+
+echo
+echo "Terminal remains open."
+
+
+
+
+
+
 
 
 
