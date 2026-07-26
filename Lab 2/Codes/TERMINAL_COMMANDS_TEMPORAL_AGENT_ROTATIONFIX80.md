@@ -6,6 +6,8 @@ as the failed stable-CUDA run. The only numerical runtime change replaces the
 inverse of an explicitly orthogonal 2x2 rotation matrix with its exact transpose,
 so trajectory conversion no longer creates a cuSOLVER handle at epoch end.
 
+This is not an attention-ablation experiment: all original SHARP attention`ntypes and blocks remain unchanged. The attention-mask compatibility patch only`nresolves PyTorch dtype requirements.
+
 The package also updates deprecated timm imports, gives attention masks matching
 dtypes without changing masking semantics, and narrowly filters three known
 third-party compatibility warnings. CUDA, NCCL, data, and numerical warnings are
@@ -163,8 +165,9 @@ Before full training starts, the output must contain all of these markers:
 
 ```text
 ROTATION_TRANSPOSE_PATCH_ACTIVE=True
-ATTENTION_MASK_DTYPE_PATCH_ACTIVE=True
+ORIGINAL_SHARP_ATTENTION_MASK_COMPATIBILITY_ACTIVE=True
 DEPRECATED_TIMM_IMPORTS_PRESENT=False
+SHARP_MODEL_IMPORT_OK=True
 TEMPORAL_AGENT_MAMBA_SMOKE_TEST_OK
 MAMBA_ACTIVE=True
 CAUSAL_CONV_BACKEND=torch_cuda_cudnn_conv1d
