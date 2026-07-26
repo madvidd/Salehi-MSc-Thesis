@@ -94,10 +94,10 @@ if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
   TEMP="$DEST.tmp"
 
   {
-    echo "Lab 3 hardened attention-suite terminal snapshot"
+    echo "Lab 3 attention-suite terminal snapshot"
     echo "Saved: $(date)"
-    echo "Results: $RESULTS"
-    echo "Source: $SOURCE"
+    echo "Results root: $RESULTS"
+    echo "Source log: $SOURCE"
     echo
     tr '\r' '\n' < "$SOURCE"
   } > "$TEMP"
@@ -105,18 +105,15 @@ if [ -n "$SOURCE" ] && [ -f "$SOURCE" ]; then
   mv -f "$TEMP" "$DEST"
   sync
 
-  echo "One-time terminal snapshot saved:"
+  echo "Terminal snapshot saved:"
   echo "$DEST"
   ls -lh "$DEST"
   wc -l "$DEST"
 else
   echo "ERROR: current attention-suite log was not found."
-  echo "Results directory: $RESULTS"
+  echo "Results root: $RESULTS"
 fi
 
 echo
 echo "Training was not interrupted."
-echo "Terminal remains open."
-
-echo
 echo "Terminal remains open."
