@@ -354,9 +354,12 @@ for name in (
         raise SystemExit(f"Deprecated timm import remains in {{name}}")
     if "def _match_attention_mask_dtypes(" not in layer:
         raise SystemExit(f"Attention-mask dtype patch is missing from {{name}}")
+from src.model.sharp import Sharp
+
 print("ROTATION_TRANSPOSE_PATCH_ACTIVE=True")
-print("ATTENTION_MASK_DTYPE_PATCH_ACTIVE=True")
+print("ORIGINAL_SHARP_ATTENTION_MASK_COMPATIBILITY_ACTIVE=True")
 print("DEPRECATED_TIMM_IMPORTS_PRESENT=False")
+print("SHARP_MODEL_IMPORT_OK=True")
 PY
 
 # Verify the stable CUDA backend and temporal-agent Mamba before training.
@@ -586,8 +589,8 @@ def patch_common(code_dir: Path) -> None:
     attention_mask_helper = '''
 
 def _match_attention_mask_dtypes(
-    attn_mask: Optional[Tensor],
-    key_padding_mask: Optional[Tensor],
+    attn_mask: Optional[torch.Tensor],
+    key_padding_mask: Optional[torch.Tensor],
 ):
     """Return equivalent masks with the dtype contract required by PyTorch."""
     if (
@@ -914,7 +917,7 @@ def main() -> None:
         "blocks 2 and 3. It uses separate directions, d_state=8, d_conv=3, "
         "expand=1, dropout=0.1, per-channel LayerScale=0.01, fixed agent chunks of 128, contiguous CUDA inputs, CUDA/cuDNN nn.Conv1d instead of the unstable optional causal-conv extension, fused CUDA selective scan, and chronologically "
         "compacted valid observations.\n"
-        "Numerical runtime fix: because rot_mat is orthogonal, its exact inverse is computed as transpose without invoking cuSOLVER. Attention mask dtypes are matched without changing mask values or semantics. No other SHARP architecture component is replaced. No previous code, "
+        "Numerical runtime fix: because rot_mat is orthogonal, its exact inverse is computed as transpose without invoking cuSOLVER. Original SHARP attention mask dtypes are matched without changing mask values or semantics; no attention type is replaced. No other SHARP architecture component is replaced. No previous code, "
         "result, checkpoint, or dependency is modified or deleted.\n",
         encoding="utf-8",
     )
