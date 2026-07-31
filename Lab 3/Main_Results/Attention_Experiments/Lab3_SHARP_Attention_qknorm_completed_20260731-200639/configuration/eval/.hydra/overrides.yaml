@@ -1,0 +1,7 @@
+- seed=2333
+- gpus=3
+- batch_size=8
+- output_dir=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm/eval
+- checkpoint=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm/run/checkpoints/epoch_65-minADE6_0.6697766780853271.ckpt
+- datamodule.pl_module.data_root=/home/server01/M/Datasets/AV2/sharp_processed
+- datamodule.pl_module.num_workers=4

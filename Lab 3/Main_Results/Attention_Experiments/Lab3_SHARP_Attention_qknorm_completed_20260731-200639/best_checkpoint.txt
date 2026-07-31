@@ -1,0 +1,1 @@
+/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm/run/checkpoints/epoch_65-minADE6_0.6697766780853271.ckpt
