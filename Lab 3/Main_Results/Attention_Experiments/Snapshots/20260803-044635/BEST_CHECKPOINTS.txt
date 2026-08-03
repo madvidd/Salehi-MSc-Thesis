@@ -1,0 +1,15 @@
+[baseline_mha]
+checkpoint=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/baseline_mha_resume_20260720-201433/run/checkpoints/epoch_66-minADE6_0.6734600067138672.ckpt
+epoch=66
+minADE6=0.673460006714
+
+[qknorm]
+checkpoint=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm/run/checkpoints/epoch_65-minADE6_0.6697766780853271.ckpt
+epoch=65
+minADE6=0.669776678085
+
+[talking_heads]
+checkpoint=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/talking_heads/run/checkpoints/epoch_37-minADE6_0.71456378698349.ckpt
+epoch=37
+minADE6=0.714563786983
+
