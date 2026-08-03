@@ -1,0 +1,10 @@
+Lab 2 temporal-agent Mamba status
+Captured: 2026-08-03T04:52:28+01:00
+Run: /home/server00/M/Results/SHARP_AV2_TEMPORAL_AGENT_MAMBA_ROTATIONFIX80_20260726-073816/temporal_agent_mamba_rotationfix/20260726-073816
+
+===== ACTIVE PROCESSES =====
+No active matching process.
+
+===== GPU PROCESSES =====
+Failed to initialize NVML: Driver/library version mismatch
+NVML library version: 580.173

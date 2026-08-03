@@ -1,0 +1,3 @@
+checkpoint=/home/server00/M/Results/SHARP_AV2_TEMPORAL_AGENT_MAMBA_ROTATIONFIX80_20260726-073816/temporal_agent_mamba_rotationfix/20260726-073816/run/checkpoints/epoch_77-minADE6_0.6737359166145325.ckpt
+epoch=77
+minADE6=0.673735916615
