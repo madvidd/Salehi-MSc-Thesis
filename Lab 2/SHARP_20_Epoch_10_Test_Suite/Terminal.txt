@@ -1,11 +1,6 @@
-Lab 2 SHARP 20-Epoch 10-Test Suite
-Snapshot: 2026-08-05T03:12:48+01:00
-Experiment: /home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913
-Results: /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913
-
-SHARP_AV2_20EPOCH_10TEST_START=2026-08-05T02:59:13+01:00
-Experiment: /home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913
-Results:    /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913
+SHARP_AV2_20EPOCH_10TEST_START=2026-08-05T03:17:33+01:00
+Experiment: /home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-031733
+Results:    /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733
 Control: global batch 32, 13 warm-up epochs, LR 1e-4 to 1e-5, seed 2333
 Execution: four GPUs, per-GPU batch 8, six workers per process
 Running all-variant preflight checks...
@@ -37,12 +32,12 @@ VARIANT_PREFLIGHT_OK=agent_temporal_mamba parameters=4309723
 MAMBA_CUDA_SMOKE_OK shape=(32, 10, 128)
 ALL_TEN_VARIANTS_PREFLIGHT_OK=True
 STARTING_VARIANT=baseline
-[2026-08-05 02:59:23,812][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
+[2026-08-05 03:17:43,685][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/01_baseline/run
 Seed set to 2333
-[2026-08-05 02:59:23,813][__main__][INFO] - Global Seed set to 2333
+[2026-08-05 03:17:43,686][__main__][INFO] - Global Seed set to 2333
 ['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
 SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 02:59:25,195][__main__][INFO] - StreamLightningModule(
+[2026-08-05 03:17:45,200][__main__][INFO] - StreamLightningModule(
   (model): Sharp(
     (h_proj): Linear(in_features=5, out_features=128, bias=True)
     (h_embed): ModuleList(
@@ -458,18 +453,19 @@ GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 HPU available: False, using: 0 HPUs
 Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/4
-[2026-08-05 02:59:27,852][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
-[rank: 1] Seed set to 2333
-[2026-08-05 02:59:27,853][__main__][INFO] - Global Seed set to 2333
-[2026-08-05 02:59:27,867][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
+[2026-08-05 03:17:47,875][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/01_baseline/run
 [rank: 2] Seed set to 2333
-[2026-08-05 02:59:27,868][__main__][INFO] - Global Seed set to 2333
-[2026-08-05 02:59:27,912][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
+[2026-08-05 03:17:47,876][__main__][INFO] - Global Seed set to 2333
+[2026-08-05 03:17:47,883][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/01_baseline/run
+[rank: 1] Seed set to 2333
+[2026-08-05 03:17:47,885][__main__][INFO] - Global Seed set to 2333
+[2026-08-05 03:17:47,911][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/01_baseline/run
 [rank: 3] Seed set to 2333
-[2026-08-05 02:59:27,913][__main__][INFO] - Global Seed set to 2333
+[2026-08-05 03:17:47,912][__main__][INFO] - Global Seed set to 2333
 ['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
 SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 02:59:29,297][__main__][INFO] - StreamLightningModule(
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+[2026-08-05 03:17:49,285][__main__][INFO] - StreamLightningModule(
   (model): Sharp(
     (h_proj): Linear(in_features=5, out_features=128, bias=True)
     (h_embed): ModuleList(
@@ -880,9 +876,10 @@ SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
     (minFDE6): minFDE()
   )
 )
+SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
 ['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
 SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 02:59:29,348][__main__][INFO] - StreamLightningModule(
+[2026-08-05 03:17:49,308][__main__][INFO] - StreamLightningModule(
   (model): Sharp(
     (h_proj): Linear(in_features=5, out_features=128, bias=True)
     (h_embed): ModuleList(
@@ -1293,9 +1290,7 @@ SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
     (minFDE6): minFDE()
   )
 )
-['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
-SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 02:59:29,560][__main__][INFO] - StreamLightningModule(
+[2026-08-05 03:17:49,328][__main__][INFO] - StreamLightningModule(
   (model): Sharp(
     (h_proj): Linear(in_features=5, out_features=128, bias=True)
     (h_embed): ModuleList(
@@ -1707,42 +1702,42 @@ SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
   )
 )
 Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/4
-Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
 Initializing distributed: GLOBAL_RANK: 2, MEMBER: 3/4
+Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
 ----------------------------------------------------------------------------------------------------
 distributed_backend=nccl
 All distributed processes registered. Starting with 4 processes
 ----------------------------------------------------------------------------------------------------
 
 NCCL version 2.27.3+cuda12.9
-SPLIT POINTS:SPLIT POINTS:SPLIT POINTS:   [10, 20, 30, 40, 50][10, 20, 30, 40, 50]
-
-[10, 20, 30, 40, 50]
+SPLIT POINTS: SPLIT POINTS:[10, 20, 30, 40, 50]
+ SPLIT POINTS:[10, 20, 30, 40, 50]
+ [10, 20, 30, 40, 50]
 SPLIT POINTS: [10, 20, 30, 40, 50]
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,618][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+[2026-08-05 03:17:52,587][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
 SPLIT POINTS: [10, 20, 30, 40, 50]
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,634][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+[2026-08-05 03:17:52,588][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
 SPLIT POINTS: [10, 20, 30, 40, 50]
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,634][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+[2026-08-05 03:17:52,600][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
 SPLIT POINTS: [10, 20, 30, 40, 50]
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,648][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+[2026-08-05 03:17:52,648][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
 SPLIT POINTS: [10, 20, 30, 40, 50]
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,770][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+[2026-08-05 03:17:52,740][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,787][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+[2026-08-05 03:17:52,742][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,788][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+[2026-08-05 03:17:52,755][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
 AV2 DS SETTINGS: 10 100
-[2026-08-05 02:59:32,801][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
-LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+[2026-08-05 03:17:52,799][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
 LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
-LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
 ┏━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┓
 ┃   ┃ Name    ┃ Type             ┃ Params ┃ Mode  ┃
 ┡━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━┩
@@ -1759,2281 +1754,751 @@ Modules in eval mode: 0
 Training: |          | 0/? [00:00<?, ?it/s]
 Training:   0%|          | 0/6248 [00:00<?, ?it/s]
 Epoch 0:   0%|          | 0/6248 [00:00<?, ?it/s] 
-Epoch 0:   0%|          | 1/6248 [00:02<4:25:23,  0.39it/s]
-Epoch 0:   0%|          | 1/6248 [00:02<4:25:30,  0.39it/s, v_num=0]
-Epoch 0:   0%|          | 2/6248 [00:03<2:47:10,  0.62it/s, v_num=0]
-Epoch 0:   0%|          | 2/6248 [00:03<2:47:12,  0.62it/s, v_num=0]
-Epoch 0:   0%|          | 3/6248 [00:03<2:12:15,  0.79it/s, v_num=0]
-Epoch 0:   0%|          | 3/6248 [00:03<2:12:16,  0.79it/s, v_num=0]
-Epoch 0:   0%|          | 4/6248 [00:04<1:54:36,  0.91it/s, v_num=0]
-Epoch 0:   0%|          | 4/6248 [00:04<1:54:36,  0.91it/s, v_num=0]
-Epoch 0:   0%|          | 5/6248 [00:04<1:43:55,  1.00it/s, v_num=0]
-Epoch 0:   0%|          | 5/6248 [00:04<1:43:56,  1.00it/s, v_num=0]
-Epoch 0:   0%|          | 6/6248 [00:05<1:36:04,  1.08it/s, v_num=0]
-Epoch 0:   0%|          | 6/6248 [00:05<1:36:05,  1.08it/s, v_num=0]
-Epoch 0:   0%|          | 7/6248 [00:06<1:30:57,  1.14it/s, v_num=0]
-Epoch 0:   0%|          | 7/6248 [00:06<1:30:57,  1.14it/s, v_num=0]
-Epoch 0:   0%|          | 8/6248 [00:06<1:27:11,  1.19it/s, v_num=0]
-Epoch 0:   0%|          | 8/6248 [00:06<1:27:11,  1.19it/s, v_num=0]
-Epoch 0:   0%|          | 9/6248 [00:07<1:24:36,  1.23it/s, v_num=0]
-Epoch 0:   0%|          | 9/6248 [00:07<1:24:37,  1.23it/s, v_num=0]
-Epoch 0:   0%|          | 10/6248 [00:07<1:22:32,  1.26it/s, v_num=0]
-Epoch 0:   0%|          | 10/6248 [00:07<1:22:32,  1.26it/s, v_num=0]
-Epoch 0:   0%|          | 11/6248 [00:08<1:20:54,  1.28it/s, v_num=0]
-Epoch 0:   0%|          | 11/6248 [00:08<1:20:54,  1.28it/s, v_num=0]
-Epoch 0:   0%|          | 12/6248 [00:09<1:19:22,  1.31it/s, v_num=0]
-Epoch 0:   0%|          | 12/6248 [00:09<1:19:22,  1.31it/s, v_num=0]
-Epoch 0:   0%|          | 13/6248 [00:09<1:18:05,  1.33it/s, v_num=0]
-Epoch 0:   0%|          | 13/6248 [00:09<1:18:05,  1.33it/s, v_num=0]
-Epoch 0:   0%|          | 14/6248 [00:10<1:16:46,  1.35it/s, v_num=0]
-Epoch 0:   0%|          | 14/6248 [00:10<1:16:46,  1.35it/s, v_num=0]
-Epoch 0:   0%|          | 15/6248 [00:10<1:15:56,  1.37it/s, v_num=0]
-Epoch 0:   0%|          | 15/6248 [00:10<1:15:56,  1.37it/s, v_num=0]
-Epoch 0:   0%|          | 16/6248 [00:11<1:15:00,  1.38it/s, v_num=0]
-Epoch 0:   0%|          | 16/6248 [00:11<1:15:00,  1.38it/s, v_num=0]
-Epoch 0:   0%|          | 17/6248 [00:12<1:14:15,  1.40it/s, v_num=0]
-Epoch 0:   0%|          | 17/6248 [00:12<1:14:15,  1.40it/s, v_num=0]
-Epoch 0:   0%|          | 18/6248 [00:12<1:13:31,  1.41it/s, v_num=0]
-Epoch 0:   0%|          | 18/6248 [00:12<1:13:31,  1.41it/s, v_num=0]
-Epoch 0:   0%|          | 19/6248 [00:13<1:12:51,  1.42it/s, v_num=0]
-Epoch 0:   0%|          | 19/6248 [00:13<1:12:52,  1.42it/s, v_num=0]
-Epoch 0:   0%|          | 20/6248 [00:13<1:12:21,  1.43it/s, v_num=0]
-Epoch 0:   0%|          | 20/6248 [00:13<1:12:21,  1.43it/s, v_num=0]
-Epoch 0:   0%|          | 21/6248 [00:14<1:11:37,  1.45it/s, v_num=0]
-Epoch 0:   0%|          | 21/6248 [00:14<1:11:37,  1.45it/s, v_num=0]
-Epoch 0:   0%|          | 22/6248 [00:15<1:11:06,  1.46it/s, v_num=0]
-Epoch 0:   0%|          | 22/6248 [00:15<1:11:06,  1.46it/s, v_num=0]
-Epoch 0:   0%|          | 23/6248 [00:15<1:10:40,  1.47it/s, v_num=0]
-Epoch 0:   0%|          | 23/6248 [00:15<1:10:40,  1.47it/s, v_num=0]
-Epoch 0:   0%|          | 24/6248 [00:16<1:10:19,  1.48it/s, v_num=0]
-Epoch 0:   0%|          | 24/6248 [00:16<1:10:19,  1.47it/s, v_num=0]
-Epoch 0:   0%|          | 25/6248 [00:16<1:10:05,  1.48it/s, v_num=0]
-Epoch 0:   0%|          | 25/6248 [00:16<1:10:05,  1.48it/s, v_num=0]
-Epoch 0:   0%|          | 26/6248 [00:17<1:09:39,  1.49it/s, v_num=0]
-Epoch 0:   0%|          | 26/6248 [00:17<1:09:39,  1.49it/s, v_num=0]
-Epoch 0:   0%|          | 27/6248 [00:18<1:09:18,  1.50it/s, v_num=0]
-Epoch 0:   0%|          | 27/6248 [00:18<1:09:18,  1.50it/s, v_num=0]
-Epoch 0:   0%|          | 28/6248 [00:18<1:09:07,  1.50it/s, v_num=0]
-Epoch 0:   0%|          | 28/6248 [00:18<1:09:07,  1.50it/s, v_num=0]
-Epoch 0:   0%|          | 29/6248 [00:19<1:08:52,  1.51it/s, v_num=0]
-Epoch 0:   0%|          | 29/6248 [00:19<1:08:52,  1.50it/s, v_num=0]
-Epoch 0:   0%|          | 30/6248 [00:19<1:08:33,  1.51it/s, v_num=0]
-Epoch 0:   0%|          | 30/6248 [00:19<1:08:34,  1.51it/s, v_num=0]
-Epoch 0:   0%|          | 31/6248 [00:20<1:08:15,  1.52it/s, v_num=0]
-Epoch 0:   0%|          | 31/6248 [00:20<1:08:15,  1.52it/s, v_num=0]
-Epoch 0:   1%|          | 32/6248 [00:21<1:08:07,  1.52it/s, v_num=0]
-Epoch 0:   1%|          | 32/6248 [00:21<1:08:07,  1.52it/s, v_num=0]
-Epoch 0:   1%|          | 33/6248 [00:21<1:07:56,  1.52it/s, v_num=0]
-Epoch 0:   1%|          | 33/6248 [00:21<1:07:56,  1.52it/s, v_num=0]
-Epoch 0:   1%|          | 34/6248 [00:22<1:07:39,  1.53it/s, v_num=0]
-Epoch 0:   1%|          | 34/6248 [00:22<1:07:40,  1.53it/s, v_num=0]
-Epoch 0:   1%|          | 35/6248 [00:22<1:07:24,  1.54it/s, v_num=0]
-Epoch 0:   1%|          | 35/6248 [00:22<1:07:24,  1.54it/s, v_num=0]
-Epoch 0:   1%|          | 36/6248 [00:23<1:07:12,  1.54it/s, v_num=0]
-Epoch 0:   1%|          | 36/6248 [00:23<1:07:12,  1.54it/s, v_num=0]
-Epoch 0:   1%|          | 37/6248 [00:23<1:06:56,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 37/6248 [00:23<1:06:56,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 38/6248 [00:24<1:06:45,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 38/6248 [00:24<1:06:45,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 39/6248 [00:25<1:06:37,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 39/6248 [00:25<1:06:37,  1.55it/s, v_num=0]
-Epoch 0:   1%|          | 40/6248 [00:25<1:06:27,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 40/6248 [00:25<1:06:27,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 41/6248 [00:26<1:06:16,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 41/6248 [00:26<1:06:16,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 42/6248 [00:26<1:06:11,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 42/6248 [00:26<1:06:11,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 43/6248 [00:27<1:06:08,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 43/6248 [00:27<1:06:08,  1.56it/s, v_num=0]
-Epoch 0:   1%|          | 44/6248 [00:28<1:05:57,  1.57it/s, v_num=0]
-Epoch 0:   1%|          | 44/6248 [00:28<1:05:57,  1.57it/s, v_num=0]
-Epoch 0:   1%|          | 45/6248 [00:28<1:05:44,  1.57it/s, v_num=0]
-Epoch 0:   1%|          | 45/6248 [00:28<1:05:44,  1.57it/s, v_num=0]
-Epoch 0:   1%|          | 46/6248 [00:29<1:05:36,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 46/6248 [00:29<1:05:36,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 47/6248 [00:29<1:05:26,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 47/6248 [00:29<1:05:26,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 48/6248 [00:30<1:05:17,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 48/6248 [00:30<1:05:17,  1.58it/s, v_num=0]
-Epoch 0:   1%|          | 49/6248 [00:30<1:05:10,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 49/6248 [00:30<1:05:10,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 50/6248 [00:31<1:04:58,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 50/6248 [00:31<1:04:58,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 51/6248 [00:32<1:04:50,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 51/6248 [00:32<1:04:50,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 52/6248 [00:32<1:04:45,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 52/6248 [00:32<1:04:45,  1.59it/s, v_num=0]
-Epoch 0:   1%|          | 53/6248 [00:33<1:04:34,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 53/6248 [00:33<1:04:34,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 54/6248 [00:33<1:04:32,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 54/6248 [00:33<1:04:33,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 55/6248 [00:34<1:04:22,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 55/6248 [00:34<1:04:22,  1.60it/s, v_num=0]
-Epoch 0:   1%|          | 56/6248 [00:34<1:04:16,  1.61it/s, v_num=0]
-Epoch 0:   1%|          | 56/6248 [00:34<1:04:16,  1.61it/s, v_num=0]Error executing job with overrides: ['seed=2333', 'gpus=4', 'epochs=20', 'batch_size=8', 'output_dir=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run', 'datamodule.pl_module.data_root=/home/server00/M/Datasets/AV2/sharp_processed', 'datamodule.pl_module.num_workers=6', 'model.pl_module.optim.lr=0.0001', 'model.pl_module.optim.min_lr=0.00001', 'model.pl_module.optim.weight_decay=0.01', 'model.pl_module.optim.warmup_ratio=0.65', 'trainer.devices=4', 'trainer.strategy=ddp_find_unused_parameters_false', 'trainer.gradient_clip_val=5', 'trainer.gradient_clip_algorithm=norm', 'trainer.sync_batchnorm=true', 'trainer.num_sanity_val_steps=0', 'callbacks.0.save_top_k=-1', 'callbacks.0.save_last=true', 'callbacks.0.every_n_epochs=1', 'checkpoint=null']
-Traceback (most recent call last):
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 46, in _call_and_handle_interrupt
-    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
-    return function(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 574, in _fit_impl
-    self._run(model, ckpt_path=ckpt_path)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 981, in _run
-    results = self._run_stage()
-              ^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1025, in _run_stage
-    self.fit_loop.run()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
-    self.advance()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
-    self.epoch_loop.run(self._data_fetcher)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
-    self.advance(data_fetcher)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
-    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
-    self._optimizer_step(batch_idx, closure)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
-    call._call_lightning_module_hook(
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 167, in _call_lightning_module_hook
-    output = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1306, in optimizer_step
-    optimizer.step(closure=optimizer_closure)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
-    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 270, in optimizer_step
-    optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
-    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
-    return optimizer.step(closure=closure, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
-    return func.__get__(opt, opt.__class__)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 516, in wrapper
-    out = func(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
-    ret = func(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/adam.py", line 226, in step
-    loss = closure()
-           ^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
-    closure_result = closure()
-                     ^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
-    self._result = self.closure(*args, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 129, in closure
-    step_output = self._step_fn()
-                  ^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 317, in _training_step
-    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 319, in _call_strategy_hook
-    output = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 389, in training_step
-    return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 640, in __call__
-    wrapper_output = wrapper_module(*args, **kwargs)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1648, in forward
-    else self._run_ddp_forward(*inputs, **kwargs)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1474, in _run_ddp_forward
-    return self.module(*inputs, **kwargs)  # type: ignore[index]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 633, in wrapped_forward
-    out = method(*_args, **_kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/src/model/pl_modules.py", line 375, in training_step
-    cur_loss, cur_loss_dict = self.cal_loss(out, cur_data, tag=f'step{i + num_no_grad_frames}_')
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/src/model/pl_modules.py", line 129, in cal_loss
-    y_hat_best = y_hat[torch.arange(y_hat.shape[0]), best_mode]
-                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.AcceleratorError: CUDA error: an illegal memory access was encountered
-CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/train.py", line 54, in main
-    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 538, in fit
-    call._call_and_handle_interrupt(
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 68, in _call_and_handle_interrupt
-    trainer._teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1004, in _teardown
-    self.strategy.teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 419, in teardown
-    super().teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/parallel.py", line 133, in teardown
-    super().teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 531, in teardown
-    _optimizers_to_device(self.optimizers, torch.device("cpu"))
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/optimizer.py", line 28, in _optimizers_to_device
-    _optimizer_to_device(opt, device)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/optimizer.py", line 42, in _optimizer_to_device
-    v[key] = move_data_to_device(val, device)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/apply_func.py", line 110, in move_data_to_device
-    return apply_to_collection(batch, dtype=_TransferableDataType, function=batch_to)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_utilities/core/apply_func.py", line 70, in apply_to_collection
-    return function(data, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/apply_func.py", line 104, in batch_to
-    data_output = data.to(device, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.AcceleratorError: CUDA error: an illegal memory access was encountered
-CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
-
-[2026-08-05 03:00:38] server00:962315:977929 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
-
-[2026-08-05 03:00:38] server00:962315:977929 [2] init.cc:2018 NCCL WARN commDestroySync: comm 0x5b1004837f00 rank 2 sync hostStream error 1
-
-
-[2026-08-05 03:00:38] server00:962315:977929 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
-
-[2026-08-05 03:00:38] server00:962315:977929 [2] init.cc:2021 NCCL WARN commDestroySync: comm 0x5b1004837f00 rank 2 sync deviceStream error 1
-
-SHARP_AV2_20EPOCH_10TEST_START=2026-08-05T03:11:28+01:00
-Experiment: /home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913
-Results:    /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913
-Control: global batch 32, 13 warm-up epochs, LR 1e-4 to 1e-5, seed 2333
-Execution: four GPUs, per-GPU batch 8, six workers per process
-STARTING_VARIANT=baseline
-[2026-08-05 03:11:31,522][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
-Seed set to 2333
-[2026-08-05 03:11:31,523][__main__][INFO] - Global Seed set to 2333
-['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
-SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 03:11:33,021][__main__][INFO] - StreamLightningModule(
-  (model): Sharp(
-    (h_proj): Linear(in_features=5, out_features=128, bias=True)
-    (h_embed): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (lane_embed): LaneEmbeddingLayer(
-      (first_conv): Sequential(
-        (0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
-      )
-      (second_conv): Sequential(
-        (0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
-      )
-    )
-    (pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-    (decoder): MultimodalDecoder(
-      (lane_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (target_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (pi): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=1, bias=True)
-      )
-      (loc): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=200, bias=True)
-      )
-      (pi_norm): Softmax(dim=-1)
-      (mode_embed): Embedding(6, 128)
-    )
-    (dense_predictor): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=200, bias=True)
-    )
-    (scene_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (traj_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (stream_loc): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=128, bias=True)
-      (3): ReLU()
-      (4): Linear(in_features=128, out_features=200, bias=True)
-    )
-    (traj_embed): Sequential(
-      (0): Linear(in_features=200, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_center_embed): Sequential(
-      (0): Linear(in_features=2, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-  )
-  (metrics): MetricCollection(
-    (MR): MR()
-    (b-minFDE6): brier_minFDE()
-    (minADE1): minADE()
-    (minADE6): minADE()
-    (minFDE1): minFDE()
-    (minFDE6): minFDE()
-  )
-)
-Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-HPU available: False, using: 0 HPUs
-Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/4
-[2026-08-05 03:11:35,666][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
-[rank: 3] Seed set to 2333
-[2026-08-05 03:11:35,668][__main__][INFO] - Global Seed set to 2333
-[2026-08-05 03:11:35,690][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
-[rank: 1] Seed set to 2333
-[2026-08-05 03:11:35,692][__main__][INFO] - Global Seed set to 2333
-[2026-08-05 03:11:35,692][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run
-[rank: 2] Seed set to 2333
-[2026-08-05 03:11:35,694][__main__][INFO] - Global Seed set to 2333
-['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
-SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 03:11:37,094][__main__][INFO] - StreamLightningModule(
-  (model): Sharp(
-    (h_proj): Linear(in_features=5, out_features=128, bias=True)
-    (h_embed): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (lane_embed): LaneEmbeddingLayer(
-      (first_conv): Sequential(
-        (0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
-      )
-      (second_conv): Sequential(
-        (0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
-      )
-    )
-    (pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-    (decoder): MultimodalDecoder(
-      (lane_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (target_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (pi): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=1, bias=True)
-      )
-      (loc): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=200, bias=True)
-      )
-      (pi_norm): Softmax(dim=-1)
-      (mode_embed): Embedding(6, 128)
-    )
-    (dense_predictor): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=200, bias=True)
-    )
-    (scene_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (traj_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (stream_loc): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=128, bias=True)
-      (3): ReLU()
-      (4): Linear(in_features=128, out_features=200, bias=True)
-    )
-    (traj_embed): Sequential(
-      (0): Linear(in_features=200, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_center_embed): Sequential(
-      (0): Linear(in_features=2, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-  )
-  (metrics): MetricCollection(
-    (MR): MR()
-    (b-minFDE6): brier_minFDE()
-    (minADE1): minADE()
-    (minADE6): minADE()
-    (minFDE1): minFDE()
-    (minFDE6): minFDE()
-  )
-)
-['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
-SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 03:11:37,124][__main__][INFO] - StreamLightningModule(
-  (model): Sharp(
-    (h_proj): Linear(in_features=5, out_features=128, bias=True)
-    (h_embed): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (lane_embed): LaneEmbeddingLayer(
-      (first_conv): Sequential(
-        (0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
-      )
-      (second_conv): Sequential(
-        (0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
-      )
-    )
-    (pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-    (decoder): MultimodalDecoder(
-      (lane_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (target_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (pi): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=1, bias=True)
-      )
-      (loc): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=200, bias=True)
-      )
-      (pi_norm): Softmax(dim=-1)
-      (mode_embed): Embedding(6, 128)
-    )
-    (dense_predictor): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=200, bias=True)
-    )
-    (scene_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (traj_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (stream_loc): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=128, bias=True)
-      (3): ReLU()
-      (4): Linear(in_features=128, out_features=200, bias=True)
-    )
-    (traj_embed): Sequential(
-      (0): Linear(in_features=200, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_center_embed): Sequential(
-      (0): Linear(in_features=2, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-  )
-  (metrics): MetricCollection(
-    (MR): MR()
-    (b-minFDE6): brier_minFDE()
-    (minADE1): minADE()
-    (minADE6): minADE()
-    (minFDE1): minFDE()
-    (minFDE6): minFDE()
-  )
-)
-['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
-SHARP_20EPOCH_VARIANT=baseline TRAINABLE_PARAMETERS=4635611
-[2026-08-05 03:11:37,226][__main__][INFO] - StreamLightningModule(
-  (model): Sharp(
-    (h_proj): Linear(in_features=5, out_features=128, bias=True)
-    (h_embed): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.0, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.0, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (lane_embed): LaneEmbeddingLayer(
-      (first_conv): Sequential(
-        (0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
-      )
-      (second_conv): Sequential(
-        (0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
-        (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-        (2): ReLU(inplace=True)
-        (3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
-      )
-    )
-    (pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.067)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.067)
-      )
-      (2): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.133)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.133)
-      )
-      (3): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-    (decoder): MultimodalDecoder(
-      (lane_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (target_blks): ModuleList(
-        (0): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): Identity()
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): Identity()
-        )
-        (1): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.100)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.100)
-        )
-        (2): Block(
-          (normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.0, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.0, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-      (pi): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=1, bias=True)
-      )
-      (loc): Sequential(
-        (0): Linear(in_features=128, out_features=256, bias=True)
-        (1): ReLU()
-        (2): Linear(in_features=256, out_features=200, bias=True)
-      )
-      (pi_norm): Softmax(dim=-1)
-      (mode_embed): Embedding(6, 128)
-    )
-    (dense_predictor): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=200, bias=True)
-    )
-    (scene_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (traj_interact): InteractionModule(
-      (mln): MLN(
-        (reduce): Sequential(
-          (0): Linear(in_features=48, out_features=128, bias=True)
-          (1): ReLU()
-        )
-        (gamma): Linear(in_features=128, out_features=128, bias=True)
-        (beta): Linear(in_features=128, out_features=128, bias=True)
-        (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
-      )
-      (inter_blocks): ModuleList(
-        (0-1): 2 x InterBlock(
-          (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (attn): MultiheadAttention(
-            (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-          )
-          (drop_path1): DropPath(drop_prob=0.200)
-          (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-          (mlp): Mlp(
-            (fc1): Linear(in_features=128, out_features=512, bias=True)
-            (act): GELU(approximate='none')
-            (drop1): Dropout(p=0.2, inplace=False)
-            (fc2): Linear(in_features=512, out_features=128, bias=True)
-            (drop2): Dropout(p=0.2, inplace=False)
-          )
-          (drop_path2): DropPath(drop_prob=0.200)
-        )
-      )
-    )
-    (stream_loc): Sequential(
-      (0): Linear(in_features=128, out_features=256, bias=True)
-      (1): ReLU()
-      (2): Linear(in_features=256, out_features=128, bias=True)
-      (3): ReLU()
-      (4): Linear(in_features=128, out_features=200, bias=True)
-    )
-    (traj_embed): Sequential(
-      (0): Linear(in_features=200, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_pos_embed): Sequential(
-      (0): Linear(in_features=4, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_center_embed): Sequential(
-      (0): Linear(in_features=2, out_features=128, bias=True)
-      (1): GELU(approximate='none')
-      (2): Linear(in_features=128, out_features=128, bias=True)
-    )
-    (target_blocks): ModuleList(
-      (0): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): Identity()
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): Identity()
-      )
-      (1): Block(
-        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (attn): MultiheadAttention(
-          (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
-        )
-        (drop_path1): DropPath(drop_prob=0.200)
-        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-        (mlp): Mlp(
-          (fc1): Linear(in_features=128, out_features=512, bias=True)
-          (act): GELU(approximate='none')
-          (drop1): Dropout(p=0.2, inplace=False)
-          (fc2): Linear(in_features=512, out_features=128, bias=True)
-          (drop2): Dropout(p=0.2, inplace=False)
-        )
-        (drop_path2): DropPath(drop_prob=0.200)
-      )
-    )
-    (target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
-  )
-  (metrics): MetricCollection(
-    (MR): MR()
-    (b-minFDE6): brier_minFDE()
-    (minADE1): minADE()
-    (minADE6): minADE()
-    (minFDE1): minFDE()
-    (minFDE6): minFDE()
-  )
-)
-Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
-Initializing distributed: GLOBAL_RANK: 2, MEMBER: 3/4
-Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/4
-----------------------------------------------------------------------------------------------------
-distributed_backend=nccl
-All distributed processes registered. Starting with 4 processes
-----------------------------------------------------------------------------------------------------
-
-NCCL version 2.27.3+cuda12.9
-SPLIT POINTS: SPLIT POINTS:SPLIT POINTS:[10, 20, 30, 40, 50]
-  [10, 20, 30, 40, 50][10, 20, 30, 40, 50]
-
-SPLIT POINTS: [10, 20, 30, 40, 50]
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,395][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
-SPLIT POINTS: [10, 20, 30, 40, 50]
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,409][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
-SPLIT POINTS: [10, 20, 30, 40, 50]
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,420][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
-SPLIT POINTS: [10, 20, 30, 40, 50]
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,445][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
-SPLIT POINTS: [10, 20, 30, 40, 50]
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,550][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,566][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,575][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
-AV2 DS SETTINGS: 10 100
-[2026-08-05 03:11:40,599][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
-LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
-LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
-LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
-┏━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┓
-┃   ┃ Name    ┃ Type             ┃ Params ┃ Mode  ┃
-┡━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━┩
-│ 0 │ model   │ Sharp            │  4.6 M │ train │
-│ 1 │ metrics │ MetricCollection │      0 │ train │
-└───┴─────────┴──────────────────┴────────┴───────┘
-Trainable params: 4.6 M                                                                                                            
-Non-trainable params: 0                                                                                                            
-Total params: 4.6 M                                                                                                                
-Total estimated model params size (MB): 18                                                                                         
-Modules in train mode: 354                                                                                                         
-Modules in eval mode: 0                                                                                                            
-
-Training: |          | 0/? [00:00<?, ?it/s]
-Training:   0%|          | 0/6248 [00:00<?, ?it/s]
-Epoch 0:   0%|          | 0/6248 [00:00<?, ?it/s] 
-Epoch 0:   0%|          | 1/6248 [00:02<4:08:43,  0.42it/s]
-Epoch 0:   0%|          | 1/6248 [00:02<4:08:50,  0.42it/s, v_num=1]
-Epoch 0:   0%|          | 2/6248 [00:03<2:42:34,  0.64it/s, v_num=1]
-Epoch 0:   0%|          | 2/6248 [00:03<2:42:35,  0.64it/s, v_num=1]
-Epoch 0:   0%|          | 3/6248 [00:03<2:09:06,  0.81it/s, v_num=1]
-Epoch 0:   0%|          | 3/6248 [00:03<2:09:06,  0.81it/s, v_num=1]
-Epoch 0:   0%|          | 4/6248 [00:04<1:52:48,  0.92it/s, v_num=1]
-Epoch 0:   0%|          | 4/6248 [00:04<1:52:49,  0.92it/s, v_num=1]
-Epoch 0:   0%|          | 5/6248 [00:04<1:42:11,  1.02it/s, v_num=1]
-Epoch 0:   0%|          | 5/6248 [00:04<1:42:11,  1.02it/s, v_num=1]
-Epoch 0:   0%|          | 6/6248 [00:05<1:35:11,  1.09it/s, v_num=1]
-Epoch 0:   0%|          | 6/6248 [00:05<1:35:11,  1.09it/s, v_num=1]
-Epoch 0:   0%|          | 7/6248 [00:06<1:30:09,  1.15it/s, v_num=1]
-Epoch 0:   0%|          | 7/6248 [00:06<1:30:10,  1.15it/s, v_num=1]
-Epoch 0:   0%|          | 8/6248 [00:06<1:26:23,  1.20it/s, v_num=1]
-Epoch 0:   0%|          | 8/6248 [00:06<1:26:23,  1.20it/s, v_num=1]
-Epoch 0:   0%|          | 9/6248 [00:07<1:23:43,  1.24it/s, v_num=1]
-Epoch 0:   0%|          | 9/6248 [00:07<1:23:43,  1.24it/s, v_num=1]
-Epoch 0:   0%|          | 10/6248 [00:07<1:22:10,  1.27it/s, v_num=1]
-Epoch 0:   0%|          | 10/6248 [00:07<1:22:11,  1.27it/s, v_num=1]
-Epoch 0:   0%|          | 11/6248 [00:08<1:20:19,  1.29it/s, v_num=1]
-Epoch 0:   0%|          | 11/6248 [00:08<1:20:19,  1.29it/s, v_num=1]
-Epoch 0:   0%|          | 12/6248 [00:09<1:18:48,  1.32it/s, v_num=1]
-Epoch 0:   0%|          | 12/6248 [00:09<1:18:49,  1.32it/s, v_num=1]
-Epoch 0:   0%|          | 13/6248 [00:09<1:17:54,  1.33it/s, v_num=1]
-Epoch 0:   0%|          | 13/6248 [00:09<1:17:54,  1.33it/s, v_num=1]
-Epoch 0:   0%|          | 14/6248 [00:10<1:17:04,  1.35it/s, v_num=1]
-Epoch 0:   0%|          | 14/6248 [00:10<1:17:04,  1.35it/s, v_num=1]
-Epoch 0:   0%|          | 15/6248 [00:11<1:16:15,  1.36it/s, v_num=1]
-Epoch 0:   0%|          | 15/6248 [00:11<1:16:15,  1.36it/s, v_num=1]
-Epoch 0:   0%|          | 16/6248 [00:11<1:15:16,  1.38it/s, v_num=1]
-Epoch 0:   0%|          | 16/6248 [00:11<1:15:16,  1.38it/s, v_num=1]
-Epoch 0:   0%|          | 17/6248 [00:12<1:14:23,  1.40it/s, v_num=1]
-Epoch 0:   0%|          | 17/6248 [00:12<1:14:23,  1.40it/s, v_num=1]
-Epoch 0:   0%|          | 18/6248 [00:12<1:13:19,  1.42it/s, v_num=1]
-Epoch 0:   0%|          | 18/6248 [00:12<1:13:19,  1.42it/s, v_num=1]
-Epoch 0:   0%|          | 19/6248 [00:13<1:12:43,  1.43it/s, v_num=1]
-Epoch 0:   0%|          | 19/6248 [00:13<1:12:43,  1.43it/s, v_num=1]
-Epoch 0:   0%|          | 20/6248 [00:13<1:12:12,  1.44it/s, v_num=1]
-Epoch 0:   0%|          | 20/6248 [00:13<1:12:12,  1.44it/s, v_num=1]
-Epoch 0:   0%|          | 21/6248 [00:14<1:11:35,  1.45it/s, v_num=1]
-Epoch 0:   0%|          | 21/6248 [00:14<1:11:35,  1.45it/s, v_num=1]
-Epoch 0:   0%|          | 22/6248 [00:15<1:10:59,  1.46it/s, v_num=1]
-Epoch 0:   0%|          | 22/6248 [00:15<1:10:59,  1.46it/s, v_num=1]
-Epoch 0:   0%|          | 23/6248 [00:15<1:10:34,  1.47it/s, v_num=1]
-Epoch 0:   0%|          | 23/6248 [00:15<1:10:34,  1.47it/s, v_num=1]
-Epoch 0:   0%|          | 24/6248 [00:16<1:10:07,  1.48it/s, v_num=1]
-Epoch 0:   0%|          | 24/6248 [00:16<1:10:07,  1.48it/s, v_num=1]
-Epoch 0:   0%|          | 25/6248 [00:16<1:09:51,  1.48it/s, v_num=1]
-Epoch 0:   0%|          | 25/6248 [00:16<1:09:51,  1.48it/s, v_num=1]
-Epoch 0:   0%|          | 26/6248 [00:17<1:09:33,  1.49it/s, v_num=1]
-Epoch 0:   0%|          | 26/6248 [00:17<1:09:33,  1.49it/s, v_num=1]
-Epoch 0:   0%|          | 27/6248 [00:17<1:09:02,  1.50it/s, v_num=1]
-Epoch 0:   0%|          | 27/6248 [00:17<1:09:02,  1.50it/s, v_num=1]
-Epoch 0:   0%|          | 28/6248 [00:18<1:08:54,  1.50it/s, v_num=1]
-Epoch 0:   0%|          | 28/6248 [00:18<1:08:54,  1.50it/s, v_num=1]
-Epoch 0:   0%|          | 29/6248 [00:19<1:08:29,  1.51it/s, v_num=1]
-Epoch 0:   0%|          | 29/6248 [00:19<1:08:29,  1.51it/s, v_num=1]
-Epoch 0:   0%|          | 30/6248 [00:19<1:08:13,  1.52it/s, v_num=1]
-Epoch 0:   0%|          | 30/6248 [00:19<1:08:13,  1.52it/s, v_num=1]
-Epoch 0:   0%|          | 31/6248 [00:20<1:07:56,  1.52it/s, v_num=1]
-Epoch 0:   0%|          | 31/6248 [00:20<1:07:56,  1.52it/s, v_num=1]
-Epoch 0:   1%|          | 32/6248 [00:20<1:07:39,  1.53it/s, v_num=1]
-Epoch 0:   1%|          | 32/6248 [00:20<1:07:39,  1.53it/s, v_num=1]
-Epoch 0:   1%|          | 33/6248 [00:21<1:07:35,  1.53it/s, v_num=1]
-Epoch 0:   1%|          | 33/6248 [00:21<1:07:35,  1.53it/s, v_num=1]
-Epoch 0:   1%|          | 34/6248 [00:22<1:07:21,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 34/6248 [00:22<1:07:22,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 35/6248 [00:22<1:07:05,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 35/6248 [00:22<1:07:05,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 36/6248 [00:23<1:07:12,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 36/6248 [00:23<1:07:12,  1.54it/s, v_num=1]
-Epoch 0:   1%|          | 37/6248 [00:23<1:06:58,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 37/6248 [00:23<1:06:58,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 38/6248 [00:24<1:06:45,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 38/6248 [00:24<1:06:45,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 39/6248 [00:25<1:06:38,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 39/6248 [00:25<1:06:38,  1.55it/s, v_num=1]
-Epoch 0:   1%|          | 40/6248 [00:25<1:06:27,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 40/6248 [00:25<1:06:27,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 41/6248 [00:26<1:06:22,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 41/6248 [00:26<1:06:22,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 42/6248 [00:26<1:06:16,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 42/6248 [00:26<1:06:16,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 43/6248 [00:27<1:06:16,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 43/6248 [00:27<1:06:16,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 44/6248 [00:28<1:06:08,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 44/6248 [00:28<1:06:08,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 45/6248 [00:28<1:06:03,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 45/6248 [00:28<1:06:03,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 46/6248 [00:29<1:06:05,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 46/6248 [00:29<1:06:05,  1.56it/s, v_num=1]
-Epoch 0:   1%|          | 47/6248 [00:29<1:05:53,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 47/6248 [00:29<1:05:53,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 48/6248 [00:30<1:05:45,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 48/6248 [00:30<1:05:45,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 49/6248 [00:31<1:05:40,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 49/6248 [00:31<1:05:40,  1.57it/s, v_num=1]
-Epoch 0:   1%|          | 50/6248 [00:31<1:05:31,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 50/6248 [00:31<1:05:31,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 51/6248 [00:32<1:05:25,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 51/6248 [00:32<1:05:25,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 52/6248 [00:32<1:05:17,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 52/6248 [00:32<1:05:17,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 53/6248 [00:33<1:05:13,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 53/6248 [00:33<1:05:13,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 54/6248 [00:34<1:05:07,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 54/6248 [00:34<1:05:07,  1.58it/s, v_num=1]
-Epoch 0:   1%|          | 55/6248 [00:34<1:04:57,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 55/6248 [00:34<1:04:57,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 56/6248 [00:35<1:04:47,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 56/6248 [00:35<1:04:47,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 57/6248 [00:35<1:04:45,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 57/6248 [00:35<1:04:45,  1.59it/s, v_num=1]
-Epoch 0:   1%|          | 58/6248 [00:36<1:04:39,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 58/6248 [00:36<1:04:39,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 59/6248 [00:36<1:04:39,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 59/6248 [00:36<1:04:39,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 60/6248 [00:37<1:04:34,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 60/6248 [00:37<1:04:34,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 61/6248 [00:38<1:04:27,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 61/6248 [00:38<1:04:27,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 62/6248 [00:38<1:04:31,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 62/6248 [00:38<1:04:31,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 63/6248 [00:39<1:04:26,  1.60it/s, v_num=1]
-Epoch 0:   1%|          | 63/6248 [00:39<1:04:26,  1.60it/s, v_num=1]Error executing job with overrides: ['seed=2333', 'gpus=4', 'epochs=20', 'batch_size=8', 'output_dir=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run', 'datamodule.pl_module.data_root=/home/server00/M/Datasets/AV2/sharp_processed', 'datamodule.pl_module.num_workers=6', 'model.pl_module.optim.lr=0.0001', 'model.pl_module.optim.min_lr=0.00001', 'model.pl_module.optim.weight_decay=0.01', 'model.pl_module.optim.warmup_ratio=0.65', 'trainer.devices=4', 'trainer.strategy=ddp_find_unused_parameters_false', 'trainer.gradient_clip_val=5', 'trainer.gradient_clip_algorithm=norm', 'trainer.sync_batchnorm=true', 'trainer.num_sanity_val_steps=0', 'callbacks.0.save_top_k=-1', 'callbacks.0.save_last=true', 'callbacks.0.every_n_epochs=1', 'checkpoint=null']
-Traceback (most recent call last):
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 46, in _call_and_handle_interrupt
-    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
-    return function(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 574, in _fit_impl
-    self._run(model, ckpt_path=ckpt_path)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 981, in _run
-    results = self._run_stage()
-              ^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1025, in _run_stage
-    self.fit_loop.run()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
-    self.advance()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
-    self.epoch_loop.run(self._data_fetcher)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
-    self.advance(data_fetcher)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
-    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
-    self._optimizer_step(batch_idx, closure)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
-    call._call_lightning_module_hook(
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 167, in _call_lightning_module_hook
-    output = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1306, in optimizer_step
-    optimizer.step(closure=optimizer_closure)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
-    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 270, in optimizer_step
-    optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
-    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
-    return optimizer.step(closure=closure, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
-    return func.__get__(opt, opt.__class__)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 516, in wrapper
-    out = func(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
-    ret = func(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/adam.py", line 226, in step
-    loss = closure()
-           ^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
-    closure_result = closure()
-                     ^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
-    self._result = self.closure(*args, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 129, in closure
-    step_output = self._step_fn()
-                  ^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 317, in _training_step
-    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 319, in _call_strategy_hook
-    output = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 389, in training_step
-    return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 640, in __call__
-    wrapper_output = wrapper_module(*args, **kwargs)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1648, in forward
-    else self._run_ddp_forward(*inputs, **kwargs)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1474, in _run_ddp_forward
-    return self.module(*inputs, **kwargs)  # type: ignore[index]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 633, in wrapped_forward
-    out = method(*_args, **_kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/src/model/pl_modules.py", line 375, in training_step
-    cur_loss, cur_loss_dict = self.cal_loss(out, cur_data, tag=f'step{i + num_no_grad_frames}_')
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/src/model/pl_modules.py", line 129, in cal_loss
-    y_hat_best = y_hat[torch.arange(y_hat.shape[0]), best_mode]
-                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.AcceleratorError: CUDA error: an illegal memory access was encountered
-CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/server00/M/Codes/SHARP_AV2_20EPOCH_10TEST_20260805-025913/Code/train.py", line 54, in main
-    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 538, in fit
-    call._call_and_handle_interrupt(
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 68, in _call_and_handle_interrupt
-    trainer._teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1004, in _teardown
-    self.strategy.teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 419, in teardown
-    super().teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/parallel.py", line 133, in teardown
-    super().teardown()
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 531, in teardown
-    _optimizers_to_device(self.optimizers, torch.device("cpu"))
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/optimizer.py", line 28, in _optimizers_to_device
-    _optimizer_to_device(opt, device)
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/optimizer.py", line 42, in _optimizer_to_device
-    v[key] = move_data_to_device(val, device)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/apply_func.py", line 110, in move_data_to_device
-    return apply_to_collection(batch, dtype=_TransferableDataType, function=batch_to)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_utilities/core/apply_func.py", line 70, in apply_to_collection
-    return function(data, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/lightning_fabric/utilities/apply_func.py", line 104, in batch_to
-    data_output = data.to(device, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.AcceleratorError: CUDA error: an illegal memory access was encountered
-CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Epoch 0:   0%|          | 1/6248 [00:02<4:24:32,  0.39it/s]
+Epoch 0:   0%|          | 1/6248 [00:02<4:24:39,  0.39it/s, v_num=0]
+Epoch 0:   0%|          | 2/6248 [00:03<2:46:29,  0.63it/s, v_num=0]
+Epoch 0:   0%|          | 2/6248 [00:03<2:46:30,  0.63it/s, v_num=0]
+Epoch 0:   0%|          | 3/6248 [00:03<2:13:23,  0.78it/s, v_num=0]
+Epoch 0:   0%|          | 3/6248 [00:03<2:13:24,  0.78it/s, v_num=0]
+Epoch 0:   0%|          | 4/6248 [00:04<1:55:06,  0.90it/s, v_num=0]
+Epoch 0:   0%|          | 4/6248 [00:04<1:55:07,  0.90it/s, v_num=0]
+Epoch 0:   0%|          | 5/6248 [00:04<1:44:02,  1.00it/s, v_num=0]
+Epoch 0:   0%|          | 5/6248 [00:04<1:44:02,  1.00it/s, v_num=0]
+Epoch 0:   0%|          | 6/6248 [00:05<1:36:20,  1.08it/s, v_num=0]
+Epoch 0:   0%|          | 6/6248 [00:05<1:36:21,  1.08it/s, v_num=0]
+Epoch 0:   0%|          | 7/6248 [00:06<1:31:40,  1.13it/s, v_num=0]
+Epoch 0:   0%|          | 7/6248 [00:06<1:31:41,  1.13it/s, v_num=0]
+Epoch 0:   0%|          | 8/6248 [00:06<1:27:31,  1.19it/s, v_num=0]
+Epoch 0:   0%|          | 8/6248 [00:06<1:27:31,  1.19it/s, v_num=0]
+Epoch 0:   0%|          | 9/6248 [00:07<1:24:09,  1.24it/s, v_num=0]
+Epoch 0:   0%|          | 9/6248 [00:07<1:24:10,  1.24it/s, v_num=0]
+Epoch 0:   0%|          | 10/6248 [00:07<1:22:35,  1.26it/s, v_num=0]
+Epoch 0:   0%|          | 10/6248 [00:07<1:22:35,  1.26it/s, v_num=0]
+Epoch 0:   0%|          | 11/6248 [00:08<1:20:44,  1.29it/s, v_num=0]
+Epoch 0:   0%|          | 11/6248 [00:08<1:20:44,  1.29it/s, v_num=0]
+Epoch 0:   0%|          | 12/6248 [00:09<1:19:08,  1.31it/s, v_num=0]
+Epoch 0:   0%|          | 12/6248 [00:09<1:19:08,  1.31it/s, v_num=0]
+Epoch 0:   0%|          | 13/6248 [00:09<1:17:31,  1.34it/s, v_num=0]
+Epoch 0:   0%|          | 13/6248 [00:09<1:17:31,  1.34it/s, v_num=0]
+Epoch 0:   0%|          | 14/6248 [00:10<1:16:43,  1.35it/s, v_num=0]
+Epoch 0:   0%|          | 14/6248 [00:10<1:16:43,  1.35it/s, v_num=0]
+Epoch 0:   0%|          | 15/6248 [00:10<1:15:47,  1.37it/s, v_num=0]
+Epoch 0:   0%|          | 15/6248 [00:10<1:15:47,  1.37it/s, v_num=0]
+Epoch 0:   0%|          | 16/6248 [00:11<1:14:47,  1.39it/s, v_num=0]
+Epoch 0:   0%|          | 16/6248 [00:11<1:14:47,  1.39it/s, v_num=0]
+Epoch 0:   0%|          | 17/6248 [00:12<1:14:06,  1.40it/s, v_num=0]
+Epoch 0:   0%|          | 17/6248 [00:12<1:14:06,  1.40it/s, v_num=0]
+Epoch 0:   0%|          | 18/6248 [00:12<1:13:16,  1.42it/s, v_num=0]
+Epoch 0:   0%|          | 18/6248 [00:12<1:13:16,  1.42it/s, v_num=0]
+Epoch 0:   0%|          | 19/6248 [00:13<1:12:29,  1.43it/s, v_num=0]
+Epoch 0:   0%|          | 19/6248 [00:13<1:12:29,  1.43it/s, v_num=0]
+Epoch 0:   0%|          | 20/6248 [00:13<1:12:05,  1.44it/s, v_num=0]
+Epoch 0:   0%|          | 20/6248 [00:13<1:12:05,  1.44it/s, v_num=0]
+Epoch 0:   0%|          | 21/6248 [00:14<1:11:34,  1.45it/s, v_num=0]
+Epoch 0:   0%|          | 21/6248 [00:14<1:11:34,  1.45it/s, v_num=0]
+Epoch 0:   0%|          | 22/6248 [00:15<1:11:01,  1.46it/s, v_num=0]
+Epoch 0:   0%|          | 22/6248 [00:15<1:11:02,  1.46it/s, v_num=0]
+Epoch 0:   0%|          | 23/6248 [00:15<1:10:43,  1.47it/s, v_num=0]
+Epoch 0:   0%|          | 23/6248 [00:15<1:10:43,  1.47it/s, v_num=0]
+Epoch 0:   0%|          | 24/6248 [00:16<1:10:17,  1.48it/s, v_num=0]
+Epoch 0:   0%|          | 24/6248 [00:16<1:10:17,  1.48it/s, v_num=0]
+Epoch 0:   0%|          | 25/6248 [00:16<1:09:57,  1.48it/s, v_num=0]
+Epoch 0:   0%|          | 25/6248 [00:16<1:09:57,  1.48it/s, v_num=0]
+Epoch 0:   0%|          | 26/6248 [00:17<1:09:35,  1.49it/s, v_num=0]
+Epoch 0:   0%|          | 26/6248 [00:17<1:09:35,  1.49it/s, v_num=0]
+Epoch 0:   0%|          | 27/6248 [00:18<1:09:09,  1.50it/s, v_num=0]
+Epoch 0:   0%|          | 27/6248 [00:18<1:09:09,  1.50it/s, v_num=0]
+Epoch 0:   0%|          | 28/6248 [00:18<1:08:52,  1.51it/s, v_num=0]
+Epoch 0:   0%|          | 28/6248 [00:18<1:08:52,  1.51it/s, v_num=0]
+Epoch 0:   0%|          | 29/6248 [00:19<1:08:35,  1.51it/s, v_num=0]
+Epoch 0:   0%|          | 29/6248 [00:19<1:08:35,  1.51it/s, v_num=0]
+Epoch 0:   0%|          | 30/6248 [00:19<1:08:20,  1.52it/s, v_num=0]
+Epoch 0:   0%|          | 30/6248 [00:19<1:08:20,  1.52it/s, v_num=0]
+Epoch 0:   0%|          | 31/6248 [00:20<1:07:58,  1.52it/s, v_num=0]
+Epoch 0:   0%|          | 31/6248 [00:20<1:07:59,  1.52it/s, v_num=0]
+Epoch 0:   1%|          | 32/6248 [00:20<1:07:39,  1.53it/s, v_num=0]
+Epoch 0:   1%|          | 32/6248 [00:20<1:07:39,  1.53it/s, v_num=0]
+Epoch 0:   1%|          | 33/6248 [00:21<1:07:25,  1.54it/s, v_num=0]
+Epoch 0:   1%|          | 33/6248 [00:21<1:07:25,  1.54it/s, v_num=0]
+Epoch 0:   1%|          | 34/6248 [00:22<1:07:11,  1.54it/s, v_num=0]
+Epoch 0:   1%|          | 34/6248 [00:22<1:07:11,  1.54it/s, v_num=0]
+Epoch 0:   1%|          | 35/6248 [00:22<1:06:57,  1.55it/s, v_num=0]
+Epoch 0:   1%|          | 35/6248 [00:22<1:06:57,  1.55it/s, v_num=0]
+Epoch 0:   1%|          | 36/6248 [00:23<1:06:44,  1.55it/s, v_num=0]
+Epoch 0:   1%|          | 36/6248 [00:23<1:06:44,  1.55it/s, v_num=0]
+Epoch 0:   1%|          | 37/6248 [00:23<1:06:30,  1.56it/s, v_num=0]
+Epoch 0:   1%|          | 37/6248 [00:23<1:06:30,  1.56it/s, v_num=0]
+Epoch 0:   1%|          | 38/6248 [00:24<1:06:13,  1.56it/s, v_num=0]
+Epoch 0:   1%|          | 38/6248 [00:24<1:06:13,  1.56it/s, v_num=0]
+Epoch 0:   1%|          | 39/6248 [00:24<1:06:02,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 39/6248 [00:24<1:06:02,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 40/6248 [00:25<1:05:52,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 40/6248 [00:25<1:05:52,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 41/6248 [00:26<1:05:42,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 41/6248 [00:26<1:05:42,  1.57it/s, v_num=0]
+Epoch 0:   1%|          | 42/6248 [00:26<1:05:27,  1.58it/s, v_num=0]
+Epoch 0:   1%|          | 42/6248 [00:26<1:05:27,  1.58it/s, v_num=0]
+Epoch 0:   1%|          | 43/6248 [00:27<1:05:16,  1.58it/s, v_num=0]
+Epoch 0:   1%|          | 43/6248 [00:27<1:05:16,  1.58it/s, v_num=0]
+Epoch 0:   1%|          | 44/6248 [00:27<1:05:04,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 44/6248 [00:27<1:05:04,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 45/6248 [00:28<1:05:02,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 45/6248 [00:28<1:05:02,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 46/6248 [00:28<1:04:52,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 46/6248 [00:28<1:04:52,  1.59it/s, v_num=0]
+Epoch 0:   1%|          | 47/6248 [00:29<1:04:38,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 47/6248 [00:29<1:04:39,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 48/6248 [00:29<1:04:32,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 48/6248 [00:29<1:04:32,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 49/6248 [00:30<1:04:33,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 49/6248 [00:30<1:04:33,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 50/6248 [00:31<1:04:24,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 50/6248 [00:31<1:04:24,  1.60it/s, v_num=0]
+Epoch 0:   1%|          | 51/6248 [00:31<1:04:14,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 51/6248 [00:31<1:04:14,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 52/6248 [00:32<1:04:06,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 52/6248 [00:32<1:04:06,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 53/6248 [00:32<1:03:57,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 53/6248 [00:32<1:03:57,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 54/6248 [00:33<1:03:50,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 54/6248 [00:33<1:03:50,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 55/6248 [00:33<1:03:43,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 55/6248 [00:33<1:03:43,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 56/6248 [00:34<1:03:41,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 56/6248 [00:34<1:03:41,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 57/6248 [00:35<1:03:42,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 57/6248 [00:35<1:03:42,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 58/6248 [00:35<1:03:37,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 58/6248 [00:35<1:03:37,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 59/6248 [00:36<1:03:32,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 59/6248 [00:36<1:03:32,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 60/6248 [00:36<1:03:25,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 60/6248 [00:36<1:03:25,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 61/6248 [00:37<1:03:19,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 61/6248 [00:37<1:03:19,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 62/6248 [00:38<1:03:18,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 62/6248 [00:38<1:03:18,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 63/6248 [00:38<1:03:14,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 63/6248 [00:38<1:03:14,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 64/6248 [00:39<1:03:15,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 64/6248 [00:39<1:03:15,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 65/6248 [00:39<1:03:11,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 65/6248 [00:39<1:03:11,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 66/6248 [00:40<1:03:07,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 66/6248 [00:40<1:03:08,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 67/6248 [00:41<1:03:05,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 67/6248 [00:41<1:03:05,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 68/6248 [00:41<1:03:02,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 68/6248 [00:41<1:03:02,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 69/6248 [00:42<1:02:57,  1.64it/s, v_num=0]
+Epoch 0:   1%|          | 69/6248 [00:42<1:02:57,  1.64it/s, v_num=0]
+Epoch 0:   1%|          | 70/6248 [00:42<1:02:53,  1.64it/s, v_num=0]
+Epoch 0:   1%|          | 70/6248 [00:42<1:02:53,  1.64it/s, v_num=0]
+Epoch 0:   1%|          | 71/6248 [00:43<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 71/6248 [00:43<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 72/6248 [00:44<1:03:19,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 72/6248 [00:44<1:03:19,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 73/6248 [00:44<1:03:11,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 73/6248 [00:44<1:03:11,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 74/6248 [00:45<1:03:06,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 74/6248 [00:45<1:03:06,  1.63it/s, v_num=0]
+Epoch 0:   1%|          | 75/6248 [00:46<1:03:33,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 75/6248 [00:46<1:03:33,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 76/6248 [00:46<1:03:28,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 76/6248 [00:46<1:03:28,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 77/6248 [00:47<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 77/6248 [00:47<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   1%|          | 78/6248 [00:48<1:03:57,  1.61it/s, v_num=0]
+Epoch 0:   1%|          | 78/6248 [00:48<1:03:57,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 79/6248 [00:49<1:03:54,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 79/6248 [00:49<1:03:54,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 80/6248 [00:50<1:04:27,  1.59it/s, v_num=0]
+Epoch 0:   1%|▏         | 80/6248 [00:50<1:04:27,  1.59it/s, v_num=0]
+Epoch 0:   1%|▏         | 81/6248 [00:50<1:04:25,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 81/6248 [00:50<1:04:25,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 82/6248 [00:51<1:04:22,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 82/6248 [00:51<1:04:22,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 83/6248 [00:51<1:04:19,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 83/6248 [00:51<1:04:19,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 84/6248 [00:52<1:04:13,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 84/6248 [00:52<1:04:13,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 85/6248 [00:53<1:04:08,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 85/6248 [00:53<1:04:08,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 86/6248 [00:53<1:04:05,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 86/6248 [00:53<1:04:05,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 87/6248 [00:54<1:04:03,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 87/6248 [00:54<1:04:03,  1.60it/s, v_num=0]
+Epoch 0:   1%|▏         | 88/6248 [00:54<1:03:55,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 88/6248 [00:54<1:03:55,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 89/6248 [00:55<1:03:53,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 89/6248 [00:55<1:03:53,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 90/6248 [00:55<1:03:49,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 90/6248 [00:55<1:03:49,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 91/6248 [00:56<1:03:45,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 91/6248 [00:56<1:03:45,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 92/6248 [00:57<1:03:43,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 92/6248 [00:57<1:03:43,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 93/6248 [00:57<1:03:39,  1.61it/s, v_num=0]
+Epoch 0:   1%|▏         | 93/6248 [00:57<1:03:39,  1.61it/s, v_num=0]
+Epoch 0:   2%|▏         | 94/6248 [00:58<1:03:36,  1.61it/s, v_num=0]
+Epoch 0:   2%|▏         | 94/6248 [00:58<1:03:36,  1.61it/s, v_num=0]
+Epoch 0:   2%|▏         | 95/6248 [00:58<1:03:30,  1.61it/s, v_num=0]
+Epoch 0:   2%|▏         | 95/6248 [00:58<1:03:30,  1.61it/s, v_num=0]
+Epoch 0:   2%|▏         | 96/6248 [00:59<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 96/6248 [00:59<1:03:26,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 97/6248 [00:59<1:03:23,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 97/6248 [00:59<1:03:23,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 98/6248 [01:00<1:03:23,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 98/6248 [01:00<1:03:23,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 99/6248 [01:01<1:03:19,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 99/6248 [01:01<1:03:19,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 100/6248 [01:01<1:03:18,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 100/6248 [01:01<1:03:18,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 101/6248 [01:02<1:03:16,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 101/6248 [01:02<1:03:16,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 102/6248 [01:02<1:03:14,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 102/6248 [01:02<1:03:14,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 103/6248 [01:03<1:03:14,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 103/6248 [01:03<1:03:14,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 104/6248 [01:04<1:03:09,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 104/6248 [01:04<1:03:09,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 105/6248 [01:04<1:03:06,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 105/6248 [01:04<1:03:06,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 106/6248 [01:05<1:03:05,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 106/6248 [01:05<1:03:05,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 107/6248 [01:05<1:03:01,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 107/6248 [01:05<1:03:01,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 108/6248 [01:06<1:03:02,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 108/6248 [01:06<1:03:02,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 109/6248 [01:07<1:02:59,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 109/6248 [01:07<1:02:59,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 110/6248 [01:07<1:02:58,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 110/6248 [01:07<1:02:58,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 111/6248 [01:08<1:02:56,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 111/6248 [01:08<1:02:56,  1.62it/s, v_num=0]
+Epoch 0:   2%|▏         | 112/6248 [01:08<1:02:54,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 112/6248 [01:08<1:02:54,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 113/6248 [01:09<1:02:52,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 113/6248 [01:09<1:02:52,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 114/6248 [01:10<1:02:48,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 114/6248 [01:10<1:02:48,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 115/6248 [01:10<1:02:46,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 115/6248 [01:10<1:02:46,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 116/6248 [01:11<1:02:43,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 116/6248 [01:11<1:02:43,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 117/6248 [01:11<1:02:39,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 117/6248 [01:11<1:02:39,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 118/6248 [01:12<1:02:37,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 118/6248 [01:12<1:02:37,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 119/6248 [01:12<1:02:35,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 119/6248 [01:12<1:02:35,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 120/6248 [01:13<1:02:32,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 120/6248 [01:13<1:02:32,  1.63it/s, v_num=0]
+Epoch 0:   2%|▏         | 121/6248 [01:14<1:02:27,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 121/6248 [01:14<1:02:27,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 122/6248 [01:14<1:02:25,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 122/6248 [01:14<1:02:25,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 123/6248 [01:15<1:02:23,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 123/6248 [01:15<1:02:23,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 124/6248 [01:15<1:02:20,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 124/6248 [01:15<1:02:20,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 125/6248 [01:16<1:02:18,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 125/6248 [01:16<1:02:18,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 126/6248 [01:16<1:02:14,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 126/6248 [01:16<1:02:14,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 127/6248 [01:17<1:02:12,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 127/6248 [01:17<1:02:12,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 128/6248 [01:18<1:02:11,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 128/6248 [01:18<1:02:11,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 129/6248 [01:18<1:02:08,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 129/6248 [01:18<1:02:08,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 130/6248 [01:19<1:02:05,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 130/6248 [01:19<1:02:05,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 131/6248 [01:19<1:02:01,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 131/6248 [01:19<1:02:01,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 132/6248 [01:20<1:02:00,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 132/6248 [01:20<1:02:00,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 133/6248 [01:20<1:01:57,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 133/6248 [01:20<1:01:57,  1.64it/s, v_num=0]
+Epoch 0:   2%|▏         | 134/6248 [01:21<1:01:54,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 134/6248 [01:21<1:01:54,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 135/6248 [01:21<1:01:51,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 135/6248 [01:21<1:01:51,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 136/6248 [01:22<1:01:49,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 136/6248 [01:22<1:01:49,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 137/6248 [01:23<1:01:47,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 137/6248 [01:23<1:01:47,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 138/6248 [01:23<1:01:45,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 138/6248 [01:23<1:01:45,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 139/6248 [01:24<1:01:42,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 139/6248 [01:24<1:01:42,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 140/6248 [01:24<1:01:40,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 140/6248 [01:24<1:01:40,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 141/6248 [01:25<1:01:38,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 141/6248 [01:25<1:01:38,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 142/6248 [01:25<1:01:36,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 142/6248 [01:25<1:01:36,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 143/6248 [01:26<1:01:37,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 143/6248 [01:26<1:01:37,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 144/6248 [01:27<1:01:34,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 144/6248 [01:27<1:01:34,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 145/6248 [01:27<1:01:32,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 145/6248 [01:27<1:01:32,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 146/6248 [01:28<1:01:29,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 146/6248 [01:28<1:01:29,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 147/6248 [01:28<1:01:26,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 147/6248 [01:28<1:01:26,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 148/6248 [01:29<1:01:27,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 148/6248 [01:29<1:01:27,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 149/6248 [01:30<1:01:25,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 149/6248 [01:30<1:01:25,  1.65it/s, v_num=0]
+Epoch 0:   2%|▏         | 150/6248 [01:30<1:01:22,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 150/6248 [01:30<1:01:22,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 151/6248 [01:31<1:01:22,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 151/6248 [01:31<1:01:22,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 152/6248 [01:31<1:01:20,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 152/6248 [01:31<1:01:20,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 153/6248 [01:32<1:01:18,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 153/6248 [01:32<1:01:18,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 154/6248 [01:32<1:01:17,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 154/6248 [01:32<1:01:17,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 155/6248 [01:33<1:01:14,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 155/6248 [01:33<1:01:14,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 156/6248 [01:34<1:01:13,  1.66it/s, v_num=0]
+Epoch 0:   2%|▏         | 156/6248 [01:34<1:01:13,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 157/6248 [01:34<1:01:12,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 157/6248 [01:34<1:01:12,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 158/6248 [01:35<1:01:11,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 158/6248 [01:35<1:01:11,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 159/6248 [01:35<1:01:12,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 159/6248 [01:35<1:01:12,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 160/6248 [01:36<1:01:09,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 160/6248 [01:36<1:01:09,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 161/6248 [01:37<1:01:08,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 161/6248 [01:37<1:01:08,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 162/6248 [01:37<1:01:06,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 162/6248 [01:37<1:01:06,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 163/6248 [01:38<1:01:04,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 163/6248 [01:38<1:01:04,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 164/6248 [01:38<1:01:02,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 164/6248 [01:38<1:01:02,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 165/6248 [01:39<1:01:01,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 165/6248 [01:39<1:01:01,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 166/6248 [01:39<1:01:00,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 166/6248 [01:39<1:01:00,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 167/6248 [01:40<1:00:57,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 167/6248 [01:40<1:00:57,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 168/6248 [01:41<1:00:56,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 168/6248 [01:41<1:00:56,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 169/6248 [01:41<1:00:55,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 169/6248 [01:41<1:00:55,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 170/6248 [01:42<1:00:54,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 170/6248 [01:42<1:00:54,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 171/6248 [01:42<1:00:52,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 171/6248 [01:42<1:00:52,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 172/6248 [01:43<1:00:51,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 172/6248 [01:43<1:00:51,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 173/6248 [01:43<1:00:48,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 173/6248 [01:43<1:00:48,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 174/6248 [01:44<1:00:47,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 174/6248 [01:44<1:00:47,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 175/6248 [01:45<1:00:46,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 175/6248 [01:45<1:00:46,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 176/6248 [01:45<1:00:46,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 176/6248 [01:45<1:00:46,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 177/6248 [01:46<1:00:46,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 177/6248 [01:46<1:00:46,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 178/6248 [01:46<1:00:45,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 178/6248 [01:46<1:00:45,  1.66it/s, v_num=0]
+Epoch 0:   3%|▎         | 179/6248 [01:47<1:00:44,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 179/6248 [01:47<1:00:44,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 180/6248 [01:48<1:00:43,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 180/6248 [01:48<1:00:43,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 181/6248 [01:48<1:00:42,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 181/6248 [01:48<1:00:42,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 182/6248 [01:49<1:00:41,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 182/6248 [01:49<1:00:41,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 183/6248 [01:49<1:00:40,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 183/6248 [01:49<1:00:40,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 184/6248 [01:50<1:00:39,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 184/6248 [01:50<1:00:39,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 185/6248 [01:51<1:00:40,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 185/6248 [01:51<1:00:40,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 186/6248 [01:51<1:00:38,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 186/6248 [01:51<1:00:38,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 187/6248 [01:52<1:00:37,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 187/6248 [01:52<1:00:37,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 188/6248 [01:52<1:00:35,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 188/6248 [01:52<1:00:35,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 189/6248 [01:53<1:00:34,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 189/6248 [01:53<1:00:34,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 190/6248 [01:53<1:00:33,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 190/6248 [01:53<1:00:33,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 191/6248 [01:54<1:00:33,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 191/6248 [01:54<1:00:33,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 192/6248 [01:55<1:00:31,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 192/6248 [01:55<1:00:31,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 193/6248 [01:55<1:00:30,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 193/6248 [01:55<1:00:30,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 194/6248 [01:56<1:00:28,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 194/6248 [01:56<1:00:28,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 195/6248 [01:56<1:00:27,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 195/6248 [01:56<1:00:27,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 196/6248 [01:57<1:00:26,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 196/6248 [01:57<1:00:26,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 197/6248 [01:58<1:00:25,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 197/6248 [01:58<1:00:25,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 198/6248 [01:58<1:00:25,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 198/6248 [01:58<1:00:25,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 199/6248 [01:59<1:00:24,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 199/6248 [01:59<1:00:24,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 200/6248 [01:59<1:00:23,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 200/6248 [01:59<1:00:23,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 201/6248 [02:00<1:00:22,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 201/6248 [02:00<1:00:22,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 202/6248 [02:00<1:00:20,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 202/6248 [02:00<1:00:20,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 203/6248 [02:01<1:00:18,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 203/6248 [02:01<1:00:18,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 204/6248 [02:02<1:00:16,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 204/6248 [02:02<1:00:16,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 205/6248 [02:02<1:00:15,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 205/6248 [02:02<1:00:15,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 206/6248 [02:03<1:00:14,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 206/6248 [02:03<1:00:14,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 207/6248 [02:03<1:00:12,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 207/6248 [02:03<1:00:12,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 208/6248 [02:04<1:00:11,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 208/6248 [02:04<1:00:11,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 209/6248 [02:04<1:00:10,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 209/6248 [02:04<1:00:10,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 210/6248 [02:05<1:00:08,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 210/6248 [02:05<1:00:08,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 211/6248 [02:06<1:00:07,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 211/6248 [02:06<1:00:07,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 212/6248 [02:06<1:00:05,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 212/6248 [02:06<1:00:05,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 213/6248 [02:07<1:00:03,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 213/6248 [02:07<1:00:03,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 214/6248 [02:07<1:00:02,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 214/6248 [02:07<1:00:02,  1.67it/s, v_num=0]
+Epoch 0:   3%|▎         | 215/6248 [02:08<1:00:00,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 215/6248 [02:08<1:00:00,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 216/6248 [02:08<59:58,  1.68it/s, v_num=0]  
+Epoch 0:   3%|▎         | 216/6248 [02:08<59:58,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 217/6248 [02:09<59:56,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 217/6248 [02:09<59:56,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 218/6248 [02:10<59:56,  1.68it/s, v_num=0]
+Epoch 0:   3%|▎         | 218/6248 [02:10<59:56,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 219/6248 [02:10<59:55,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 219/6248 [02:10<59:55,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 220/6248 [02:11<59:54,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 220/6248 [02:11<59:54,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 221/6248 [02:11<59:52,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 221/6248 [02:11<59:52,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 222/6248 [02:12<59:50,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 222/6248 [02:12<59:50,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 223/6248 [02:12<59:49,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 223/6248 [02:12<59:49,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 224/6248 [02:13<59:48,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 224/6248 [02:13<59:48,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 225/6248 [02:14<59:47,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 225/6248 [02:14<59:47,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 226/6248 [02:14<59:45,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 226/6248 [02:14<59:45,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 227/6248 [02:15<59:44,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 227/6248 [02:15<59:44,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 228/6248 [02:15<59:44,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 228/6248 [02:15<59:44,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 229/6248 [02:16<59:43,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 229/6248 [02:16<59:43,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 230/6248 [02:16<59:41,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 230/6248 [02:16<59:41,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 231/6248 [02:17<59:40,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 231/6248 [02:17<59:40,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 232/6248 [02:18<59:38,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 232/6248 [02:18<59:38,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 233/6248 [02:18<59:37,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 233/6248 [02:18<59:37,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 234/6248 [02:19<59:37,  1.68it/s, v_num=0]
+Epoch 0:   4%|▎         | 234/6248 [02:19<59:37,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 235/6248 [02:19<59:35,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 235/6248 [02:19<59:35,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 236/6248 [02:20<59:33,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 236/6248 [02:20<59:33,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 237/6248 [02:20<59:32,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 237/6248 [02:20<59:32,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 238/6248 [02:21<59:31,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 238/6248 [02:21<59:31,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 239/6248 [02:22<59:30,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 239/6248 [02:22<59:30,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 240/6248 [02:22<59:29,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 240/6248 [02:22<59:29,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 241/6248 [02:23<59:28,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 241/6248 [02:23<59:28,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 242/6248 [02:23<59:26,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 242/6248 [02:23<59:26,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 243/6248 [02:24<59:25,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 243/6248 [02:24<59:25,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 244/6248 [02:24<59:24,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 244/6248 [02:24<59:24,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 245/6248 [02:25<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 245/6248 [02:25<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 246/6248 [02:26<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 246/6248 [02:26<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 247/6248 [02:26<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 247/6248 [02:26<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 248/6248 [02:27<59:21,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 248/6248 [02:27<59:21,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 249/6248 [02:27<59:20,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 249/6248 [02:27<59:20,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 250/6248 [02:28<59:18,  1.69it/s, v_num=0]
+Epoch 0:   4%|▍         | 250/6248 [02:28<59:18,  1.69it/s, v_num=0]
+Epoch 0:   4%|▍         | 251/6248 [02:28<59:17,  1.69it/s, v_num=0]
+Epoch 0:   4%|▍         | 251/6248 [02:28<59:17,  1.69it/s, v_num=0]
+Epoch 0:   4%|▍         | 252/6248 [02:29<59:27,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 252/6248 [02:29<59:27,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 253/6248 [02:31<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 253/6248 [02:31<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 254/6248 [02:32<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 254/6248 [02:32<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 255/6248 [02:32<59:46,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 255/6248 [02:32<59:46,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 256/6248 [02:33<59:45,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 256/6248 [02:33<59:45,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 257/6248 [02:34<59:54,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 257/6248 [02:34<59:54,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 258/6248 [02:34<59:54,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 258/6248 [02:34<59:54,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 259/6248 [02:35<59:52,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 259/6248 [02:35<59:52,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 260/6248 [02:35<59:52,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 260/6248 [02:35<59:52,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 261/6248 [02:36<59:50,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 261/6248 [02:36<59:50,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 262/6248 [02:37<59:49,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 262/6248 [02:37<59:49,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 263/6248 [02:37<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 263/6248 [02:37<59:47,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 264/6248 [02:38<59:46,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 264/6248 [02:38<59:46,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 265/6248 [02:38<59:44,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 265/6248 [02:38<59:44,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 266/6248 [02:39<59:42,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 266/6248 [02:39<59:42,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 267/6248 [02:39<59:41,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 267/6248 [02:39<59:41,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 268/6248 [02:40<59:40,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 268/6248 [02:40<59:40,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 269/6248 [02:41<59:39,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 269/6248 [02:41<59:39,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 270/6248 [02:41<59:38,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 270/6248 [02:41<59:38,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 271/6248 [02:42<59:37,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 271/6248 [02:42<59:37,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 272/6248 [02:42<59:35,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 272/6248 [02:42<59:35,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 273/6248 [02:43<59:33,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 273/6248 [02:43<59:33,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 274/6248 [02:43<59:31,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 274/6248 [02:43<59:31,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 275/6248 [02:44<59:30,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 275/6248 [02:44<59:30,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 276/6248 [02:44<59:29,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 276/6248 [02:44<59:29,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 277/6248 [02:45<59:27,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 277/6248 [02:45<59:27,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 278/6248 [02:46<59:25,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 278/6248 [02:46<59:25,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 279/6248 [02:46<59:24,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 279/6248 [02:46<59:24,  1.67it/s, v_num=0]
+Epoch 0:   4%|▍         | 280/6248 [02:47<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 280/6248 [02:47<59:22,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 281/6248 [02:47<59:21,  1.68it/s, v_num=0]
+Epoch 0:   4%|▍         | 281/6248 [02:47<59:21,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 282/6248 [02:48<59:21,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 282/6248 [02:48<59:21,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 283/6248 [02:48<59:20,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 283/6248 [02:48<59:20,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 284/6248 [02:49<59:19,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 284/6248 [02:49<59:19,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 285/6248 [02:50<59:17,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 285/6248 [02:50<59:17,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 286/6248 [02:50<59:16,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 286/6248 [02:50<59:16,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 287/6248 [02:51<59:15,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 287/6248 [02:51<59:15,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 288/6248 [02:51<59:13,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 288/6248 [02:51<59:13,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 289/6248 [02:52<59:12,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 289/6248 [02:52<59:12,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 290/6248 [02:52<59:09,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 290/6248 [02:52<59:09,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 291/6248 [02:53<59:08,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 291/6248 [02:53<59:08,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 292/6248 [02:53<59:07,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 292/6248 [02:53<59:07,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 293/6248 [02:54<59:06,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 293/6248 [02:54<59:06,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 294/6248 [02:55<59:05,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 294/6248 [02:55<59:05,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 295/6248 [02:55<59:04,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 295/6248 [02:55<59:04,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 296/6248 [02:56<59:02,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 296/6248 [02:56<59:02,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 297/6248 [02:56<59:01,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 297/6248 [02:56<59:01,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 298/6248 [02:57<58:59,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 298/6248 [02:57<58:59,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 299/6248 [02:57<58:57,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 299/6248 [02:57<58:57,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 300/6248 [02:58<58:55,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 300/6248 [02:58<58:55,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 301/6248 [02:58<58:54,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 301/6248 [02:58<58:54,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 302/6248 [02:59<58:53,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 302/6248 [02:59<58:53,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 303/6248 [03:00<58:52,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 303/6248 [03:00<58:52,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 304/6248 [03:00<58:51,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 304/6248 [03:00<58:51,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 305/6248 [03:01<58:50,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 305/6248 [03:01<58:50,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 306/6248 [03:01<58:49,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 306/6248 [03:01<58:49,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 307/6248 [03:02<58:48,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 307/6248 [03:02<58:48,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 308/6248 [03:02<58:46,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 308/6248 [03:02<58:46,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 309/6248 [03:03<58:45,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 309/6248 [03:03<58:45,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 310/6248 [03:04<58:44,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 310/6248 [03:04<58:44,  1.68it/s, v_num=0]
+Epoch 0:   5%|▍         | 311/6248 [03:04<58:43,  1.69it/s, v_num=0]
+Epoch 0:   5%|▍         | 311/6248 [03:04<58:43,  1.69it/s, v_num=0]
+Epoch 0:   5%|▍         | 312/6248 [03:05<58:41,  1.69it/s, v_num=0]
+Epoch 0:   5%|▍         | 312/6248 [03:05<58:41,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 313/6248 [03:05<58:39,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 313/6248 [03:05<58:39,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 314/6248 [03:06<58:38,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 314/6248 [03:06<58:38,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 315/6248 [03:06<58:36,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 315/6248 [03:06<58:36,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 316/6248 [03:07<58:35,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 316/6248 [03:07<58:35,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 317/6248 [03:07<58:34,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 317/6248 [03:07<58:34,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 318/6248 [03:08<58:33,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 318/6248 [03:08<58:33,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 319/6248 [03:08<58:32,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 319/6248 [03:08<58:32,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 320/6248 [03:09<58:30,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 320/6248 [03:09<58:30,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 321/6248 [03:10<58:28,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 321/6248 [03:10<58:28,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 322/6248 [03:10<58:28,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 322/6248 [03:10<58:28,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 323/6248 [03:11<58:26,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 323/6248 [03:11<58:26,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 324/6248 [03:11<58:25,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 324/6248 [03:11<58:25,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 325/6248 [03:12<58:24,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 325/6248 [03:12<58:24,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 326/6248 [03:12<58:23,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 326/6248 [03:12<58:23,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 327/6248 [03:13<58:22,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 327/6248 [03:13<58:22,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 328/6248 [03:13<58:21,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 328/6248 [03:13<58:21,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 329/6248 [03:14<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 329/6248 [03:14<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 330/6248 [03:15<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 330/6248 [03:15<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 331/6248 [03:15<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 331/6248 [03:15<58:20,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 332/6248 [03:16<58:19,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 332/6248 [03:16<58:19,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 333/6248 [03:17<58:19,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 333/6248 [03:17<58:19,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 334/6248 [03:17<58:18,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 334/6248 [03:17<58:18,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 335/6248 [03:18<58:17,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 335/6248 [03:18<58:17,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 336/6248 [03:18<58:16,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 336/6248 [03:18<58:16,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 337/6248 [03:19<58:16,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 337/6248 [03:19<58:16,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 338/6248 [03:19<58:15,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 338/6248 [03:19<58:15,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 339/6248 [03:20<58:14,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 339/6248 [03:20<58:14,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 340/6248 [03:21<58:12,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 340/6248 [03:21<58:12,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 341/6248 [03:21<58:10,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 341/6248 [03:21<58:11,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 342/6248 [03:22<58:10,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 342/6248 [03:22<58:10,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 343/6248 [03:22<58:09,  1.69it/s, v_num=0]
+Epoch 0:   5%|▌         | 343/6248 [03:22<58:09,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 344/6248 [03:23<58:08,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 344/6248 [03:23<58:08,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 345/6248 [03:23<58:07,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 345/6248 [03:23<58:07,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 346/6248 [03:24<58:05,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 346/6248 [03:24<58:05,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 347/6248 [03:24<58:04,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 347/6248 [03:24<58:04,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 348/6248 [03:25<58:03,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 348/6248 [03:25<58:03,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 349/6248 [03:26<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 349/6248 [03:26<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 350/6248 [03:26<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 350/6248 [03:26<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 351/6248 [03:27<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 351/6248 [03:27<58:02,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 352/6248 [03:27<58:01,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 352/6248 [03:27<58:01,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 353/6248 [03:28<58:00,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 353/6248 [03:28<58:00,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 354/6248 [03:28<57:59,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 354/6248 [03:28<57:59,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 355/6248 [03:29<57:58,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 355/6248 [03:29<57:58,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 356/6248 [03:30<57:56,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 356/6248 [03:30<57:56,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 357/6248 [03:30<57:55,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 357/6248 [03:30<57:55,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 358/6248 [03:31<57:54,  1.70it/s, v_num=0]
+Epoch 0:   6%|▌         | 358/6248 [03:31<57:54,  1.70it/s, v_num=0]
+Epoch 0:   6%|▌         | 359/6248 [03:31<57:57,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 359/6248 [03:31<57:57,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 360/6248 [03:33<58:05,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 360/6248 [03:33<58:05,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 361/6248 [03:34<58:10,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 361/6248 [03:34<58:10,  1.69it/s, v_num=0]
+Epoch 0:   6%|▌         | 362/6248 [03:34<58:14,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 362/6248 [03:34<58:14,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 363/6248 [03:35<58:14,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 363/6248 [03:35<58:14,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 364/6248 [03:36<58:13,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 364/6248 [03:36<58:13,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 365/6248 [03:36<58:12,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 365/6248 [03:36<58:12,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 366/6248 [03:37<58:18,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 366/6248 [03:37<58:18,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 367/6248 [03:38<58:26,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 367/6248 [03:38<58:26,  1.68it/s, v_num=0]
+Epoch 0:   6%|▌         | 368/6248 [03:39<58:32,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 368/6248 [03:39<58:32,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 369/6248 [03:40<58:32,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 369/6248 [03:40<58:32,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 370/6248 [03:41<58:31,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 370/6248 [03:41<58:31,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 371/6248 [03:41<58:30,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 371/6248 [03:41<58:30,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 372/6248 [03:42<58:31,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 372/6248 [03:42<58:31,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 373/6248 [03:43<58:39,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 373/6248 [03:43<58:39,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 374/6248 [03:44<58:45,  1.67it/s, v_num=0]
+Epoch 0:   6%|▌         | 374/6248 [03:44<58:45,  1.67it/s, v_num=0]
