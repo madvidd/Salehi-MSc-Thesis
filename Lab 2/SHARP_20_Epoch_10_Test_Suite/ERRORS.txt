@@ -1,0 +1,6 @@
+Epoch 0:   1%|          | 56/6248 [00:34<1:04:16,  1.61it/s, v_num=0]Error executing job with overrides: ['seed=2333', 'gpus=4', 'epochs=20', 'batch_size=8', 'output_dir=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-025913/01_baseline/run', 'datamodule.pl_module.data_root=/home/server00/M/Datasets/AV2/sharp_processed', 'datamodule.pl_module.num_workers=6', 'model.pl_module.optim.lr=0.0001', 'model.pl_module.optim.min_lr=0.00001', 'model.pl_module.optim.weight_decay=0.01', 'model.pl_module.optim.warmup_ratio=0.65', 'trainer.devices=4', 'trainer.strategy=ddp_find_unused_parameters_false', 'trainer.gradient_clip_val=5', 'trainer.gradient_clip_algorithm=norm', 'trainer.sync_batchnorm=true', 'trainer.num_sanity_val_steps=0', 'callbacks.0.save_top_k=-1', 'callbacks.0.save_last=true', 'callbacks.0.every_n_epochs=1', 'checkpoint=null']
+Traceback (most recent call last):
+Traceback (most recent call last):
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2026-08-05 03:00:38] server00:962315:977929 [2] init.cc:2018 NCCL WARN commDestroySync: comm 0x5b1004837f00 rank 2 sync hostStream error 1
+[2026-08-05 03:00:38] server00:962315:977929 [2] init.cc:2021 NCCL WARN commDestroySync: comm 0x5b1004837f00 rank 2 sync deviceStream error 1
