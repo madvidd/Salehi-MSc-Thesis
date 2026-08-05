@@ -1,0 +1,4 @@
+2026-08-04 22:56  56217210 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/talking_heads/run/checkpoints/epoch_66-minADE6_0.6760843396186829.ckpt
+2026-08-05 00:25  56217210 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/talking_heads/run/checkpoints/epoch_67-minADE6_0.6755461692810059.ckpt
+2026-08-05 06:19  56217210 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/talking_heads/run/checkpoints/epoch_71-minADE6_0.674991250038147.ckpt
+2026-08-05 18:08  56217210 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/talking_heads/run/checkpoints/last.ckpt

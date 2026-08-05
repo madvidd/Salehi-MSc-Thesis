@@ -1,0 +1,2 @@
+fa433054da0e9a471b7334d7db9f092a6b189b0e9e589be01ca321723ffd2f6f  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_talking_heads_completed_20260805-181428/code.tar.gz
+e81136957299fe2fed63f541ac28a2b490cd072ade39e45f5d8b1e8714b71607  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_talking_heads_completed_20260805-181428/results_and_checkpoints.tar.gz

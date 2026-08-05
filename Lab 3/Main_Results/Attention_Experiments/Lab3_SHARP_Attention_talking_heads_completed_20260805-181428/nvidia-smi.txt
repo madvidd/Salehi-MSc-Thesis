@@ -1,0 +1,38 @@
+Wed Aug  5 18:14:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 2080 Ti     Off |   00000000:19:00.0 Off |                  N/A |
+| 44%   59C    P8             21W /  257W |      11MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 2080 Ti     Off |   00000000:1A:00.0 Off |                  N/A |
+| 62%   76C    P8             38W /  300W |      11MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce RTX 2080 Ti     Off |   00000000:68:00.0  On |                  N/A |
+| 70%   67C    P8             11W /  257W |     279MiB /  11264MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A      2121      G   /usr/lib/xorg/Xorg                              4MiB |
+|    0   N/A  N/A    429875      G   /usr/lib/xorg/Xorg                              4MiB |
+|    1   N/A  N/A      2121      G   /usr/lib/xorg/Xorg                              4MiB |
+|    1   N/A  N/A    429875      G   /usr/lib/xorg/Xorg                              4MiB |
+|    2   N/A  N/A      2121      G   /usr/lib/xorg/Xorg                             35MiB |
+|    2   N/A  N/A    429875      G   /usr/lib/xorg/Xorg                            139MiB |
+|    2   N/A  N/A    430342      G   /usr/bin/gnome-shell                           27MiB |
+|    2   N/A  N/A    430446      G   /opt/teamviewer/tv_bin/TeamViewer               2MiB |
+|    2   N/A  N/A    431382      G   ...ures=SpareRendererForSitePerProcess         28MiB |
+|    2   N/A  N/A   2414544      G   ...p/pycharm-community/594/bin/pycharm          2MiB |
+|    2   N/A  N/A   4138643      G   /usr/lib/firefox/firefox                       11MiB |
++-----------------------------------------------------------------------------------------+
