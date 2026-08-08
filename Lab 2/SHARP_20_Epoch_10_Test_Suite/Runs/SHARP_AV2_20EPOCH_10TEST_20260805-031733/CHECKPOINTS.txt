@@ -35,4 +35,14 @@
 2026-08-07 13:22  56640583 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_13-minADE6_0.8850463628768921.ckpt
 2026-08-07 15:09  56641030 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_14-minADE6_0.8902342915534973.ckpt
 2026-08-07 16:59  56641413 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_15-minADE6_0.8888671398162842.ckpt
-2026-08-07 16:59  56641413 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/last.ckpt
+2026-08-07 18:49  56641860 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_16-minADE6_0.8030176162719727.ckpt
+2026-08-07 20:30  56642307 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_17-minADE6_0.8162243366241455.ckpt
+2026-08-07 22:09  56642690 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_18-minADE6_0.7672351598739624.ckpt
+2026-08-07 23:38  56643137 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/epoch_19-minADE6_0.7553491592407227.ckpt
+2026-08-07 23:38  56643137 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/02_confidence_gated_memory/run/checkpoints/last.ckpt
+2026-08-08 01:04  56041180 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/epoch_0-minADE6_2.873276710510254.ckpt
+2026-08-08 02:29  56041691 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/epoch_1-minADE6_2.168980598449707.ckpt
+2026-08-08 03:47  56042138 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/epoch_2-minADE6_1.3807299137115479.ckpt
+2026-08-08 05:00  56042521 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/epoch_3-minADE6_1.2544543743133545.ckpt
+2026-08-08 06:12  56042968 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/epoch_4-minADE6_1.1399346590042114.ckpt
+2026-08-08 06:12  56042968 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/03_cross_window_consistency/run/checkpoints/last.ckpt

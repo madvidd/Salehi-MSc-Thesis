@@ -1,8 +1,8 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Run
 
-- Captured: 2026-08-07T17:14:54+01:00
+- Captured: 2026-08-08T07:18:59+01:00
 - Run: SHARP_AV2_20EPOCH_10TEST_20260805-031733
-- Current variant: confidence_gated_memory
+- Current variant: cross_window_consistency
 - Local complete log: /home/server00/M/Terminal/SHARP_20_Epoch_10_Test_Suite/SHARP_AV2_20EPOCH_10TEST_20260805-031733/Terminal.txt
 - GitHub Terminal.txt collapses repeated progress-bar refreshes.
 - Checkpoints and other large files remain on Lab 2.
