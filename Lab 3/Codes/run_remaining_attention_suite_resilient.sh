@@ -18,7 +18,21 @@ PREPARER="$SCRIPT_DIR/prepare_remaining_attention_runtime.py"
 RUNNER_TEMPLATE="$SCRIPT_DIR/run_variant_resilient.sh"
 GIT=/usr/bin/git
 ASKPASS="$BASE/Token/git-token-askpass.sh"
-VARIANTS=(qknorm talking_heads qknorm_talking_heads)
+if [[ -n "${LAB3_VARIANTS:-}" ]]; then
+  read -r -a VARIANTS <<< "$LAB3_VARIANTS"
+else
+  VARIANTS=(qknorm talking_heads qknorm_talking_heads)
+fi
+
+for variant in "${VARIANTS[@]}"; do
+  case "$variant" in
+    qknorm|talking_heads|qknorm_talking_heads) ;;
+    *)
+      echo "FATAL: unsupported LAB3_VARIANTS entry: $variant"
+      exit 2
+      ;;
+  esac
+done
 MAX_ATTEMPTS=${LAB3_MAX_ATTEMPTS:-4}
 SUITE_STAMP=$(date +%Y%m%d-%H%M%S)
 SUITE_LOG="$RESULTS_ROOT/remaining_attention_suite_$SUITE_STAMP.log"

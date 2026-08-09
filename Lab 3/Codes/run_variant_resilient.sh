@@ -48,7 +48,8 @@ export NCCL_DEBUG=WARN
 export NCCL_IB_DISABLE=1
 export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
 export TORCH_NCCL_BLOCKING_WAIT=1
-export PYTORCH_ALLOC_CONF=max_split_size_mb:128
+export PYTORCH_ALLOC_CONF=expandable_segments:True,max_split_size_mb:128
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True,max_split_size_mb:128
 export CUDA_MODULE_LOADING=LAZY
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
@@ -61,8 +62,10 @@ DEFAULT_WORKERS=$(( (CPU_COUNT - 3) / 3 ))
 (( DEFAULT_WORKERS > 8 )) && DEFAULT_WORKERS=8
 WORKERS_PER_RANK=${WORKERS_PER_RANK:-$DEFAULT_WORKERS}
 BATCH_PER_GPU=${BATCH_PER_GPU:-8}
+ACCUMULATE_GRAD_BATCHES=${ACCUMULATE_GRAD_BATCHES:-1}
 EPOCHS=${EPOCHS:-80}
 GLOBAL_BATCH=$(( BATCH_PER_GPU * 3 ))
+EFFECTIVE_GLOBAL_BATCH=$(( GLOBAL_BATCH * ACCUMULATE_GRAD_BATCHES ))
 ATTEMPT_ID=${LAB3_ATTEMPT_ID:-1}
 ATTEMPT_LOG="$OUT/attempt_logs/attempt_${ATTEMPT_ID}_$(date +%Y%m%d-%H%M%S).log"
 
@@ -73,6 +76,7 @@ echo "ENV=$ENV"
 echo "ATTEMPT_ID=$ATTEMPT_ID"
 echo "ATTEMPT_LOG=$ATTEMPT_LOG"
 echo "GPUS=3 BATCH_PER_GPU=$BATCH_PER_GPU GLOBAL_BATCH=$GLOBAL_BATCH"
+echo "ACCUMULATE_GRAD_BATCHES=$ACCUMULATE_GRAD_BATCHES EFFECTIVE_GLOBAL_BATCH=$EFFECTIVE_GLOBAL_BATCH"
 echo "WORKERS_PER_RANK=$WORKERS_PER_RANK TOTAL_WORKERS=$((WORKERS_PER_RANK * 3))"
 
 "$ENV/bin/python" - <<'PY'
@@ -148,6 +152,7 @@ ARGS=(
   trainer.devices=3
   trainer.strategy=ddp_find_unused_parameters_false
   trainer.sync_batchnorm=true
+  +trainer.accumulate_grad_batches="$ACCUMULATE_GRAD_BATCHES"
   +trainer.num_sanity_val_steps=0
   callbacks.0.save_top_k=3
   callbacks.0.monitor=minADE6
