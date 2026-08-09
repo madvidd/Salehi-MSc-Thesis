@@ -1,8 +1,3 @@
-# Lab 3 attention-suite run
-
-- Captured: 2026-08-09T23:29:14+01:00
-- Run: SHARP_ATTENTION_ABLATION_20260717-123916
-- Current variant: 
-- Full log retained locally: /home/server01/M/Terminal/SHARP_ATTENTION_ABLATION_20260717-123916/Terminal.txt
-- GitHub Terminal.txt collapses repeated progress refreshes.
-- Training was not interrupted.
+Generated: 2026-08-09T23:54:32+01:00
+Source: /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/remaining_attention_suite_20260809-234718.log
+Training was not interrupted.
