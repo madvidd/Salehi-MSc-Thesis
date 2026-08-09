@@ -1,4 +1,5 @@
 Variant                                Status       Checkpoints 
 01_baseline                            PENDING      21          
 02_confidence_gated_memory             PENDING      21          
-03_cross_window_consistency            RUNNING      6           
+03_cross_window_consistency            PENDING      21          
+04_learned_temporal_pool               RUNNING      11          
