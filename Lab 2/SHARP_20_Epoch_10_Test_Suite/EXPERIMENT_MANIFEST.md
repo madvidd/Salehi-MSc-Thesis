@@ -53,4 +53,14 @@ Tests 2-9 each contain only their named change relative to test 1. Test 10 remov
 - A failed variant stops the sequence. This avoids wasting days on later tests after a shared runtime failure.
 - Previous Lab 2 code, results, checkpoints, and logs are never deleted or overwritten.
 
+### Conditional DDP compatibility
+
+`uncertainty_target_context` is inactive before a streamed window contains prior
+mode probabilities. On those batches, its four parameter tensors (five scalar
+parameters) are connected to the autograd graph through an exactly zero-valued
+term. This leaves predictions, losses, gradients for active parameters, the DDP
+strategy, and every training hyperparameter unchanged while satisfying DDP's
+fixed-graph requirement. The recovery launcher audits this behavior before it
+starts training and archives the pre-patch model and failed attempt.
+
 This 20-epoch suite is a controlled screening study. Its absolute metrics are not directly comparable to the paper's fully trained 80-epoch result; the valid comparison is primarily among these ten identically shortened tests.
