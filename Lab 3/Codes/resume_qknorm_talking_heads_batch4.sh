@@ -16,9 +16,9 @@ PRESERVE="$RESULTS_ROOT/recovery_before_batch4_$STAMP"
 
 collect_stale_pids() {
   ps -u "$USER" -o pid=,args= | awk -v out="$OUT" '
-    index($0, out) && ($0 ~ /train[.]py/ || $0 ~ /tee -a/) {print $1}
-    /run_variant[.]sh qknorm_talking_heads/ {print $1}
-    /run_remaining_attention_suite(_resilient)?[.]sh/ {print $1}
+    index($0, out) && ($0 ~ /[t]rain[.]py/ || $0 ~ /[t]ee -a/) {print $1}
+    /[r]un_variant[.]sh qknorm_talking_heads/ {print $1}
+    /[r]un_remaining_attention_suite(_resilient)?[.]sh/ {print $1}
   ' | sort -un
 }
 
