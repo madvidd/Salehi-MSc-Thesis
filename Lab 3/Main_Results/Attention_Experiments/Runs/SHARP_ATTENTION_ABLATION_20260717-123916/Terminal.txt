@@ -1532,3 +1532,363 @@ Restored all states from the checkpoint at /home/server01/M/Results/SHARP_ATTENT
 Training: |          | 0/? [00:00<?, ?it/s]
 Training:   0%|          | 0/8330 [00:00<?, ?it/s]
 Epoch 36:   0%|          | 0/8330 [00:00<?, ?it/s]
+Epoch 36:  10%|▉         | 792/8330 [09:11<1:27:26,  1.44it/s, v_num=1]
+Epoch 36:  20%|█▉        | 1625/8330 [18:46<1:17:27,  1.44it/s, v_num=1]
+Epoch 36:  30%|██▉       | 2458/8330 [28:19<1:07:39,  1.45it/s, v_num=1]
+Epoch 36:  40%|███▉      | 3291/8330 [37:51<57:58,  1.45it/s, v_num=1]
+Epoch 36:  50%|████▉     | 4124/8330 [47:25<48:21,  1.45it/s, v_num=1]
+Epoch 36:  60%|█████▉    | 4957/8330 [56:58<38:45,  1.45it/s, v_num=1]
+Epoch 36:  70%|██████▉   | 5790/8330 [1:06:31<29:11,  1.45it/s, v_num=1]
+Traceback (most recent call last):
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/train.py", line 29, in main
+trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 538, in fit
+call._call_and_handle_interrupt(
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 46, in _call_and_handle_interrupt
+return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+return function(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 574, in _fit_impl
+self._run(model, ckpt_path=ckpt_path)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 981, in _run
+results = self._run_stage()
+^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1025, in _run_stage
+self.fit_loop.run()
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+self.advance()
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+self.epoch_loop.run(self._data_fetcher)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
+self.advance(data_fetcher)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
+batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
+self._optimizer_step(batch_idx, closure)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
+call._call_lightning_module_hook(
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 167, in _call_lightning_module_hook
+output = fn(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1306, in optimizer_step
+optimizer.step(closure=optimizer_closure)
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
+step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 270, in optimizer_step
+optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
+return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
+return optimizer.step(closure=closure, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
+return func.__get__(opt, opt.__class__)(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/optim/optimizer.py", line 516, in wrapper
+out = func(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+ret = func(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/optim/adam.py", line 226, in step
+loss = closure()
+^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
+closure_result = closure()
+^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
+self._result = self.closure(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+return func(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 129, in closure
+step_output = self._step_fn()
+^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 317, in _training_step
+training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 319, in _call_strategy_hook
+output = fn(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 389, in training_step
+return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 640, in __call__
+wrapper_output = wrapper_module(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1648, in forward
+else self._run_ddp_forward(*inputs, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1474, in _run_ddp_forward
+return self.module(*inputs, **kwargs)  # type: ignore[index]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 633, in wrapped_forward
+out = method(*_args, **_kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/pl_modules.py", line 340, in training_step
+out = self(cur_data)
+^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/pl_modules.py", line 40, in forward
+return self.model(data)
+^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/sharp.py", line 350, in forward
+new_lane_feat = self.scene_interact(new_x_encoder[~x_type_mask].reshape(B, -1, C), memory_x_encoder[~memory_type_mask].reshape(B, -1, C), cur_pose, memory_pose, key_padding_mask=~memory_valid_mask[~memory_type_mask].reshape(B, -1))
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/layers/transformer_blocks.py", line 182, in forward
+cur_embed = blk(src=cur_embed, src_kv=memory_embed, mask=mask, key_padding_mask=key_padding_mask)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/layers/transformer_blocks.py", line 243, in forward
+src2 = self.attn(
+^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+return self._call_impl(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+return forward_call(*args, **kwargs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code/src/model/layers/attention_variants.py", line 159, in forward
+weights = torch.einsum("bhqk,hg->bgqk", weights, self.post_head_mix)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/functional.py", line 422, in einsum
+return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.00 MiB. GPU 1 has a total capacity of 10.57 GiB of which 13.38 MiB is free. Including non-PyTorch memory, this process has 10.54 GiB memory in use. Of the allocated memory 10.17 GiB is allocated by PyTorch, and 98.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Exception raised from malloc at /pytorch/c10/cuda/CUDACachingAllocator.cpp:1498 (most recent call first):
+C++ CapturedTraceback:
+#4 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libc10.so:593058
+#5 c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libc10.so:597679
+#6 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libc10_cuda.so:248378
+#7 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libc10_cuda.so:248836
+#8 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libc10_cuda.so:250206
+#9 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:22897852
+#10 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:22882084
+#11 at::detail::empty_generic(c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:22884610
+#12 at::detail::empty_cuda(c10::ArrayRef<long>, c10::ScalarType, std::optional<c10::Device>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so:18241349
+#13 at::detail::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so:18241757
+#14 at::native::empty_cuda(c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so:20913026
+#15 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so:58234563
+#16 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so:58234859
+#17 at::_ops::empty_memory_format::redispatch(c10::DispatchKeySet, c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:38903317
+#18 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:42721096
+#19 at::_ops::empty_memory_format::call(c10::ArrayRef<c10::SymInt>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:39215479
+#20 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:27557639
+#21 at::native::empty_like(at::Tensor const&, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:30633236
+#22 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:45007301
+#23 at::_ops::empty_like::call(at::Tensor const&, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:40827267
+#24 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:23608736
+#25 at::native::clone(at::Tensor const&, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:30632380
+#26 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:45023118
+#27 at::_ops::clone::redispatch(c10::DispatchKeySet, at::Tensor const&, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:37127865
+#28 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:77928395
+#29 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:77929281
+#30 at::_ops::clone::call(at::Tensor const&, std::optional<c10::MemoryFormat>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:37710442
+#31 at::native::reshape_symint(at::Tensor const&, c10::ArrayRef<c10::SymInt>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:30838342
+#32 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:46034801
+#33 at::_ops::reshape::call(at::Tensor const&, c10::ArrayRef<c10::SymInt>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:40888378
+#34 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:28222943
+#35 at::native::einsum(std::basic_string_view<char, std::char_traits<char> >, c10::ArrayRef<at::Tensor>, c10::OptionalArrayRef<long>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:28250288
+#36 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:46023158
+#37 at::_ops::einsum::call(std::basic_string_view<char, std::char_traits<char> >, c10::ArrayRef<at::Tensor>, c10::OptionalArrayRef<long>) from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so:39209446
+#38 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/lib/python3.11/site-packages/torch/lib/libtorch_python.so:4823821
+#39 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2085813
+#40 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#41 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#42 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#43 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#44 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#45 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#46 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#47 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#48 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#49 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#50 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#51 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1959055
+#52 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#53 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#54 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#55 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#56 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#57 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#58 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#59 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#60 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#61 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#62 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#63 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#64 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#65 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1959055
+#66 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#67 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#68 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#69 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#70 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#71 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#72 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#73 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#74 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#75 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#76 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#77 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#78 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#79 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1959055
+#80 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#81 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#82 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#83 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#84 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#85 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#86 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#87 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#88 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#89 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#90 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#91 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#92 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#93 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#94 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#95 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#96 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#97 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#98 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#99 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#100 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#101 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#102 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#103 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#104 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#105 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#106 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#107 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#108 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#109 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#110 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#111 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#112 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#113 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#114 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194285
+#115 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#116 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#117 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#118 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#119 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#120 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#121 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#122 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#123 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#124 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#125 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#126 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194285
+#127 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#128 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#129 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#130 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185590
+#131 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#132 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194285
+#133 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#134 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#135 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#136 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#137 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#138 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#139 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1921171
+#140 PyObject_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2046555
+#141 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#142 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#143 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#144 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#145 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281967
+#146 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#147 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#148 _PyObject_FastCallDictTstate from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1958932
+#149 _PyObject_Call_Prepend from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2185462
+#150 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:3048582
+#151 _PyObject_MakeTpCall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1939034
+#152 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#153 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#154 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1921171
+#155 PyObject_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2046555
+#156 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:1997484
+#157 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#158 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#159 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#160 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#161 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#162 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#163 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#164 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#165 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#166 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#167 _PyFunction_Vectorcall from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2152372
+#168 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#169 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#170 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#171 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#172 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#173 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#174 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#175 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#176 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#177 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#178 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#179 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#180 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281560
+#181 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#182 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2283905
+#183 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2281917
+#184 PyObject_Call from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2194405
+#185 _PyEval_EvalFrameDefault from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2013274
+#186 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2767988
+#187 PyEval_EvalCode from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2765756
+#188 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2886793
+#189 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2869666
+#190 ?? from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2957231
+#191 _PyRun_SimpleFileObject from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2954649
+#192 _PyRun_AnyFileObject from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2953875
+#193 Py_RunMain from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2931840
+#194 Py_BytesMain from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2699750
+#195 __libc_start_main from /lib/x86_64-linux-gnu/libc.so.6:147586
+#196 _start from /home/server01/M/Codes/AV2/envs/sharp_av2_cu126/bin/python3.11:2699373
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
