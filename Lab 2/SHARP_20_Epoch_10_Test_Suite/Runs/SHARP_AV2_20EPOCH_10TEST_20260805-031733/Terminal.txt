@@ -13726,3 +13726,7 @@ CUDA kernel errors might be asynchronously reported at some other API call, so t
 For debugging consider passing CUDA_LAUNCH_BLOCKING=1
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2026-08-12 00:23:47] server00:3867182:3907582 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
+[2026-08-12 00:23:47] server00:3867182:3907582 [2] init.cc:2018 NCCL WARN commDestroySync: comm 0x5c77146efe80 rank 2 sync hostStream error 1
+[2026-08-12 00:23:47] server00:3867182:3907582 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
+[2026-08-12 00:23:47] server00:3867182:3907582 [2] init.cc:2021 NCCL WARN commDestroySync: comm 0x5c77146efe80 rank 2 sync deviceStream error 1
