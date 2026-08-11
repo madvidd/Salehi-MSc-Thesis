@@ -148,7 +148,7 @@ timeout --signal=INT --kill-after=60s 30m \
   "$PYTHON_BIN" train.py \
   seed=2333 \
   gpus=4 \
-  epochs=1 \
+  epochs=20 \
   batch_size=8 \
   "output_dir=$SMOKE_ROOT/run" \
   "datamodule.pl_module.data_root=$BASE/Datasets/AV2/sharp_processed" \
@@ -165,6 +165,7 @@ timeout --signal=INT --kill-after=60s 30m \
   trainer.num_sanity_val_steps=0 \
   +trainer.limit_train_batches=256 \
   +trainer.limit_val_batches=1 \
+  +trainer.max_steps=256 \
   callbacks.0.save_top_k=0 \
   callbacks.0.save_last=false \
   callbacks.0.every_n_epochs=1 \

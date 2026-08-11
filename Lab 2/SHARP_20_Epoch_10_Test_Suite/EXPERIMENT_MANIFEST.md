@@ -69,6 +69,8 @@ map compressed target features back to their original token positions. It is
 forward- and gradient-equivalent to SHARP's Boolean assignment, but avoids the
 Boolean CUDA write that produced an illegal memory access on Lab 2. Recovery
 must pass randomized equivalence checks and a 256-batch real-data, four-GPU
-smoke test before the controlled suite is allowed to resume.
+smoke test before the controlled suite is allowed to resume. The smoke retains
+the controlled 20-epoch scheduler configuration and stops after 256 optimizer
+steps, preventing the scheduler from being reparameterized for the diagnostic.
 
 This 20-epoch suite is a controlled screening study. Its absolute metrics are not directly comparable to the paper's fully trained 80-epoch result; the valid comparison is primarily among these ten identically shortened tests.

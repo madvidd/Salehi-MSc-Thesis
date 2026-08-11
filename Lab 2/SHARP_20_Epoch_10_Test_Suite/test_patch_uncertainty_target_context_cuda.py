@@ -13,6 +13,15 @@ import patch_uncertainty_target_context_cuda as patcher
 
 
 class CheckedTargetRemapPatchTests(unittest.TestCase):
+    def test_smoke_preserves_scheduler_and_stops_by_step(self) -> None:
+        recovery_script = Path(__file__).with_name(
+            "recover_and_resume_lab2_10test_cuda.sh"
+        ).read_text(encoding="utf-8")
+        self.assertIn("  epochs=20 \\\n", recovery_script)
+        self.assertIn("  +trainer.limit_train_batches=256 \\\n", recovery_script)
+        self.assertIn("  +trainer.max_steps=256 \\\n", recovery_script)
+        self.assertNotIn("  epochs=1 \\\n", recovery_script)
+
     def test_patch_is_exact_and_idempotent(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary) / "experiment"
