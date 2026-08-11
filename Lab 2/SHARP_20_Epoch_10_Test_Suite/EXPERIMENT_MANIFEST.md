@@ -64,4 +64,11 @@ while satisfying DDP's fixed-graph requirement. The recovery launcher audits
 this behavior before it starts training and archives the pre-patch model,
 Lightning module, and failed attempt.
 
+The uncertainty variant also uses a checked, out-of-place `torch.index_copy` to
+map compressed target features back to their original token positions. It is
+forward- and gradient-equivalent to SHARP's Boolean assignment, but avoids the
+Boolean CUDA write that produced an illegal memory access on Lab 2. Recovery
+must pass randomized equivalence checks and a 256-batch real-data, four-GPU
+smoke test before the controlled suite is allowed to resume.
+
 This 20-epoch suite is a controlled screening study. Its absolute metrics are not directly comparable to the paper's fully trained 80-epoch result; the valid comparison is primarily among these ten identically shortened tests.

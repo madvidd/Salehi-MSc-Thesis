@@ -250,6 +250,30 @@ def patch_sharp(code_dir: Path) -> None:
         "            compressed_target_encoder = compressed_target_encoder * target_feature_gate.unsqueeze(-1).unsqueeze(-1)\n",
         "uncertainty target gate",
     )
+    source = replace_once(
+        source,
+        "            container[target_valid.view(-1)] = compressed_target_encoder.view(-1, self.embed_dim)[~compressed_target_mask.view(-1)]\n",
+        "            # Map compressed features back with checked integer indices.\n"
+        "            target_destination = torch.nonzero(\n"
+        "                target_valid.reshape(-1), as_tuple=False\n"
+        "            ).squeeze(-1)\n"
+        "            compressed_source = torch.nonzero(\n"
+        "                ~compressed_target_mask.reshape(-1), as_tuple=False\n"
+        "            ).squeeze(-1)\n"
+        "            if target_destination.numel() != compressed_source.numel():\n"
+        "                raise RuntimeError(\n"
+        "                    'Target-context remap count mismatch: '\n"
+        "                    f'destination={target_destination.numel()} '\n"
+        "                    f'source={compressed_source.numel()}'\n"
+        "                )\n"
+        "            compressed_flat = compressed_target_encoder.reshape(\n"
+        "                -1, self.embed_dim\n"
+        "            ).index_select(0, compressed_source)\n"
+        "            container = torch.index_copy(\n"
+        "                container, 0, target_destination, compressed_flat\n"
+        "            )\n",
+        "checked target-context remap",
+    )
     source = source.replace(
         "                x_curr = blk(x_curr, key_padding_mask=~key_valid_mask)\n",
         "                x_curr = blk(x_curr, mask=scene_attention_bias, key_padding_mask=~key_valid_mask)\n",
