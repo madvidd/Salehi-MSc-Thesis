@@ -4,9 +4,9 @@ Lower values are better for every listed metric.
 
 | Attention | Status | Best epoch | Best minADE6 | Latest epoch | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Baseline MHA | Saved/inactive | 4 | 1.102881 | 5 | 0.356 | 2.790 | 2.700 | 1.100 | 6.550 | 2.790 |
-| QK-Norm | Running | 65 | 0.669777 | 79 | 0.15447057783603668 | 1.8996416330337524 | 1.6719043254852295 | 0.6697766780853271 | 4.119902610778809 | 1.266239881515503 |
-| Talking-Heads | Saved/inactive | 71 | 0.674991 | 79 | 0.1565099060535431 | 1.927414059638977 | 1.6751811504364014 | 0.674991250038147 | 4.130967617034912 | 1.2856419086456299 |
-| QK-Norm + Talking-Heads | Running (recovered after OOM) | 33 | 0.716198 | 36 | 0.177 | 2.020 | 1.800 | 0.722 | 4.490 | 2.020 |
+| Baseline MHA | Completed | 66 | 0.673460 | 79 | 0.153231 | 1.927635 | 1.671288 | 0.686853 | 4.063601 | 1.287932 |
+| QK-Norm | Completed | 65 | 0.669777 | 79 | 0.154471 | 1.899642 | 1.671904 | 0.669777 | 4.119903 | 1.266240 |
+| Talking-Heads | Completed | 71 | 0.674991 | 79 | 0.156510 | 1.927414 | 1.675181 | 0.674991 | 4.130968 | 1.285642 |
+| QK-Norm + Talking-Heads | Stopped after second OOM; checkpoint preserved | 33 | 0.716198 | 36 (70%) | 0.177 | 2.020 | 1.800 | 0.722 | 4.490 | 1.370 |
 
-Best minADE6 comes from checkpoint filenames. Other metrics are the latest or final values visible in the logs.
+Best minADE6 comes from checkpoint filenames. The remaining metrics are the latest or final values visible in the logs and are not necessarily from the best-minADE6 checkpoint. Baseline MHA includes its resumed run; the interrupted pre-resume segment ended at epoch 5. The combined experiment restored the epoch-35 checkpoint twice, but both batch-size-8 attempts exhausted GPU memory during epoch 36. Its next recovery uses per-GPU batch 4 with two-step gradient accumulation, preserving an effective optimization batch of 24.
