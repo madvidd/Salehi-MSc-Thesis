@@ -237,7 +237,9 @@ def status_for(root: Path, active: bool, text: str, progress) -> str:
         text,
         flags=re.IGNORECASE,
     ):
-        return "Stopped/error; resumable"
+        if (root / "run" / "checkpoints" / "last.ckpt").is_file():
+            return "Stopped/error; resumable from last checkpoint"
+        return "Stopped/error before checkpoint; restart required"
     if (root / "run" / "checkpoints" / "last.ckpt").is_file():
         return "Saved; resumable"
     if root.is_dir() and any(root.iterdir()):

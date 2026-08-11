@@ -10,7 +10,7 @@ All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across fo
 | Confidence-gated memory | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.194413 | 2.067328 | 1.876097 | 0.755349 | +0.003010 | 4.694828 | 1.443534 |
 | Cross-window consistency | Completed | epoch index 19/19, 100% (6248/6248) | 18 | 21 | 0.202497 | 2.096022 | 1.872110 | 0.776207 | +0.023868 | 4.785388 | 1.476766 |
 | Learned temporal pooling | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.201897 | 2.080306 | 1.891240 | 0.757637 | +0.005298 | 4.739688 | 1.463850 |
-| Uncertainty-aware target context | Stopped/error; resumable | epoch index 0/19, 0% (1/6248) | - | 0 | - | - | - | - | - | - | - |
+| Uncertainty-aware target context | Stopped/error before checkpoint; restart required | epoch index 0/19, 0% (1/6248) | - | 0 | - | - | - | - | - | - | - |
 | Relative geometry attention bias | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Kinematic motion stem | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Endpoint refinement decoder | Pending | - | - | 0 | - | - | - | - | - | - | - |
