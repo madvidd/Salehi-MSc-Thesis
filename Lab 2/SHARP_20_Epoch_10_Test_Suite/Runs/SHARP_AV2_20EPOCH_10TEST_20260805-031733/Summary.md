@@ -1,60 +1,22 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Summary
 
-Last checked: 2026-08-09 23:22 BST
-Run: `SHARP_AV2_20EPOCH_10TEST_20260805-031733`
+Generated: 2026-08-11T23:45:27.995655+01:00
 
-## Run configuration
+All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across four RTX 2080 Ti GPUs), AdamW, LR 1e-4 to 1e-5, 13 warm-up epochs, and SyncBatchNorm. Lower is better for all metrics.
 
-- Dataset: Argoverse 2
-- Epochs per variant: 20
-- Seed: 2333
-- GPUs: four RTX 2080 Ti GPUs using DDP
-- Batch size: 8 per GPU, 32 global
-- Learning rate: `1e-4` to `1e-5`
-- Warm-up ratio: `0.65` (13 of 20 epochs)
-- Weight decay: `0.01`
-- SyncBatchNorm: enabled
-- Checkpointing: every epoch plus `last.ckpt`
+| Test | Status | Live progress | Best epoch | Checkpoints | MR | b-minFDE6 | minADE1 | minADE6 | Delta minADE6 vs baseline | minFDE1 | minFDE6 |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Baseline SHARP | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.192652 | 2.064007 | 1.886442 | 0.752339 | +0.000000 | 4.672195 | 1.434819 |
+| Confidence-gated memory | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.194413 | 2.067328 | 1.876097 | 0.755349 | +0.003010 | 4.694828 | 1.443534 |
+| Cross-window consistency | Completed | epoch index 19/19, 100% (6248/6248) | 18 | 21 | 0.202497 | 2.096022 | 1.872110 | 0.776207 | +0.023868 | 4.785388 | 1.476766 |
+| Learned temporal pooling | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.201897 | 2.080306 | 1.891240 | 0.757637 | +0.005298 | 4.739688 | 1.463850 |
+| Uncertainty-aware target context | Stopped/error; resumable | epoch index 0/19, 0% (1/6248) | - | 0 | - | - | - | - | - | - | - |
+| Relative geometry attention bias | Pending | - | - | 0 | - | - | - | - | - | - | - |
+| Kinematic motion stem | Pending | - | - | 0 | - | - | - | - | - | - | - |
+| Endpoint refinement decoder | Pending | - | - | 0 | - | - | - | - | - | - | - |
+| Lane topology graph | Pending | - | - | 0 | - | - | - | - | - | - | - |
+| Agent temporal Mamba | Pending | - | - | 0 | - | - | - | - | - | - | - |
 
-## Results so far
+Completed variants: 4/10. Currently active: none detected.
 
-| Test | Status | Best epoch | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
-|---|---|---:|---:|---:|---:|---:|---:|---:|
-| Baseline SHARP | Complete | 19 | **0.192652** | **2.064007** | 1.886442 | **0.752339** | **4.672195** | **1.434819** |
-| Confidence-gated memory | Complete | 19 | 0.194413 | 2.067328 | **1.876097** | 0.755349 | 4.694828 | 1.443534 |
-| Cross-window consistency | Complete | 18 | 0.202497 | 2.096022 | **1.872110** | 0.776207 | 4.785388 | 1.476766 |
-| Learned temporal pooling | Running, epoch 10/20 at 98% | 9 so far | - | - | - | 0.981647 | - | - |
-| Tests 5-10 | Not started | - | - | - | - | - | - | - |
-
-## Current comparison
-
-Relative to the completed 20-epoch baseline, confidence-gated memory produced:
-
-- 0.40% worse minADE6
-- 0.91% worse MR
-- 0.61% worse minFDE6
-- 0.48% worse minFDE1
-- 0.55% better minADE1
-
-Confidence-gated memory therefore did not provide an overall accuracy improvement in this controlled 20-epoch run.
-
-Relative to the completed baseline, cross-window consistency produced:
-
-- 3.17% worse minADE6
-- 5.11% worse MR
-- 2.92% worse minFDE6
-- 2.42% worse minFDE1
-- 0.76% better minADE1
-
-Cross-window consistency also did not provide an overall accuracy improvement. Baseline SHARP remains the leading completed variant. Learned temporal pooling is still provisional and cannot be compared fairly until all 20 epochs and best-checkpoint validation finish.
-
-## Health and persistence
-
-- Completion markers are present for baseline, confidence-gated memory, and cross-window consistency.
-- The suite automatically advanced to `learned_temporal_pool`.
-- Each completed variant has checkpoints for epochs 0-19 plus `last.ckpt`.
-- No new traceback, CUDA illegal-memory-access failure, NCCL failure, out-of-memory error, or variant failure was found.
-- The separate `nvidia-smi` status query still reports the known NVML driver/library mismatch; the isolated CUDA runtime continues to train.
-- `VARIANT_STATUS.txt` incorrectly labels completed tests as `PENDING` because the publication check looks for `COMPLETE` while the runner writes `COMPLETED`. The completion markers, final validation, and checkpoint sets confirm all three tests completed.
-
-This file reports an in-progress suite. Results for the active and remaining variants must not be treated as final until their best-checkpoint validation completes.
+`Delta minADE6 vs baseline` is variant minADE6 minus baseline minADE6; a negative value is better. Best minADE6 is read from checkpoint filenames. The other metrics use a saved variant summary when available, otherwise the closest matching or latest validation record in the logs. Lightning labels the 20 epochs from 0 through 19. Running results are provisional. This is a 20-epoch screening suite and should not be presented as equivalent to SHARP's full 80-epoch result.

@@ -71,4 +71,14 @@
 2026-08-09 17:55  56154429 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_7-minADE6_1.0200780630111694.ckpt
 2026-08-09 19:47  56154812 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_8-minADE6_0.9919692873954773.ckpt
 2026-08-09 21:38  56155259 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_9-minADE6_0.9816473126411438.ckpt
-2026-08-09 21:38  56155259 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/last.ckpt
+2026-08-09 23:28  56155706 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_10-minADE6_0.925340473651886.ckpt
+2026-08-10 01:15  56156089 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_11-minADE6_0.9590994119644165.ckpt
+2026-08-10 02:58  56156536 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_12-minADE6_0.893963634967804.ckpt
+2026-08-10 04:36  56156919 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_13-minADE6_0.960727870464325.ckpt
+2026-08-10 06:10  56157366 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_14-minADE6_0.8960407376289368.ckpt
+2026-08-10 07:52  56157813 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_15-minADE6_0.8829253911972046.ckpt
+2026-08-10 09:37  56158196 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_16-minADE6_0.8627440929412842.ckpt
+2026-08-10 11:23  56158643 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_17-minADE6_0.8171151876449585.ckpt
+2026-08-10 13:09  56159026 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_18-minADE6_0.7838349938392639.ckpt
+2026-08-10 14:57  56159473 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/epoch_19-minADE6_0.7576372623443604.ckpt
+2026-08-10 14:57  56159473 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/04_learned_temporal_pool/run/checkpoints/last.ckpt

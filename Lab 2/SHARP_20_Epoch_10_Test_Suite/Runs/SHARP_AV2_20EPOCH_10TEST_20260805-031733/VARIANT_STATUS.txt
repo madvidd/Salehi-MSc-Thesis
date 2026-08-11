@@ -1,5 +1,14 @@
-Variant                                Status       Checkpoints 
-01_baseline                            PENDING      21          
-02_confidence_gated_memory             PENDING      21          
-03_cross_window_consistency            PENDING      21          
-04_learned_temporal_pool               RUNNING      11          
+Results root: /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733
+Completed: 4/10
+Active: none detected
+
+Baseline SHARP: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.752339; checkpoints=21
+Confidence-gated memory: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.755349; checkpoints=21
+Cross-window consistency: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=18; best_minADE6=0.776207; checkpoints=21
+Learned temporal pooling: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.757637; checkpoints=21
+Uncertainty-aware target context: Stopped/error; resumable; epoch index 0/19, 0% (1/6248); best_epoch=None; best_minADE6=-; checkpoints=0
+Relative geometry attention bias: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
+Kinematic motion stem: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
+Endpoint refinement decoder: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
+Lane topology graph: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
+Agent temporal Mamba: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
