@@ -56,11 +56,12 @@ Tests 2-9 each contain only their named change relative to test 1. Test 10 remov
 ### Conditional DDP compatibility
 
 `uncertainty_target_context` is inactive before a streamed window contains prior
-mode probabilities. On those batches, its four parameter tensors (five scalar
-parameters) are connected to the autograd graph through an exactly zero-valued
-term. This leaves predictions, losses, gradients for active parameters, the DDP
-strategy, and every training hyperparameter unchanged while satisfying DDP's
-fixed-graph requirement. The recovery launcher audits this behavior before it
-starts training and archives the pre-patch model and failed attempt.
+mode probabilities. Its four parameter tensors (five scalar parameters) are
+therefore connected to every uncertainty-variant training loss through an
+exactly zero-valued term. This leaves predictions, loss values, gradients for
+active parameters, the DDP strategy, and every training hyperparameter unchanged
+while satisfying DDP's fixed-graph requirement. The recovery launcher audits
+this behavior before it starts training and archives the pre-patch model,
+Lightning module, and failed attempt.
 
 This 20-epoch suite is a controlled screening study. Its absolute metrics are not directly comparable to the paper's fully trained 80-epoch result; the valid comparison is primarily among these ten identically shortened tests.

@@ -97,7 +97,7 @@ if (( STATUS != 0 )); then
   exit "$STATUS"
 fi
 
-"$PYTHON_BIN" "$PACKAGE_DIR/validate_uncertainty_ddp_bridge.py" \
+CUDA_VISIBLE_DEVICES="" "$PYTHON_BIN" "$PACKAGE_DIR/validate_uncertainty_ddp_bridge.py" \
   "$EXPERIMENT" | tee "$RECOVERY/BRIDGE_AUDIT.txt"
 STATUS=${PIPESTATUS[0]}
 if (( STATUS != 0 )); then
@@ -114,6 +114,7 @@ fi
   echo "continue_variants=06,07,08,09,10"
   echo "training_configuration_changed=false"
   echo "forward_values_changed=false"
+  echo "loss_values_changed=false"
   echo "ddp_strategy=ddp_find_unused_parameters_false"
 } > "$RECOVERY/RECOVERY_MANIFEST.txt"
 

@@ -318,7 +318,10 @@ def patch_lightning(code_dir: Path) -> None:
         "            coarse_loss = endpoint_auxiliary_loss(\n"
         "                out['coarse_y_hat'], out['coarse_pi'], y\n"
         "            )\n"
-        "            loss = loss + 0.2 * coarse_loss\n",
+        "            loss = loss + 0.2 * coarse_loss\n"
+        "        if self.experiment_variant == 'uncertainty_target_context':\n"
+        "            for parameter in self.model.uncertainty_target_context.parameters():\n"
+        "                loss = loss + parameter.sum() * 0.0\n",
         "endpoint auxiliary loss",
     )
     source = replace_once(

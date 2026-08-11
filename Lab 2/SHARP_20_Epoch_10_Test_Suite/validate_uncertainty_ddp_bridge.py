@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 MARKER = "uncertainty_ddp_zero = target_pos.new_zeros(())"
+LOSS_MARKER = "loss = loss + parameter.sum() * 0.0"
 
 
 def main() -> None:
@@ -19,25 +20,29 @@ def main() -> None:
     experiment = args.experiment_root.resolve()
     code = experiment / "Code"
     sharp_path = code / "src/model/sharp.py"
+    lightning_path = code / "src/model/pl_modules.py"
     source = sharp_path.read_text(encoding="utf-8")
     if source.count(MARKER) != 1:
         raise SystemExit("FATAL: patched SHARP source marker is missing or duplicated")
     compile(source, str(sharp_path), "exec")
+    lightning_source = lightning_path.read_text(encoding="utf-8")
+    if lightning_source.count(LOSS_MARKER) != 1:
+        raise SystemExit("FATAL: uncertainty loss bridge is missing or duplicated")
+    compile(lightning_source, str(lightning_path), "exec")
 
     sys.path.insert(0, str(code))
     import torch
     from src.model.layers.ablation_modules import UncertaintyTargetContext
 
     module = UncertaintyTargetContext()
-    gate = torch.ones(2, 6)
-    ddp_zero = gate.new_zeros(())
+    original_loss = torch.tensor(3.25, requires_grad=True)
+    loss = original_loss
     for parameter in module.parameters():
-        ddp_zero = ddp_zero + parameter.sum() * 0.0
-    bridged_gate = gate + ddp_zero
+        loss = loss + parameter.sum() * 0.0
 
-    if not torch.equal(gate, bridged_gate):
-        raise SystemExit("FATAL: DDP bridge changed a forward value")
-    bridged_gate.sum().backward()
+    if loss.detach().item() != original_loss.detach().item():
+        raise SystemExit("FATAL: loss bridge changed the loss value")
+    loss.backward()
 
     missing = []
     nonzero = []
@@ -53,7 +58,7 @@ def main() -> None:
 
     print("UNCERTAINTY_DDP_BRIDGE_AUDIT_OK=True")
     print(f"CONNECTED_PARAMETER_TENSORS={sum(1 for _ in module.parameters())}")
-    print("FORWARD_VALUES_UNCHANGED=True")
+    print("LOSS_VALUE_UNCHANGED=True")
     print("BRIDGE_GRADIENTS_ARE_ZERO=True")
 
 
