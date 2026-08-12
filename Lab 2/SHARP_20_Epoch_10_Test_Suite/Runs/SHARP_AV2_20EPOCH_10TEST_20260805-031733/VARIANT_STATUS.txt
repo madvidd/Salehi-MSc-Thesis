@@ -6,7 +6,7 @@ Baseline SHARP: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; b
 Confidence-gated memory: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.755349; checkpoints=21
 Cross-window consistency: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=18; best_minADE6=0.776207; checkpoints=21
 Learned temporal pooling: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.757637; checkpoints=21
-Uncertainty-aware target context: Running (epoch index 0/19, 1%); epoch index 0/19, 1% (56/6248); best_epoch=None; best_minADE6=-; checkpoints=0
+Uncertainty-aware target context: Running (epoch index 0/19, 4%); epoch index 0/19, 4% (223/6248); best_epoch=None; best_minADE6=-; checkpoints=0
 Relative geometry attention bias: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
 Kinematic motion stem: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
 Endpoint refinement decoder: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
