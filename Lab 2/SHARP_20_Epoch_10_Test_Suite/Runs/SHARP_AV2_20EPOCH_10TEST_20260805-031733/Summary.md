@@ -1,6 +1,6 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Summary
 
-Generated: 2026-08-12T00:40:18.214482+01:00
+Generated: 2026-08-12T01:10:34.316267+01:00
 
 All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across four RTX 2080 Ti GPUs), AdamW, LR 1e-4 to 1e-5, 13 warm-up epochs, and SyncBatchNorm. Lower is better for all metrics.
 
@@ -10,13 +10,13 @@ All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across fo
 | Confidence-gated memory | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.194413 | 2.067328 | 1.876097 | 0.755349 | +0.003010 | 4.694828 | 1.443534 |
 | Cross-window consistency | Completed | epoch index 19/19, 100% (6248/6248) | 18 | 21 | 0.202497 | 2.096022 | 1.872110 | 0.776207 | +0.023868 | 4.785388 | 1.476766 |
 | Learned temporal pooling | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.201897 | 2.080306 | 1.891240 | 0.757637 | +0.005298 | 4.739688 | 1.463850 |
-| Uncertainty-aware target context | Stopped/error before checkpoint; restart required | epoch index 0/19, 2% (148/6248) | - | 0 | - | - | - | - | - | - | - |
+| Uncertainty-aware target context | Running (epoch index 0/19, 1%) | epoch index 0/19, 1% (56/6248) | - | 0 | - | - | - | - | - | - | - |
 | Relative geometry attention bias | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Kinematic motion stem | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Endpoint refinement decoder | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Lane topology graph | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Agent temporal Mamba | Pending | - | - | 0 | - | - | - | - | - | - | - |
 
-Completed variants: 4/10. Currently active: none detected.
+Completed variants: 4/10. Currently active: Uncertainty-aware target context.
 
 `Delta minADE6 vs baseline` is variant minADE6 minus baseline minADE6; a negative value is better. Best minADE6 is read from checkpoint filenames. The other metrics use a saved variant summary when available, otherwise the closest matching or latest validation record in the logs. Lightning labels the 20 epochs from 0 through 19. Running results are provisional. This is a 20-epoch screening suite and should not be presented as equivalent to SHARP's full 80-epoch result.
