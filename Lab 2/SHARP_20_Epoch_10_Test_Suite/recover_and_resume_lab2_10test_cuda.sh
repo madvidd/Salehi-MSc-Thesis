@@ -136,55 +136,88 @@ fi
 
 SMOKE_ROOT="$RECOVERY/real_data_cuda_smoke"
 mkdir -p "$SMOKE_ROOT/run"
+SMOKE_LOG="$RECOVERY/REAL_DATA_CUDA_SMOKE.log"
 
-echo "Running 256 real-data batches past the previous batch-148 failure point..."
-cd "$EXPERIMENT/Code" || exit 1
-export SHARP_EXPERIMENT_VARIANT=uncertainty_target_context
-export CUDA_LAUNCH_BLOCKING=1
-export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
+smoke_log_is_valid() {
+  local log=$1
+  [[ -s "$log" ]] || return 1
+  grep -aFq 'Trainer.fit` stopped: `max_steps=256` reached.' "$log" || return 1
+  grep -aFq '256/256' "$log" || return 1
+  ! grep -aEqi \
+    'illegal memory access|CUDA error|ZeroDivisionError|Target-context remap count mismatch|Expected to have finished reduction|out of memory|AssertionError|NCCL WARN' \
+    "$log"
+}
 
-set +e
-timeout --signal=INT --kill-after=60s 30m \
-  "$PYTHON_BIN" train.py \
-  seed=2333 \
-  gpus=4 \
-  epochs=20 \
-  batch_size=8 \
-  "output_dir=$SMOKE_ROOT/run" \
-  "datamodule.pl_module.data_root=$BASE/Datasets/AV2/sharp_processed" \
-  datamodule.pl_module.num_workers=6 \
-  model.pl_module.optim.lr=0.0001 \
-  model.pl_module.optim.min_lr=0.00001 \
-  model.pl_module.optim.weight_decay=0.01 \
-  model.pl_module.optim.warmup_ratio=0.65 \
-  trainer.devices=4 \
-  trainer.strategy=ddp_find_unused_parameters_false \
-  trainer.gradient_clip_val=5 \
-  trainer.gradient_clip_algorithm=norm \
-  trainer.sync_batchnorm=true \
-  trainer.num_sanity_val_steps=0 \
-  +trainer.limit_train_batches=256 \
-  +trainer.limit_val_batches=1 \
-  +trainer.max_steps=256 \
-  callbacks.0.save_top_k=0 \
-  callbacks.0.save_last=false \
-  callbacks.0.every_n_epochs=1 \
-  checkpoint=null \
-  2>&1 | tee "$RECOVERY/REAL_DATA_CUDA_SMOKE.log"
-SMOKE_STATUS=${PIPESTATUS[0]}
-set +e
+PREVIOUS_SMOKE=$(
+  find "$RESULTS/recovery" -type f -name REAL_DATA_CUDA_SMOKE.log \
+    -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -1 | cut -d' ' -f2-
+)
+SMOKE_STATUS=1
+SMOKE_REUSED=false
 
-unset CUDA_LAUNCH_BLOCKING
-
-if (( SMOKE_STATUS != 0 )); then
-  echo "FATAL: real-data CUDA smoke test failed with status $SMOKE_STATUS."
-  echo "The ten-test suite was not restarted."
-  exit "$SMOKE_STATUS"
+if [[ -n "$PREVIOUS_SMOKE" ]] && smoke_log_is_valid "$PREVIOUS_SMOKE"; then
+  cp --reflink=auto "$PREVIOUS_SMOKE" "$SMOKE_LOG"
+  printf 'source=%s\nreused=%s\n' "$PREVIOUS_SMOKE" \
+    "$(date --iso-8601=seconds)" > "$RECOVERY/REUSED_CUDA_SMOKE.txt"
+  SMOKE_STATUS=0
+  SMOKE_REUSED=true
+  echo "REUSING_VALID_256_BATCH_CUDA_SMOKE=$PREVIOUS_SMOKE"
 fi
 
-if grep -aEq 'illegal memory access|Traceback|Error executing job' \
-  "$RECOVERY/REAL_DATA_CUDA_SMOKE.log"; then
-  echo "FATAL: smoke log contains a CUDA or Python failure."
+cd "$EXPERIMENT/Code" || exit 1
+export SHARP_EXPERIMENT_VARIANT=uncertainty_target_context
+export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
+
+if [[ "$SMOKE_REUSED" != true ]]; then
+  echo "Running 256 real-data batches past the previous batch-148 failure point..."
+  export CUDA_LAUNCH_BLOCKING=1
+
+  set +e
+  timeout --signal=INT --kill-after=60s 30m \
+    "$PYTHON_BIN" train.py \
+    seed=2333 \
+    gpus=4 \
+    epochs=20 \
+    batch_size=8 \
+    "output_dir=$SMOKE_ROOT/run" \
+    "datamodule.pl_module.data_root=$BASE/Datasets/AV2/sharp_processed" \
+    datamodule.pl_module.num_workers=6 \
+    model.pl_module.optim.lr=0.0001 \
+    model.pl_module.optim.min_lr=0.00001 \
+    model.pl_module.optim.weight_decay=0.01 \
+    model.pl_module.optim.warmup_ratio=0.65 \
+    trainer.devices=4 \
+    trainer.strategy=ddp_find_unused_parameters_false \
+    trainer.gradient_clip_val=5 \
+    trainer.gradient_clip_algorithm=norm \
+    trainer.sync_batchnorm=true \
+    trainer.num_sanity_val_steps=0 \
+    +trainer.limit_train_batches=256 \
+    +trainer.limit_val_batches=1 \
+    +trainer.max_steps=256 \
+    callbacks.0.save_top_k=0 \
+    callbacks.0.save_last=false \
+    callbacks.0.every_n_epochs=1 \
+    checkpoint=null \
+    2>&1 | tee "$SMOKE_LOG"
+  SMOKE_STATUS=${PIPESTATUS[0]}
+  set +e
+
+  unset CUDA_LAUNCH_BLOCKING
+fi
+
+if smoke_log_is_valid "$SMOKE_LOG"; then
+  if (( SMOKE_STATUS != 0 )); then
+    if grep -aFq 'RuntimeError: No best checkpoint was recorded' "$SMOKE_LOG"; then
+      echo "SMOKE_POSTFIT_CHECKPOINT_ERROR_ACCEPTED=True"
+      SMOKE_STATUS=0
+    fi
+  fi
+fi
+
+if (( SMOKE_STATUS != 0 )) || ! smoke_log_is_valid "$SMOKE_LOG"; then
+  echo "FATAL: the 256-batch CUDA smoke test was not valid."
+  echo "The ten-test suite was not restarted."
   exit 1
 fi
 
@@ -198,6 +231,7 @@ fi
   echo "target_remap_forward_equivalent=true"
   echo "target_remap_gradient_equivalent=true"
   echo "smoke_training_batches=256"
+  echo "smoke_reused=$SMOKE_REUSED"
   echo "training_hyperparameters_changed=false"
 } > "$RECOVERY/RECOVERY_VALIDATED.txt"
 

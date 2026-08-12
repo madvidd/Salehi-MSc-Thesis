@@ -21,6 +21,9 @@ class CheckedTargetRemapPatchTests(unittest.TestCase):
         self.assertIn("  +trainer.limit_train_batches=256 \\\n", recovery_script)
         self.assertIn("  +trainer.max_steps=256 \\\n", recovery_script)
         self.assertNotIn("  epochs=1 \\\n", recovery_script)
+        self.assertIn("smoke_log_is_valid()", recovery_script)
+        self.assertIn("REUSING_VALID_256_BATCH_CUDA_SMOKE", recovery_script)
+        self.assertIn("SMOKE_POSTFIT_CHECKPOINT_ERROR_ACCEPTED", recovery_script)
 
     def test_patch_is_exact_and_idempotent(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

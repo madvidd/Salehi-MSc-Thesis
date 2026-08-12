@@ -72,5 +72,8 @@ must pass randomized equivalence checks and a 256-batch real-data, four-GPU
 smoke test before the controlled suite is allowed to resume. The smoke retains
 the controlled 20-epoch scheduler configuration and stops after 256 optimizer
 steps, preventing the scheduler from being reparameterized for the diagnostic.
+SHARP's wrapper expects every fit to produce a best checkpoint; the checkpoint-
+free smoke therefore accepts that specific post-fit exception only after all 256
+steps completed and the log passed explicit CUDA, DDP, OOM, and remap-error scans.
 
 This 20-epoch suite is a controlled screening study. Its absolute metrics are not directly comparable to the paper's fully trained 80-epoch result; the valid comparison is primarily among these ten identically shortened tests.
