@@ -30,6 +30,11 @@ CHECKPOINT = re.compile(
 PROGRESS = re.compile(
     r"Epoch\s+(\d+):\s*(\d+)%.*?(\d+)/(\d+)(?:.*?([0-9]+(?:\.[0-9]+)?)it/s)?"
 )
+RUNTIME_ERROR = re.compile(
+    r"Traceback|CUDA error|illegal memory access|OutOfMemoryError|"
+    r"CUDA out of memory|VARIANT_STOPPED",
+    flags=re.IGNORECASE,
+)
 
 
 def tail_text(path: Path, limit: int = 64 << 20) -> str:
@@ -225,6 +230,16 @@ def is_active(commands: str, root: Path) -> bool:
 def status_for(root: Path, active: bool, text: str, progress) -> str:
     if (root / "COMPLETED").is_file():
         return "Completed"
+    latest_progress = max(
+        (match.start() for match in PROGRESS.finditer(text)), default=-1
+    )
+    latest_error = max(
+        (match.start() for match in RUNTIME_ERROR.finditer(text)), default=-1
+    )
+    if latest_error > latest_progress:
+        if (root / "run" / "checkpoints" / "last.ckpt").is_file():
+            return "Stopped/error; resumable from last checkpoint"
+        return "Stopped/error before checkpoint; restart required"
     if active:
         if progress:
             return (
@@ -232,11 +247,7 @@ def status_for(root: Path, active: bool, text: str, progress) -> str:
                 f"{progress['percent']}%)"
             )
         return "Running"
-    if re.search(
-        r"Traceback|CUDA error|illegal memory access|OutOfMemoryError|CUDA out of memory|VARIANT_STOPPED",
-        text,
-        flags=re.IGNORECASE,
-    ):
+    if latest_error >= 0:
         if (root / "run" / "checkpoints" / "last.ckpt").is_file():
             return "Stopped/error; resumable from last checkpoint"
         return "Stopped/error before checkpoint; restart required"
@@ -328,7 +339,7 @@ def main() -> None:
         active = is_active(commands, root)
         status = status_for(root, active, text, progress)
         completed += status == "Completed"
-        if active:
+        if status.startswith("Running"):
             running.append(label)
         rows.append(
             {
