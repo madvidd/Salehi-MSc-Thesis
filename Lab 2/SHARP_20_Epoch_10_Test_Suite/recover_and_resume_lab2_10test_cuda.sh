@@ -99,6 +99,14 @@ if (( STATUS != 0 )); then
   exit "$STATUS"
 fi
 
+"$PYTHON_BIN" "$PACKAGE_DIR/patch_uncertainty_runner_sync_cuda.py" \
+  "$RUNNER" "$RECOVERY"
+STATUS=$?
+if (( STATUS != 0 )); then
+  echo "FATAL: synchronous CUDA runner patch failed."
+  exit "$STATUS"
+fi
+
 CUDA_VISIBLE_DEVICES="" "$PYTHON_BIN" \
   "$PACKAGE_DIR/validate_uncertainty_ddp_bridge.py" "$EXPERIMENT" \
   | tee "$RECOVERY/DDP_BRIDGE_AUDIT.txt"
@@ -232,6 +240,8 @@ fi
   echo "target_remap_gradient_equivalent=true"
   echo "smoke_training_batches=256"
   echo "smoke_reused=$SMOKE_REUSED"
+  echo "uncertainty_target_context_cuda_launch_blocking=true"
+  echo "other_variants_cuda_launch_blocking=false"
   echo "training_hyperparameters_changed=false"
 } > "$RECOVERY/RECOVERY_VALIDATED.txt"
 
