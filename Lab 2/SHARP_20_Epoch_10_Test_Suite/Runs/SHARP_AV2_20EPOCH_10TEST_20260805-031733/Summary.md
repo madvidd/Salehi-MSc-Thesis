@@ -1,6 +1,6 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Summary
 
-Generated: 2026-08-13T19:41:20.853489+01:00
+Generated: 2026-08-15T16:41:30.785742+01:00
 
 All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across four RTX 2080 Ti GPUs), AdamW, LR 1e-4 to 1e-5, 13 warm-up epochs, and SyncBatchNorm. Lower is better for all metrics.
 
@@ -11,12 +11,12 @@ All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across fo
 | Cross-window consistency | Completed | epoch index 19/19, 100% (6248/6248) | 18 | 21 | 0.202497 | 2.096022 | 1.872110 | 0.776207 | +0.023868 | 4.785388 | 1.476766 |
 | Learned temporal pooling | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.201897 | 2.080306 | 1.891240 | 0.757637 | +0.005298 | 4.739688 | 1.463850 |
 | Uncertainty-aware target context | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.198575 | 2.074243 | 1.863236 | 0.749961 | -0.002378 | 4.676969 | 1.447852 |
-| Relative geometry attention bias | Running (epoch index 6/19, 23%) | epoch index 6/19, 23% (1424/6248) | 5 | 7 | 0.338000 | 2.720000 | 2.520000 | 1.057035 | +0.304695 | 6.440000 | 2.090000 |
-| Kinematic motion stem | Pending | - | - | 0 | - | - | - | - | - | - | - |
+| Relative geometry attention bias | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.190852 | 2.051891 | 1.875754 | 0.749679 | -0.002660 | 4.660576 | 1.432463 |
+| Kinematic motion stem | Running (epoch index 9/19, 86%) | epoch index 9/19, 86% (5378/6248) | 7 | 10 | 0.287000 | 2.560000 | 2.420000 | 1.016821 | +0.264481 | 5.990000 | 1.910000 |
 | Endpoint refinement decoder | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Lane topology graph | Pending | - | - | 0 | - | - | - | - | - | - | - |
 | Agent temporal Mamba | Pending | - | - | 0 | - | - | - | - | - | - | - |
 
-Completed variants: 5/10. Currently active: Relative geometry attention bias.
+Completed variants: 6/10. Currently active: Kinematic motion stem.
 
 `Delta minADE6 vs baseline` is variant minADE6 minus baseline minADE6; a negative value is better. Best minADE6 is read from checkpoint filenames. The other metrics use a saved variant summary when available, otherwise the closest matching or latest validation record in the logs. Lightning labels the 20 epochs from 0 through 19. Running results are provisional. This is a 20-epoch screening suite and should not be presented as equivalent to SHARP's full 80-epoch result.

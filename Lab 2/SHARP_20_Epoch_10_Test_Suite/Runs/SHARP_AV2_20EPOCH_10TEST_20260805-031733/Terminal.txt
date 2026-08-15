@@ -19213,3 +19213,1853 @@ Validation: |          | 0/? [00:00<?, ?it/s]
 Validation:   0%|          | 0/781 [00:00<?, ?it/s]
 Validation: |          | 0/? [00:00<?, ?it/s]
 Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+SPLIT POINTS: SPLIT POINTS:SPLIT POINTS:  [10, 20, 30, 40, 50]SPLIT POINTS:
+[10, 20, 30, 40, 50][10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:04,824][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:04,850][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,078][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,353][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,363][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,513][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,607][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:09:05,614][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+Restoring states from the checkpoint path at /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Loaded model weights from the checkpoint at /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:215: Using `DistributedSampler` with the dataloaders. During `trainer.validate()`, it is recommended to use `Trainer(devices=1, num_nodes=1)` to ensure each sample/batch gets evaluated exactly once. Otherwise, multi-device settings use `DistributedSampler` that replicates some samples to make sure all devices have same batch size in case of uneven inputs.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│            MR             │    0.1908516138792038     │
+│         b-minFDE6         │    2.0518910884857178     │
+│          minADE1          │    1.8757541179656982     │
+│          minADE6          │     0.749678909778595     │
+│          minFDE1          │     4.660576343536377     │
+│          minFDE6          │    1.4324631690979004     │
+│    val/step0_reg_loss     │    0.6663430333137512     │
+│    val/step1_reg_loss     │     0.507519006729126     │
+│    val/step2_reg_loss     │    0.4007854163646698     │
+│    val/step3_reg_loss     │    0.3070353865623474     │
+│    val/step4_reg_loss     │    0.22861629724502563    │
+└───────────────────────────┴───────────────────────────┘
+BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/06_relative_geometry_bias/run/checkpoints/epoch_19-minADE6_0.749678909778595.ckpt
+BEST_MINADE6=0.749678910
+VARIANT_COMPLETE=relative_geometry_bias
+STARTING_VARIANT=kinematic_motion_stem
+[2026-08-14 22:13:46,641][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/07_kinematic_motion_stem/run
+Seed set to 2333
+[2026-08-14 22:13:46,642][__main__][INFO] - Global Seed set to 2333
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+SHARP_20EPOCH_VARIANT=kinematic_motion_stem TRAINABLE_PARAMETERS=4653019
+[2026-08-14 22:13:48,014][__main__][INFO] - StreamLightningModule(
+(model): Sharp(
+(h_proj): Linear(in_features=5, out_features=128, bias=True)
+(h_embed): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(lane_embed): LaneEmbeddingLayer(
+(first_conv): Sequential(
+(0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
+)
+(second_conv): Sequential(
+(0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
+)
+)
+(pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(decoder): MultimodalDecoder(
+(lane_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(pi): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=1, bias=True)
+)
+(loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(pi_norm): Softmax(dim=-1)
+(mode_embed): Embedding(6, 128)
+)
+(dense_predictor): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(kinematic_stem): KinematicMotionStem(
+(net): Sequential(
+(0): Linear(in_features=5, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Dropout(p=0.2, inplace=False)
+(3): Linear(in_features=128, out_features=128, bias=True)
+)
+)
+(scene_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(traj_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(stream_loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=128, bias=True)
+(3): ReLU()
+(4): Linear(in_features=128, out_features=200, bias=True)
+)
+(traj_embed): Sequential(
+(0): Linear(in_features=200, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_center_embed): Sequential(
+(0): Linear(in_features=2, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+)
+(metrics): MetricCollection(
+(MR): MR()
+(b-minFDE6): brier_minFDE()
+(minADE1): minADE()
+(minADE6): minADE()
+(minFDE1): minFDE()
+(minFDE6): minFDE()
+)
+)
+Trainer already configured with model summary callbacks: [<class 'pytorch_lightning.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/4
+[2026-08-14 22:13:50,666][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/07_kinematic_motion_stem/run
+[rank: 2] Seed set to 2333
+[2026-08-14 22:13:50,668][__main__][INFO] - Global Seed set to 2333
+[2026-08-14 22:13:50,682][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/07_kinematic_motion_stem/run
+[rank: 1] Seed set to 2333
+[2026-08-14 22:13:50,683][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/07_kinematic_motion_stem/run
+[rank: 3] Seed set to 2333
+[2026-08-14 22:13:50,684][__main__][INFO] - Global Seed set to 2333
+[2026-08-14 22:13:50,684][__main__][INFO] - Global Seed set to 2333
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+SHARP_20EPOCH_VARIANT=kinematic_motion_stem TRAINABLE_PARAMETERS=4653019
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+SHARP_20EPOCH_VARIANT=kinematic_motion_stem TRAINABLE_PARAMETERS=4653019
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+SHARP_20EPOCH_VARIANT=kinematic_motion_stem TRAINABLE_PARAMETERS=4653019
+[2026-08-14 22:13:52,112][__main__][INFO] - StreamLightningModule(
+(model): Sharp(
+(h_proj): Linear(in_features=5, out_features=128, bias=True)
+(h_embed): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(lane_embed): LaneEmbeddingLayer(
+(first_conv): Sequential(
+(0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
+)
+(second_conv): Sequential(
+(0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
+)
+)
+(pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(decoder): MultimodalDecoder(
+(lane_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(pi): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=1, bias=True)
+)
+(loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(pi_norm): Softmax(dim=-1)
+(mode_embed): Embedding(6, 128)
+)
+(dense_predictor): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(kinematic_stem): KinematicMotionStem(
+(net): Sequential(
+(0): Linear(in_features=5, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Dropout(p=0.2, inplace=False)
+(3): Linear(in_features=128, out_features=128, bias=True)
+)
+)
+(scene_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(traj_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(stream_loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=128, bias=True)
+(3): ReLU()
+(4): Linear(in_features=128, out_features=200, bias=True)
+)
+(traj_embed): Sequential(
+(0): Linear(in_features=200, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_center_embed): Sequential(
+(0): Linear(in_features=2, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+)
+(metrics): MetricCollection(
+(MR): MR()
+(b-minFDE6): brier_minFDE()
+(minADE1): minADE()
+(minADE6): minADE()
+(minFDE1): minFDE()
+(minFDE6): minFDE()
+)
+)
+[2026-08-14 22:13:52,119][__main__][INFO] - StreamLightningModule(
+(model): Sharp(
+(h_proj): Linear(in_features=5, out_features=128, bias=True)
+(h_embed): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(lane_embed): LaneEmbeddingLayer(
+(first_conv): Sequential(
+(0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
+)
+(second_conv): Sequential(
+(0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
+)
+)
+(pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(decoder): MultimodalDecoder(
+(lane_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(pi): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=1, bias=True)
+)
+(loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(pi_norm): Softmax(dim=-1)
+(mode_embed): Embedding(6, 128)
+)
+(dense_predictor): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(kinematic_stem): KinematicMotionStem(
+(net): Sequential(
+(0): Linear(in_features=5, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Dropout(p=0.2, inplace=False)
+(3): Linear(in_features=128, out_features=128, bias=True)
+)
+)
+(scene_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(traj_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(stream_loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=128, bias=True)
+(3): ReLU()
+(4): Linear(in_features=128, out_features=200, bias=True)
+)
+(traj_embed): Sequential(
+(0): Linear(in_features=200, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_center_embed): Sequential(
+(0): Linear(in_features=2, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+)
+(metrics): MetricCollection(
+(MR): MR()
+(b-minFDE6): brier_minFDE()
+(minADE1): minADE()
+(minADE6): minADE()
+(minFDE1): minFDE()
+(minFDE6): minFDE()
+)
+)
+[2026-08-14 22:13:52,121][__main__][INFO] - StreamLightningModule(
+(model): Sharp(
+(h_proj): Linear(in_features=5, out_features=128, bias=True)
+(h_embed): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(lane_embed): LaneEmbeddingLayer(
+(first_conv): Sequential(
+(0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
+)
+(second_conv): Sequential(
+(0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
+(1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(2): ReLU(inplace=True)
+(3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
+)
+)
+(pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.067)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.067)
+)
+(2): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.133)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.133)
+)
+(3): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(decoder): MultimodalDecoder(
+(lane_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_blks): ModuleList(
+(0): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.100)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.100)
+)
+(2): Block(
+(normkv): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(normk): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.0, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.0, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(pi): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=1, bias=True)
+)
+(loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(pi_norm): Softmax(dim=-1)
+(mode_embed): Embedding(6, 128)
+)
+(dense_predictor): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=200, bias=True)
+)
+(kinematic_stem): KinematicMotionStem(
+(net): Sequential(
+(0): Linear(in_features=5, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Dropout(p=0.2, inplace=False)
+(3): Linear(in_features=128, out_features=128, bias=True)
+)
+)
+(scene_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(traj_interact): InteractionModule(
+(mln): MLN(
+(reduce): Sequential(
+(0): Linear(in_features=48, out_features=128, bias=True)
+(1): ReLU()
+)
+(gamma): Linear(in_features=128, out_features=128, bias=True)
+(beta): Linear(in_features=128, out_features=128, bias=True)
+(ln): LayerNorm((128,), eps=1e-05, elementwise_affine=False)
+)
+(inter_blocks): ModuleList(
+(0-1): 2 x InterBlock(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+)
+(stream_loc): Sequential(
+(0): Linear(in_features=128, out_features=256, bias=True)
+(1): ReLU()
+(2): Linear(in_features=256, out_features=128, bias=True)
+(3): ReLU()
+(4): Linear(in_features=128, out_features=200, bias=True)
+)
+(traj_embed): Sequential(
+(0): Linear(in_features=200, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_pos_embed): Sequential(
+(0): Linear(in_features=4, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_center_embed): Sequential(
+(0): Linear(in_features=2, out_features=128, bias=True)
+(1): GELU(approximate='none')
+(2): Linear(in_features=128, out_features=128, bias=True)
+)
+(target_blocks): ModuleList(
+(0): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): Identity()
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): Identity()
+)
+(1): Block(
+(norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(attn): MultiheadAttention(
+(out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+)
+(drop_path1): DropPath(drop_prob=0.200)
+(norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+(mlp): Mlp(
+(fc1): Linear(in_features=128, out_features=512, bias=True)
+(act): GELU(approximate='none')
+(drop1): Dropout(p=0.2, inplace=False)
+(fc2): Linear(in_features=512, out_features=128, bias=True)
+(drop2): Dropout(p=0.2, inplace=False)
+)
+(drop_path2): DropPath(drop_prob=0.200)
+)
+)
+(target_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+)
+(metrics): MetricCollection(
+(MR): MR()
+(b-minFDE6): brier_minFDE()
+(minADE1): minADE()
+(minADE6): minADE()
+(minFDE1): minFDE()
+(minFDE6): minFDE()
+)
+)
+Initializing distributed: GLOBAL_RANK: 2, MEMBER: 3/4
+Initializing distributed: GLOBAL_RANK: 3, MEMBER: 4/4
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/4
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 4 processes
+----------------------------------------------------------------------------------------------------
+NCCL version 2.27.3+cuda12.9
+SPLIT POINTS:SPLIT POINTS:SPLIT POINTS:   SPLIT POINTS: [10, 20, 30, 40, 50][10, 20, 30, 40, 50][10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,355][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,370][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,378][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,386][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,508][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,523][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,535][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-14 22:13:55,541][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+┏━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┓
+┃   ┃ Name    ┃ Type             ┃ Params ┃ Mode  ┃
+┡━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━┩
+│ 0 │ model   │ Sharp            │  4.7 M │ train │
+│ 1 │ metrics │ MetricCollection │      0 │ train │
+└───┴─────────┴──────────────────┴────────┴───────┘
+Trainable params: 4.7 M
+Non-trainable params: 0
+Total params: 4.7 M
+Total estimated model params size (MB): 18
+Modules in train mode: 360
+Modules in eval mode: 0
+Training: |          | 0/? [00:00<?, ?it/s]
+Training:   0%|          | 0/6248 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]

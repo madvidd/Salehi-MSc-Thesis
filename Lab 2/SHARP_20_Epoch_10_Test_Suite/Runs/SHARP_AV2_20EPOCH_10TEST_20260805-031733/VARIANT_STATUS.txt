@@ -1,14 +1,14 @@
 Results root: /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733
-Completed: 5/10
-Active: Relative geometry attention bias
+Completed: 6/10
+Active: Kinematic motion stem
 
 Baseline SHARP: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.752339; checkpoints=21
 Confidence-gated memory: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.755349; checkpoints=21
 Cross-window consistency: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=18; best_minADE6=0.776207; checkpoints=21
 Learned temporal pooling: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.757637; checkpoints=21
 Uncertainty-aware target context: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.749961; checkpoints=21
-Relative geometry attention bias: Running (epoch index 6/19, 23%); epoch index 6/19, 23% (1424/6248); best_epoch=5; best_minADE6=1.057035; checkpoints=7
-Kinematic motion stem: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
+Relative geometry attention bias: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.749679; checkpoints=21
+Kinematic motion stem: Running (epoch index 9/19, 86%); epoch index 9/19, 86% (5378/6248); best_epoch=7; best_minADE6=1.016821; checkpoints=10
 Endpoint refinement decoder: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
 Lane topology graph: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
 Agent temporal Mamba: Pending; -; best_epoch=None; best_minADE6=-; checkpoints=0
