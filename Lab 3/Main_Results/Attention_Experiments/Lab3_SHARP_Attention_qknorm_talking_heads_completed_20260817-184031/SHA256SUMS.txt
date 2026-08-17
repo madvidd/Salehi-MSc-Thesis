@@ -1,0 +1,2 @@
+bc237757b0ceeaa0a517152772a407210e01de7cad78013cf77f55f85a7d7c49  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_qknorm_talking_heads_completed_20260817-184031/code.tar.gz
+2570e71b98909e845dac1a179f14b1d50d043c6679a15c4c89073552a7c0eefb  /home/server01/M/Results/Archives/Lab3_SHARP_Attention_qknorm_talking_heads_completed_20260817-184031/results_and_checkpoints.tar.gz

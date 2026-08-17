@@ -1,0 +1,17 @@
+variant=qknorm_talking_heads
+result_kind=completed
+saved=2026-08-17T18:40:31+01:00
+training_exit_code=0
+code=/home/server01/M/Codes/SHARP_ATTENTION_ABLATION_20260717-123916/variants/qknorm_talking_heads/Code
+results=/home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads
+environment=/home/server01/M/Codes/AV2/envs/sharp_av2_cu126
+pytorch=2.8.0+cu126
+cuda_runtime=12.6
+epochs=80
+gpus=3
+batch_per_gpu=4
+gradient_accumulation=2
+effective_global_batch=24
+seed=2333
+sync_batchnorm=true
+baseline_rerun=false
