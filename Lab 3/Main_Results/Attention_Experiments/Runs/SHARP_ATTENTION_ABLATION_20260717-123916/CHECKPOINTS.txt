@@ -25,7 +25,7 @@
 2026-08-08 06:56  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/recovery_before_batch4_20260811-232446/last.ckpt
 2026-08-08 06:56  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/recovery_before_batch4_20260811-232706/last.ckpt
 2026-08-08 06:56  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/recovery_before_oom_resume_20260809-234710/last.ckpt
-2026-08-14 14:34  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/epoch_55-minADE6_0.6775982975959778.ckpt
-2026-08-15 06:23  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/epoch_60-minADE6_0.6774508953094482.ckpt
 2026-08-15 15:52  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/epoch_63-minADE6_0.6750381588935852.ckpt
-2026-08-15 15:52  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/last.ckpt
+2026-08-16 10:51  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/epoch_69-minADE6_0.6746605634689331.ckpt
+2026-08-16 17:10  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/epoch_71-minADE6_0.6744924783706665.ckpt
+2026-08-17 18:28  56240618 bytes  /home/server01/M/Results/SHARP_ATTENTION_ABLATION_20260717-123916/qknorm_talking_heads/run/checkpoints/last.ckpt
