@@ -1,8 +1,8 @@
 # Lab 3 Terminal Commands
 
 Paste the following block into a new Lab 3 terminal. It authenticates Git using
-the `madviddd` PAT in `/home/server01/M/Token/Token.txt`, updates `main`, and runs
-the three experiments in the foreground.
+the `madviddd` PAT in `/home/server01/M/Token/Token.txt`, creates a clean clone of
+`main`, and runs the three experiments in the foreground.
 
 ```bash
 set +e
@@ -10,11 +10,10 @@ set +u
 set +o pipefail 2>/dev/null
 
 BASE=/home/server01/M
-REPO=$(tr -d '\r\n' < "$BASE/Codes/LATEST_THESIS_LAB3_CLONE.txt" 2>/dev/null)
 TOKEN_FILE="$BASE/Token/Token.txt"
 GIT=/usr/bin/git
-
-[ -d "$REPO/.git" ] || REPO="$BASE/Codes/Thesis"
+STAMP=$(date +%Y%m%d-%H%M%S)
+REPO="$BASE/Codes/Thesis_SEAM_Launch_$STAMP"
 
 TOKEN=$(python3 - "$TOKEN_FILE" <<'PY'
 import pathlib, re, sys
@@ -31,7 +30,7 @@ LOGIN=$(curl -fsSL -H "Authorization: Bearer $TOKEN" \
   2>/dev/null)
 
 STATUS=1
-if [ "$LOGIN" = "madviddd" ] && [ -d "$REPO/.git" ]; then
+if [ "$LOGIN" = "madviddd" ]; then
   export LAB3_GITHUB_TOKEN="$TOKEN"
   ASKPASS=$(mktemp)
   printf '%s\n' \
@@ -42,17 +41,11 @@ if [ "$LOGIN" = "madviddd" ] && [ -d "$REPO/.git" ]; then
     'esac' > "$ASKPASS"
   chmod 700 "$ASKPASS"
 
-  cd "$REPO"
-  "$GIT" remote set-url origin https://github.com/madvidd/Thesis.git
   GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
-    "$GIT" -c credential.helper= fetch origin main
+    "$GIT" -c credential.helper= clone \
+    --depth 1 --single-branch --branch main \
+    https://github.com/madvidd/Thesis.git "$REPO"
   STATUS=$?
-
-  if [ "$STATUS" -eq 0 ]; then
-    "$GIT" switch main
-    "$GIT" merge --autostash FETCH_HEAD
-    STATUS=$?
-  fi
 
   rm -f "$ASKPASS"
   unset LAB3_GITHUB_TOKEN TOKEN
@@ -64,7 +57,7 @@ if [ "$LOGIN" = "madviddd" ] && [ -d "$REPO/.git" ]; then
     STATUS=$?
   fi
 else
-  echo "ERROR: Token.txt is not a madviddd PAT or the Thesis clone is missing."
+  echo "ERROR: Token.txt is not a madviddd PAT."
 fi
 
 echo
