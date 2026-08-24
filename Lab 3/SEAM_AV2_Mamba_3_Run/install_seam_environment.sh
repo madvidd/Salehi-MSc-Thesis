@@ -55,14 +55,17 @@ if [ "$STATUS" -eq 0 ] && [ ! -f "$READY" ]; then
     "$PYTHON" - <<'PY'
 import torch
 import pytorch_lightning
+import transformers
 import mamba_ssm
 
 assert torch.__version__.startswith("2.1.1"), torch.__version__
 assert torch.version.cuda == "12.1", torch.version.cuda
 assert torch.cuda.is_available()
+assert transformers.__version__ == "4.44.2", transformers.__version__
 print("PYTORCH_VERSION=" + torch.__version__)
 print("PYTORCH_CUDA=" + str(torch.version.cuda))
 print("LIGHTNING_VERSION=" + pytorch_lightning.__version__)
+print("TRANSFORMERS_VERSION=" + transformers.__version__)
 print("MAMBA_IMPORT_OK=True")
 PY
     STATUS=$?
