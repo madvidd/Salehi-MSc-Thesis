@@ -1,0 +1,11 @@
+baseline | 55672270 bytes | epoch=10 | minADE6=0.9381344318389893 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_10-minADE6_0.9381344318389893.ckpt
+baseline | 55672270 bytes | epoch=11 | minADE6=0.930866003036499 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_11-minADE6_0.930866003036499.ckpt
+baseline | 55672270 bytes | epoch=12 | minADE6=1.080817699432373 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_12-minADE6_1.080817699432373.ckpt
+baseline | 55672270 bytes | epoch=13 | minADE6=0.9335002899169922 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_13-minADE6_0.9335002899169922.ckpt
+baseline | 55672270 bytes | epoch=14 | minADE6=0.8704944252967834 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_14-minADE6_0.8704944252967834.ckpt
+baseline | 55670929 bytes | epoch=5 | minADE6=1.0174291133880615 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_5-minADE6_1.0174291133880615.ckpt
+baseline | 55671312 bytes | epoch=6 | minADE6=1.0217974185943604 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_6-minADE6_1.0217974185943604.ckpt
+baseline | 55671759 bytes | epoch=7 | minADE6=1.0383776426315308 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_7-minADE6_1.0383776426315308.ckpt
+baseline | 55672142 bytes | epoch=8 | minADE6=0.9529580473899841 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_8-minADE6_0.9529580473899841.ckpt
+baseline | 55672270 bytes | epoch=9 | minADE6=0.9878514409065247 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_9-minADE6_0.9878514409065247.ckpt
+baseline | 55672270 bytes | epoch=None | minADE6=None | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/last.ckpt
