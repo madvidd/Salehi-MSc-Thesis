@@ -209,6 +209,8 @@ def static_audit(experiment: Path) -> None:
                 f"{slug} stream logging batch-size audit failed: "
                 f"{explicit_stream_batch_sizes} != 3"
             )
+        if "module.named_parameters(\n                recurse=False\n" not in pl_module:
+            raise RuntimeError(f"{slug} direct optimizer grouping audit failed")
         if "missing_parameters = param_dict.keys() - union_params" not in pl_module:
             raise RuntimeError(f"{slug} optimizer audit is absent")
         qknorm_count = sum(

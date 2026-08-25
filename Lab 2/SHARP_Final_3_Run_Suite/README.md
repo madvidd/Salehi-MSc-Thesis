@@ -19,6 +19,7 @@ All three runs use seed 2333, 80 epochs, 13 warm-up epochs, global batch 32, Ada
 - Every preflight subprocess has a timeout and isolated process group, so a failed check cannot remain for 30 minutes or leave stale ranks behind.
 - TQDM provides terminal-safe progress reporting for both redirected preflight logs and foreground training; the Rich live-console callback is intentionally excluded because it can corrupt its internal stack under redirected `fast_dev_run` output.
 - Streamed validation losses and metrics declare the actual per-rank scenario count explicitly, preventing Lightning from ambiguously inferring batch size from SHARP's nested window collection.
+- AdamW grouping inspects each module's direct parameters once. This preserves SHARP's decay/no-decay rules while preventing composed module names such as `relative_geometry_bias` from placing a weight in both groups; preflight requires complete optimizer coverage.
 - `last.ckpt` is written every epoch. A failed run retries up to three times from the newest loadable checkpoint.
 - Rerunning the launcher reuses the active suite, skips completed variants, and retries evaluation or publication without retraining.
 - A completed run is evaluated once on one GPU with batch 32, avoiding distributed-validation sample padding.

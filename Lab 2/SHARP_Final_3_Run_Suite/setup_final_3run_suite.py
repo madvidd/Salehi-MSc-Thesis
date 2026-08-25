@@ -18,7 +18,7 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent
 OFFICIAL_REPOSITORY = "https://github.com/a-pru/sharp.git"
 OFFICIAL_COMMIT = "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae"
-SUITE_VERSION = "final-sharp-three-run-v4-explicit-validation-batch"
+SUITE_VERSION = "final-sharp-three-run-v5-direct-optimizer-grouping"
 VARIANTS = (
     ("01_official_sharp_baseline", "official_sharp_baseline"),
     ("02_qknorm_uncertainty_geometry", "qknorm_uncertainty_geometry"),
@@ -361,6 +361,16 @@ def patch_common(code_dir: Path) -> None:
         "            batch_size=1,\n",
         "            batch_size=len(data[-1][\"scenario_id\"]),\n",
         "stream validation metric batch size",
+    )
+    pl_source = replace_once(
+        pl_source,
+        "        for module_name, module in self.named_modules():\n"
+        "            for param_name, param in module.named_parameters():\n",
+        "        for module_name, module in self.named_modules():\n"
+        "            for param_name, param in module.named_parameters(\n"
+        "                recurse=False\n"
+        "            ):\n",
+        "non-recursive optimizer parameter grouping",
     )
     pl_source = replace_once(
         pl_source,
