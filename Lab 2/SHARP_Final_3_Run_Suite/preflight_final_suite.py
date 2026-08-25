@@ -8,6 +8,7 @@ import os
 import signal
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 
@@ -71,6 +72,11 @@ def run_checked(
                 os.killpg(process.pid, signal.SIGTERM)
             except ProcessLookupError:
                 pass
+            time.sleep(2)
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
     text = log.read_text(encoding="utf-8", errors="replace")
     failures = [pattern for pattern in FORBIDDEN if pattern.lower() in text.lower()]
     if returncode or failures:
@@ -95,43 +101,86 @@ def nccl_smoke(
         "--nproc_per_node=4",
         str(experiment / "nccl_collective_preflight.py"),
     ]
-    normal = environment.copy()
-    normal.pop("NCCL_P2P_DISABLE", None)
-    try:
-        run_checked(
-            command,
-            experiment,
-            normal,
-            results / "preflight/nccl_four_gpu.log",
-            timeout_seconds=300,
-        )
-        p2p_disable = "0"
-        mode = "native-p2p"
-    except RuntimeError as first_error:
-        fallback = environment.copy()
-        fallback["NCCL_P2P_DISABLE"] = "1"
-        run_checked(
-            command,
-            experiment,
-            fallback,
-            results / "preflight/nccl_four_gpu_no_p2p.log",
-            timeout_seconds=300,
-        )
-        p2p_disable = "1"
-        mode = "shared-memory-fallback"
-        (results / "preflight/nccl_native_p2p_failure.txt").write_text(
-            str(first_error) + "\n", encoding="utf-8"
-        )
+    fallback = environment.copy()
+    fallback["NCCL_P2P_DISABLE"] = "1"
+    run_checked(
+        command,
+        experiment,
+        fallback,
+        results / "preflight/nccl_four_gpu_no_p2p.log",
+        timeout_seconds=300,
+    )
+    p2p_disable = "1"
+    mode = "shared-memory-stability"
+    (results / "preflight/NCCL_TRANSPORT_DECISION.txt").write_text(
+        "Native P2P passed a short collective probe but produced an illegal "
+        "CUDA access during the real four-GPU SHARP workload on 2026-08-25.\n"
+        "The suite therefore validates and uses NCCL_P2P_DISABLE=1 while "
+        "retaining all four GPUs and identical training hyperparameters.\n",
+        encoding="utf-8",
+    )
     (results / "NCCL_RUNTIME.env").write_text(
         f"export NCCL_P2P_DISABLE={p2p_disable}\n"
         "export NCCL_IB_DISABLE=1\n"
         "export TORCH_NCCL_ASYNC_ERROR_HANDLING=1\n"
         "export TORCH_NCCL_BLOCKING_WAIT=1\n"
         "export TORCH_NCCL_DUMP_ON_TIMEOUT=1\n"
-        "export TORCH_NCCL_TRACE_BUFFER_SIZE=1048576\n",
+        "export TORCH_FR_BUFFER_SIZE=1048576\n",
         encoding="utf-8",
     )
     print(f"FOUR_GPU_NCCL_PREFLIGHT_OK={mode}")
+
+
+def real_ddp_workload_smoke(
+    python: Path,
+    code: Path,
+    output: Path,
+    dataset: Path,
+    variant: str,
+    environment: dict[str, str],
+) -> None:
+    workload_environment = environment.copy()
+    workload_environment["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+    workload_environment["CUDA_LAUNCH_BLOCKING"] = "1"
+    workload_environment["NCCL_P2P_DISABLE"] = "1"
+    workload_environment["SHARP_FINAL_PREFLIGHT_ONLY"] = "1"
+    workload_environment["SHARP_FINAL_VARIANT"] = variant
+    workload_environment["PYTHONPATH"] = (
+        str(code) + os.pathsep + workload_environment["PYTHONPATH"]
+    )
+    command = [
+        str(python),
+        "train.py",
+        "seed=2333",
+        "gpus=4",
+        "batch_size=8",
+        "epochs=80",
+        f"output_dir={output}",
+        f"datamodule.pl_module.data_root={dataset}",
+        "datamodule.pl_module.num_workers=4",
+        "model.pl_module.optim.lr=0.0001",
+        "model.pl_module.optim.min_lr=0.00001",
+        "model.pl_module.optim.warmup_ratio=0.1625",
+        "model.pl_module.optim.weight_decay=0.01",
+        "trainer.devices=4",
+        "trainer.strategy=ddp_find_unused_parameters_false",
+        "trainer.sync_batchnorm=true",
+        "trainer.precision=32-true",
+        "+trainer.num_sanity_val_steps=0",
+        "+trainer.limit_train_batches=256",
+        "+trainer.limit_val_batches=0",
+        "+trainer.max_steps=256",
+        "callbacks.0.save_top_k=0",
+        "callbacks.0.save_last=false",
+        "checkpoint=null",
+    ]
+    run_checked(
+        command,
+        code,
+        workload_environment,
+        output / "preflight.log",
+        timeout_seconds=1800,
+    )
 
 
 def static_audit(experiment: Path) -> None:
@@ -213,6 +262,9 @@ def static_audit(experiment: Path) -> None:
             raise RuntimeError(f"{slug} direct optimizer grouping audit failed")
         if "missing_parameters = param_dict.keys() - union_params" not in pl_module:
             raise RuntimeError(f"{slug} optimizer audit is absent")
+        train_source = (code / "train.py").read_text(encoding="utf-8")
+        if 'os.environ.get("SHARP_FINAL_PREFLIGHT_ONLY") != "1"' not in train_source:
+            raise RuntimeError(f"{slug} bounded workload handoff audit failed")
         qknorm_count = sum(
             path.read_text(encoding="utf-8").count("QKNormMultiheadAttention(")
             for path in (
@@ -313,7 +365,7 @@ def main() -> None:
     base_environment["TORCH_NCCL_ASYNC_ERROR_HANDLING"] = "1"
     base_environment["TORCH_NCCL_BLOCKING_WAIT"] = "1"
     base_environment["TORCH_NCCL_DUMP_ON_TIMEOUT"] = "1"
-    base_environment["TORCH_NCCL_TRACE_BUFFER_SIZE"] = "1048576"
+    base_environment["TORCH_FR_BUFFER_SIZE"] = "1048576"
     base_environment["PYTHONPATH"] = os.pathsep.join(
         (
             str(args.runtime_patch.resolve()),
@@ -367,8 +419,22 @@ def main() -> None:
         )
         print(f"REAL_BATCH_SINGLE_GPU_PREFLIGHT_OK={slug}")
 
+    for slug, variant in VARIANTS:
+        code = experiment / "variants" / slug / "Code"
+        output = preflight / "four_gpu_workload" / slug
+        real_ddp_workload_smoke(
+            args.python,
+            code,
+            output,
+            args.dataset,
+            variant,
+            base_environment,
+        )
+        print(f"REAL_DDP_256_STEP_PREFLIGHT_OK={slug}")
+
     (results / "PREFLIGHT_COMPLETE").write_text(
-        "All static, CUDA, optimizer, bounded four-GPU NCCL, and real-batch checks passed.\n",
+        "All static, CUDA, optimizer, shared-memory four-GPU NCCL, single-GPU "
+        "real-batch, and 256-step four-GPU workload checks passed.\n",
         encoding="utf-8",
     )
     print("FINAL_SUITE_PREFLIGHT_COMPLETE")

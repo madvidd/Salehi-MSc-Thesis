@@ -18,7 +18,7 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent
 OFFICIAL_REPOSITORY = "https://github.com/a-pru/sharp.git"
 OFFICIAL_COMMIT = "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae"
-SUITE_VERSION = "final-sharp-three-run-v5-direct-optimizer-grouping"
+SUITE_VERSION = "final-sharp-three-run-v6-ddp-workload-preflight"
 VARIANTS = (
     ("01_official_sharp_baseline", "official_sharp_baseline"),
     ("02_qknorm_uncertainty_geometry", "qknorm_uncertainty_geometry"),
@@ -633,7 +633,10 @@ def patch_train(code_dir: Path, variant: str) -> None:
     source = replace_once(
         source,
         "    trainer.validate(model, datamodule.val_dataloader())\n",
-        '''    if not bool(cfg.trainer.get("fast_dev_run", False)):
+        '''    if (
+        not bool(cfg.trainer.get("fast_dev_run", False))
+        and os.environ.get("SHARP_FINAL_PREFLIGHT_ONLY") != "1"
+    ):
         best_path = trainer.checkpoint_callback.best_model_path
         if not best_path:
             raise RuntimeError("No best checkpoint was recorded")

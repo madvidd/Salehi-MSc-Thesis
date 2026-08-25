@@ -14,8 +14,9 @@ All three runs use seed 2333, 80 epochs, 13 warm-up epochs, global batch 32, Ada
 
 - Reviewed official files are SHA-256 checked before patching.
 - Each variant receives an independent copy of the pinned source.
-- A bounded NCCL probe validates broadcast, all-reduce, and synchronization on all four GPUs. If native peer-to-peer transport fails, the probe verifies and records the shared-memory fallback used by training.
+- A bounded NCCL probe validates broadcast, all-reduce, and synchronization on all four GPUs with `NCCL_P2P_DISABLE=1`. Native P2P passed the short collective probe but failed during the real Lab 2 workload, so the recorded shared-memory transport is used without changing GPU count or training hyperparameters.
 - A real AV2 batch of 8 samples runs through forward, loss, backward, and optimizer steps for each variant on one GPU. Separating model/data validation from the four-rank collective probe avoids `fast_dev_run` rank skew while preserving the production DDP configuration.
+- Before full training, every variant must also complete 256 real AV2 optimizer steps with four-GPU DDP, SyncBatchNorm, global batch 32, synchronous CUDA error reporting, and the same optimizer schedule. Checkpoints and validation are disabled only for this bounded diagnostic.
 - Every preflight subprocess has a timeout and isolated process group, so a failed check cannot remain for 30 minutes or leave stale ranks behind.
 - TQDM provides terminal-safe progress reporting for both redirected preflight logs and foreground training; the Rich live-console callback is intentionally excluded because it can corrupt its internal stack under redirected `fast_dev_run` output.
 - Streamed validation losses and metrics declare the actual per-rank scenario count explicitly, preventing Lightning from ambiguously inferring batch size from SHARP's nested window collection.
