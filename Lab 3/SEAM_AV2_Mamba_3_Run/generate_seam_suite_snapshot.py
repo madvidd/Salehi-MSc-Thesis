@@ -75,12 +75,20 @@ def main():
         else:
             status = "pending"
 
+        if epoch is not None:
+            progress = f"epoch {epoch} ({percent}%)"
+        elif latest[0] is not None:
+            progress = f"validated epoch {latest[0]}"
+        else:
+            progress = "not started"
+
         rows.append(
             {
                 "variant": variant,
                 "status": status,
                 "epoch": epoch,
                 "percent": percent,
+                "progress": progress,
                 "validation_epoch": latest[0],
                 "metrics": latest[1],
                 "best": best,
@@ -108,7 +116,7 @@ def main():
         f"- Generated: `{generated}`",
         f"- Results root: `{results}`",
         f"- Experiment root: `{experiment}`",
-        f"- Active training ranks detected: **{active}**",
+        f"- Matching active suite processes detected: **{active}**",
         f"- Completed variants: **{complete_count}/3**",
         "",
         "## Progress",
@@ -118,18 +126,13 @@ def main():
     ]
 
     for row in rows:
-        progress = (
-            f"epoch {row['epoch']} ({row['percent']}%)"
-            if row["epoch"] is not None
-            else "not started"
-        )
         best = (
             f"{row['best']['minADE6']:.6f} (epoch {row['best']['epoch']})"
             if row["best"]
             else "not available"
         )
         summary.append(
-            f"| {NAMES[row['variant']]} | {row['status']} | {progress} | "
+            f"| {NAMES[row['variant']]} | {row['status']} | {row['progress']} | "
             f"{row['checkpoint_count']} | {best} |"
         )
 
@@ -192,12 +195,13 @@ def main():
                 f"generated={generated}",
                 f"results_root={results}",
                 f"experiment_root={experiment}",
-                f"active_training_ranks={active}",
+                f"active_suite_processes={active}",
                 f"completed_variants={complete_count}",
                 f"suite_complete={results.joinpath('SUITE_COMPLETE').is_file()}",
             ]
             + [
-                f"{row['variant']}={row['status']};epoch={row['epoch']};percent={row['percent']}"
+                f"{row['variant']}={row['status']};progress={row['progress']};"
+                f"last_validation_epoch={row['validation_epoch']}"
                 for row in rows
             ]
         )
