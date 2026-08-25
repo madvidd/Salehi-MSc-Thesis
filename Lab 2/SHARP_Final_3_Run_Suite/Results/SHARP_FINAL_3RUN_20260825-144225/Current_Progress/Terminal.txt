@@ -1,0 +1,262 @@
+SHARP_FINAL_3RUN_START=2026-08-25T14:42:25+01:00
+Experiment root: /home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225
+Results root:    /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-144225
+Official commit: f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae
+Paper schedule: 80 epochs, 13 warm-up, global batch 32, LR 1e-4 -> 1e-5
+Execution: four GPUs, batch 8/rank, four workers/rank, FP32, SyncBatchNorm
+GPU 0: NVIDIA GeForce RTX 2080 Ti (UUID: GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e)
+GPU 1: NVIDIA GeForce RTX 2080 Ti (UUID: GPU-e440a1d0-c375-a053-63b6-958f9b923c4b)
+GPU 2: NVIDIA GeForce RTX 2080 Ti (UUID: GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653)
+GPU 3: NVIDIA GeForce RTX 2080 Ti (UUID: GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40)
+GitHub publication preflight: madviddd with push permission
+Running static, fused-CUDA, optimizer, four-GPU DDP, and real-batch checks...
+FINAL_SUITE_PREFLIGHT_FAILED: Preflight failed (1) in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-144225/preflight/01_official_sharp_baseline/preflight.log; forbidden=['Traceback (most recent call last)', 'Error executing job with overrides']
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1540, in _pre_forward
+    self._sync_buffers()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2177, in _sync_buffers
+    self._sync_module_buffers(authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2181, in _sync_module_buffers
+    self._default_broadcast_coalesced(authoritative_rank=authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2203, in _default_broadcast_coalesced
+    self._distributed_broadcast_coalesced(bufs, bucket_size, authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2118, in _distributed_broadcast_coalesced
+    dist._broadcast_coalesced(
+torch.distributed.DistBackendError: [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=21, OpType=BROADCAST, NumelIn=768, NumelOut=768, Timeout(ms)=1800000) ran for 1800000 milliseconds before timing out.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225/variants/01_official_sharp_baseline/Code/train.py", line 53, in main
+    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 46, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 270, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 516, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/adam.py", line 226, in step
+    loss = closure()
+           ^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+                     ^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 129, in closure
+    step_output = self._step_fn()
+                  ^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 389, in training_step
+    return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 640, in __call__
+    wrapper_output = wrapper_module(*args, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1644, in forward
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1540, in _pre_forward
+    self._sync_buffers()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2177, in _sync_buffers
+    self._sync_module_buffers(authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2181, in _sync_module_buffers
+    self._default_broadcast_coalesced(authoritative_rank=authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2203, in _default_broadcast_coalesced
+    self._distributed_broadcast_coalesced(bufs, bucket_size, authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2118, in _distributed_broadcast_coalesced
+    dist._broadcast_coalesced(
+torch.distributed.DistBackendError: [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=21, OpType=BROADCAST, NumelIn=768, NumelOut=768, Timeout(ms)=1800000) ran for 1800000 milliseconds before timing out.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Traceback (most recent call last):
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225/preflight_final_suite.py", line 273, in <module>
+    main()
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225/preflight_final_suite.py", line 261, in main
+    run_checked(command, code, environment, output / "preflight.log")
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225/preflight_final_suite.py", line 51, in run_checked
+    raise RuntimeError(
+RuntimeError: Preflight failed (1) in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-144225/preflight/01_official_sharp_baseline/preflight.log; forbidden=['Traceback (most recent call last)', 'Error executing job with overrides']
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1540, in _pre_forward
+    self._sync_buffers()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2177, in _sync_buffers
+    self._sync_module_buffers(authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2181, in _sync_module_buffers
+    self._default_broadcast_coalesced(authoritative_rank=authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2203, in _default_broadcast_coalesced
+    self._distributed_broadcast_coalesced(bufs, bucket_size, authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2118, in _distributed_broadcast_coalesced
+    dist._broadcast_coalesced(
+torch.distributed.DistBackendError: [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=21, OpType=BROADCAST, NumelIn=768, NumelOut=768, Timeout(ms)=1800000) ran for 1800000 milliseconds before timing out.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-144225/variants/01_official_sharp_baseline/Code/train.py", line 53, in main
+    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 46, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/ddp.py", line 270, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 516, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/optim/adam.py", line 226, in step
+    loss = closure()
+           ^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+                     ^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 129, in closure
+    step_output = self._step_fn()
+                  ^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 389, in training_step
+    return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 640, in __call__
+    wrapper_output = wrapper_module(*args, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1644, in forward
+    inputs, kwargs = self._pre_forward(*inputs, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1540, in _pre_forward
+    self._sync_buffers()
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2177, in _sync_buffers
+    self._sync_module_buffers(authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2181, in _sync_module_buffers
+    self._default_broadcast_coalesced(authoritative_rank=authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2203, in _default_broadcast_coalesced
+    self._distributed_broadcast_coalesced(bufs, bucket_size, authoritative_rank)
+  File "/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 2118, in _distributed_broadcast_coalesced
+    dist._broadcast_coalesced(
+torch.distributed.DistBackendError: [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=21, OpType=BROADCAST, NumelIn=768, NumelOut=768, Timeout(ms)=1800000) ran for 1800000 milliseconds before timing out.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+ERROR: preflight failed; no 80-epoch training was started.
