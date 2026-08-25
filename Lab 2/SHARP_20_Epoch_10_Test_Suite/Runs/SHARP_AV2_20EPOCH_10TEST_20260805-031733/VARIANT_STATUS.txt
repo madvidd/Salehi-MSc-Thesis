@@ -1,6 +1,6 @@
 Results root: /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733
-Completed: 9/10
-Active: Agent temporal Mamba
+Completed: 10/10
+Active: none detected
 
 Baseline SHARP: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.752339; checkpoints=21
 Confidence-gated memory: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.755349; checkpoints=21
@@ -11,4 +11,4 @@ Relative geometry attention bias: Completed; epoch index 19/19, 100% (6248/6248)
 Kinematic motion stem: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.785164; checkpoints=21
 Endpoint refinement decoder: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.755898; checkpoints=21
 Lane topology graph: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.754238; checkpoints=21
-Agent temporal Mamba: Running (epoch index 18/19, 2%); epoch index 18/19, 2% (99/6248); best_epoch=17; best_minADE6=0.807348; checkpoints=19
+Agent temporal Mamba: Completed; epoch index 19/19, 100% (6248/6248); best_epoch=19; best_minADE6=0.780190; checkpoints=21

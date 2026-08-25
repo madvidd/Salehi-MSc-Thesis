@@ -1,6 +1,6 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Summary
 
-Generated: 2026-08-21T09:19:16.781284+01:00
+Generated: 2026-08-25T10:31:22.659623+01:00
 
 All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across four RTX 2080 Ti GPUs), AdamW, LR 1e-4 to 1e-5, 13 warm-up epochs, and SyncBatchNorm. Lower is better for all metrics.
 
@@ -15,8 +15,8 @@ All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across fo
 | Kinematic motion stem | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.198175 | 2.068197 | 1.942671 | 0.785164 | +0.032825 | 4.701560 | 1.448078 |
 | Endpoint refinement decoder | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.196254 | 2.058200 | 1.867779 | 0.755898 | +0.003559 | 4.641530 | 1.441044 |
 | Lane topology graph | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.200616 | 2.065051 | 1.903412 | 0.754238 | +0.001899 | 4.696756 | 1.443290 |
-| Agent temporal Mamba | Running (epoch index 18/19, 2%) | epoch index 18/19, 2% (99/6248) | 17 | 19 | 0.215000 | 2.180000 | 1.980000 | 0.807348 | +0.055008 | 4.890000 | 1.550000 |
+| Agent temporal Mamba | Completed | epoch index 19/19, 100% (6248/6248) | 19 | 21 | 0.212822 | 2.141835 | 1.993448 | 0.780190 | +0.027851 | 4.973433 | 1.514158 |
 
-Completed variants: 9/10. Currently active: Agent temporal Mamba.
+Completed variants: 10/10. Currently active: none detected.
 
 `Delta minADE6 vs baseline` is variant minADE6 minus baseline minADE6; a negative value is better. Best minADE6 is read from checkpoint filenames. The other metrics use a saved variant summary when available, otherwise the closest matching or latest validation record in the logs. Lightning labels the 20 epochs from 0 through 19. Running results are provisional. This is a 20-epoch screening suite and should not be presented as equivalent to SHARP's full 80-epoch result.

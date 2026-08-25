@@ -205,4 +205,6 @@
 2026-08-21 05:04  52135765 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_15-minADE6_0.8355230689048767.ckpt
 2026-08-21 07:06  52136148 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_16-minADE6_0.8445942401885986.ckpt
 2026-08-21 09:17  52136595 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_17-minADE6_0.8073476552963257.ckpt
-2026-08-21 09:17  52136595 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/last.ckpt
+2026-08-21 11:25  52137042 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_18-minADE6_0.8167114853858948.ckpt
+2026-08-21 13:33  52137425 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+2026-08-21 13:33  52137425 bytes  /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/last.ckpt

@@ -26598,3 +26598,75 @@ Validation: |          | 0/? [00:00<?, ?it/s]
 Validation:   0%|          | 0/781 [00:00<?, ?it/s]
 Validation: |          | 0/? [00:00<?, ?it/s]
 Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+SPLIT POINTS: [10, 20, 30, 40, 50]
+SPLIT POINTS: SPLIT POINTS:[10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50]
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:18,386][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:18,720][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:18,927][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:18,948][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:18,952][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/train, total number of files: 199908
+SPLIT POINTS: [10, 20, 30, 40, 50]
+SPLIT POINTS: [10, 20, 30, 40, 50]
+SPLIT POINTS: [10, 20, 30, 40, 50]
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:19,183][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:19,205][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+AV2 DS SETTINGS: 10 100
+[2026-08-21 13:33:19,208][__main__][INFO] - data root: /home/server00/M/Datasets/AV2/sharp_processed/val, total number of files: 24988
+Restoring states from the checkpoint path at /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Loaded model weights from the checkpoint at /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+/home/server00/M/Codes/envs/sharp/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:215: Using `DistributedSampler` with the dataloaders. During `trainer.validate()`, it is recommended to use `Trainer(devices=1, num_nodes=1)` to ensure each sample/batch gets evaluated exactly once. Otherwise, multi-device settings use `DistributedSampler` that replicates some samples to make sure all devices have same batch size in case of uneven inputs.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/781 [00:00<?, ?it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│            MR             │    0.21282215416431427    │
+│         b-minFDE6         │    2.1418352127075195     │
+│          minADE1          │    1.9934481382369995     │
+│          minADE6          │    0.7801898121833801     │
+│          minFDE1          │     4.973433017730713     │
+│          minFDE6          │     1.514158010482788     │
+│    val/step0_reg_loss     │     0.678674042224884     │
+│    val/step1_reg_loss     │    0.5203520059585571     │
+│    val/step2_reg_loss     │    0.4098653197288513     │
+│    val/step3_reg_loss     │    0.31703823804855347    │
+│    val/step4_reg_loss     │    0.2425520122051239     │
+└───────────────────────────┴───────────────────────────┘
+BEST_CHECKPOINT=/home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733/10_agent_temporal_mamba/run/checkpoints/epoch_19-minADE6_0.7801898121833801.ckpt
+BEST_MINADE6=0.780189812
+VARIANT_COMPLETE=agent_temporal_mamba
+Results root: /home/server00/M/Results/SHARP_AV2_20EPOCH_10TEST_20260805-031733
+Variant                                Status       Last epoch Checkpoints
+01_baseline                            COMPLETE             19          21
+02_confidence_gated_memory             COMPLETE             19          21
+03_cross_window_consistency            COMPLETE             19          21
+04_learned_temporal_pool               COMPLETE             19          21
+05_uncertainty_target_context          COMPLETE             19          21
+06_relative_geometry_bias              COMPLETE             19          21
+07_kinematic_motion_stem               COMPLETE             19          21
+08_endpoint_refinement_decoder         COMPLETE             19          21
+09_lane_topology_graph                 COMPLETE             19          21
+10_agent_temporal_mamba                COMPLETE             19          21
+SHARP_AV2_20EPOCH_10TEST_COMPLETE=True
