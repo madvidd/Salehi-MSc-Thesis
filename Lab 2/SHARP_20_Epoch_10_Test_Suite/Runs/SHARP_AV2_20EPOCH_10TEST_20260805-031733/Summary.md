@@ -1,6 +1,6 @@
 # Lab 2 SHARP 20-Epoch Ten-Test Summary
 
-Generated: 2026-08-25T10:31:22.659623+01:00
+Generated: 2026-08-25T10:54:59.699641+01:00
 
 All variants use AV2, seed 2333, 20 epochs, global batch 32 (8 per GPU across four RTX 2080 Ti GPUs), AdamW, LR 1e-4 to 1e-5, 13 warm-up epochs, and SyncBatchNorm. Lower is better for all metrics.
 
