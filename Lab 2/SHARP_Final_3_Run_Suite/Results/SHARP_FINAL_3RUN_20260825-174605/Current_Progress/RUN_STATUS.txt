@@ -1,0 +1,5 @@
+captured=2026-08-25T18:06:24+01:00
+results=/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605
+completed=0/3
+active=01_official_sharp_baseline
+local_terminal=/home/server00/M/Terminal/SHARP_Final_3_Run_Suite/SHARP_FINAL_3RUN_20260825-174605/Progress_20260825-180624/Terminal.txt
