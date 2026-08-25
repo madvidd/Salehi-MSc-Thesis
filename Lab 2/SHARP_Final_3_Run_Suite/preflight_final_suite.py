@@ -201,6 +201,14 @@ def static_audit(experiment: Path) -> None:
             raise RuntimeError(f"{slug} rotation stability audit failed")
         if pl_module.count("device=y_hat.device") != 2:
             raise RuntimeError(f"{slug} CUDA index audit failed")
+        explicit_stream_batch_sizes = pl_module.count(
+            'batch_size=len(data[-1]["scenario_id"])'
+        )
+        if explicit_stream_batch_sizes != 3:
+            raise RuntimeError(
+                f"{slug} stream logging batch-size audit failed: "
+                f"{explicit_stream_batch_sizes} != 3"
+            )
         if "missing_parameters = param_dict.keys() - union_params" not in pl_module:
             raise RuntimeError(f"{slug} optimizer audit is absent")
         qknorm_count = sum(

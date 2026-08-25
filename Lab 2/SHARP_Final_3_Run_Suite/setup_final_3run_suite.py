@@ -18,7 +18,7 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent
 OFFICIAL_REPOSITORY = "https://github.com/a-pru/sharp.git"
 OFFICIAL_COMMIT = "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae"
-SUITE_VERSION = "final-sharp-three-run-v3-stable-progress"
+SUITE_VERSION = "final-sharp-three-run-v4-explicit-validation-batch"
 VARIANTS = (
     ("01_official_sharp_baseline", "official_sharp_baseline"),
     ("02_qknorm_uncertainty_geometry", "qknorm_uncertainty_geometry"),
@@ -337,6 +337,25 @@ def patch_common(code_dir: Path) -> None:
         "device=new_y_hat.device"
     ) != 1:
         raise RuntimeError("CUDA-safe loss-index patch count is incorrect")
+    pl_source = replace_once(
+        pl_source,
+        "        self.log_dict(\n"
+        "            reg_loss_dict,\n"
+        "            on_step=False,\n"
+        "            on_epoch=True,\n"
+        "            prog_bar=False,\n"
+        "            sync_dist=True,\n"
+        "        )\n",
+        "        self.log_dict(\n"
+        "            reg_loss_dict,\n"
+        "            on_step=False,\n"
+        "            on_epoch=True,\n"
+        "            prog_bar=False,\n"
+        "            batch_size=len(data[-1][\"scenario_id\"]),\n"
+        "            sync_dist=True,\n"
+        "        )\n",
+        "stream validation regression-loss batch size",
+    )
     pl_source = replace_once(
         pl_source,
         "            batch_size=1,\n",
