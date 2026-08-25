@@ -18,7 +18,7 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent
 OFFICIAL_REPOSITORY = "https://github.com/a-pru/sharp.git"
 OFFICIAL_COMMIT = "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae"
-SUITE_VERSION = "final-sharp-three-run-v2-bounded-preflight"
+SUITE_VERSION = "final-sharp-three-run-v3-stable-progress"
 VARIANTS = (
     ("01_official_sharp_baseline", "official_sharp_baseline"),
     ("02_qknorm_uncertainty_geometry", "qknorm_uncertainty_geometry"),
@@ -277,6 +277,12 @@ def patch_common(code_dir: Path) -> None:
     config = replace_once(config, "gpus: 1\n", "gpus: 4\n", "GPU count")
     config = replace_once(config, "batch_size: 32\n", "batch_size: 8\n", "per-rank batch")
     config = replace_once(config, "epochs: 60\n", "epochs: 80\n", "paper epochs")
+    config = replace_once(
+        config,
+        "  - _target_: pytorch_lightning.callbacks.RichProgressBar\n",
+        "  - _target_: pytorch_lightning.callbacks.TQDMProgressBar\n",
+        "non-interactive-safe progress callback",
+    )
     config = replace_once(
         config,
         "    save_top_k: 10\n",

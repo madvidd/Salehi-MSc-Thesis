@@ -157,6 +157,8 @@ def static_audit(experiment: Path) -> None:
         missing = [value for value in required if value not in config]
         if missing:
             raise RuntimeError(f"{slug} config audit failed: {missing}")
+        if "RichProgressBar" in config or "TQDMProgressBar" not in config:
+            raise RuntimeError(f"{slug} progress callback audit failed")
         for value in ("lr: 1e-4", "min_lr: 1e-5", "warmup_ratio: 0.1625"):
             if value not in model_config:
                 raise RuntimeError(f"{slug} model config is missing {value}")
@@ -338,7 +340,7 @@ def main() -> None:
             "epochs=1",
             f"output_dir={output}",
             f"datamodule.pl_module.data_root={args.dataset}",
-            "datamodule.pl_module.num_workers=0",
+            "datamodule.pl_module.num_workers=4",
             "trainer.devices=1",
             "trainer.strategy=auto",
             "trainer.sync_batchnorm=false",

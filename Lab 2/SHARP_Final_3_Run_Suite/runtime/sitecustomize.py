@@ -24,3 +24,10 @@ warnings.filterwarnings(
     "ignore",
     message=r"The 'frozen' attribute with value True was provided.*",
 )
+
+# Four workers per DDP rank provide 16 workers in total. Lightning's warning
+# compares each rank with all host CPUs and therefore overstates this setting.
+warnings.filterwarnings(
+    "ignore",
+    message=r"The '.*_dataloader' does not have many workers.*",
+)
