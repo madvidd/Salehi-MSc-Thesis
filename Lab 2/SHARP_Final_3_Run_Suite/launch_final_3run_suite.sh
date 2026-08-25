@@ -2,7 +2,7 @@
 set -uo pipefail
 
 BASE=/home/server00/M
-PACKAGE="$BASE/Codes/Thesis/Lab 2/SHARP_Final_3_Run_Suite"
+PACKAGE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 POINTER="$BASE/Codes/LATEST_SHARP_FINAL_3RUN_CODE.txt"
 PYTHON_BIN="$BASE/Codes/envs/sharp/bin/python"
 PREPARE="$PACKAGE/prepare_lab2_nvidia_58015903_userspace.sh"
