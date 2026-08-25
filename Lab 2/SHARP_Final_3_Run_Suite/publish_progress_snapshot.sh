@@ -2,7 +2,7 @@
 set -uo pipefail
 
 BASE=/home/server00/M
-PACKAGE="$BASE/Codes/Thesis/Lab 2/SHARP_Final_3_Run_Suite"
+PACKAGE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 POINTER="$BASE/Results/LATEST_SHARP_FINAL_3RUN_RESULTS.txt"
 TOKEN_FILE="$BASE/Token/Token.txt"
 PYTHON_BIN="$BASE/Codes/envs/sharp/bin/python"
