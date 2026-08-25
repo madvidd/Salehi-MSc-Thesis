@@ -52,6 +52,8 @@ export NO_COLOR=1
 export RICH_NO_COLOR=1
 export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
 export TORCH_NCCL_BLOCKING_WAIT=1
+export TORCH_NCCL_DUMP_ON_TIMEOUT=1
+export TORCH_NCCL_TRACE_BUFFER_SIZE=1048576
 export NCCL_IB_DISABLE=1
 export NCCL_DEBUG=WARN
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True,max_split_size_mb:128
@@ -153,6 +155,13 @@ if [ ! -f "$RESULTS_ROOT/PREFLIGHT_COMPLETE" ]; then
 else
   echo "Reusing completed final-suite preflight."
 fi
+
+if [ ! -s "$RESULTS_ROOT/NCCL_RUNTIME.env" ]; then
+  echo "ERROR: validated NCCL runtime settings are missing."
+  exit 1
+fi
+source "$RESULTS_ROOT/NCCL_RUNTIME.env"
+echo "Validated NCCL runtime: NCCL_P2P_DISABLE=${NCCL_P2P_DISABLE:-0}"
 
 select_resume_checkpoint() {
   local checkpoint_dir="$1"

@@ -18,7 +18,7 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent
 OFFICIAL_REPOSITORY = "https://github.com/a-pru/sharp.git"
 OFFICIAL_COMMIT = "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae"
-SUITE_VERSION = "final-sharp-three-run-v1"
+SUITE_VERSION = "final-sharp-three-run-v2-bounded-preflight"
 VARIANTS = (
     ("01_official_sharp_baseline", "official_sharp_baseline"),
     ("02_qknorm_uncertainty_geometry", "qknorm_uncertainty_geometry"),
@@ -696,6 +696,7 @@ def main() -> None:
     copied_scripts = (
         "run_final_3run_suite.sh",
         "preflight_final_suite.py",
+        "nccl_collective_preflight.py",
         "eval_checkpoint.py",
         "generate_final_artifacts.py",
         "publish_final_artifacts.sh",

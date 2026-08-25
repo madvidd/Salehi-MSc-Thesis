@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import signal
 import subprocess
 import sys
 from pathlib import Path
@@ -34,24 +35,103 @@ def run_checked(
     cwd: Path,
     environment: dict[str, str],
     log: Path,
+    timeout_seconds: int = 900,
 ) -> None:
     log.parent.mkdir(parents=True, exist_ok=True)
     with log.open("w", encoding="utf-8") as handle:
-        completed = subprocess.run(
+        process = subprocess.Popen(
             command,
             cwd=cwd,
             env=environment,
             stdout=handle,
             stderr=subprocess.STDOUT,
+            start_new_session=True,
         )
+        try:
+            returncode = process.wait(timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(process.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+            try:
+                process.wait(timeout=30)
+            except subprocess.TimeoutExpired:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                process.wait()
+            returncode = 124
+            handle.write(
+                f"\nPREFLIGHT_TIMEOUT={timeout_seconds}s command={command!r}\n"
+            )
+        if returncode:
+            try:
+                os.killpg(process.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
     text = log.read_text(encoding="utf-8", errors="replace")
     failures = [pattern for pattern in FORBIDDEN if pattern.lower() in text.lower()]
-    if completed.returncode or failures:
+    if returncode or failures:
         tail = "\n".join(text.replace("\r", "\n").splitlines()[-120:])
         raise RuntimeError(
-            f"Preflight failed ({completed.returncode}) in {log}; "
+            f"Preflight failed ({returncode}) in {log}; "
             f"forbidden={failures}\n{tail}"
         )
+
+
+def nccl_smoke(
+    python: Path,
+    experiment: Path,
+    results: Path,
+    environment: dict[str, str],
+) -> None:
+    command = [
+        str(python),
+        "-m",
+        "torch.distributed.run",
+        "--standalone",
+        "--nproc_per_node=4",
+        str(experiment / "nccl_collective_preflight.py"),
+    ]
+    normal = environment.copy()
+    normal.pop("NCCL_P2P_DISABLE", None)
+    try:
+        run_checked(
+            command,
+            experiment,
+            normal,
+            results / "preflight/nccl_four_gpu.log",
+            timeout_seconds=300,
+        )
+        p2p_disable = "0"
+        mode = "native-p2p"
+    except RuntimeError as first_error:
+        fallback = environment.copy()
+        fallback["NCCL_P2P_DISABLE"] = "1"
+        run_checked(
+            command,
+            experiment,
+            fallback,
+            results / "preflight/nccl_four_gpu_no_p2p.log",
+            timeout_seconds=300,
+        )
+        p2p_disable = "1"
+        mode = "shared-memory-fallback"
+        (results / "preflight/nccl_native_p2p_failure.txt").write_text(
+            str(first_error) + "\n", encoding="utf-8"
+        )
+    (results / "NCCL_RUNTIME.env").write_text(
+        f"export NCCL_P2P_DISABLE={p2p_disable}\n"
+        "export NCCL_IB_DISABLE=1\n"
+        "export TORCH_NCCL_ASYNC_ERROR_HANDLING=1\n"
+        "export TORCH_NCCL_BLOCKING_WAIT=1\n"
+        "export TORCH_NCCL_DUMP_ON_TIMEOUT=1\n"
+        "export TORCH_NCCL_TRACE_BUFFER_SIZE=1048576\n",
+        encoding="utf-8",
+    )
+    print(f"FOUR_GPU_NCCL_PREFLIGHT_OK={mode}")
 
 
 def static_audit(experiment: Path) -> None:
@@ -218,6 +298,10 @@ def main() -> None:
     base_environment = os.environ.copy()
     base_environment["PYTHONUNBUFFERED"] = "1"
     base_environment["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+    base_environment["TORCH_NCCL_ASYNC_ERROR_HANDLING"] = "1"
+    base_environment["TORCH_NCCL_BLOCKING_WAIT"] = "1"
+    base_environment["TORCH_NCCL_DUMP_ON_TIMEOUT"] = "1"
+    base_environment["TORCH_NCCL_TRACE_BUFFER_SIZE"] = "1048576"
     base_environment["PYTHONPATH"] = os.pathsep.join(
         (
             str(args.runtime_patch.resolve()),
@@ -236,33 +320,43 @@ def main() -> None:
     mamba_environment["PYTHONPATH"] = str(mamba_code) + os.pathsep + mamba_environment["PYTHONPATH"]
     mamba_smoke(args.python, mamba_code, mamba_environment, preflight / "mamba_cuda.log")
 
+    nccl_smoke(args.python, experiment, results, base_environment)
+
     for slug, variant in VARIANTS:
         code = experiment / "variants" / slug / "Code"
         output = preflight / slug
         environment = base_environment.copy()
+        environment["CUDA_VISIBLE_DEVICES"] = "0"
         environment["SHARP_FINAL_VARIANT"] = variant
         environment["PYTHONPATH"] = str(code) + os.pathsep + environment["PYTHONPATH"]
         command = [
             str(args.python),
             "train.py",
             "seed=2333",
-            "gpus=4",
-            "batch_size=1",
+            "gpus=1",
+            "batch_size=8",
             "epochs=1",
             f"output_dir={output}",
             f"datamodule.pl_module.data_root={args.dataset}",
             "datamodule.pl_module.num_workers=0",
-            "trainer.devices=4",
-            "trainer.strategy=ddp_find_unused_parameters_false",
-            "trainer.sync_batchnorm=true",
+            "trainer.devices=1",
+            "trainer.strategy=auto",
+            "trainer.sync_batchnorm=false",
+            "trainer.precision=32-true",
             "+trainer.fast_dev_run=true",
             "+trainer.num_sanity_val_steps=0",
         ]
-        run_checked(command, code, environment, output / "preflight.log")
-        print(f"REAL_BATCH_DDP_PREFLIGHT_OK={slug}")
+        run_checked(
+            command,
+            code,
+            environment,
+            output / "preflight.log",
+            timeout_seconds=900,
+        )
+        print(f"REAL_BATCH_SINGLE_GPU_PREFLIGHT_OK={slug}")
 
     (results / "PREFLIGHT_COMPLETE").write_text(
-        "All static, CUDA, optimizer, DDP, and real-batch checks passed.\n",
+        "All static, CUDA, optimizer, bounded four-GPU NCCL, and real-batch checks passed.\n",
         encoding="utf-8",
     )
     print("FINAL_SUITE_PREFLIGHT_COMPLETE")
