@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="980" viewBox="0 0 1800 980">
+<rect width="100%" height="100%" fill="white"/>
+<text x="900.0" y="76.5" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="900.0" dy="0.0">Lab 2 controlled 20-epoch screening study</tspan></text>
+<text x="900.0" y="119.2" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle"><tspan x="900.0" dy="0.0">Validation minADE6 after identical short-run budgets; lower is better</tspan></text>
+<polyline points="125.0,810.0 1710.0,810.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="816.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.72</tspan></text>
+<polyline points="125.0,689.0 1710.0,689.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="695.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.74</tspan></text>
+<polyline points="125.0,568.0 1710.0,568.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="574.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.75</tspan></text>
+<polyline points="125.0,447.0 1710.0,447.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="453.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.77</tspan></text>
+<polyline points="125.0,326.0 1710.0,326.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="332.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.78</tspan></text>
+<polyline points="125.0,205.0 1710.0,205.0" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="107.0" y="211.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#5c6670" text-anchor="end"><tspan x="107.0" dy="0.0">0.80</tspan></text>
+<rect x="155.1" y="565.4" width="98.3" height="244.6" rx="4" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3"/>
+<text x="204.2" y="547.3" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="204.2" dy="0.0">0.752</tspan></text>
+<text x="204.2" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="204.2" dy="0.0">Baseline</tspan></text>
+<rect x="313.6" y="542.7" width="98.3" height="267.3" rx="4" fill="#167c80" stroke="#167c80" stroke-width="3"/>
+<text x="362.8" y="524.5" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="362.8" dy="0.0">0.755</tspan></text>
+<text x="362.8" y="847.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="362.8" dy="0.0">Confidence</tspan><tspan x="362.8" dy="22.0">gate</tspan></text>
+<rect x="472.1" y="384.9" width="98.3" height="425.1" rx="4" fill="#a84a44" stroke="#a84a44" stroke-width="3"/>
+<text x="521.2" y="366.8" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="521.2" dy="0.0">0.776</tspan></text>
+<text x="521.2" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="521.2" dy="0.0">Consistency</tspan></text>
+<rect x="630.6" y="525.4" width="98.3" height="284.6" rx="4" fill="#c87533" stroke="#c87533" stroke-width="3"/>
+<text x="679.8" y="507.2" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="679.8" dy="0.0">0.758</tspan></text>
+<text x="679.8" y="847.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="679.8" dy="0.0">Learned</tspan><tspan x="679.8" dy="22.0">pool</tspan></text>
+<rect x="789.1" y="583.4" width="98.3" height="226.6" rx="4" fill="#3f7d44" stroke="#3f7d44" stroke-width="3"/>
+<text x="838.2" y="565.3" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="838.2" dy="0.0">0.750</tspan></text>
+<text x="838.2" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="838.2" dy="0.0">Uncertainty</tspan></text>
+<rect x="947.6" y="585.6" width="98.3" height="224.4" rx="4" fill="#b58a2a" stroke="#b58a2a" stroke-width="3"/>
+<text x="996.8" y="567.4" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="996.8" dy="0.0">0.750</tspan></text>
+<text x="996.8" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="996.8" dy="0.0">Geometry</tspan></text>
+<rect x="1106.1" y="317.2" width="98.3" height="492.8" rx="4" fill="#a84a44" stroke="#a84a44" stroke-width="3"/>
+<text x="1155.2" y="299.0" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="1155.2" dy="0.0">0.785</tspan></text>
+<text x="1155.2" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="1155.2" dy="0.0">Kinematic</tspan></text>
+<rect x="1264.6" y="538.5" width="98.3" height="271.5" rx="4" fill="#c87533" stroke="#c87533" stroke-width="3"/>
+<text x="1313.8" y="520.4" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="1313.8" dy="0.0">0.756</tspan></text>
+<text x="1313.8" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="1313.8" dy="0.0">Endpoint</tspan></text>
+<rect x="1423.1" y="551.1" width="98.3" height="258.9" rx="4" fill="#167c80" stroke="#167c80" stroke-width="3"/>
+<text x="1472.2" y="532.9" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="1472.2" dy="0.0">0.754</tspan></text>
+<text x="1472.2" y="858.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="1472.2" dy="0.0">Lane</tspan></text>
+<rect x="1581.6" y="354.8" width="98.3" height="455.2" rx="4" fill="#745b99" stroke="#745b99" stroke-width="3"/>
+<text x="1630.8" y="336.7" font-family="Times New Roman, Times, serif" font-size="19" font-weight="700" fill="#1f2933" text-anchor="middle"><tspan x="1630.8" dy="0.0">0.780</tspan></text>
+<text x="1630.8" y="847.5" font-family="Times New Roman, Times, serif" font-size="18" font-weight="400" fill="#1f2933" text-anchor="middle"><tspan x="1630.8" dy="0.0">Full</tspan><tspan x="1630.8" dy="22.0">Mamba</tspan></text>
+<text x="125.0" y="160.2" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="start"><tspan x="125.0" dy="0.0">minADE6 (m)</tspan></text>
+</svg>

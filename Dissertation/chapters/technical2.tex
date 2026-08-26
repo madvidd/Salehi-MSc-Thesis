@@ -1,0 +1,241 @@
+\chapter{Results and Discussion}
+\label{chap:results}
+
+\section{Reporting convention}
+
+All displacement and miss metrics are lower-is-better. ``Best epoch'' means the checkpoint with the lowest recorded validation minADE6. Values described as ``final'' are taken from the last validation epoch and are not silently treated as best-checkpoint values. The Lab 2 and Lab 3 controls differ in epoch count, global batch and hardware; comparisons across those studies are descriptive. Causal claims are limited to variants trained within the same controlled suite.
+
+\section{SHARP article and Lab 2 reproduction}
+
+Table~\ref{tab:sharp-reproduction} compares the SHARP article's AV2 validation vector with the retained Lab 2 baseline. The local 60-epoch run does not reproduce the article's 80-epoch schedule, and its global batch is 16 rather than 32. It is therefore evidence that the implementation trains successfully and approaches the published accuracy, not an exact reproduction claim.
+
+\begin{table}[htbp]
+\centering
+\caption{SHARP article AV2 validation result and retained Lab 2 reproduction.}
+\label{tab:sharp-reproduction}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+Source & MR & b-minFDE6 & minADE1 & minADE6 & minFDE1 & minFDE6 \\
+\hline
+SHARP article & 0.140000 & 1.820000 & 1.570000 & 0.640000 & 3.850000 & 1.200000 \\
+Normal SHARP, Lab 2 (epoch 56) & 0.150608 & 1.864411 & 1.599569 & 0.661463 & 3.962160 & 1.242391 \\
+Absolute gap (local $-$ article) & +0.010608 & +0.044411 & +0.029569 & +0.021463 & +0.112160 & +0.042391 \\
+\hline
+\end{tabular}}
+\end{table}
+
+The local minADE6 is 0.021463 higher, a relative gap of approximately 3.35\%. Every listed metric is worse by a modest amount. Several factors plausibly contribute: 20 fewer epochs, a smaller global batch, DDP sample ordering, different GPU kernels and dependency versions, and possible preprocessing drift. The result should not be used to argue that four RTX 2080 Ti GPUs are intrinsically less accurate than one RTX 8000. Hardware affects the numerical execution and throughput; the schedule and data path affect the optimisation target more directly.
+
+The article also reports AV2 test-set MR 0.14, b-minFDE6 1.83, minADE6 0.64 and minFDE6 1.19 \cite{prutsch2026sharp}. These are test values and are not subtracted from local validation values.
+
+\section{Mamba placement in SHARP}
+
+Table~\ref{tab:mamba-long} compares the longer Lab 2 Mamba additions with the local unmodified SHARP reproduction. The baseline uses a different 60-epoch/global-batch-16 setup, so the absolute comparison is not perfectly controlled. The direct scene-token versus temporal-agent comparison is stronger because both are 80-epoch, global-batch-32, four-GPU experiments.
+
+\begin{table}[htbp]
+\centering
+\caption{Longer Lab 2 SHARP and Mamba results on AV2 validation.}
+\label{tab:mamba-long}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\hline
+Model & Epoch evidence & MR & b-minFDE6 & minADE1 & minADE6 & minFDE1 & minFDE6 \\
+\hline
+Normal SHARP & Best, 56/60 & 0.150608 & 1.864411 & 1.599569 & 0.661463 & 3.962160 & 1.242391 \\
+Scene-token Mamba & Best, 78/80 & 0.157353 & 1.926419 & 1.680364 & 0.680362 & 4.130003 & 1.290422 \\
+Residual temporal-agent Mamba & Final, 79/80 & 0.157000 & 1.920000 & 1.640000 & 0.676000 & 4.050000 & 1.290000 \\
+\hline
+\end{tabular}}
+\end{table}
+
+The residual temporal-agent run has a separately retained best minADE6 of 0.673736 at epoch 77. This is 0.006626 lower than scene-token Mamba, a 0.97\% relative improvement, but remains 0.012273 above the local normal SHARP value. The ordering supports the placement hypothesis: chronological agent history is a more meaningful scan axis than pooled scene-token order. It does not support the stronger hypothesis that residual Mamba already improves SHARP accuracy.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\textwidth]{mamba_placement_results.png}
+    \caption{Best retained minADE6 for unmodified SHARP and the two longer Mamba additions. The baseline differs in schedule; scene-token and temporal-agent Mamba share the 80-epoch, global-batch-32 setting.}
+    \label{fig:mamba-results}
+\end{figure}
+
+The 20-epoch complete replacement provides additional evidence. Replacing all four temporal attention blocks with Mamba gives minADE6 0.780190 against 0.752339 for the matched shortened baseline, a degradation of 0.027851 (3.70\%). This is a controlled result against wholesale replacement in the tested configuration. Four attention blocks can compare timesteps directly, while the replacement forces all temporal information through sequential state. With only ten observations per window, Mamba's long-sequence scaling advantage is irrelevant and its inductive bias does not compensate for the removed attention.
+
+\section{Lab 2 20-epoch screening study}
+
+Table~\ref{tab:screen-results} presents all ten matched runs. The final column is variant minADE6 minus baseline; negative values are improvements.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{2.5pt}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{p{0.25\textwidth}rrrrrr}
+\caption{Controlled 20-epoch AV2 screening results.}\label{tab:screen-results}\\
+\hline
+Variant & Best ep. & MR & b-minFDE6 & minADE6 & minFDE6 & $\Delta$ADE \\
+\hline
+\endfirsthead
+\hline
+Variant & Best ep. & MR & b-minFDE6 & minADE6 & minFDE6 & $\Delta$ADE \\
+\hline
+\endhead
+Baseline SHARP & 19 & 0.192652 & 2.064007 & 0.752339 & 1.434819 & +0.000000 \\
+Confidence-gated memory & 19 & 0.194413 & 2.067328 & 0.755349 & 1.443534 & +0.003010 \\
+Cross-window consistency & 18 & 0.202497 & 2.096022 & 0.776207 & 1.476766 & +0.023868 \\
+Learned temporal pooling & 19 & 0.201897 & 2.080306 & 0.757637 & 1.463850 & +0.005298 \\
+Uncertainty-aware target context & 19 & 0.198575 & 2.074243 & 0.749961 & 1.447852 & $-$0.002378 \\
+Relative-geometry attention bias & 19 & 0.190852 & 2.051891 & 0.749679 & 1.432463 & $-$0.002660 \\
+Kinematic motion stem & 19 & 0.198175 & 2.068197 & 0.785164 & 1.448078 & +0.032825 \\
+Endpoint refinement decoder & 19 & 0.196254 & 2.058200 & 0.755898 & 1.441044 & +0.003559 \\
+Lane topology graph & 19 & 0.200616 & 2.065051 & 0.754238 & 1.443290 & +0.001899 \\
+Temporal Mamba replacement & 19 & 0.212822 & 2.141835 & 0.780190 & 1.514158 & +0.027851 \\
+\hline
+\end{longtable}
+\endgroup
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.96\textwidth]{lab2_screen_minade6.png}
+    \caption{Best minADE6 in the Lab 2 20-epoch screen. The first bar is the matched shortened baseline; lower bars are better.}
+    \label{fig:screen-minade}
+\end{figure}
+
+Only uncertainty-aware target context and relative geometry improve minADE6. Relative geometry is the strongest screen at 0.749679, 0.002660 lower than baseline (0.35\%). It also improves MR from 0.192652 to 0.190852, b-minFDE6 from 2.064007 to 2.051891, minFDE1 from 4.672195 to 4.660576 and minFDE6 from 1.434819 to 1.432463. This consistency across endpoint and miss metrics makes it a more credible candidate than an isolated change in one column.
+
+Uncertainty-aware target context improves minADE6 by 0.002378 (0.32\%), while its MR and endpoint metrics are worse. A plausible interpretation is that adaptive context improves the average shape of at least one mode but does not yet improve endpoint coverage or confidence. It remains a candidate because its target-selection mechanism is complementary to geometry bias and its minADE6 change is in the desired direction.
+
+The negative results are informative. The kinematic stem is worst at 0.785164, suggesting that derivative noise or redundant motion features are harmful under the short schedule. Cross-window consistency also degrades substantially. At early epochs, forcing agreement between uncertain consecutive predictions may preserve an error rather than stabilise a correct trajectory. Learned pooling and lane topology are close to baseline but do not justify extra complexity. Endpoint refinement worsens minADE6, yet improves minFDE1 from 4.672195 to 4.641530; it may benefit the single highest-priority trajectory without improving six-mode coverage.
+
+The screen cannot establish final superiority because 13 of 20 epochs are warm-up. The selected variants may converge differently over 80 epochs, and selection on the same validation split introduces optimism. Its legitimate role is candidate reduction.
+
+\section{Lab 3 attention study}
+
+Table~\ref{tab:attention-results} gives the completed 80-epoch attention comparison. Best minADE6 is read from saved checkpoints. The remaining values use the retained validation vector; for the baseline MHA row, the final vector does not belong to the epoch-66 best-minADE6 checkpoint.
+
+\begin{table}[htbp]
+\centering
+\caption{Lab 3 attention results on AV2. All variants share the same 80-epoch, global-batch-24 controls.}
+\label{tab:attention-results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\hline
+Attention & Best ep. & Best ADE6 & MR & b-minFDE6 & minADE1 & minFDE1 & minFDE6 & $\Delta$ADE \\
+\hline
+Baseline MHA & 66 & 0.673460 & 0.153231 & 1.927635 & 1.671288 & 4.063601 & 1.287932 & +0.000000 \\
+QKNorm & 65 & 0.669777 & 0.154471 & 1.899642 & 1.671904 & 4.119903 & 1.266240 & $-$0.003683 \\
+Talking-Heads & 71 & 0.674991 & 0.156510 & 1.927414 & 1.675181 & 4.130968 & 1.285642 & +0.001531 \\
+QKNorm + Talking-Heads & 71 & 0.674492 & 0.152064 & 1.931623 & 1.663308 & 4.090390 & 1.291059 & +0.001032 \\
+\hline
+\end{tabular}}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.90\textwidth]{lab3_attention_minade6.png}
+    \caption{Best minADE6 for the Lab 3 attention operators. QKNorm is the only operator to improve the matched MHA control on this selection metric.}
+    \label{fig:attention-minade}
+\end{figure}
+
+QKNorm improves minADE6 by 0.003683 (0.55\%). It also lowers b-minFDE6 by 0.027993 and minFDE6 by 0.021692. MR is 0.001240 higher and minFDE1 is higher, so the improvement is not uniform. The pattern is compatible with QKNorm improving multimodal coverage and endpoint quality among six hypotheses without improving the single-mode forecast.
+
+Talking-Heads is 0.001531 worse than MHA on minADE6 and does not lead any retained metric. Combining it with QKNorm is 0.001032 worse than MHA, despite giving the lowest MR (0.152064) and minADE1 (1.663308). The combined operator may distribute modes in a way that avoids complete misses while slightly increasing oracle average displacement. This is a useful example of why one metric cannot summarise every desirable property.
+
+The strongest conclusion from Lab 3 is narrow: under this implementation and seed, QKNorm is the appropriate attention candidate for the final minADE6-focused comparison. There is no evidence that arbitrary head mixing should also be retained.
+
+\section{Cross-dataset Lab 2 evidence}
+
+The normal Lab 2 SHARP checkpoint was also evaluated on Argoverse 1 and nuScenes. Table~\ref{tab:cross-dataset} records these values beside the article. The comparisons are descriptive because the nuScenes split and number of modes differ.
+
+\begin{table}[htbp]
+\centering
+\caption{Secondary Lab 2 validation evidence and SHARP article values.}
+\label{tab:cross-dataset}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllrrrr}
+\hline
+Dataset & Source & Evaluation & MR & minADE$_K$ & minFDE1 & minFDE$_K$ \\
+\hline
+Argoverse 1 & Article & Validation, $K=6$ & 0.070000 & 0.580000 & -- & 0.900000 \\
+Argoverse 1 & Lab 2 SHARP & Validation, $K=6$ & 0.088670 & 0.635403 & 2.765118 & 1.027457 \\
+nuScenes & Article & Challenge test, $K=5$ & 0.280000 & 1.130000 & 6.020000 & -- \\
+nuScenes & Lab 2 SHARP & Validation, $K=6$ & 0.302300 & 1.150025 & 6.344474 & 1.965479 \\
+\hline
+\end{tabular}}
+\end{table}
+
+The local Argoverse 1 minADE6 is 0.055403 higher than the article and minFDE6 is 0.127457 higher. The local nuScenes minADE is close in absolute terms, but comparing $K=6$ validation to $K=5$ challenge test is not controlled. These results reinforce the need to describe preprocessing, split and mode count whenever a benchmark number is reused.
+
+\section{Training-time context}
+
+\begin{table}[htbp]
+\centering
+\caption{Approximate completed-run wall-clock time. Article training time was not reported.}
+\label{tab:training-time}
+\begin{tabular}{lrrl}
+\hline
+Run & Epochs & Global batch & Approx. elapsed time \\
+\hline
+Normal SHARP, Lab 2 & 60 & 16 & 109 h \\
+Baseline MHA, Lab 3 & 80 & 24 & 99 h 39 min \\
+Scene-token Mamba, Lab 2 & 80 & 32 & 129 h 17 min \\
+Temporal-agent Mamba, Lab 2 & 80 & 32 & 160 h 20 min \\
+\hline
+\end{tabular}
+\end{table}
+
+The number of GPUs does not determine wall-clock time alone. DDP communication, validation cadence, synchronized BatchNorm, data loading, desktop display load and the additional Mamba computation all contribute. Temporal-agent Mamba is the slowest retained run despite using four GPUs. Its bidirectional selective scans and compaction work add computation to the original four attention blocks rather than replacing them.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.90\textwidth]{training_time_context.png}
+    \caption{Approximate wall-clock hours for completed Lab 2 and Lab 3 reference runs. Differences include model, epoch, batch and system-load effects.}
+    \label{fig:training-time}
+\end{figure}
+
+\section{Final confirmatory study: reserved results}
+
+The final suite tests whether the individually supported changes remain beneficial under one 80-epoch, global-batch-32 protocol. At the dissertation snapshot used to create this draft, the suite has passed its configuration and distributed preflights but has not produced three validated final vectors. Table~\ref{tab:final-pending} and Figure~\ref{fig:final-pending} intentionally reserve those outputs. A value must be inserted only from the suite's post-training, single-GPU validation artifact.
+
+\begin{table}[htbp]
+\centering
+\caption{Final three-run confirmatory comparison. Pending cells must be populated from validated artifacts.}
+\label{tab:final-pending}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+Configuration & MR & b-minFDE6 & minADE1 & minADE6 & minFDE1 & minFDE6 \\
+\hline
+Official SHARP baseline & \multicolumn{6}{c}{Pending final validated result} \\
+QKNorm + uncertainty + geometry & \multicolumn{6}{c}{Pending final validated result} \\
+Run 2 + residual temporal-agent Mamba & \multicolumn{6}{c}{Pending final validated result} \\
+\hline
+\end{tabular}}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox[c][5.3cm][c]{0.88\textwidth}{\centering
+Reserved for the final three-run validated comparison plot.\\[0.8em]
+Insert both PNG and SVG outputs generated by the suite.\\
+Do not plot training-progress values as final metrics.}}
+\caption{Reserved confirmatory-suite comparison.}
+\label{fig:final-pending}
+\end{figure}
+
+The expected analysis is pre-specified. Run 2 is compared with run 1 to test the combined effect of QKNorm, uncertainty-aware context and geometry. Run 3 is compared with run 2 to isolate the incremental residual Mamba effect. It would be invalid to compare run 3 only with the article because any difference would combine four modifications and an execution-environment difference. The final report should include absolute deltas, relative percentage deltas and all six metrics, not only the best-looking column.
+
+\section{Answers to the research questions}
+
+\textbf{RQ1: reproduction.} The retained Lab 2 baseline approaches but does not match the article. Its minADE6 is 0.661463 versus 0.640000, with identifiable schedule and execution differences. The final article-aligned baseline is necessary before a stronger reproduction claim can be made.
+
+\textbf{RQ2: broad modifications.} Two of nine modifications improve the matched 20-epoch baseline on minADE6: relative-geometry bias and uncertainty-aware target context. Relative geometry gives the most consistent multi-metric improvement. Most extra modules are neutral or harmful under the short schedule.
+
+\textbf{RQ3: attention.} QKNorm gives the best minADE6 and endpoint metrics among the four matched Lab 3 attention variants. Talking-Heads does not improve minADE6, either alone or with QKNorm, although the combined operator gives the lowest MR.
+
+\textbf{RQ4: Mamba.} The residual temporal-agent addition is better than scene-token Mamba, which supports chronological placement, but neither longer Mamba addition beats the local unmodified SHARP reproduction. Complete replacement is clearly worse in the matched 20-epoch screen. The evidence favours residual use as a small auxiliary pathway, not replacement of every temporal attention block.
+
+\section{Threats to validity}
+
+The experiments use one principal seed. The small improvements observed for QKNorm, uncertainty and geometry may lie within seed-to-seed variance; three-seed replication would be required for a statistical claim. The 20-epoch schedule is dominated by warm-up and may rank models differently from 80 epochs. Candidate selection and evaluation use the same validation split, which introduces selection bias. Some long-run tables combine a best minADE6 checkpoint with other metrics from a final validation vector; those rows are labelled but are less complete than evaluating every best checkpoint identically.
+
+Hardware and software differ from the article. Distributed reduction, sample order and kernels can produce diverging trajectories despite the same seed and global batch. The local normal baseline also differs in epoch count and batch, so it cannot serve as a fully controlled comparator for the longer Mamba additions. Finally, open-loop oracle metrics do not measure calibration, temporal stability, collisions or planner utility. These limitations constrain the conclusions to the observed benchmark and configurations.

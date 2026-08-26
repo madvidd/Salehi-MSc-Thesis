@@ -1,0 +1,124 @@
+\chapter{Reproducibility and Supporting Evidence}
+\label{app:reproducibility}
+
+\section{Template and source layout}
+
+The dissertation is stored under \path{Dissertation/} in the Thesis repository. \path{Dissertation_Template.tex} remains the main Overleaf document. The original template's \path{parameters/} and \path{style/} files are copied without formatting changes. Dissertation text is contained in \path{chapters/}, references in \path{references/thesisbib.bib}, and generated figures in \path{images/}.
+
+The project evidence used to prepare the dissertation is retained under the following repository locations:
+
+\begin{itemize}
+    \item \path{Results/Main/SHARP_AV2_Main_Results.md}: consolidated article and local metric vectors;
+    \item \path{Results/Main/All_Run_Registry.md}: run status and evidence links;
+    \item \path{Results/Info.md}: architectural modification glossary;
+    \item \path{Lab 2/SHARP_20_Epoch_10_Test_Suite/}: controlled screening code, manifests and completed results;
+    \item \path{Lab 2/SHARP_Final_3_Run_Suite/}: article-aligned final protocol, audited runtime modules and active progress;
+    \item \path{Lab 3/Main_Results/Attention_Experiments/}: completed attention artifacts; and
+    \item \path{Lab 3/Codes/}: attention runtime preparation, recovery and publication scripts.
+\end{itemize}
+
+Operational snapshots were consulted to establish what ran, but restarts and publication attempts were not counted as separate experiments.
+
+\section{Full Lab 2 screening metric vector}
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{p{0.19\textwidth}rrrrrrr}
+\caption{Full retained metric vector for the 20-epoch screen.}\label{tab:appendix-screen}\\
+\hline
+Variant & MR & b-FDE6 & ADE1 & ADE6 & FDE1 & FDE6 & $\Delta$ADE6 \\
+\hline
+\endfirsthead
+\hline
+Variant & MR & b-FDE6 & ADE1 & ADE6 & FDE1 & FDE6 & $\Delta$ADE6 \\
+\hline
+\endhead
+Baseline & .192652 & 2.064007 & 1.886442 & .752339 & 4.672195 & 1.434819 & .000000 \\
+Confidence gate & .194413 & 2.067328 & 1.876097 & .755349 & 4.694828 & 1.443534 & +.003010 \\
+Window consistency & .202497 & 2.096022 & 1.872110 & .776207 & 4.785388 & 1.476766 & +.023868 \\
+Learned pooling & .201897 & 2.080306 & 1.891240 & .757637 & 4.739688 & 1.463850 & +.005298 \\
+Uncertainty context & .198575 & 2.074243 & 1.863236 & .749961 & 4.676969 & 1.447852 & $-$.002378 \\
+Geometry bias & .190852 & 2.051891 & 1.875754 & .749679 & 4.660576 & 1.432463 & $-$.002660 \\
+Kinematic stem & .198175 & 2.068197 & 1.942671 & .785164 & 4.701560 & 1.448078 & +.032825 \\
+Endpoint refinement & .196254 & 2.058200 & 1.867779 & .755898 & 4.641530 & 1.441044 & +.003559 \\
+Lane topology & .200616 & 2.065051 & 1.903412 & .754238 & 4.696756 & 1.443290 & +.001899 \\
+Temporal Mamba replacement & .212822 & 2.141835 & 1.993448 & .780190 & 4.973433 & 1.514158 & +.027851 \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Mamba implementation parameters}
+
+\begin{table}[htbp]
+\centering
+\caption{Residual temporal-agent Mamba implementation.}
+\label{tab:appendix-mamba}
+\begin{tabular}{ll}
+\hline
+Property & Configuration \\
+\hline
+Insertion & Between temporal attention blocks 2 and 3 \\
+Input feature dimension & 128 \\
+Direction & Separate forward and backward modules \\
+$d_{\mathrm{state}}$ & 8 \\
+Local convolution width & 3 \\
+Expansion ratio & 1 \\
+Normalisation & Pre-Mamba LayerNorm \\
+Fusion & Per-channel sigmoid gate \\
+Dropout & 0.1 \\
+LayerScale initial value & 0.01 \\
+Agent chunk size & 128 \\
+Padding policy & Compact valid observations, restore afterwards \\
+CUDA path & Fused selective scan and cuDNN Conv1d \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Completed Lab 3 checkpoint evidence}
+
+\begin{table}[htbp]
+\centering
+\caption{Best-minADE6 checkpoint evidence for the attention suite.}
+\label{tab:appendix-attention}
+\begin{tabular}{lrrr}
+\hline
+Attention & Best epoch & Best minADE6 & Delta vs MHA \\
+\hline
+MHA & 66 & 0.673460 & +0.000000 \\
+QKNorm & 65 & 0.669777 & $-$0.003683 \\
+Talking-Heads & 71 & 0.674991 & +0.001531 \\
+QKNorm + Talking-Heads & 71 & 0.674492 & +0.001032 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Final-suite validation checklist}
+
+The following checklist prevents active training values from being promoted into the final result table:
+
+\begin{enumerate}
+    \item confirm that all three variant directories contain a completion marker and a loadable \path{last.ckpt};
+    \item select the checkpoint with minimum validation minADE6 according to the same rule for every run;
+    \item run the final evaluation script on one GPU with batch 32, avoiding DDP validation padding;
+    \item obtain MR, b-minFDE6, minADE1, minADE6, minFDE1 and minFDE6 from the generated machine-readable JSON;
+    \item verify that the Markdown/CSV table and plotted values match the JSON to six decimal places;
+    \item insert the three vectors into Table~\ref{tab:final-pending};
+    \item replace the reserved Figure~\ref{fig:final-pending} with the suite's PNG while retaining the SVG alongside it;
+    \item update the abstract, conclusion, word count and page count; and
+    \item compile twice after BibTeX and inspect every page before submission.
+\end{enumerate}
+
+\section{Reproduction caveats}
+
+The word ``reproduction'' is used with explicit qualification in this dissertation. An exact floating-point match is not guaranteed when GPU architecture, CUDA libraries, distributed execution and data-loader order differ. The final baseline is \emph{article-aligned} in architecture and optimisation controls, while the paper's execution used one RTX 8000. The retained earlier Lab 2 baseline is a 60-epoch local reproduction with global batch 16. The Lab 3 attention baseline is an 80-epoch internal control with global batch 24. These are distinct evidence categories.
+
+\section{Reference and link validation}
+
+Bibliographic entries prioritise primary conference pages, official proceedings, DOI records and author repositories. The most important external records are the CVPR page for SHARP \cite{prutsch2026sharp}, the NeurIPS pages for DeMo and RealMotion \cite{zhang2024demo,song2024realmotion}, the WACV page for SEAM \cite{prutsch2026seam}, OpenReview for Mamba and AdamW \cite{gu2024mamba,loshchilov2019adamw}, ACL Anthology for QKNorm and relative-position attention \cite{henry2020qknorm,shaw2018relative}, and official dataset proceedings for AV2, Argoverse 1 and nuScenes \cite{wilson2021av2,chang2019argoverse,caesar2020nuscenes}. URLs are included in BibTeX so entries are clickable in the generated PDF.
+
+\section{Suggested final artifact set}
+
+For dissertation submission, retain the compiled PDF, all LaTeX sources, BibTeX database, PNG/SVG figures, exact result JSON/CSV files, environment manifests and the final code commit. Full training logs and checkpoints are useful archival evidence but are not required inside the Git repository and should remain in their laboratory archive because of size.

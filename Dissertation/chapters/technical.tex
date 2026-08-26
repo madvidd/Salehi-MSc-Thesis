@@ -1,0 +1,192 @@
+\chapter{Methodology and Implementation}
+\label{chap:methodology}
+
+\section{Experimental strategy}
+
+The project uses staged controlled ablation rather than introducing all modifications at once. This decision is central to the validity of the conclusions. If attention, context selection, temporal encoding and optimisation changed together, an improved metric could not be assigned to a particular mechanism. The programme shown in Figure~\ref{fig:experimental-programme} therefore proceeds from reproduction to broad screening, then to a full-length attention study, then to placement-specific Mamba experiments and finally to a narrow confirmatory combination.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.96\textwidth]{experimental_programme.png}
+    \caption{Experimental programme. Solid boxes are completed evidence; the outlined final stage is reserved for the active confirmatory suite.}
+    \label{fig:experimental-programme}
+\end{figure}
+
+Each scientific run has its own immutable code copy and result directory. A run is considered comparable only when its dataset split, seed, schedule, global batch and metric-selection rule are recorded. Terminal snapshots, recovery attempts and GitHub publication retries are operational evidence, not additional model variants.
+
+\section{Reference SHARP architecture}
+
+The baseline is the single-agent SHARP architecture described by Prutsch \emph{et al.} \cite{prutsch2026sharp}. The final-suite source is pinned to audited commit \texttt{f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae} from the authors' released repository. The local package records hashes for reviewed source files before applying any compatibility patch \cite{salehi2026repository}.
+
+\subsection{Short-window streaming}
+
+Instead of re-encoding a complete two-second history at every invocation, SHARP divides the observation into non-overlapping one-second windows. Each window contains ten points in the AV2 configuration. Let $\mathbf{z}_{i,w}$ be the encoded token for instance $i$ in window $w$, and let $\mathbf{m}_{i,w-1}$ be the stored context for the same instance from the previous window. When identity $i$ is matched, the current token is updated using the prior latent context. Unmatched agents are processed from their current short history alone. The updated context is stored for the next invocation.
+
+This instance-aware stream differs from carrying one undifferentiated scene state. It preserves a separate history for each tracked road user, which is important when agents enter or leave the field of view. Previous mode predictions also define endpoint-centric target context for the next window, and the trajectory relay supplies previous forecasts to later inference. Dual training applies losses to both streaming and non-streaming paths so that a shared network remains robust to different observation lengths.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.96\textwidth]{sharp_streaming_overview.png}
+    \caption{Functional overview of SHARP retained by all reported ablations. Architectural changes are confined to labelled local operators; short windows, identity-aware memory, target context and trajectory relay remain present.}
+    \label{fig:sharp-overview}
+\end{figure}
+
+\subsection{Agent, map and scene encoding}
+
+Agent positions, velocities and categorical types are projected into a feature dimension $D=128$. Each agent's short chronological history passes through four temporal self-attention blocks and masked temporal max pooling. Lane polylines are embedded separately. The pooled agent tokens and lane tokens then pass through four scene-attention blocks, allowing interaction among road users and map elements. All attention uses eight heads, pre-normalisation, GELU feed-forward layers and residual connections. The baseline dropout is 0.2 in the released model.
+
+Target-centric context is constructed around the prior predicted endpoints. Two target-context attention blocks refine each of six mode queries using the scene tokens selected around the relevant endpoint. A multimodal decoder predicts six trajectories and their confidence logits. The training objective combines winner-takes-all Smooth L1 trajectory regression, confidence classification and auxiliary regression for non-target agents, as specified by SHARP \cite{prutsch2026sharp}.
+
+\section{Article--code alignment}
+
+The article supplement specifies one Quadro RTX 8000, global batch 32, 80 AV2 epochs, 13 warm-up epochs, AdamW, a learning rate rising to $10^{-4}$ then cosine-decaying to $10^{-5}$, weight decay, gradient clipping, no augmentation and no cross-dataset training \cite{prutsch2026sharp}. The audited public Hydra configuration had drifted to 60 epochs and a peak learning rate of $10^{-3}$. The final protocol consequently preserves the pinned architecture and data settings but explicitly replaces those two configuration values with the article schedule. Describing unmodified repository defaults as the article setup would be inaccurate.
+
+Table~\ref{tab:final-controls} lists the controls used for the prepared full-length three-run comparison. Four RTX 2080 Ti GPUs execute distributed data parallel (DDP) training with eight scenarios per rank, preserving global batch 32 without learning-rate scaling. This is a hardware adaptation, not an exact execution reproduction: sample ordering, collective reduction, CUDA kernels and dependency versions can still alter the optimisation trajectory.
+
+\begin{table}[htbp]
+\centering
+\caption{Full-length final-suite training controls.}
+\label{tab:final-controls}
+\small
+\begin{tabular}{p{0.30\textwidth}p{0.60\textwidth}}
+\hline
+Setting & Value \\
+\hline
+Dataset & Argoverse 2, SHARP processed train/validation \\
+Epochs / warm-up & 80 / 13 \\
+Optimizer & AdamW \\
+Peak / minimum learning rate & $10^{-4}$ / $10^{-5}$ \\
+Weight decay & $10^{-2}$ \\
+Gradient clipping & Global norm 5 \\
+Global batch & 32 (8 per rank $\times$ 4 ranks) \\
+Precision & FP32 \\
+Seed & 2333 \\
+Prediction modes & 6 \\
+Feature dimension / heads & 128 / 8 \\
+Augmentation / cross-dataset training & None / none \\
+Checkpoint selection & Lowest validation minADE6 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Lab 2 reproduction and Mamba placement}
+
+The first local SHARP baseline used 60 epochs, global batch 16 and four RTX 2080 Ti GPUs. It is retained as a reproduction result but is not described as the article's 80-epoch schedule. Two later 80-epoch Mamba experiments use global batch 32 and otherwise retain the SHARP optimisation controls.
+
+\subsection{Scene-token Mamba addition}
+
+The first Mamba experiment inserts a fused Mamba layer after the per-agent temporal histories have been encoded and pooled. It therefore scans the combined sequence of agent and lane scene tokens. This placement preserves the SHARP temporal attention stack and the streaming context, but the scan order is a data-structure order rather than a physical time axis. Its hypothesis was that selective recurrence might provide a compact global context refinement. Its principal limitation is equally clear: adjacent tokens need not be temporally or topologically adjacent.
+
+\subsection{Residual temporal-agent Mamba addition}
+
+The second placement removes the scene-token Mamba completely and inserts a small bidirectional residual Mamba module between temporal-agent attention blocks 2 and 3. Figure~\ref{fig:mamba-placements} contrasts the placements. The temporal-agent sequence is semantically well ordered, and the operation occurs before temporal pooling discards timestep detail.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.96\textwidth]{mamba_placements.png}
+    \caption{Mamba configurations evaluated in SHARP. The residual temporal-agent placement preserves all four original attention blocks; the full replacement removes them.}
+    \label{fig:mamba-placements}
+\end{figure}
+
+For valid observations $\mathbf{X}$, separate Mamba modules process the sequence forward and backward. Their outputs are combined with a learned per-channel gate $\mathbf{g}=\sigma(\boldsymbol{\alpha})$:
+\begin{equation}
+    \Delta\mathbf{X}=\mathbf{g}\odot \mathrm{Mamba}_{\rightarrow}(\mathrm{LN}(\mathbf{X}))
+    +(1-\mathbf{g})\odot\mathrm{Reverse}\left[
+    \mathrm{Mamba}_{\leftarrow}(\mathrm{Reverse}[\mathrm{LN}(\mathbf{X})])
+    \right],
+\end{equation}
+\begin{equation}
+    \mathbf{X}'=\mathbf{X}+\boldsymbol{\gamma}\odot
+    \mathrm{Dropout}(\Delta\mathbf{X}),
+    \label{eq:residualmamba}
+\end{equation}
+where $\boldsymbol{\gamma}$ is initialised to 0.01. The small LayerScale makes the initial network close to SHARP and allows Mamba to enter gradually. The exact configuration is $d_{\mathrm{state}}=8$, convolution width 3, expansion 1, dropout 0.1 and 128-dimensional input. Valid timesteps are compacted before recurrence; padded entries are restored afterwards. Agents are processed in chunks of 128 for memory stability, but the time axis is never chunked. Fused CUDA selective scan is used.
+
+\subsection{Complete temporal-attention replacement}
+
+The replacement variant removes all four agent-history attention blocks and uses four unidirectional Mamba blocks with $d_{\mathrm{state}}=16$, convolution width 4 and expansion 2, followed by the original temporal max pooling. This is a deliberately stronger intervention. It tests whether recurrence can replace temporal attention rather than complement it. Scene attention, context streaming and the decoder remain SHARP components.
+
+\section{Lab 2 controlled 20-epoch screen}
+
+The broad screen uses 20 rather than 80 epochs to compare ten models within available compute time. Every row uses AV2, seed 2333, global batch 32 across four GPUs, AdamW, 13 warm-up epochs, the same learning-rate bounds, SyncBatchNorm and identical checkpointing. Keeping 13 warm-up epochs makes this a deliberately conservative short schedule: only seven epochs remain after peak learning rate. The absolute values must not be presented as full convergence, but the matched design supports within-suite ranking.
+
+Test 1 is unmodified SHARP. Tests 2--9 each introduce only the named change. Test 10 is the complete Mamba replacement described above.
+
+\subsection{Confidence-gated streamed memory}
+
+A learned gate receives the current token, the memory-updated token and their difference. It interpolates between current and updated representations:
+\begin{equation}
+    \mathbf{z}'=\mathbf{z}+\sigma(f([\mathbf{z},\tilde{\mathbf{z}},
+    \tilde{\mathbf{z}}-\mathbf{z}]))\odot(\tilde{\mathbf{z}}-\mathbf{z}).
+\end{equation}
+The intended effect is to suppress stale memory while preserving a reliable historical update.
+
+\subsection{Cross-window consistency}
+
+This variant adds a Smooth L1 penalty, weighted by 0.05, between the current confidence-weighted prediction and the transformed previous prediction. The term encourages adjacent streaming windows to describe a consistent future. It can become harmful if applied before the modes have stabilised, because two uncertain predictions need not align mode by mode.
+
+\subsection{Learned temporal pooling}
+
+Masked attention pooling replaces per-feature temporal maximum. A learned query assigns one weight to each valid timestep, allowing the encoder to prefer braking, turning or recent observations. The trade-off is that hard max pooling can retain a strong feature regardless of its timestep, while one shared temporal weighting may smooth useful extremes.
+
+\subsection{Uncertainty-aware target context}
+
+Let $p_k$ be the previous probability of mode $k$ and let
+\begin{equation}
+    H(\mathbf{p})=-\frac{\sum_k p_k\log(p_k+\epsilon)}{\log K}
+\end{equation}
+be normalised entropy. Entropy is zero for a certain distribution and one for a uniform distribution. The implementation learns a minimum radius $r_{\min}$ and span $s$, initialised to 24 and 16 metres, and sets
+\begin{equation}
+    r_k=\mathrm{clip}(r_{\min},15,35)+
+    \mathrm{clip}(s,1,25)(1-p_k).
+    \label{eq:uncertaintyradius}
+\end{equation}
+Low-confidence modes therefore inspect a wider endpoint neighbourhood. A learned sigmoid gate receives $(p_k,H(\mathbf{p}))$ and scales each mode's target feature. The initial positive gate bias retains most of the baseline feature at the start of training.
+
+\subsection{Relative-geometry attention bias}
+
+Equation~\ref{eq:geometrybias} is applied to each of the four scene-attention blocks. A 32-unit hidden layer predicts one bias per head from pairwise displacement, distance and heading difference. Zero initialisation makes the first forward pass equivalent to the baseline scores.
+
+\subsection{Kinematic motion stem}
+
+Masked velocity, acceleration and speed change are projected and added before temporal encoding. The hypothesis is that derivatives expose braking and acceleration directly. Derivatives also amplify observation noise and can duplicate information already represented by position and velocity, so this is treated as an empirical question.
+
+\subsection{Endpoint refinement}
+
+The coarse predicted endpoint is embedded and used to refine each trajectory and confidence query. An auxiliary loss with weight 0.2 supervises the coarse prediction. The design targets final displacement explicitly, but increases decoder coupling and may not improve average error.
+
+\subsection{Lane topology graph}
+
+For each lane token, up to eight nearby lanes within 40 metres are selected from geometry. A small edge network uses relative offset and heading to weight neighbour messages, followed by a residual update with LayerScale 0.01. This supplies sparse local connectivity without requiring new map labels.
+
+\section{Lab 3 attention study}
+
+The attention suite isolates the attention operator at a full 80-epoch horizon. It uses three RTX 2080 Ti GPUs, batch 8 per rank and global batch 24. The seed, data, model dimensions, non-attention blocks, losses and optimisation schedule are fixed. The suite replaces all 18 PyTorch multi-head attention constructors so that temporal, scene and target-context attention use the same operator in each variant.
+
+The four variants are baseline MHA, QKNorm, Talking-Heads, and QKNorm with Talking-Heads. QKNorm applies Equation~\ref{eq:qknorm} independently per head. Talking-Heads uses identity-initialised pre-softmax and post-softmax mixing, ensuring that training starts close to standard MHA. The combined variant activates both mechanisms. Each run saves the lowest-minADE6 checkpoints; a separate validation artifact records the complete metric vector where available.
+
+\section{Final confirmatory three-run design}
+
+The final suite does not introduce another broad search. It combines only mechanisms selected by earlier evidence:
+
+\begin{enumerate}
+    \item \textbf{Official SHARP baseline.} Pinned architecture, behaviour-preserving compatibility fixes and the article's AV2 schedule.
+    \item \textbf{QKNorm with uncertainty and geometry.} All SHARP attention constructors use QKNorm. Uncertainty-aware target context uses Equation~\ref{eq:uncertaintyradius}, while relative-geometry bias is added to the four scene-attention blocks.
+    \item \textbf{Run 2 + residual temporal-agent Mamba.} The small bidirectional residual module in Equation~\ref{eq:residualmamba} is inserted between temporal-agent blocks 2 and 3.
+\end{enumerate}
+
+The baseline receives no learned architectural addition. Behaviour-preserving compatibility changes replace an orthonormal matrix inverse by a transpose, construct index tensors on the correct CUDA device, use compatible mask dtypes, log the actual validation batch size and verify complete non-overlapping AdamW parameter groups. These changes remove runtime hazards without changing the intended model function.
+
+The final suite uses a bounded NCCL collective test, a real one-GPU optimisation-step test (forward pass, backward pass and optimizer update), and a 256-step real-data four-GPU smoke test before full training. Every epoch writes \texttt{last.ckpt}. A failed variant retries from the newest loadable checkpoint up to three times. Completed variants are skipped on relaunch, and final validation uses one GPU with batch 32 to avoid distributed sample padding.
+
+\section{Reproducibility, logging and failure recovery}
+
+Long training jobs exposed practical issues that can otherwise invalidate an experiment: asynchronous illegal CUDA accesses, stale DDP ranks, NCCL transport faults, mask-dtype deprecations and ambiguous batch-size inference in metric logging. The recovery process follows four principles.
+
+First, evidence is preserved before intervention. Logs, checkpoint inventories and process states are copied into timestamped recovery directories. Second, process matching is restricted to the exact experiment and result roots, preventing an unrelated user's job from being stopped. Third, a checkpoint is loaded on CPU and its epoch and global step are inspected before resume. Fourth, a repair must pass an equivalence or real-data smoke test before multi-day training restarts.
+
+Full terminal logs and checkpoints remain on the laboratory machines. Compact summaries, metrics, warning extracts, environment manifests and plots below the repository size threshold are merged to GitHub using token-based non-interactive authentication. No credential file is copied into a publication directory, and publication scripts scan staged files for token patterns before commit.
+
+\section{Research ethics and responsible reporting}
+
+The work uses public autonomous-driving datasets and does not collect personal data or interact with human participants. Dataset licences and source attribution remain applicable. The more immediate ethical issue is interpretation: small improvements in open-loop displacement error do not establish safer driving. The report therefore avoids claims about collision reduction or deployment readiness. Negative outcomes are retained, active metrics are not guessed, and all comparisons identify schedule, split and hardware differences. This restraint is necessary because a statistically small benchmark change can be overwhelmed by distribution shift, perception error or downstream planner behaviour in deployment.

@@ -1,0 +1,54 @@
+\chapter{Conclusions and Future Work}
+\label{chap:conclusion}
+
+\section{Summary of the investigation}
+
+This dissertation investigated whether SHARP can be improved through targeted changes to attention, target context and temporal sequence modelling without removing its defining short-window streaming mechanism. The work began with an article and source audit, because ``original SHARP'' was not a single unambiguous configuration: the article specifies an 80-epoch AV2 schedule with peak learning rate $10^{-4}$, while the audited repository configuration had drifted to 60 epochs and $10^{-3}$. That distinction shaped the experimental method. Local results were classified by the setup actually executed, and the final confirmatory baseline was pinned to the released architecture while restoring the article schedule.
+
+The broad Lab 2 screen showed that added complexity is not a reliable proxy for accuracy. Only uncertainty-aware target context and relative-geometry bias improved minADE6 over the matched 20-epoch control. Relative geometry was the strongest screen and improved MR and endpoint metrics as well. In contrast, explicit kinematic derivatives, cross-window consistency and complete temporal Mamba replacement caused substantial degradation. Learned temporal pooling, lane topology and endpoint refinement were close enough to the baseline to remain conceptually interesting, but did not justify inclusion in the final combination.
+
+The Lab 3 attention study provided a clearer full-length result. QKNorm reduced best minADE6 from 0.673460 to 0.669777 and improved b-minFDE6 and minFDE6. Talking-Heads attention did not improve minADE6, either alone or with QKNorm. The combined operator did produce the best MR, showing that attention variants can alter mode coverage and average displacement differently.
+
+The Mamba experiments establish a placement-sensitive negative result. Residual bidirectional Mamba inside the chronological agent encoder is better than scanning pooled scene tokens, but the best retained value, 0.673736, does not beat the 0.661463 local unmodified SHARP reproduction. Replacing all four temporal attention blocks is worse still. The tested SHARP window contains only ten observations, so Mamba's long-sequence efficiency is not decisive; direct temporal attention remains useful. Mamba is therefore best treated as a small residual hypothesis to test after empirically supported attention and geometry changes, rather than as a wholesale substitute.
+
+\section{Contributions}
+
+The study contributes an evidence-backed modification map for SHARP. It identifies which changes act on temporal history, scene interaction, target context or streaming memory, and records whether each mechanism improved the matched control. This prevents conclusions such as ``Mamba improves SHARP'' from obscuring the more accurate statement that one Mamba placement was less harmful than another but neither surpassed the retained baseline.
+
+It also contributes a reproducible experimental workflow. Long runs use isolated directories, exact code copies, environment manifests, per-epoch last checkpoints, CPU checkpoint validation, bounded real-data preflight tests and retry logic. Compact result artifacts are versioned separately from full logs and checkpoints. This operational work is part of the scientific contribution because an interrupted or ambiguously resumed run cannot support a reliable ablation.
+
+Finally, the dissertation connects the completed screens to a pre-specified confirmatory study. The three planned rows isolate the article-aligned baseline, the combined evidence-supported QKNorm--uncertainty--geometry model, and the incremental residual Mamba effect. Reserving the result cells until validation prevents an active progress value from becoming a thesis conclusion.
+
+\section{Practical conclusions}
+
+Four practical conclusions follow from the evidence.
+
+First, preserve the streaming innovation when testing local operators. None of the reported ablations removes short-window processing, identity-aware context, target context or trajectory relay. A model that improves a snapshot metric by discarding those mechanisms would answer a different question.
+
+Second, add motion-specific inductive bias where the relation is explicit. Relative displacement and heading are directly relevant to traffic interaction, and the geometry bias improves the short screen with little disruption to the baseline. Its zero-initialised output also makes the intervention conservative.
+
+Third, stabilise attention before increasing interaction capacity. QKNorm improves the selected metric, while Talking-Heads mixing does not. This suggests that controlling query--key scale is more useful in this compact network than allowing heads to communicate through additional learned projections.
+
+Fourth, use Mamba only on a semantically ordered axis and retain a residual path. Chronological agent observations satisfy that requirement; pooled scene tokens do not. Even then, the sequence is short and attention is strong, so Mamba should enter through a small LayerScale rather than replace the complete encoder.
+
+\section{Limitations}
+
+The principal limitation is statistical. Most controlled runs use one seed, and the best positive deltas are small. The work identifies promising candidates but cannot estimate confidence intervals. The shortened screen also preserves a 13-epoch warm-up within 20 epochs, which is useful for matched selection but not representative of full convergence.
+
+The article execution environment was not reproduced exactly. Four RTX 2080 Ti GPUs replace one RTX 8000, and dependency versions and CUDA kernels differ. Although global batch and learning-rate controls are explicit, bitwise or exact-metric reproduction cannot be guaranteed. Secondary Argoverse 1 and nuScenes comparisons also involve split or mode-count differences.
+
+The evaluation is open loop. minADE, minFDE and MR do not measure whether a planner selects safer actions, whether predictions remain calibrated under distribution shift, or whether trajectories fluctuate between consecutive streaming windows. No closed-loop simulation or on-vehicle experiment is claimed.
+
+\section{Future work}
+
+The immediate task is to complete and validate the three final 80-epoch runs. Each best checkpoint should be evaluated with the same single-GPU batch-32 script, and Table~\ref{tab:final-pending} should then be filled from machine-readable JSON rather than terminal progress text. The comparison should report all six metrics and confidence intervals across at least three seeds if compute permits.
+
+If run 2 improves the article-aligned baseline, a factorial follow-up should separate QKNorm, uncertainty and geometry at 80 epochs. The current screen shows individual effects for uncertainty and geometry and an independent Lab 3 effect for QKNorm, but the combination may be additive, redundant or antagonistic. A $2^3$ design would estimate interactions directly.
+
+If residual Mamba fails to improve run 2, further Mamba work should not increase depth indiscriminately. More informative tests would vary residual scale, use a single forward scan to respect online causality, or share state across SHARP windows rather than rescan ten observations. The last option is architecturally more aligned with SHARP's streaming objective, but it requires careful identity lifecycle handling and detach rules to prevent unbounded computation graphs.
+
+Evaluation should also move beyond oracle displacement. Calibration metrics, negative log-likelihood, diversity, collision rate and prediction consistency across consecutive windows would test properties hidden by minADE6. Closed-loop CARLA or log-replay planning experiments could then measure whether metric changes affect braking, comfort and progress. Such a study would be a new systems contribution and should not be inferred from the present benchmark alone.
+
+\section{Final statement}
+
+The central lesson is methodological: a promising modern component improves a mature forecasting model only when its inductive bias matches the representation and when the comparison is controlled. In this study, explicit geometry and query--key normalisation provide the clearest positive evidence. Mamba is most coherent inside the ordered agent-history encoder, but its tested forms do not yet exceed unmodified SHARP. The resulting final design is therefore conservative: preserve SHARP's streaming structure, retain direct attention, add only evidence-supported context and geometry, and treat residual Mamba as the final isolated question rather than a predetermined success.
