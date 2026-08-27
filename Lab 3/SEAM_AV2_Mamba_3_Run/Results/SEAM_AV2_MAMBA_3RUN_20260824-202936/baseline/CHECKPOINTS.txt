@@ -1,0 +1,11 @@
+55672270 bytes | epoch=70 | minADE6=0.6723010540008545 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_70-minADE6_0.6723010540008545.ckpt
+55672270 bytes | epoch=71 | minADE6=0.6715055108070374 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_71-minADE6_0.6715055108070374.ckpt
+55672270 bytes | epoch=72 | minADE6=0.668674886226654 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_72-minADE6_0.668674886226654.ckpt
+55672270 bytes | epoch=73 | minADE6=0.6661139130592346 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_73-minADE6_0.6661139130592346.ckpt
+55672270 bytes | epoch=74 | minADE6=0.6649302840232849 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_74-minADE6_0.6649302840232849.ckpt
+55672270 bytes | epoch=75 | minADE6=0.6734870672225952 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_75-minADE6_0.6734870672225952.ckpt
+55672270 bytes | epoch=76 | minADE6=0.6664323806762695 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_76-minADE6_0.6664323806762695.ckpt
+55672270 bytes | epoch=77 | minADE6=0.662859320640564 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_77-minADE6_0.662859320640564.ckpt
+55672270 bytes | epoch=78 | minADE6=0.663480281829834 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_78-minADE6_0.663480281829834.ckpt
+55672270 bytes | epoch=79 | minADE6=0.6643144488334656 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/epoch_79-minADE6_0.6643144488334656.ckpt
+55672270 bytes | epoch=None | minADE6=None | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/baseline/checkpoints/last.ckpt

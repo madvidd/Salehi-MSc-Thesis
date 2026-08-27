@@ -1,0 +1,6 @@
+variant=baseline
+status=complete
+current_epoch=unknown
+current_percent=unknown
+checkpoint_count=11
+updated=2026-08-27T19:00:29.004375+01:00
