@@ -16,7 +16,10 @@ if [ -z "$RESULTS_ROOT" ] || [ ! -d "$RESULTS_ROOT" ]; then
 else
   SUITE_NAME=$(basename "$RESULTS_ROOT")
   STAMP=$(date +%Y%m%d-%H%M%S)
-  LOCAL_DIR="$BASE/Terminal/SHARP_Final_3_Run_Suite/$SUITE_NAME/Progress_$STAMP"
+  LOCAL_ROOT="$BASE/Terminal/SHARP_Final_3_Run_Suite/$SUITE_NAME"
+  LOCAL_DIR="$LOCAL_ROOT/Snapshots/Progress_$STAMP"
+  LOCAL_TERMINAL="$LOCAL_ROOT/Terminal.txt"
+  LOCAL_STATE="$LOCAL_ROOT/Terminal.offset.json"
   STAGE="$BASE/Results/SHARP_Final_3_Run_Suite_Snapshots/$SUITE_NAME/$STAMP"
   CLONE="$BASE/Codes/Thesis_Final3_Progress_Publish_$STAMP"
   REL="Lab 2/SHARP_Final_3_Run_Suite/Results/$SUITE_NAME/Current_Progress"
@@ -27,6 +30,39 @@ else
     "$PACKAGE/generate_progress_snapshot.py" \
     --results "$RESULTS_ROOT" --local-dir "$LOCAL_DIR" --stage "$STAGE"
   STATUS=$?
+
+  if [ "$STATUS" -eq 0 ]; then
+    ionice -c3 nice -n 19 "$PYTHON_BIN" \
+      "$PACKAGE/terminal_history.py" append-source \
+      --source "$RESULTS_ROOT/suite.log" \
+      --destination "$LOCAL_TERMINAL" \
+      --state "$LOCAL_STATE" --label "$STAMP"
+    STATUS=$?
+  fi
+
+  if [ "$STATUS" -eq 0 ]; then
+    "$PYTHON_BIN" - "$STAGE/Summary.md" "$LOCAL_TERMINAL" <<'PY'
+from pathlib import Path
+import sys
+
+summary = Path(sys.argv[1])
+terminal = Path(sys.argv[2])
+text = summary.read_text(encoding="utf-8")
+line = (
+    f"- Append-only local Terminal.txt: `{terminal}` "
+    f"({terminal.stat().st_size} bytes); previously saved lines were retained.\n"
+)
+anchor = "- GitHub Terminal.txt mode:"
+position = text.find(anchor)
+if position >= 0:
+    end = text.find("\n", position)
+    text = text[: end + 1] + line + text[end + 1 :]
+else:
+    text = line + text
+summary.write_text(text, encoding="utf-8")
+PY
+    STATUS=$?
+  fi
 
   LARGE=$(find "$STAGE" -type f -size +10M -print 2>/dev/null)
   CREDENTIALS=$(grep -RIlE 'github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+' \
@@ -79,7 +115,33 @@ PY
       STATUS=$?
       if [ "$STATUS" -eq 0 ]; then
         mkdir -p "$CLONE/$REL"
-        cp -a "$STAGE/." "$CLONE/$REL/"
+        PREVIOUS_TERMINAL="$CLONE/$REL/Terminal.txt"
+        MERGED_TERMINAL=$(mktemp)
+        "$PYTHON_BIN" "$PACKAGE/terminal_history.py" merge-unique \
+          --previous "$PREVIOUS_TERMINAL" \
+          --current "$STAGE/Terminal.txt" \
+          --output "$MERGED_TERMINAL" --label "$STAMP"
+        STATUS=$?
+        if [ "$STATUS" -eq 0 ]; then
+          for ITEM in "$STAGE"/* "$STAGE"/.[!.]*; do
+            [ -e "$ITEM" ] || continue
+            [ "$(basename "$ITEM")" = "Terminal.txt" ] && continue
+            cp -a "$ITEM" "$CLONE/$REL/"
+          done
+          cp -p "$MERGED_TERMINAL" "$PREVIOUS_TERMINAL"
+        fi
+        rm -f "$MERGED_TERMINAL"
+
+        LARGE=$(find "$CLONE/$REL" -type f -size +10M -print 2>/dev/null)
+        CREDENTIALS=$(grep -RIlE 'github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+' \
+          "$CLONE/$REL" 2>/dev/null)
+        if [ -n "$LARGE" ] || [ -n "$CREDENTIALS" ]; then
+          echo "ERROR: merged publication contains a large file or credential text."
+          STATUS=1
+        fi
+      fi
+
+      if [ "$STATUS" -eq 0 ]; then
         "$GIT" -C "$CLONE" config user.name madviddd
         "$GIT" -C "$CLONE" config user.email madviddd@users.noreply.github.com
         "$GIT" -C "$CLONE" config pull.rebase false

@@ -27,6 +27,6 @@ All three runs use seed 2333, 80 epochs, 13 warm-up epochs, global batch 32, Ada
 
 ## Outputs
 
-Each run produces exact JSON/CSV/Markdown metrics, checkpoint inventory, warning report, compact `Terminal.txt`, training curves in PNG and SVG, and a dissertation summary. The suite produces comparison tables and plots. Full logs and checkpoints stay on Lab 2; compact files below 10 MiB are automatically merged and pushed under this package's `Results` directory.
+Each run produces exact JSON/CSV/Markdown metrics, checkpoint inventory, warning report, compact `Terminal.txt`, training curves in PNG and SVG, and a dissertation summary. The suite produces comparison tables and plots. Progress publication maintains an append-only local `Terminal.txt` and retains every previously published GitHub terminal line while adding unseen lines from the latest compact snapshot. Full logs and checkpoints stay on Lab 2; compact files below 10 MiB are automatically merged and pushed under this package's `Results` directory.
 
 Exact reproduction of a published floating-point result cannot be guaranteed. The paper trained on one RTX 8000, whereas this suite uses four RTX 2080 Ti GPUs. DDP sample order, CUDA kernels, dependency versions, and dataset preprocessing can cause small differences even with identical optimization hyperparameters.
