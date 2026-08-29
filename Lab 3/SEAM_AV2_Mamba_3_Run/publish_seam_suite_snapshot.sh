@@ -10,7 +10,46 @@ TOKEN_FILE="$BASE/Token/Token.txt"
 RESULTS_POINTER="$BASE/Results/LATEST_SEAM_AV2_MAMBA_3RUN.txt"
 EXPERIMENT_POINTER="$BASE/Codes/LATEST_SEAM_AV2_MAMBA_3RUN_CODE.txt"
 GIT=/usr/bin/git
+PYTHON_BIN=${PYTHON_BIN:-python3}
 STATUS=1
+
+merge_terminal_history() {
+  "$PYTHON_BIN" - "$1" "$2" "$3" "$4" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+previous = Path(sys.argv[1])
+current = Path(sys.argv[2])
+output = Path(sys.argv[3])
+label = sys.argv[4]
+ansi = re.compile(r"\x1b\[[0-9;?]*[ -/]*[@-~]")
+
+previous_bytes = previous.read_bytes() if previous.is_file() else b""
+previous_text = previous_bytes.decode("utf-8", errors="replace").replace("\r", "\n")
+current_text = current.read_text(encoding="utf-8", errors="replace").replace("\r", "\n")
+seen = set(previous_text.splitlines())
+additions = []
+for line in current_text.splitlines():
+    clean = ansi.sub("", line)
+    if clean not in seen:
+        additions.append(clean)
+        seen.add(clean)
+
+output.parent.mkdir(parents=True, exist_ok=True)
+with output.open("wb") as handle:
+    handle.write(previous_bytes)
+    if previous_bytes and not previous_bytes.endswith((b"\n", b"\r")):
+        handle.write(b"\n")
+    if additions:
+        handle.write(f"===== APPENDED SNAPSHOT: {label} =====\n".encode("utf-8"))
+        handle.write(("\n".join(additions) + "\n").encode("utf-8"))
+
+print(f"PREVIOUS_LINES={len(previous_text.splitlines())}")
+print(f"NEW_UNIQUE_LINES={len(additions)}")
+print(f"MERGED_TERMINAL_BYTES={output.stat().st_size}")
+PY
+}
 
 if [ ! -s "$RESULTS_POINTER" ] || [ ! -s "$EXPERIMENT_POINTER" ]; then
   echo "ERROR: SEAM result or experiment pointer is missing."
@@ -44,6 +83,7 @@ else
 
   if [ "$STATUS" -eq 0 ]; then
     echo "Saving all persistent SEAM training logs locally..."
+    CURRENT_TERMINAL="$STAGE/Terminal.current.txt"
     {
       echo "SEAM AV2 three-run terminal snapshot"
       echo "Saved: $(date --iso-8601=seconds)"
@@ -60,31 +100,68 @@ else
         fi
         echo
       done
-    } > "$LOCAL/Terminal.txt"
+    } > "$CURRENT_TERMINAL"
+
+    LOCAL_MERGED=$(mktemp)
+    merge_terminal_history \
+      "$LOCAL/Terminal.txt" "$CURRENT_TERMINAL" "$LOCAL_MERGED" "$STAMP"
+    STATUS=$?
+    if [ "$STATUS" -eq 0 ]; then
+      cp -p "$LOCAL_MERGED" "$LOCAL/Terminal.txt"
+    fi
+    rm -f "$LOCAL_MERGED" "$CURRENT_TERMINAL"
     sync
 
-    cp -p "$LOCAL/Summary.md" "$STAGE/"
-    cp -p "$LOCAL/CHECKPOINTS.txt" "$STAGE/"
-    cp -p "$LOCAL/CURRENT_ERRORS.txt" "$STAGE/"
-    cp -p "$LOCAL/RUN_STATUS.txt" "$STAGE/"
+    if [ "$STATUS" -eq 0 ]; then
+      "$PYTHON_BIN" - "$LOCAL/Summary.md" "$LOCAL/Terminal.txt" <<'PY'
+from pathlib import Path
+import sys
 
-    FULL_SIZE=$(stat -c %s "$LOCAL/Terminal.txt")
-    MAX_GITHUB_TERMINAL=$((10 * 1024 * 1024))
-    if [ "$FULL_SIZE" -le "$MAX_GITHUB_TERMINAL" ]; then
-      cp -p "$LOCAL/Terminal.txt" "$STAGE/Terminal.txt"
-    else
-      {
-        echo "COMPACT_GITHUB_SNAPSHOT=True"
-        echo "Full local Terminal.txt: $LOCAL/Terminal.txt"
-        echo "Full local bytes: $FULL_SIZE"
-        echo "The first 1 MiB and latest 8 MiB are retained below."
-        echo
-        head -c $((1 * 1024 * 1024)) "$LOCAL/Terminal.txt"
-        echo
-        echo "===== OMITTED MIDDLE OF LARGE LOCAL LOG ====="
-        echo
-        tail -c $((8 * 1024 * 1024)) "$LOCAL/Terminal.txt"
-      } > "$STAGE/Terminal.txt"
+summary = Path(sys.argv[1])
+terminal = Path(sys.argv[2])
+text = summary.read_text(encoding="utf-8")
+line = (
+    f"- Append-only local Terminal.txt: `{terminal}` "
+    f"({terminal.stat().st_size} bytes); all previously saved lines were retained.\n"
+)
+anchor = "- Completed variants:"
+position = text.find(anchor)
+if position >= 0:
+    end = text.find("\n", position)
+    text = text[: end + 1] + line + text[end + 1 :]
+else:
+    text = line + text
+summary.write_text(text, encoding="utf-8")
+PY
+      STATUS=$?
+    fi
+
+    if [ "$STATUS" -eq 0 ]; then
+      cp -p "$LOCAL/Summary.md" "$STAGE/"
+      cp -p "$LOCAL/CHECKPOINTS.txt" "$STAGE/"
+      cp -p "$LOCAL/CURRENT_ERRORS.txt" "$STAGE/"
+      cp -p "$LOCAL/RUN_STATUS.txt" "$STAGE/"
+    fi
+
+    if [ "$STATUS" -eq 0 ]; then
+      FULL_SIZE=$(stat -c %s "$LOCAL/Terminal.txt" 2>/dev/null)
+      MAX_GITHUB_TERMINAL=$((10 * 1024 * 1024))
+      if [ "$FULL_SIZE" -le "$MAX_GITHUB_TERMINAL" ]; then
+        cp -p "$LOCAL/Terminal.txt" "$STAGE/Terminal.txt"
+      else
+        {
+          echo "COMPACT_GITHUB_SNAPSHOT=True"
+          echo "Full local Terminal.txt: $LOCAL/Terminal.txt"
+          echo "Full local bytes: $FULL_SIZE"
+          echo "The first 1 MiB and latest 8 MiB are retained below."
+          echo
+          head -c $((1 * 1024 * 1024)) "$LOCAL/Terminal.txt"
+          echo
+          echo "===== OMITTED MIDDLE OF LARGE LOCAL LOG ====="
+          echo
+          tail -c $((8 * 1024 * 1024)) "$LOCAL/Terminal.txt"
+        } > "$STAGE/Terminal.txt"
+      fi
     fi
 
     printf '%s\n' '*.ckpt' '*.pt' '*.tar.gz' 'Token.txt' > "$STAGE/.gitignore"
@@ -149,7 +226,31 @@ PY
 
       if [ "$STATUS" -eq 0 ]; then
         mkdir -p "$CLONE/$REL"
-        cp -a "$STAGE/." "$CLONE/$REL/"
+        PREVIOUS_TERMINAL="$CLONE/$REL/Terminal.txt"
+        MERGED_TERMINAL=$(mktemp)
+        merge_terminal_history \
+          "$PREVIOUS_TERMINAL" "$STAGE/Terminal.txt" "$MERGED_TERMINAL" "$STAMP"
+        STATUS=$?
+        if [ "$STATUS" -eq 0 ]; then
+          for ITEM in "$STAGE"/* "$STAGE"/.[!.]*; do
+            [ -e "$ITEM" ] || continue
+            [ "$(basename "$ITEM")" = "Terminal.txt" ] && continue
+            cp -a "$ITEM" "$CLONE/$REL/"
+          done
+          cp -p "$MERGED_TERMINAL" "$PREVIOUS_TERMINAL"
+        fi
+        rm -f "$MERGED_TERMINAL"
+
+        LARGE=$(find "$CLONE/$REL" -type f -size +11M -print 2>/dev/null)
+        CREDENTIALS=$(grep -RIlE 'github_pat_|ghp_[A-Za-z0-9]+' \
+          "$CLONE/$REL" 2>/dev/null)
+        if [ -n "$LARGE" ] || [ -n "$CREDENTIALS" ]; then
+          echo "ERROR: merged snapshot failed its size or credential scan."
+          STATUS=1
+        fi
+      fi
+
+      if [ "$STATUS" -eq 0 ]; then
         "$GIT" -C "$CLONE" config user.name madviddd
         "$GIT" -C "$CLONE" config user.email madviddd@users.noreply.github.com
         "$GIT" -C "$CLONE" config pull.rebase false
@@ -164,15 +265,21 @@ PY
         fi
 
         if [ "$STATUS" -eq 0 ]; then
-          GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
-            "$GIT" -C "$CLONE" -c credential.helper= \
-            pull --no-rebase origin main
-          STATUS=$?
-        fi
-        if [ "$STATUS" -eq 0 ]; then
-          GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
-            "$GIT" -C "$CLONE" -c credential.helper= push origin main
-          STATUS=$?
+          STATUS=1
+          for ATTEMPT in 1 2 3; do
+            GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
+              "$GIT" -C "$CLONE" -c credential.helper= \
+              pull --no-rebase origin main
+            STATUS=$?
+            [ "$STATUS" -ne 0 ] && break
+
+            GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
+              "$GIT" -C "$CLONE" -c credential.helper= push origin main
+            STATUS=$?
+            [ "$STATUS" -eq 0 ] && break
+            echo "Push attempt $ATTEMPT failed; automatically merging and retrying."
+            sleep 10
+          done
         fi
       fi
 

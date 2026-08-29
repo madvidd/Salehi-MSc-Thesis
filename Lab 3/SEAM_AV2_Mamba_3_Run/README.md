@@ -18,7 +18,10 @@ silently continue from a broken run.
 
 The existing processed AV2 data is reused read-only. Checkpoints and full logs
 remain local. Summaries, configurations, checkpoint inventories, and bounded log
-tails are published to GitHub after each completed or interrupted attempt.
+tails are published to GitHub after each completed or interrupted attempt. Manual
+progress publication keeps the local and GitHub `Terminal.txt` histories
+append-only: existing lines are retained and unseen lines from the current logs
+are added before `Summary.md` is refreshed.
 
 See `ARTICLE_AND_CODE_AUDIT.md` for the exact control settings, the released-code
 learning-rate discrepancy, and the two Mamba insertion decisions.
