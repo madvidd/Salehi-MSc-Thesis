@@ -1,9 +1,9 @@
-generated=2026-08-25T10:22:15.565385+01:00
+generated=2026-08-29T21:49:40.210873+01:00
 results_root=/home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936
 experiment_root=/home/server01/M/Codes/SEAM_AV2_MAMBA_3RUN_20260824-202936
-active_training_ranks=18
-completed_variants=0
+active_suite_processes=18
+completed_variants=1
 suite_complete=False
-baseline=running/resumable;epoch=None;percent=None
-mamba_agent_add=pending;epoch=None;percent=None
-mamba_future_replace=pending;epoch=None;percent=None
+baseline=complete;progress=validated epoch 81;last_validation_epoch=81
+mamba_agent_add=running/resumable;progress=validated epoch 54;last_validation_epoch=54
+mamba_future_replace=pending;progress=not started;last_validation_epoch=None
