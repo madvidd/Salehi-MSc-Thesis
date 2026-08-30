@@ -1,0 +1,11 @@
+57087838 bytes | epoch=68 | minADE6=0.6688894629478455 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_68-minADE6_0.6688894629478455.ckpt
+57087838 bytes | epoch=69 | minADE6=0.6683512330055237 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_69-minADE6_0.6683512330055237.ckpt
+57087838 bytes | epoch=71 | minADE6=0.6668227314949036 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_71-minADE6_0.6668227314949036.ckpt
+57087838 bytes | epoch=73 | minADE6=0.6650365591049194 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_73-minADE6_0.6650365591049194.ckpt
+57087838 bytes | epoch=74 | minADE6=0.6673458814620972 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_74-minADE6_0.6673458814620972.ckpt
+57087838 bytes | epoch=75 | minADE6=0.6654373407363892 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_75-minADE6_0.6654373407363892.ckpt
+57087838 bytes | epoch=76 | minADE6=0.6662969589233398 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_76-minADE6_0.6662969589233398.ckpt
+57087838 bytes | epoch=77 | minADE6=0.6648139953613281 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_77-minADE6_0.6648139953613281.ckpt
+57087838 bytes | epoch=78 | minADE6=0.6667874455451965 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_78-minADE6_0.6667874455451965.ckpt
+57087838 bytes | epoch=79 | minADE6=0.6648521423339844 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/epoch_79-minADE6_0.6648521423339844.ckpt
+57087838 bytes | epoch=None | minADE6=None | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_agent_add/checkpoints/last.ckpt
