@@ -23,10 +23,13 @@ All three runs use seed 2333, 80 epochs, 13 warm-up epochs, global batch 32, Ada
 - AdamW grouping inspects each module's direct parameters once. This preserves SHARP's decay/no-decay rules while preventing composed module names such as `relative_geometry_bias` from placing a weight in both groups; preflight requires complete optimizer coverage.
 - `last.ckpt` is written every epoch. A failed run retries up to three times from the newest loadable checkpoint.
 - Rerunning the launcher reuses the active suite, skips completed variants, and retries evaluation or publication without retraining.
+- Reusing a suite refreshes only its orchestration scripts from this package; generated model variants, checkpoints, logs, and completion markers remain unchanged.
 - A completed run is evaluated once on one GPU with batch 32, avoiding distributed-validation sample padding.
 
 ## Outputs
 
-Each run produces exact JSON/CSV/Markdown metrics, checkpoint inventory, warning report, compact `Terminal.txt`, training curves in PNG and SVG, and a dissertation summary. The suite produces comparison tables and plots. Progress publication maintains an append-only local `Terminal.txt` and retains every previously published GitHub terminal line while adding unseen lines from the latest compact snapshot. Full logs and checkpoints stay on Lab 2; compact files below 10 MiB are automatically merged and pushed under this package's `Results` directory.
+Each run produces exact JSON/CSV/Markdown metrics, checkpoint inventory, warning report, compact `Terminal.txt`, training curves in PNG and SVG, and a dissertation summary. The suite produces comparison tables and plots. Full logs and checkpoints stay on Lab 2. GitHub `Terminal.txt` is bounded to 8 MiB during artifact generation and checked again by the publisher, while the existing 10 MiB safety gate remains active for every published file. This prevents a large progress transcript from blocking the transition to the next completed run.
+
+`resume_after_terminal_publication_fix.sh` first verifies and archives the completed official baseline, then invokes the normal launcher. The launcher reuses Run 1, retries its compact publication, and continues with Runs 2 and 3. The same bounded publication path is applied between Runs 2 and 3.
 
 Exact reproduction of a published floating-point result cannot be guaranteed. The paper trained on one RTX 8000, whereas this suite uses four RTX 2080 Ti GPUs. DDP sample order, CUDA kernels, dependency versions, and dataset preprocessing can cause small differences even with identical optimization hyperparameters.

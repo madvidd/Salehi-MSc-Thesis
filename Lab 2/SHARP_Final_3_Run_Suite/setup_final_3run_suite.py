@@ -41,6 +41,14 @@ PINNED_HASHES = {
     "src/model/layers/multimodal_decoder_attn.py": "b2800901fe7f32c6aab63fd91ee237329a879d769f0bd1e161a97a0b7ed7543f",
     "train.py": "599637c73b62515da4edead42bdbf0ec942290eff847bfeb4ecfa1e2b0037274",
 }
+CONTROL_SCRIPTS = (
+    "run_final_3run_suite.sh",
+    "preflight_final_suite.py",
+    "nccl_collective_preflight.py",
+    "eval_checkpoint.py",
+    "generate_final_artifacts.py",
+    "publish_final_artifacts.sh",
+)
 
 
 def write_lf(path: Path, content: str) -> None:
@@ -688,6 +696,14 @@ def reusable_experiment(base: Path) -> Path | None:
     return candidate
 
 
+def sync_control_scripts(experiment_root: Path) -> None:
+    """Refresh orchestration without changing generated model variants."""
+    for filename in CONTROL_SCRIPTS:
+        target = experiment_root / filename
+        shutil.copy2(PACKAGE_ROOT / filename, target)
+        make_executable(target)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base", default="/home/server00/M")
@@ -705,6 +721,7 @@ def main() -> None:
     if existing is not None:
         manifest = json.loads((existing / "SUITE_MANIFEST.json").read_text())
         results = Path(manifest["results_root"])
+        sync_control_scripts(existing)
         write_lf(base / "Codes/LATEST_SHARP_FINAL_3RUN_CODE.txt", str(existing) + "\n")
         write_lf(base / "Results/LATEST_SHARP_FINAL_3RUN_RESULTS.txt", str(results) + "\n")
         print("REUSING_RESUMABLE_FINAL_SUITE")
@@ -731,19 +748,7 @@ def main() -> None:
     runtime_patch.mkdir()
     shutil.copy2(PACKAGE_ROOT / "runtime/sitecustomize.py", runtime_patch / "sitecustomize.py")
 
-    copied_scripts = (
-        "run_final_3run_suite.sh",
-        "preflight_final_suite.py",
-        "nccl_collective_preflight.py",
-        "eval_checkpoint.py",
-        "generate_final_artifacts.py",
-        "publish_final_artifacts.sh",
-    )
-    for filename in copied_scripts:
-        target = experiment_root / filename
-        shutil.copy2(PACKAGE_ROOT / filename, target)
-        if target.suffix in (".sh", ".py"):
-            make_executable(target)
+    sync_control_scripts(experiment_root)
 
     environment = "\n".join(
         (

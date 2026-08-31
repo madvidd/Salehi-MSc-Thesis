@@ -78,3 +78,7 @@ echo "The terminal remains open."
 ```
 
 If the machine, network, or terminal interrupts training, paste the same block again. It reuses the same result root and resumes the interrupted variant from the newest valid checkpoint.
+
+## Resume after an oversized terminal blocked publication
+
+The package also includes `resume_after_terminal_publication_fix.sh`. It refuses to skip Run 1 unless the completion marker, final metrics, and best checkpoint all validate. It then stores the full suite log and Run 1 evidence under `/home/server00/M/Terminal/SHARP_Final_3_Run_Suite`, refreshes the corrected orchestration scripts, republishes a bounded Run 1 transcript, and continues Runs 2 and 3 without retraining Run 1.

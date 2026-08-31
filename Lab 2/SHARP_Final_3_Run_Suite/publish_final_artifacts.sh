@@ -92,6 +92,42 @@ if [ "$STATUS" -eq 0 ]; then
   fi
   printf '%s\n' '*.ckpt' '*.tar.gz' 'full_run.log' '*Token.txt' > "$CLONE/$REL/.gitignore"
 
+  PUBLISHED_TERMINAL="$CLONE/$REL/Terminal.txt"
+  if [ -f "$PUBLISHED_TERMINAL" ] &&
+     [ "$(stat -c %s "$PUBLISHED_TERMINAL")" -gt $((8 * 1024 * 1024)) ]; then
+    echo "Compacting oversized Terminal.txt before GitHub publication..."
+    "$BASE/Codes/envs/sharp/bin/python" - \
+      "$PUBLISHED_TERMINAL" $((8 * 1024 * 1024)) <<'PY'
+import pathlib
+import sys
+
+path = pathlib.Path(sys.argv[1])
+limit = int(sys.argv[2])
+lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+marker = "[middle of terminal transcript omitted; complete log is retained on Lab 2]"
+head = []
+used = len((marker + "\n").encode("utf-8"))
+head_budget = limit // 3
+for line in lines:
+    encoded = len((line + "\n").encode("utf-8"))
+    if used + encoded > head_budget:
+        break
+    head.append(line)
+    used += encoded
+tail = []
+for line in reversed(lines[len(head):]):
+    encoded = len((line + "\n").encode("utf-8"))
+    if used + encoded > limit:
+        break
+    tail.append(line)
+    used += encoded
+path.write_text(
+    "\n".join(head + [marker] + list(reversed(tail))) + "\n",
+    encoding="utf-8",
+)
+PY
+  fi
+
   LARGE=$(find "$CLONE/$REL" "$CLONE/$COMPARISON_REL" \
     -type f -size +10M -print 2>/dev/null)
   CREDENTIALS=$(grep -RIlE 'github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+' \

@@ -421,23 +421,62 @@ def compact_terminal(source: Path, destination: Path) -> None:
     text = source.read_text(encoding="utf-8", errors="replace").replace("\r", "\n")
     lines = text.splitlines()
     pattern = re.compile(
-        r"(FINAL_|SHARP_|Epoch [0-9]+: 100%|Validate metric|"
+        r"(FINAL_|SHARP_|Validate metric|"
         r"\bMR\b|b-minFDE6|minADE1|minADE6|minFDE1|minFDE6|"
         r"Traceback|Error executing|ERROR|WARN|Warning|checkpoint|"
         r"LOCAL_RANK|CUDA_VISIBLE_DEVICES|NCCL version|Trainer.fit stopped|"
         r"Trainable params|Total params|Experiments are stored)"
     )
     selected = lines[:120]
-    selected.extend(line for line in lines[120:-200] if pattern.search(line))
+    epoch_summaries: dict[int, str] = {}
+    validation_summary = ""
+    for line in lines[120:-200]:
+        clean = re.sub(r"\x1b\[[0-9;?]*[ -/]*[@-~]", "", line)
+        epoch = re.match(r"Epoch\s+(\d+):", clean)
+        if epoch:
+            if "100%" in clean:
+                epoch_summaries[int(epoch.group(1))] = clean
+            continue
+        if clean.startswith("Validation DataLoader"):
+            if "100%" in clean:
+                validation_summary = clean
+            continue
+        if pattern.search(clean):
+            selected.append(clean)
+    selected.extend(epoch_summaries[epoch] for epoch in sorted(epoch_summaries))
+    if validation_summary:
+        selected.append(validation_summary)
     selected.extend(lines[-200:])
     normalized = []
-    previous = None
+    seen = set()
     for line in selected:
         line = re.sub(r"\x1b\[[0-9;?]*[ -/]*[@-~]", "", line)
-        if line != previous:
+        if line not in seen:
             normalized.append(line)
-        previous = line
-    destination.write_text("\n".join(normalized) + "\n", encoding="utf-8")
+            seen.add(line)
+
+    max_bytes = 8 * 1024 * 1024
+    payload = "\n".join(normalized) + "\n"
+    if len(payload.encode("utf-8")) > max_bytes:
+        marker = "[middle of compact transcript omitted to satisfy the 8 MiB GitHub limit]"
+        head = []
+        used = len((marker + "\n").encode("utf-8"))
+        head_budget = max_bytes // 3
+        for line in normalized:
+            encoded = len((line + "\n").encode("utf-8"))
+            if used + encoded > head_budget:
+                break
+            head.append(line)
+            used += encoded
+        tail = []
+        for line in reversed(normalized[len(head):]):
+            encoded = len((line + "\n").encode("utf-8"))
+            if used + encoded > max_bytes:
+                break
+            tail.append(line)
+            used += encoded
+        payload = "\n".join(head + [marker] + list(reversed(tail))) + "\n"
+    destination.write_text(payload, encoding="utf-8")
 
 
 def warning_report(source: Path, destination: Path) -> None:
