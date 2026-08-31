@@ -43,6 +43,10 @@ trap on_interrupt INT TERM HUP
 
 export CUDA_DEVICE_ORDER=PCI_BUS_ID
 export CUDA_VISIBLE_DEVICES=0,1,2,3
+# This Lab 2 host's 256-step four-GPU workload preflight used blocking
+# launches. Keep production execution on that validated scheduling path;
+# training hyperparameters and FP32 numerics are unchanged.
+export CUDA_LAUNCH_BLOCKING=1
 export PYTHONUNBUFFERED=1
 export PYTHONUTF8=1
 export PYTHONIOENCODING=utf-8
@@ -69,6 +73,7 @@ echo "Results root:    $RESULTS_ROOT"
 echo "Official commit: $OFFICIAL_COMMIT"
 echo "Paper schedule: 80 epochs, 13 warm-up, global batch 32, LR 1e-4 -> 1e-5"
 echo "Execution: four GPUs, batch 8/rank, four workers/rank, FP32, SyncBatchNorm"
+echo "CUDA scheduling: blocking launches, matching the validated DDP workload preflight"
 
 if [ ! -x "$PYTHON_BIN" ] || [ ! -d "$DATASET/train" ] || [ ! -d "$DATASET/val" ]; then
   echo "ERROR: Python environment or AV2 processed dataset is missing."
