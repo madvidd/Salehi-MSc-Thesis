@@ -1,0 +1,6 @@
+variant=official_sharp_baseline
+trainable_parameters=4635611
+qknorm=False
+geometry=False
+uncertainty=False
+mamba=False

@@ -1,0 +1,38 @@
+{
+  "created": "2026-08-25T17:46:05.279882+01:00",
+  "dataset": "/home/server00/M/Datasets/AV2/sharp_processed",
+  "experiment_root": "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605",
+  "official_commit": "f6bf2fc0109f9838cdc24bfb763b5c3e6847c2ae",
+  "official_repository": "https://github.com/a-pru/sharp.git",
+  "official_source": "/home/server00/M/Codes/SHARP_OFFICIAL_f6bf2fc0109f",
+  "paper_schedule": {
+    "epochs": 80,
+    "global_batch": 32,
+    "gpus": 4,
+    "gradient_clip_norm": 5,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate": 1e-05,
+    "per_gpu_batch": 8,
+    "precision": "32-true",
+    "seed": 2333,
+    "warmup_epochs": 13,
+    "weight_decay": 0.01
+  },
+  "python": "/home/server00/M/Codes/envs/sharp/bin/python",
+  "results_root": "/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605",
+  "suite_version": "final-sharp-three-run-v6-ddp-workload-preflight",
+  "variants": [
+    {
+      "slug": "01_official_sharp_baseline",
+      "variant": "official_sharp_baseline"
+    },
+    {
+      "slug": "02_qknorm_uncertainty_geometry",
+      "variant": "qknorm_uncertainty_geometry"
+    },
+    {
+      "slug": "03_qknorm_uncertainty_geometry_temporal_mamba",
+      "variant": "qknorm_uncertainty_geometry_temporal_mamba"
+    }
+  ]
+}

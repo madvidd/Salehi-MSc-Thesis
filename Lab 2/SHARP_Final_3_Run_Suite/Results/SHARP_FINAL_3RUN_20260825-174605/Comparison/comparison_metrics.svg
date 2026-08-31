@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="750" viewBox="0 0 1320 750">
+<rect width="100%" height="100%" fill="white"/>
+<text x="24" y="32" font-family="sans-serif" font-size="20" font-weight="600">FINAL SHARP AV2 COMPARISON - LOWER IS BETTER</text>
+<text x="28" y="89" font-family="sans-serif" font-size="16" font-weight="600">MR</text>
+<line x1="78" y1="107" x2="78" y2="342" stroke="#4B5257"/>
+<line x1="78" y1="342" x2="418" y2="342" stroke="#4B5257"/>
+<rect x="114" y="134" width="98" height="208" fill="#7F8C8D"/>
+<text x="163.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="284" y="110" width="98" height="232" fill="#176B87"/>
+<text x="333.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="23" y="107" font-family="monospace" font-size="10">0.158</text>
+<text x="458" y="89" font-family="sans-serif" font-size="16" font-weight="600">b-minFDE6</text>
+<line x1="508" y1="107" x2="508" y2="342" stroke="#4B5257"/>
+<line x1="508" y1="342" x2="848" y2="342" stroke="#4B5257"/>
+<rect x="544" y="121" width="98" height="221" fill="#7F8C8D"/>
+<text x="593.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="714" y="109" width="98" height="233" fill="#176B87"/>
+<text x="763.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="453" y="107" font-family="monospace" font-size="10">1.937</text>
+<text x="888" y="89" font-family="sans-serif" font-size="16" font-weight="600">minADE1</text>
+<line x1="938" y1="107" x2="938" y2="342" stroke="#4B5257"/>
+<line x1="938" y1="342" x2="1278" y2="342" stroke="#4B5257"/>
+<rect x="974" y="124" width="98" height="218" fill="#7F8C8D"/>
+<text x="1023.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="1144" y="109" width="98" height="233" fill="#176B87"/>
+<text x="1193.0" y="362" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="883" y="107" font-family="monospace" font-size="10">1.690</text>
+<text x="28" y="429" font-family="sans-serif" font-size="16" font-weight="600">minADE6</text>
+<line x1="78" y1="447" x2="78" y2="682" stroke="#4B5257"/>
+<line x1="78" y1="682" x2="418" y2="682" stroke="#4B5257"/>
+<rect x="114" y="463" width="98" height="219" fill="#7F8C8D"/>
+<text x="163.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="284" y="449" width="98" height="233" fill="#176B87"/>
+<text x="333.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="23" y="447" font-family="monospace" font-size="10">0.684</text>
+<text x="458" y="429" font-family="sans-serif" font-size="16" font-weight="600">minFDE1</text>
+<line x1="508" y1="447" x2="508" y2="682" stroke="#4B5257"/>
+<line x1="508" y1="682" x2="848" y2="682" stroke="#4B5257"/>
+<rect x="544" y="466" width="98" height="216" fill="#7F8C8D"/>
+<text x="593.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="714" y="449" width="98" height="233" fill="#176B87"/>
+<text x="763.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="453" y="447" font-family="monospace" font-size="10">4.173</text>
+<text x="888" y="429" font-family="sans-serif" font-size="16" font-weight="600">minFDE6</text>
+<line x1="938" y1="447" x2="938" y2="682" stroke="#4B5257"/>
+<line x1="938" y1="682" x2="1278" y2="682" stroke="#4B5257"/>
+<rect x="974" y="466" width="98" height="216" fill="#7F8C8D"/>
+<text x="1023.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">A</text>
+<rect x="1144" y="449" width="98" height="233" fill="#176B87"/>
+<text x="1193.0" y="702" text-anchor="middle" font-family="sans-serif" font-size="11">1</text>
+<text x="883" y="447" font-family="monospace" font-size="10">1.299</text>
+</svg>

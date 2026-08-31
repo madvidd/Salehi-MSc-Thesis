@@ -1,0 +1,15 @@
+- seed=2333
+- gpus=4
+- batch_size=8
+- epochs=80
+- output_dir=/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/01_official_sharp_baseline/run
+- datamodule.pl_module.data_root=/home/server00/M/Datasets/AV2/sharp_processed
+- datamodule.pl_module.num_workers=4
+- model.pl_module.optim.lr=0.0001
+- model.pl_module.optim.min_lr=0.00001
+- model.pl_module.optim.warmup_ratio=0.1625
+- model.pl_module.optim.weight_decay=0.01
+- trainer.devices=4
+- trainer.strategy=ddp_find_unused_parameters_false
+- trainer.sync_batchnorm=true
+- trainer.precision=32-true

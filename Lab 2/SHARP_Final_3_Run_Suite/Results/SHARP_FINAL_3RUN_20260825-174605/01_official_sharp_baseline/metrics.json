@@ -1,0 +1,16 @@
+{
+  "MR": 0.15595485270023346,
+  "b-minFDE6": 1.9245601892471313,
+  "checkpoint": "/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/01_official_sharp_baseline/run/checkpoints/epoch_78-minADE6_0.6792823672294617.ckpt",
+  "evaluation_batch_size": 32,
+  "evaluation_devices": 1,
+  "minADE1": 1.6768673658370972,
+  "minADE6": 0.6792822480201721,
+  "minFDE1": 4.138639450073242,
+  "minFDE6": 1.2876970767974854,
+  "val/step0_reg_loss": 0.5626786947250366,
+  "val/step1_reg_loss": 0.43707501888275146,
+  "val/step2_reg_loss": 0.34594228863716125,
+  "val/step3_reg_loss": 0.2657877504825592,
+  "val/step4_reg_loss": 0.19805382192134857
+}

@@ -1,0 +1,1 @@
+/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/01_official_sharp_baseline/run/checkpoints/epoch_78-minADE6_0.6792823672294617.ckpt

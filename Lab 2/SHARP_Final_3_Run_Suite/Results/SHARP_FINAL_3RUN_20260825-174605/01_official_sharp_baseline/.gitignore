@@ -1,0 +1,4 @@
+*.ckpt
+*.tar.gz
+full_run.log
+*Token.txt
