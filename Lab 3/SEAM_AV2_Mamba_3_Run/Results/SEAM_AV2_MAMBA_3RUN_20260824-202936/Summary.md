@@ -1,27 +1,27 @@
 # SEAM AV2 Three-Run Progress
 
-- Generated: `2026-08-29T21:49:40.210873+01:00`
+- Generated: `2026-08-31T21:14:29.418859+01:00`
 - Results root: `/home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936`
 - Experiment root: `/home/server01/M/Codes/SEAM_AV2_MAMBA_3RUN_20260824-202936`
 - Matching active suite processes detected: **18**
-- Completed variants: **1/3**
-- Append-only local Terminal.txt: `/home/server01/M/Terminal/SEAM_AV2_Mamba_3_Run/SEAM_AV2_MAMBA_3RUN_20260824-202936/Terminal.txt` (107041 bytes); all previously saved lines were retained.
+- Completed variants: **2/3**
+- Append-only local Terminal.txt: `/home/server01/M/Terminal/SEAM_AV2_Mamba_3_Run/SEAM_AV2_MAMBA_3RUN_20260824-202936/Terminal.txt` (127877 bytes); all previously saved lines were retained.
 
 ## Progress
 
 | Run | Status | Current progress | Checkpoints | Best minADE6 |
 |---|---|---:|---:|---:|
 | SEAM baseline | complete | validated epoch 81 | 11 | 0.662859 (epoch 77) |
-| SEAM + agent-history Mamba | running/resumable | validated epoch 54 | 11 | 0.706582 (epoch 53) |
-| SEAM with future-head Mamba replacement | pending | not started | 0 | not available |
+| SEAM + agent-history Mamba | complete | validated epoch 81 | 11 | 0.664814 (epoch 77) |
+| SEAM with future-head Mamba replacement | running/resumable | validated epoch 25 | 11 | 0.807108 (epoch 22) |
 
 ## Latest Completed Validation
 
 | Run | Validation epoch | MR | minADE1 | minADE6 | minFDE1 | minFDE6 | b-minFDE6 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | SEAM baseline | 81 | 0.158 | 1.614 | 0.662 | 3.996 | 1.262 | 1.872 |
-| SEAM + agent-history Mamba | 54 | 0.183 | 1.736 | 0.704 | 4.318 | 1.370 | 1.965 |
-| SEAM with future-head Mamba replacement | - | - | - | - | - | - | - |
+| SEAM + agent-history Mamba | 81 | 0.156 | 1.622 | 0.664 | 3.999 | 1.257 | 1.869 |
+| SEAM with future-head Mamba replacement | 25 | 0.238 | 2.013 | 0.874 | 4.953 | 1.613 | 2.233 |
 
 ## Controlled Setup
 
