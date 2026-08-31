@@ -280,6 +280,9 @@ def static_audit(experiment: Path) -> None:
         has_mamba = "TemporalAgentMamba(" in sharp
         if has_mamba != variant.endswith("temporal_mamba"):
             raise RuntimeError(f"{slug} residual-Mamba architecture audit failed")
+        has_stream_index_fix = "current_actor_index = torch.nonzero(" in sharp
+        if has_stream_index_fix != (variant != "official_sharp_baseline"):
+            raise RuntimeError(f"{slug} stream CUDA index audit failed")
 
 
 def qknorm_smoke(

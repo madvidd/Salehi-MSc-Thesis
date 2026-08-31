@@ -49,6 +49,7 @@ CONTROL_SCRIPTS = (
     "generate_final_artifacts.py",
     "publish_final_artifacts.sh",
 )
+STREAM_INDEX_MARKER = "current_actor_index = torch.nonzero("
 
 
 def write_lf(path: Path, content: str) -> None:
@@ -434,6 +435,68 @@ def patch_qknorm(code_dir: Path) -> None:
         raise RuntimeError(f"Expected three SHARP attention constructors, found {total}")
 
 
+def patch_stream_cuda_indexing(code_dir: Path) -> bool:
+    """Replace streamed Boolean CUDA gathers with equivalent index_select calls."""
+    path = code_dir / "src/model/sharp.py"
+    source = path.read_text(encoding="utf-8")
+    if STREAM_INDEX_MARKER in source:
+        return False
+
+    source = replace_once(
+        source,
+        "                C = x_encoder.size(-1)\n",
+        "                C = x_encoder.size(-1)\n"
+        "                current_actor_index = torch.nonzero(\n"
+        "                    x_type_mask.reshape(-1), as_tuple=False\n"
+        "                ).squeeze(-1)\n"
+        "                current_lane_index = torch.nonzero(\n"
+        "                    ~x_type_mask.reshape(-1), as_tuple=False\n"
+        "                ).squeeze(-1)\n"
+        "                memory_lane_index = torch.nonzero(\n"
+        "                    ~memory_type_mask.reshape(-1), as_tuple=False\n"
+        "                ).squeeze(-1)\n"
+        "                current_actor_feat = new_x_encoder.reshape(\n"
+        "                    -1, C\n"
+        "                ).index_select(0, current_actor_index).reshape(B, -1, C)\n"
+        "                current_lane_feat = new_x_encoder.reshape(\n"
+        "                    -1, C\n"
+        "                ).index_select(0, current_lane_index).reshape(B, -1, C)\n"
+        "                memory_lane_feat = memory_x_encoder.reshape(\n"
+        "                    -1, C\n"
+        "                ).index_select(0, memory_lane_index).reshape(B, -1, C)\n"
+        "                memory_lane_padding = (~memory_valid_mask).reshape(\n"
+        "                    -1\n"
+        "                ).index_select(0, memory_lane_index).reshape(B, -1)\n",
+        "stream CUDA index setup",
+    )
+    source = replace_once(
+        source,
+        "                    mask = mask[x_type_mask].reshape(B, -1, memory_ids.shape[-1])\n",
+        "                    mask = mask.reshape(\n"
+        "                        -1, memory_ids.shape[-1]\n"
+        "                    ).index_select(0, current_actor_index).reshape(\n"
+        "                        B, -1, memory_ids.shape[-1]\n"
+        "                    )\n",
+        "stream interaction mask gather",
+    )
+    actor_old = "new_x_encoder[x_type_mask].reshape(B, -1, C)"
+    actor_count = source.count(actor_old)
+    if actor_count != 2:
+        raise RuntimeError(
+            f"Expected two streamed actor gathers, found {actor_count}"
+        )
+    source = source.replace(actor_old, "current_actor_feat")
+    source = replace_once(
+        source,
+        "new_x_encoder[~x_type_mask].reshape(B, -1, C), memory_x_encoder[~memory_type_mask].reshape(B, -1, C), cur_pose, memory_pose, key_padding_mask=~memory_valid_mask[~memory_type_mask].reshape(B, -1)",
+        "current_lane_feat, memory_lane_feat, cur_pose, memory_pose, key_padding_mask=memory_lane_padding",
+        "streamed lane gathers",
+    )
+    compile(source, str(path), "exec")
+    write_lf(path, source)
+    return True
+
+
 def patch_enhancements(code_dir: Path, with_mamba: bool) -> None:
     shutil.copy2(
         PACKAGE_ROOT / "runtime/final_enhancements.py",
@@ -585,6 +648,7 @@ def patch_enhancements(code_dir: Path, with_mamba: bool) -> None:
         "streamed mode probabilities",
     )
     write_lf(path, source)
+    patch_stream_cuda_indexing(code_dir)
 
     pl_path = code_dir / "src/model/pl_modules.py"
     pl_source = pl_path.read_text(encoding="utf-8")
@@ -704,6 +768,49 @@ def sync_control_scripts(experiment_root: Path) -> None:
         make_executable(target)
 
 
+def refresh_existing_runtime_safety(
+    experiment_root: Path, results_root: Path
+) -> None:
+    """Patch only pending enhanced variants and retain their previous source."""
+    pending = (
+        "02_qknorm_uncertainty_geometry",
+        "03_qknorm_uncertainty_geometry_temporal_mamba",
+    )
+    needs_patch = []
+    for slug in pending:
+        path = experiment_root / "variants" / slug / "Code/src/model/sharp.py"
+        source = path.read_text(encoding="utf-8")
+        if STREAM_INDEX_MARKER not in source:
+            needs_patch.append((slug, path))
+    if not needs_patch:
+        return
+
+    stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+    evidence = results_root / "runtime_repairs" / f"stream_index_{stamp}"
+    evidence.mkdir(parents=True, exist_ok=False)
+    status = []
+    for slug, path in needs_patch:
+        shutil.copy2(path, evidence / f"{slug}_sharp.py.before")
+        changed = patch_stream_cuda_indexing(path.parents[2])
+        repaired = path.read_text(encoding="utf-8")
+        if not changed or STREAM_INDEX_MARKER not in repaired:
+            raise RuntimeError(f"Stream CUDA index repair failed for {slug}")
+        status.append(f"{slug}=patched")
+    write_lf(
+        evidence / "REPAIR_STATUS.txt",
+        "\n".join(
+            (
+                f"applied={dt.datetime.now().astimezone().isoformat()}",
+                "operation=Boolean row-major gathers replaced by equivalent nonzero/index_select gathers",
+                "training_hyperparameters_changed=false",
+                "completed_run_1_changed=false",
+                *status,
+            )
+        )
+        + "\n",
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base", default="/home/server00/M")
@@ -721,6 +828,7 @@ def main() -> None:
     if existing is not None:
         manifest = json.loads((existing / "SUITE_MANIFEST.json").read_text())
         results = Path(manifest["results_root"])
+        refresh_existing_runtime_safety(existing, results)
         sync_control_scripts(existing)
         write_lf(base / "Codes/LATEST_SHARP_FINAL_3RUN_CODE.txt", str(existing) + "\n")
         write_lf(base / "Results/LATEST_SHARP_FINAL_3RUN_RESULTS.txt", str(results) + "\n")

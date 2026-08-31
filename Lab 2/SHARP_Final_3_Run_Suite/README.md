@@ -32,4 +32,6 @@ Each run produces exact JSON/CSV/Markdown metrics, checkpoint inventory, warning
 
 `resume_after_terminal_publication_fix.sh` first verifies and archives the completed official baseline, then invokes the normal launcher. The launcher reuses Run 1, retries its compact publication, and continues with Runs 2 and 3. The same bounded publication path is applied between Runs 2 and 3.
 
+The enhanced variants replace SHARP's streamed two-dimensional Boolean CUDA gathers with row-major `nonzero` plus `index_select` gathers. Forward values, ordering, shapes, and gradients are unchanged, but this avoids the data-dependent advanced-index CUDA failure observed in Run 2 on the four-RTX-2080-Ti runtime. Existing enhanced variants are patched in place with the previous source retained under `runtime_repairs`; completed Run 1 code and results are not modified. `recover_run2_cuda_index_failure.sh` preserves the failure evidence, clears only stale processes belonging to this suite, and resumes the sequence.
+
 Exact reproduction of a published floating-point result cannot be guaranteed. The paper trained on one RTX 8000, whereas this suite uses four RTX 2080 Ti GPUs. DDP sample order, CUDA kernels, dependency versions, and dataset preprocessing can cause small differences even with identical optimization hyperparameters.
