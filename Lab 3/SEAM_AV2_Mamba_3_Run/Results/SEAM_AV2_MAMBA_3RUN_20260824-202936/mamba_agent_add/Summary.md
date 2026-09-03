@@ -32,7 +32,7 @@ Adds one gated residual Mamba block after the four temporal MHA blocks and befor
 
 | Epoch | MR | minADE1 | minADE6 | minFDE1 | minFDE6 | b-minFDE6 |
 |---:|---:|---:|---:|---:|---:|---:|
-| 81 | 0.154 | 1.614 | 0.665 | 3.977 | 1.261 | 1.873 |
+| 81 | 0.156 | 1.622 | 0.664 | 3.999 | 1.257 | 1.869 |
 
 ## Best Saved Checkpoint
 
