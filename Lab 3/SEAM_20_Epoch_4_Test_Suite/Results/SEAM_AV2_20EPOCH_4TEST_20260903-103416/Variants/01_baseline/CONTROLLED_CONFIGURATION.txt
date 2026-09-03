@@ -1,0 +1,16 @@
+variant=baseline
+epochs=20
+seed=2333
+optimizer=AdamW
+peak_lr=0.001
+min_lr=0.00001
+warmup_ratio=0.167
+weight_decay=0.01
+gradient_clip_norm=5
+effective_global_batch=32
+per_gpu_microbatch=8
+gradient_accumulation=2
+world_size=2
+precision=32
+data_root=/home/server01/M/Datasets/AV2/sharp_processed
+resume_checkpoint=null

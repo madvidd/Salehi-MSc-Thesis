@@ -1,0 +1,6 @@
+variant=qknorm
+status=pending
+epoch=unknown
+percent=unknown
+checkpoint_count=0
+active_seconds=unknown

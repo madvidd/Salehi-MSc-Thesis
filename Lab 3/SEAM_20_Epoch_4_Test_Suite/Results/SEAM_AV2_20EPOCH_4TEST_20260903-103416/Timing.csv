@@ -1,0 +1,5 @@
+variant,active_training_seconds,active_training_time
+baseline,12,00:00:12
+uncertainty_target_context,,-
+relative_geometry_bias,,-
+qknorm,,-

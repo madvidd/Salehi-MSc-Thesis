@@ -1,0 +1,6 @@
+*.ckpt
+*.pt
+*.pth
+*.tar.gz
+train.log
+Token.txt
