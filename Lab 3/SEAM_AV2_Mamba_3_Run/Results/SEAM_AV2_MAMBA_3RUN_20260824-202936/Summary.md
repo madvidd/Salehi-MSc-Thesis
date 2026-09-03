@@ -1,11 +1,11 @@
 # SEAM AV2 Three-Run Progress
 
-- Generated: `2026-09-03T03:29:07.192680+01:00`
+- Generated: `2026-09-03T04:17:55.889638+01:00`
 - Results root: `/home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936`
 - Experiment root: `/home/server01/M/Codes/SEAM_AV2_MAMBA_3RUN_20260824-202936`
 - Matching active suite processes detected: **0**
 - Completed variants: **3/3**
-- Append-only local Terminal.txt: `/home/server01/M/Terminal/SEAM_AV2_Mamba_3_Run/SEAM_AV2_MAMBA_3RUN_20260824-202936/Terminal.txt` (146825 bytes); all previously saved lines were retained.
+- Append-only local Terminal.txt: `/home/server01/M/Terminal/SEAM_AV2_Mamba_3_Run/SEAM_AV2_MAMBA_3RUN_20260824-202936/Terminal.txt` (146905 bytes); all previously saved lines were retained.
 
 ## Progress
 
@@ -19,11 +19,9 @@
 
 | Run | Validation epoch | MR | minADE1 | minADE6 | minFDE1 | minFDE6 | b-minFDE6 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| SEAM baseline | 81 | 0.159 | 1.601 | 0.664 | 3.965 | 1.272 | 1.882 |
-| SEAM + agent-history Mamba | 81 | 0.154 | 1.614 | 0.665 | 3.977 | 1.261 | 1.873 |
-| SEAM with future-head Mamba replacement | 81 | 0.145 | 1.583 | 0.648 | 3.932 | 1.239 | 1.865 |
-
-Values for completed runs are taken from Lightning's consolidated validation output; lower is better for every reported metric.
+| SEAM baseline | 81 | 0.158 | 1.614 | 0.662 | 3.996 | 1.262 | 1.872 |
+| SEAM + agent-history Mamba | 81 | 0.156 | 1.622 | 0.664 | 3.999 | 1.257 | 1.869 |
+| SEAM with future-head Mamba replacement | 81 | 0.142 | 1.588 | 0.644 | 3.945 | 1.230 | 1.855 |
 
 ## Controlled Setup
 
