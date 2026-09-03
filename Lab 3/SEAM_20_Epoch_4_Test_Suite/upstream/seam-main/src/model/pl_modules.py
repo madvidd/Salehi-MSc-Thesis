@@ -253,8 +253,12 @@ class BaseLightningModule(pl.LightningModule):
             nn.LayerNorm,
             nn.Embedding,
         )
+        # Classify only parameters owned directly by each module.  Recursive
+        # iteration can classify one tensor more than once and can mistake a
+        # module-path component such as ``relative_geometry_bias`` for a bias
+        # parameter.
         for module_name, module in self.named_modules():
-            for param_name, param in module.named_parameters():
+            for param_name, param in module.named_parameters(recurse=False):
                 full_param_name = (
                     '%s.%s' % (module_name, param_name) if module_name else param_name
                 )
@@ -272,8 +276,17 @@ class BaseLightningModule(pl.LightningModule):
         }
         inter_params = decay & no_decay
         union_params = decay | no_decay
-        assert len(inter_params) == 0
-        assert len(param_dict.keys() - union_params) == 0
+        if inter_params:
+            raise RuntimeError(
+                'Parameters assigned to both optimiser groups: '
+                + ', '.join(sorted(inter_params))
+            )
+        missing_params = param_dict.keys() - union_params
+        if missing_params:
+            raise RuntimeError(
+                'Parameters missing from optimiser groups: '
+                + ', '.join(sorted(missing_params))
+            )
 
         optim_groups = [
             {

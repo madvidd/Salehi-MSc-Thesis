@@ -74,6 +74,7 @@ def copy_runtime_files(package: Path, experiment: Path) -> None:
         "EXPERIMENT_MANIFEST.md",
         "SOURCE_PROVENANCE.md",
         "README.md",
+        "SUITE_VERSION",
     )
     for name in names:
         shutil.copy2(package / name, experiment / name)
@@ -131,6 +132,9 @@ def main() -> None:
         "effective_global_batch": 32,
         "source": "Isolated copy of the verified previous SEAM AV2 baseline source",
         "dataset_reuse": "Processed AV2 tensors are read-only.",
+        "suite_version": (package / "SUITE_VERSION").read_text(
+            encoding="utf-8"
+        ).strip(),
     }
     for root in (experiment, results):
         (root / "RUN_MANIFEST.json").write_text(

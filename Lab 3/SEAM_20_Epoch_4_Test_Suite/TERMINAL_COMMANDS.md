@@ -2,6 +2,8 @@
 
 Paste the complete block below into one new Lab 3 terminal. It authenticates non-interactively with the writable `madviddd` token in `/home/server01/M/Token/Token.txt`, downloads the current `main` branch into a new isolated clone, and launches or resumes the four-run suite. It does not stop, modify, or delete any previous experiment.
 
+The launcher retains any failed preflight-only legacy experiment and automatically creates the corrected suite version. Once the corrected suite exists, running the same block again resumes it from its latest per-epoch checkpoint.
+
 ```bash
 set +e
 set +u

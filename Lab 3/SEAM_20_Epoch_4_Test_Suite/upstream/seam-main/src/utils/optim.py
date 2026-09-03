@@ -11,7 +11,10 @@ class WarmupCosLR(_LRScheduler):
         self.lr = lr
         self.epochs = epochs
         self.warmup_epochs = round(epochs * warmup_ratio)
-        super(WarmupCosLR, self).__init__(optimizer, last_epoch, verbose)
+        # The scheduler is always used non-verbosely. Omitting the deprecated
+        # verbose argument keeps this identical across the pinned runtime and
+        # newer PyTorch releases without producing a warning.
+        super(WarmupCosLR, self).__init__(optimizer, last_epoch)
 
     def state_dict(self):
         '''Returns the state of the scheduler as a :class:`dict`.

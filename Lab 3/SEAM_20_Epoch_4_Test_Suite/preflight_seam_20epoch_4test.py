@@ -26,13 +26,18 @@ def optimizer_audit(lightning_module):
     model_parameters = {
         id(parameter) for parameter in lightning_module.parameters() if parameter.requires_grad
     }
-    optimizer_parameters = {
-        id(parameter)
+    optimizer_parameter_list = [
+        parameter
         for group in optimizers[0].param_groups
         for parameter in group["params"]
-    }
+    ]
+    optimizer_parameter_ids = [id(parameter) for parameter in optimizer_parameter_list]
+    if len(optimizer_parameter_ids) != len(set(optimizer_parameter_ids)):
+        raise RuntimeError("A parameter occurs in more than one optimiser group")
+    optimizer_parameters = set(optimizer_parameter_ids)
     if model_parameters != optimizer_parameters:
         raise RuntimeError("Optimiser parameter coverage is incomplete")
+    return tuple(len(group["params"]) for group in optimizers[0].param_groups)
 
 
 def main():
@@ -122,8 +127,22 @@ def main():
         lightning_module = StreamLightningModule(
             model=model, optim=optim, ma=False, num_grad_frame=3
         )
-        optimizer_audit(lightning_module)
-        print(f"VARIANT_PREFLIGHT_OK={variant};parameters={counts[variant]}")
+        optimizer_groups = optimizer_audit(lightning_module)
+        expected_optimizer_groups = {
+            "baseline": (108, 223),
+            "uncertainty_target_context": (109, 224),
+            "relative_geometry_bias": (110, 225),
+            "qknorm": (148, 283),
+        }[variant]
+        if optimizer_groups != expected_optimizer_groups:
+            raise RuntimeError(
+                f"Unexpected optimiser groups for {variant}: "
+                f"{optimizer_groups} != {expected_optimizer_groups}"
+            )
+        print(
+            f"VARIANT_PREFLIGHT_OK={variant};parameters={counts[variant]};"
+            f"optimizer_groups={optimizer_groups}"
+        )
 
     if counts["baseline"] != 4_604_769:
         raise RuntimeError(
@@ -142,6 +161,8 @@ def main():
         )
 
     source = (code / "src/model/pl_modules.py").read_text(encoding="utf-8")
+    if "named_parameters(recurse=False)" not in source:
+        raise RuntimeError("Optimiser grouping is not restricted to owning modules")
     if "batch_size=batch_size" not in source:
         raise RuntimeError("Validation logging does not set batch_size explicitly")
     if "timm.models.layers" in "\n".join(
@@ -149,6 +170,9 @@ def main():
         for path in (code / "src/model/layers").glob("*.py")
     ):
         raise RuntimeError("Deprecated timm.models.layers import remains")
+    scheduler_source = (code / "src/utils/optim.py").read_text(encoding="utf-8")
+    if "optimizer, last_epoch, verbose" in scheduler_source:
+        raise RuntimeError("Deprecated scheduler verbose argument remains")
 
     print("OPTIMIZER_COVERAGE_OK=True")
     print("BASELINE_PARAMETER_PARITY_OK=True")
