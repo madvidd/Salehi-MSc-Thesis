@@ -1,0 +1,13 @@
+{
+  "created": "2026-08-24T20:29:36.354521+01:00",
+  "experiment_root": "/home/server01/M/Codes/SEAM_AV2_MAMBA_3RUN_20260824-202936",
+  "results_root": "/home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936",
+  "data_root": "/home/server01/M/Datasets/AV2/sharp_processed",
+  "variants": [
+    "baseline",
+    "mamba_agent_add",
+    "mamba_future_replace"
+  ],
+  "source": "Official SEAM release supplied as seam-main.zip",
+  "dataset_reuse": "Processed AV2 tensors are read-only and schema-compatible."
+}

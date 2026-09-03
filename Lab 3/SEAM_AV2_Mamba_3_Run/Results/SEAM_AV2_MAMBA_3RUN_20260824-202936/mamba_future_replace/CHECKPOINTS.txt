@@ -1,0 +1,11 @@
+57743914 bytes | epoch=70 | minADE6=0.6537322402000427 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_70-minADE6_0.6537322402000427.ckpt
+57743914 bytes | epoch=71 | minADE6=0.656390905380249 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_71-minADE6_0.656390905380249.ckpt
+57743914 bytes | epoch=72 | minADE6=0.6548773646354675 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_72-minADE6_0.6548773646354675.ckpt
+57743914 bytes | epoch=73 | minADE6=0.6509458422660828 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_73-minADE6_0.6509458422660828.ckpt
+57743914 bytes | epoch=74 | minADE6=0.6517858505249023 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_74-minADE6_0.6517858505249023.ckpt
+57743914 bytes | epoch=75 | minADE6=0.6512582302093506 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_75-minADE6_0.6512582302093506.ckpt
+57743914 bytes | epoch=76 | minADE6=0.651722252368927 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_76-minADE6_0.651722252368927.ckpt
+57743914 bytes | epoch=77 | minADE6=0.6489645838737488 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_77-minADE6_0.6489645838737488.ckpt
+57743914 bytes | epoch=78 | minADE6=0.649905800819397 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_78-minADE6_0.649905800819397.ckpt
+57743914 bytes | epoch=79 | minADE6=0.6484796404838562 | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/epoch_79-minADE6_0.6484796404838562.ckpt
+57743914 bytes | epoch=None | minADE6=None | /home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/mamba_future_replace/checkpoints/last.ckpt
