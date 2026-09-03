@@ -17,21 +17,59 @@ RUN_NAME=$(basename "$RESULTS_ROOT")
 REL="Lab 3/SEAM_AV2_Mamba_3_Run/Results/$RUN_NAME/$VARIANT"
 STATUS=1
 
-TOKEN=$(python3 - "$TOKEN_FILE" <<'PY'
-import pathlib
+select_writable_github_token() {
+  local token_file=$1
+  local candidate login push
+
+  while IFS= read -r candidate; do
+    [ -n "$candidate" ] || continue
+
+    login=$(curl -fsSL -H "Authorization: Bearer $candidate" \
+      https://api.github.com/user 2>/dev/null | \
+      python3 -c 'import json,sys; print(json.load(sys.stdin).get("login",""))' \
+      2>/dev/null)
+    push=$(curl -fsSL -H "Authorization: Bearer $candidate" \
+      https://api.github.com/repos/madvidd/Thesis 2>/dev/null | \
+      python3 -c 'import json,sys; print(str(json.load(sys.stdin).get("permissions",{}).get("push",False)).lower())' \
+      2>/dev/null)
+
+    if [ "$login" = "madviddd" ] && [ "$push" = "true" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done < <(
+    python3 - "$token_file" \
+      "${SEAM_GITHUB_TOKEN:-}" "${LAB3_GITHUB_TOKEN:-}" <<'PY'
+from pathlib import Path
 import re
 import sys
 
-path = pathlib.Path(sys.argv[1])
-if not path.is_file():
-    print("")
-    raise SystemExit
-data = path.read_bytes()
-text = data.decode("utf-8-sig", "ignore") + "\n" + data.decode("utf-16", "ignore")
-match = re.search(r"github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+", text)
-print(match.group(0) if match else "")
+values = list(sys.argv[2:])
+path = Path(sys.argv[1])
+if path.is_file():
+    data = path.read_bytes()
+    values.extend(
+        (
+            data.decode("utf-8-sig", "ignore"),
+            data.decode("utf-16", "ignore"),
+        )
+    )
+
+seen = set()
+for value in values:
+    for token in re.findall(
+        r"github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+", value
+    ):
+        if token not in seen:
+            print(token)
+            seen.add(token)
 PY
-)
+  )
+
+  return 1
+}
+
+TOKEN=$(select_writable_github_token "$TOKEN_FILE")
 
 LOGIN=$(curl -fsSL -H "Authorization: Bearer $TOKEN" \
   https://api.github.com/user 2>/dev/null | \
@@ -47,7 +85,7 @@ echo "GitHub account: $LOGIN"
 echo "Push permission: $PUSH"
 
 if [ "$LOGIN" != "madviddd" ] || [ "$PUSH" != "true" ]; then
-  echo "WARNING: result publication skipped because Token.txt is not a writable madviddd PAT."
+  echo "WARNING: no writable madviddd PAT was found in Token.txt."
   exit 1
 fi
 

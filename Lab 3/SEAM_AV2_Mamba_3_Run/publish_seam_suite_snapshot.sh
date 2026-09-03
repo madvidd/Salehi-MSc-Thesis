@@ -13,6 +13,58 @@ GIT=/usr/bin/git
 PYTHON_BIN=${PYTHON_BIN:-python3}
 STATUS=1
 
+select_writable_github_token() {
+  local token_file=$1
+  local candidate login push
+
+  while IFS= read -r candidate; do
+    [ -n "$candidate" ] || continue
+
+    login=$(curl -fsSL -H "Authorization: Bearer $candidate" \
+      https://api.github.com/user 2>/dev/null | \
+      python3 -c 'import json,sys; print(json.load(sys.stdin).get("login",""))' \
+      2>/dev/null)
+    push=$(curl -fsSL -H "Authorization: Bearer $candidate" \
+      https://api.github.com/repos/madvidd/Thesis 2>/dev/null | \
+      python3 -c 'import json,sys; print(str(json.load(sys.stdin).get("permissions",{}).get("push",False)).lower())' \
+      2>/dev/null)
+
+    if [ "$login" = "madviddd" ] && [ "$push" = "true" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done < <(
+    "$PYTHON_BIN" - "$token_file" \
+      "${SEAM_GITHUB_TOKEN:-}" "${LAB3_GITHUB_TOKEN:-}" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+values = list(sys.argv[2:])
+path = Path(sys.argv[1])
+if path.is_file():
+    data = path.read_bytes()
+    values.extend(
+        (
+            data.decode("utf-8-sig", "ignore"),
+            data.decode("utf-16", "ignore"),
+        )
+    )
+
+seen = set()
+for value in values:
+    for token in re.findall(
+        r"github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+", value
+    ):
+        if token not in seen:
+            print(token)
+            seen.add(token)
+PY
+  )
+
+  return 1
+}
+
 merge_terminal_history() {
   "$PYTHON_BIN" - "$1" "$2" "$3" "$4" <<'PY'
 from pathlib import Path
@@ -173,21 +225,7 @@ PY
       > "$STAGE/README.md"
   fi
 
-  TOKEN=$(python3 - "$TOKEN_FILE" <<'PY'
-import pathlib
-import re
-import sys
-
-path = pathlib.Path(sys.argv[1])
-if not path.is_file():
-    print("")
-    raise SystemExit
-data = path.read_bytes()
-text = data.decode("utf-8-sig", "ignore") + "\n" + data.decode("utf-16", "ignore")
-match = re.search(r"github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+", text)
-print(match.group(0) if match else "")
-PY
-  )
+  TOKEN=$(select_writable_github_token "$TOKEN_FILE")
 
   LOGIN=$(curl -fsSL -H "Authorization: Bearer $TOKEN" \
     https://api.github.com/user 2>/dev/null | \
@@ -287,7 +325,8 @@ PY
       unset SEAM_GITHUB_TOKEN
     fi
   else
-    echo "ERROR: snapshot generation or GitHub token verification failed."
+    echo "ERROR: snapshot generation failed, or no writable madviddd PAT was found."
+    echo "Token source: $TOKEN_FILE"
     STATUS=1
   fi
   unset TOKEN
