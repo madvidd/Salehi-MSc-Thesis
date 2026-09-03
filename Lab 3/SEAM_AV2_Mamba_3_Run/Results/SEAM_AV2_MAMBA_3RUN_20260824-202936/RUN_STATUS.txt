@@ -1,9 +1,9 @@
-generated=2026-08-31T21:14:29.418859+01:00
+generated=2026-09-03T03:29:07.192680+01:00
 results_root=/home/server01/M/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936
 experiment_root=/home/server01/M/Codes/SEAM_AV2_MAMBA_3RUN_20260824-202936
-active_suite_processes=18
-completed_variants=2
-suite_complete=False
+active_suite_processes=0
+completed_variants=3
+suite_complete=True
 baseline=complete;progress=validated epoch 81;last_validation_epoch=81
 mamba_agent_add=complete;progress=validated epoch 81;last_validation_epoch=81
-mamba_future_replace=running/resumable;progress=validated epoch 25;last_validation_epoch=25
+mamba_future_replace=complete;progress=validated epoch 81;last_validation_epoch=81
