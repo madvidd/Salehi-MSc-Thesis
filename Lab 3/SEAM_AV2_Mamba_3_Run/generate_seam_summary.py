@@ -34,6 +34,18 @@ def parse_validation(text: str):
     return records
 
 
+def parse_consolidated_validation(text: str):
+    values = {}
+    for metric in METRICS:
+        matches = re.findall(
+            rf"│\s*{re.escape(metric)}\s*│\s*([-+0-9.eE]+)\s*│",
+            text,
+        )
+        if matches:
+            values[metric] = float(matches[-1])
+    return values
+
+
 def current_epoch(text: str):
     matches = re.findall(r"Epoch\s+(\d+):\s*([0-9]+)%", text)
     return matches[-1] if matches else (None, None)
@@ -146,6 +158,9 @@ def main():
 
     if validations:
         val_epoch, values = validations[-1]
+        consolidated = parse_consolidated_validation(text)
+        if complete and consolidated:
+            values = consolidated
         lines.extend(["| Epoch | " + " | ".join(METRICS) + " |", "|---:" * (len(METRICS) + 1) + "|"])
         row = [str(val_epoch)] + [f"{values.get(metric, float('nan')):.3f}" for metric in METRICS]
         lines.append("| " + " | ".join(row) + " |")

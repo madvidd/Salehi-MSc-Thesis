@@ -19,9 +19,11 @@
 
 | Run | Validation epoch | MR | minADE1 | minADE6 | minFDE1 | minFDE6 | b-minFDE6 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| SEAM baseline | 81 | 0.158 | 1.614 | 0.662 | 3.996 | 1.262 | 1.872 |
-| SEAM + agent-history Mamba | 81 | 0.156 | 1.622 | 0.664 | 3.999 | 1.257 | 1.869 |
-| SEAM with future-head Mamba replacement | 81 | 0.142 | 1.588 | 0.644 | 3.945 | 1.230 | 1.855 |
+| SEAM baseline | 81 | 0.159 | 1.601 | 0.664 | 3.965 | 1.272 | 1.882 |
+| SEAM + agent-history Mamba | 81 | 0.154 | 1.614 | 0.665 | 3.977 | 1.261 | 1.873 |
+| SEAM with future-head Mamba replacement | 81 | 0.145 | 1.583 | 0.648 | 3.932 | 1.239 | 1.865 |
+
+Values for completed runs are taken from Lightning's consolidated validation output; lower is better for every reported metric.
 
 ## Controlled Setup
 

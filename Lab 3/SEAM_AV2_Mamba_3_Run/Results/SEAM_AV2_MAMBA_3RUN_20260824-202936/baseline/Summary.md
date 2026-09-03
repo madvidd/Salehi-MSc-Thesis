@@ -32,7 +32,7 @@ Official streaming SEAM architecture and released AV2 optimizer schedule; no Mam
 
 | Epoch | MR | minADE1 | minADE6 | minFDE1 | minFDE6 | b-minFDE6 |
 |---:|---:|---:|---:|---:|---:|---:|
-| 81 | 0.158 | 1.614 | 0.662 | 3.996 | 1.262 | 1.872 |
+| 81 | 0.159 | 1.601 | 0.664 | 3.965 | 1.272 | 1.882 |
 
 ## Best Saved Checkpoint
 

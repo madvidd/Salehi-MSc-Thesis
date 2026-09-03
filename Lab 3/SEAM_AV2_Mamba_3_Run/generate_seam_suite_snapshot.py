@@ -8,6 +8,7 @@ from generate_seam_summary import (
     METRICS,
     checkpoint_rows,
     current_epoch,
+    parse_consolidated_validation,
     parse_validation,
     tail_text,
 )
@@ -67,6 +68,9 @@ def main():
         scored = [item for item in checkpoints if item["minADE6"] is not None]
         best = min(scored, key=lambda item: item["minADE6"]) if scored else None
         complete = run.joinpath("TRAINING_COMPLETE").is_file()
+        consolidated = parse_consolidated_validation(text)
+        if complete and consolidated:
+            latest = (latest[0], consolidated)
 
         if complete:
             status = "complete"
@@ -155,6 +159,14 @@ def main():
             + " | ".join(metric_cells)
             + " |"
         )
+
+    summary.extend(
+        [
+            "",
+            "Values for completed runs are taken from Lightning's consolidated "
+            "validation output; lower is better for every reported metric.",
+        ]
+    )
 
     summary.extend(
         [
