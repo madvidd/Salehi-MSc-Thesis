@@ -1,0 +1,8 @@
+Results/
+*.ckpt
+*.pt
+*.pth
+*.tar.gz
+Token.txt
+__pycache__/
+*.pyc
