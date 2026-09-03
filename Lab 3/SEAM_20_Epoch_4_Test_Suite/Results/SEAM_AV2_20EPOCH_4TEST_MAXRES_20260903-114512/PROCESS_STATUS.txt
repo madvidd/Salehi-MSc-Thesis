@@ -1,0 +1,4 @@
+generated=2026-09-03T11:46:50.508809+01:00
+matching_suite_processes=63
+results_root=/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512
+experiment_root=/home/server01/M/Codes/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512

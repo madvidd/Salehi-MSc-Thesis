@@ -1,0 +1,35 @@
+{
+  "created": "2026-09-03T11:45:12.673222+01:00",
+  "experiment_root": "/home/server01/M/Codes/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512",
+  "results_root": "/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512",
+  "data_root": "/home/server01/M/Datasets/AV2/sharp_processed",
+  "variants": [
+    "baseline",
+    "uncertainty_target_context",
+    "relative_geometry_bias",
+    "qknorm"
+  ],
+  "epochs": 20,
+  "seed": 2333,
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "minimum_learning_rate": 1e-05,
+  "warmup_ratio": 0.167,
+  "weight_decay": 0.01,
+  "gradient_clip_norm": 5.0,
+  "precision": 32,
+  "resource_profile": "max_resources_three_gpu",
+  "gpu_count": 3,
+  "gpu_ids": [
+    0,
+    1,
+    2
+  ],
+  "per_gpu_batch": 8,
+  "gradient_accumulation": 2,
+  "effective_global_batch": 48,
+  "data_worker_policy": "min(12, max(4, floor(nproc / 3) - 2)) per rank",
+  "source": "Isolated copy of the verified SEAM AV2 baseline source",
+  "dataset_reuse": "Processed AV2 tensors are read-only.",
+  "suite_version": "1"
+}
