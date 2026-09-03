@@ -2,6 +2,7 @@
 import argparse
 import csv
 import html
+import json
 import re
 import time
 from datetime import datetime
@@ -122,6 +123,42 @@ def read_int(path: Path):
         return None
 
 
+def read_manifest(results: Path):
+    try:
+        return json.loads((results / "RUN_MANIFEST.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError, TypeError):
+        return {}
+
+
+def training_process_active(run: Path) -> bool:
+    proc = Path("/proc")
+    if not proc.is_dir():
+        return False
+    needle = str(run).encode()
+    for entry in proc.glob("[0-9]*"):
+        try:
+            command = entry.joinpath("cmdline").read_bytes()
+        except OSError:
+            continue
+        if needle in command and b"train.py" in command:
+            return True
+    return False
+
+
+def setup_description(manifest):
+    gpu_count = manifest.get("gpu_count", 2)
+    per_gpu_batch = manifest.get("per_gpu_batch", 8)
+    accumulation = manifest.get("gradient_accumulation", 2)
+    effective_batch = manifest.get("effective_global_batch", 32)
+    return (
+        "All four variants use AV2, 20 epochs, seed 2333, AdamW, peak/minimum "
+        "learning rates 1e-3/1e-5, warm-up ratio 0.167, weight decay 1e-2, "
+        f"gradient clipping 5, {gpu_count} GPUs, microbatch {per_gpu_batch} per "
+        f"GPU, {accumulation}-step gradient accumulation, and effective global "
+        f"batch {effective_batch}."
+    )
+
+
 def collect(results: Path):
     rows = []
     checkpoint_lines = []
@@ -145,7 +182,11 @@ def collect(results: Path):
         active_seconds = read_int(run / "ACTIVE_SECONDS.txt")
         current_start = read_int(run / "CURRENT_ATTEMPT_START_SECONDS")
         if current_start is not None and (run / "train.log").is_file():
-            observed_end = min(int(time.time()), int((run / "train.log").stat().st_mtime))
+            observed_end = (
+                int(time.time())
+                if training_process_active(run)
+                else min(int(time.time()), int((run / "train.log").stat().st_mtime))
+            )
             active_seconds = (active_seconds or 0) + max(0, observed_end - current_start)
         rows.append(
             {
@@ -172,7 +213,7 @@ def collect(results: Path):
     return rows, checkpoint_lines, diagnostic_lines
 
 
-def write_variant_summary(row):
+def write_variant_summary(row, setup_text):
     run = row["run"]
     run.mkdir(parents=True, exist_ok=True)
     progress = (
@@ -219,9 +260,7 @@ def write_variant_summary(row):
             "",
             "## Controlled Setup",
             "",
-            "All four variants use AV2, 20 epochs, seed 2333, AdamW, peak/minimum "
-            "learning rates 1e-3/1e-5, warm-up ratio 0.167, weight decay 1e-2, "
-            "gradient clipping 5, and effective global batch 32.",
+            setup_text,
         ]
     )
     (run / "Summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -284,14 +323,22 @@ def main():
     parser.add_argument("--results-root", required=True)
     args = parser.parse_args()
     results = Path(args.results_root).resolve()
+    manifest = read_manifest(results)
+    max_resources = manifest.get("resource_profile") == "max_resources_three_gpu"
+    title = (
+        "SEAM AV2 20-Epoch Max-Resource Four-Test Study"
+        if max_resources
+        else "SEAM AV2 20-Epoch Controlled Four-Test Study"
+    )
+    setup_text = setup_description(manifest)
     rows, checkpoint_lines, diagnostic_lines = collect(results)
     for row in rows:
-        write_variant_summary(row)
+        write_variant_summary(row, setup_text)
 
     complete_count = sum(row["status"] == "complete" for row in rows)
     active = next((row for row in rows if row["status"] == "running/resumable"), None)
     summary = [
-        "# SEAM AV2 20-Epoch Controlled Four-Test Study",
+        f"# {title}",
         "",
         f"- Updated: `{datetime.now().astimezone().isoformat()}`",
         f"- Completed variants: **{complete_count}/4**",
@@ -320,6 +367,8 @@ def main():
             "All reported displacement and miss metrics are lower-is-better. Only "
             "within-study comparisons are valid because the four runs share one data "
             "pipeline, schedule, seed, and 20-epoch budget.",
+            "",
+            setup_text,
             "",
             "## Training Time",
             "",
