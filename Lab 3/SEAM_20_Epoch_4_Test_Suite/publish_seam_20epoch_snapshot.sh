@@ -130,8 +130,17 @@ else
         "$GIT" -C "$CLONE" config pull.rebase false
         "$GIT" -C "$CLONE" config merge.autoStash true
         "$GIT" -C "$CLONE" add -- "$REL"
+        STATUS=$?
 
-        if "$GIT" -C "$CLONE" diff --cached --quiet; then
+        if [ "$STATUS" -ne 0 ]; then
+          echo "ERROR: Git refused to stage the curated snapshot."
+        elif ! "$GIT" -C "$CLONE" ls-files --error-unmatch \
+            "$REL/Summary.md" >/dev/null 2>&1 || \
+             ! "$GIT" -C "$CLONE" ls-files --error-unmatch \
+            "$REL/Terminal.txt" >/dev/null 2>&1; then
+          echo "ERROR: required snapshot files were not added to the Git index."
+          STATUS=1
+        elif "$GIT" -C "$CLONE" diff --cached --quiet; then
           echo "No new snapshot changes required a commit."
         else
           "$GIT" -C "$CLONE" commit -m "Update SEAM 20-epoch four-test $PHASE"
@@ -156,6 +165,24 @@ else
           echo "Publication attempt $ATTEMPT failed; automatically merging and retrying."
           sleep 10
         done
+      fi
+
+      if [ "$STATUS" -eq 0 ]; then
+        GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
+          "$GIT" -C "$CLONE" -c credential.helper= fetch origin main
+        STATUS=$?
+      fi
+
+      if [ "$STATUS" -eq 0 ]; then
+        if "$GIT" -C "$CLONE" cat-file -e \
+             "origin/main:$REL/Summary.md" 2>/dev/null && \
+           "$GIT" -C "$CLONE" cat-file -e \
+             "origin/main:$REL/Terminal.txt" 2>/dev/null; then
+          echo "REMOTE_SNAPSHOT_VERIFIED=True"
+        else
+          echo "ERROR: required snapshot files are absent from remote main."
+          STATUS=1
+        fi
       fi
 
       if [ "$STATUS" -eq 0 ]; then
