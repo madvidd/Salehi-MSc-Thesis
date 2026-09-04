@@ -19,6 +19,8 @@
 <rect class="bar" x="157.8" y="106.4" width="116.9" height="303.6"/>
 <text x="216.2" y="96.4" text-anchor="middle" font-size="17">0.728</text>
 <text x="216.2" y="438" text-anchor="middle" font-size="14">SEAM baseline</text>
+<rect class="bar" x="370.3" y="114.3" width="116.9" height="295.7"/>
+<text x="428.8" y="104.3" text-anchor="middle" font-size="17">0.709</text>
 <text x="428.8" y="438" text-anchor="middle" font-size="14">Uncertainty-aware target context</text>
 <text x="641.2" y="438" text-anchor="middle" font-size="14">Relative-geometry attention bias</text>
 <text x="853.8" y="438" text-anchor="middle" font-size="14">QKNorm attention</text>

@@ -4,20 +4,22 @@ Previous-window modal probabilities control the radius and feature gain of SEAM'
 
 ## Status
 
-- State: **pending**
+- State: **complete**
 - Progress: not started
-- Saved checkpoints: 0
-- Active training time: -
+- Saved checkpoints: 21
+- Active training time: 15:40:25
 
 ## Metrics
 
 | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
 |---:|---:|---:|---:|---:|---:|
-| - | - | - | - | - | - |
+| 0.188 | 1.995 | 1.723 | 0.709 | 4.326 | 1.390 |
 
 ## Best Saved Checkpoint
 
-No metric-named checkpoint is available yet.
+- Epoch: 19
+- minADE6: 0.708755
+- Local path: `/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512/02_uncertainty_target_context/checkpoints/epoch_19-minADE6_0.7087548971176147.ckpt`
 
 ## Controlled Setup
 
