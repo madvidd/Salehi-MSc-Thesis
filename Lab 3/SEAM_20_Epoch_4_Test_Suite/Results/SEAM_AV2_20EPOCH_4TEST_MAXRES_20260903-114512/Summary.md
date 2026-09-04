@@ -1,14 +1,14 @@
 # SEAM AV2 20-Epoch Max-Resource Four-Test Study
 
-- Updated: `2026-09-03T11:46:50.453870+01:00`
-- Completed variants: **0/4**
-- Active/resumable variant: **SEAM baseline**
+- Updated: `2026-09-04T03:22:14.831610+01:00`
+- Completed variants: **1/4**
+- Active/resumable variant: **none**
 
 ## Results
 
 | Run | State | Progress | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 | Best saved minADE6 |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| SEAM baseline | running/resumable | - | - | - | - | - | - | - | - |
+| SEAM baseline | complete | - | 0.195 | 2.025 | 1.751 | 0.728 | 4.372 | 1.419 | 0.727668 |
 | Uncertainty-aware target context | pending | - | - | - | - | - | - | - | - |
 | Relative-geometry attention bias | pending | - | - | - | - | - | - | - | - |
 | QKNorm attention | pending | - | - | - | - | - | - | - | - |
@@ -21,7 +21,7 @@ All four variants use AV2, 20 epochs, seed 2333, AdamW, peak/minimum learning ra
 
 | Run | Active training time |
 |---|---:|
-| SEAM baseline | 00:01:22 |
+| SEAM baseline | 15:36:46 |
 | Uncertainty-aware target context | - |
 | Relative-geometry attention bias | - |
 | QKNorm attention | - |

@@ -1,7 +1,7 @@
-updated=2026-09-03T11:46:50.453976+01:00
-completed_variants=0
+updated=2026-09-04T03:22:14.831776+01:00
+completed_variants=1
 suite_complete=False
-baseline=running/resumable
+baseline=complete
 uncertainty_target_context=pending
 relative_geometry_bias=pending
 qknorm=pending

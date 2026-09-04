@@ -1,6 +1,6 @@
 variant=baseline
-status=running/resumable
+status=complete
 epoch=unknown
 percent=unknown
-checkpoint_count=0
-active_seconds=82
+checkpoint_count=21
+active_seconds=56206

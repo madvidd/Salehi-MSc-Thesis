@@ -4,20 +4,22 @@ The verified SEAM AV2 architecture is retained unchanged and trained for the com
 
 ## Status
 
-- State: **running/resumable**
+- State: **complete**
 - Progress: not started
-- Saved checkpoints: 0
-- Active training time: 00:01:22
+- Saved checkpoints: 21
+- Active training time: 15:36:46
 
 ## Metrics
 
 | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
 |---:|---:|---:|---:|---:|---:|
-| - | - | - | - | - | - |
+| 0.195 | 2.025 | 1.751 | 0.728 | 4.372 | 1.419 |
 
 ## Best Saved Checkpoint
 
-No metric-named checkpoint is available yet.
+- Epoch: 19
+- minADE6: 0.727668
+- Local path: `/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512/01_baseline/checkpoints/epoch_19-minADE6_0.7276679277420044.ckpt`
 
 ## Controlled Setup
 
