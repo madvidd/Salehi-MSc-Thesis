@@ -1,7 +1,7 @@
 # SEAM AV2 20-Epoch Max-Resource Four-Test Study
 
-- Updated: `2026-09-04T19:02:45.761304+01:00`
-- Completed variants: **2/4**
+- Updated: `2026-09-05T10:47:52.696798+01:00`
+- Completed variants: **3/4**
 - Active/resumable variant: **none**
 
 ## Results
@@ -10,7 +10,7 @@
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | SEAM baseline | complete | - | 0.195 | 2.025 | 1.751 | 0.728 | 4.372 | 1.419 | 0.727668 |
 | Uncertainty-aware target context | complete | - | 0.188 | 1.995 | 1.723 | 0.709 | 4.326 | 1.390 | 0.708755 |
-| Relative-geometry attention bias | pending | - | - | - | - | - | - | - | - |
+| Relative-geometry attention bias | complete | - | 0.188 | 1.997 | 1.713 | 0.719 | 4.283 | 1.395 | 0.717261 |
 | QKNorm attention | pending | - | - | - | - | - | - | - | - |
 
 All reported displacement and miss metrics are lower-is-better. Only within-study comparisons are valid because the four runs share one data pipeline, schedule, seed, and 20-epoch budget.
@@ -23,7 +23,7 @@ All four variants use AV2, 20 epochs, seed 2333, AdamW, peak/minimum learning ra
 |---|---:|
 | SEAM baseline | 15:36:46 |
 | Uncertainty-aware target context | 15:40:25 |
-| Relative-geometry attention bias | - |
+| Relative-geometry attention bias | 15:45:02 |
 | QKNorm attention | - |
 
 ## Interventions

@@ -1,6 +1,6 @@
 variant=relative_geometry_bias
-status=pending
+status=complete
 epoch=unknown
 percent=unknown
-checkpoint_count=0
-active_seconds=unknown
+checkpoint_count=21
+active_seconds=56702

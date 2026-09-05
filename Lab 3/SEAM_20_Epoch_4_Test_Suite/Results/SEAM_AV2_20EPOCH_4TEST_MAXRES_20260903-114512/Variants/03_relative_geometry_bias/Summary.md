@@ -4,20 +4,22 @@ Relative displacement, distance, and heading difference provide a learned per-he
 
 ## Status
 
-- State: **pending**
+- State: **complete**
 - Progress: not started
-- Saved checkpoints: 0
-- Active training time: -
+- Saved checkpoints: 21
+- Active training time: 15:45:02
 
 ## Metrics
 
 | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
 |---:|---:|---:|---:|---:|---:|
-| - | - | - | - | - | - |
+| 0.188 | 1.997 | 1.713 | 0.719 | 4.283 | 1.395 |
 
 ## Best Saved Checkpoint
 
-No metric-named checkpoint is available yet.
+- Epoch: 18
+- minADE6: 0.717261
+- Local path: `/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512/03_relative_geometry_bias/checkpoints/epoch_18-minADE6_0.7172605991363525.ckpt`
 
 ## Controlled Setup
 

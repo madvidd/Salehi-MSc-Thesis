@@ -1,7 +1,7 @@
-updated=2026-09-04T19:02:45.761487+01:00
-completed_variants=2
+updated=2026-09-05T10:47:52.696943+01:00
+completed_variants=3
 suite_complete=False
 baseline=complete
 uncertainty_target_context=complete
-relative_geometry_bias=pending
+relative_geometry_bias=complete
 qknorm=pending
