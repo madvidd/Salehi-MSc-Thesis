@@ -1,6 +1,6 @@
 variant=qknorm
-status=pending
+status=complete
 epoch=unknown
 percent=unknown
-checkpoint_count=0
-active_seconds=unknown
+checkpoint_count=21
+active_seconds=64547

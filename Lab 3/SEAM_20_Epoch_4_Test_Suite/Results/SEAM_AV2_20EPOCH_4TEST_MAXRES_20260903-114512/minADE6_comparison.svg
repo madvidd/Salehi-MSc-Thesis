@@ -25,5 +25,7 @@
 <rect class="bar" x="582.8" y="110.2" width="116.9" height="299.8"/>
 <text x="641.2" y="100.2" text-anchor="middle" font-size="17">0.719</text>
 <text x="641.2" y="438" text-anchor="middle" font-size="14">Relative-geometry attention bias</text>
+<rect class="bar" x="795.3" y="116.4" width="116.9" height="293.6"/>
+<text x="853.8" y="106.4" text-anchor="middle" font-size="17">0.704</text>
 <text x="853.8" y="438" text-anchor="middle" font-size="14">QKNorm attention</text>
 </svg>

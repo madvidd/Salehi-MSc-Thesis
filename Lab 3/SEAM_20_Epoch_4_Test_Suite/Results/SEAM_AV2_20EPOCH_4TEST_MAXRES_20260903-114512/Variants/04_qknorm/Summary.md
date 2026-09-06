@@ -4,20 +4,22 @@ Per-head L2-normalised queries and keys with learned logit scales replace the at
 
 ## Status
 
-- State: **pending**
+- State: **complete**
 - Progress: not started
-- Saved checkpoints: 0
-- Active training time: -
+- Saved checkpoints: 21
+- Active training time: 17:55:47
 
 ## Metrics
 
 | MR | b-minFDE6 | minADE1 | minADE6 | minFDE1 | minFDE6 |
 |---:|---:|---:|---:|---:|---:|
-| - | - | - | - | - | - |
+| 0.181 | 1.992 | 1.688 | 0.704 | 4.244 | 1.376 |
 
 ## Best Saved Checkpoint
 
-No metric-named checkpoint is available yet.
+- Epoch: 19
+- minADE6: 0.703845
+- Local path: `/home/server01/M/Results/SEAM_AV2_20EPOCH_4TEST_MAXRES_20260903-114512/04_qknorm/checkpoints/epoch_19-minADE6_0.7038450837135315.ckpt`
 
 ## Controlled Setup
 
