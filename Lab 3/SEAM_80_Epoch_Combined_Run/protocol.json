@@ -1,0 +1,27 @@
+{
+  "name": "SEAM uncertainty + geometry + QKNorm + future-head Mamba",
+  "reference_run": "SEAM_AV2_MAMBA_3RUN_20260824-202936",
+  "seed": 2333,
+  "epochs": 80,
+  "global_batch": 32,
+  "devices": 2,
+  "microbatch": 8,
+  "accumulation": 2,
+  "validation_batch": 16,
+  "precision": "32-true",
+  "sync_batchnorm": true,
+  "learning_rate": 0.001,
+  "minimum_learning_rate": 0.00001,
+  "warmup_ratio": 0.167,
+  "weight_decay": 0.01,
+  "gradient_clip_norm": 5.0,
+  "num_grad_frame": 3,
+  "mamba": {"d_state": 16, "d_conv": 4, "expand": 2, "depth": 2},
+  "dataset": {
+    "num_historical_steps": 30,
+    "split_points": [30, 40, 50],
+    "radius": 150.0,
+    "ma": false,
+    "num_future_steps": 60
+  }
+}
