@@ -1,0 +1,154 @@
+SEAM_COMBINED_RUN=SEAM_AV2_80EPOCH_COMBINED_20260906-144118
+Training: 80 epochs, global batch 32, GPUs 0,1
+PHASE_START=probe attempt=20260906-144119_1
+Seed set to 2333
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+GPU_0=NVIDIA GeForce RTX 2080 Ti free=11175067648 total=11350769664
+GPU_1=NVIDIA GeForce RTX 2080 Ti free=11175067648 total=11350769664
+PHASE_END=probe status=0
+PHASE_START=smoke attempt=20260906-144125_2
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+[rank: 0] Seed set to 2333
+[rank: 1] Seed set to 2333
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name    | Type             | Params | Mode 
+-----------------------------------------------------
+0 | model   | CombinedSeam     | 4.8 M  | train
+1 | metrics | MetricCollection | 0      | train
+-----------------------------------------------------
+4.8 M     Trainable params
+0         Non-trainable params
+4.8 M     Total params
+19.102    Total estimated model params size (MB)
+439       Modules in train mode
+0         Modules in eval mode
+[ 0] Avg over 2 batches: 478/47 ms - MR: 0.906 minADE1: 21.496 minADE6: 21.428 minFDE1: 41.966 minFDE6: 41.888 b-minFDE6: 42.377
+[ 0] Avg over 2 batches: 346/55 ms - MR: 1.000 minADE1: 21.117 minADE6: 20.956 minFDE1: 41.457 minFDE6: 41.242 b-minFDE6: 41.8090.906 & 21.428 & 41.888 & 42.377
+
+1.000 & 20.956 & 41.242 & 41.809
+PROGRESS={"epoch": 0, "global_step": 0, "batch": 0, "batches": 4, "updated_unix": 1788702096.8055687, "phase": "smoke"}
+[ 1] Avg over 2 batches: 195/48 ms - MR: 0.906 minADE1: 19.115 minADE6: 18.879 minFDE1: 38.578 minFDE6: 38.461 b-minFDE6: 38.871
+0.906 & 18.879 & 38.461 & 38.871
+VALIDATION={"epoch": 0, "global_step": 2, "epoch_seconds": 3.201, "MR": 0.9375, "minADE1": 18.627853393554688, "minADE6": 18.470233917236328, "minFDE1": 38.01641082763672, "minFDE6": 37.9578971862793, "b-minFDE6": 38.3720703125}
+[ 1] Avg over 2 batches: 151/50 ms - MR: 0.969 minADE1: 18.140 minADE6: 18.062 minFDE1: 37.455 minFDE6: 37.455 b-minFDE6: 37.873
+0.969 & 18.062 & 37.455 & 37.873
+`Trainer.fit` stopped: `max_epochs=1` reached.
+PHASE_END=smoke status=0
+PHASE_START=smoke_resume attempt=20260906-144147_3
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+[rank: 1] Seed set to 2333
+[rank: 0] Seed set to 2333
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+/home/server01/M/Codes/envs/seam_av2_mamba_torch211/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:654: Checkpoint directory /home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/preflight/checkpoints exists and is not empty.
+AV2 DS SETTINGS: 30 60 False
+Restoring states from the checkpoint path at /home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/preflight/checkpoints/last.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name    | Type             | Params | Mode 
+-----------------------------------------------------
+0 | model   | CombinedSeam     | 4.8 M  | train
+1 | metrics | MetricCollection | 0      | train
+-----------------------------------------------------
+4.8 M     Trainable params
+0         Non-trainable params
+4.8 M     Total params
+19.102    Total estimated model params size (MB)
+439       Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at /home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/preflight/checkpoints/last.ckpt
+[ 0] Avg over 2 batches: 397/63 ms - MR: 0.969 minADE1: 18.140 minADE6: 18.062 minFDE1: 37.455 minFDE6: 37.455 b-minFDE6: 37.873
+0.969 & 18.062 & 37.455 & 37.873
+[ 0] Avg over 2 batches: 366/49 ms - MR: 0.906 minADE1: 19.115 minADE6: 18.879 minFDE1: 38.578 minFDE6: 38.461 b-minFDE6: 38.871
+0.906 & 18.879 & 38.461 & 38.871
+PROGRESS={"epoch": 1, "global_step": 2, "batch": 0, "batches": 4, "updated_unix": 1788702119.1689107, "phase": "smoke_resume"}
+[ 1] Avg over 2 batches: 138/49 ms - MR: 0.844 minADE1: 17.927 minADE6: 17.125 minFDE1: 35.861 minFDE6: 35.269 b-minFDE6: 35.466
+0.844 & 17.125 & 35.269 & 35.466
+VALIDATION={"epoch": 1, "global_step": 4, "epoch_seconds": 3.695, "MR": 0.890625, "minADE1": 17.11317253112793, "minADE6": 16.553274154663086, "minFDE1": 34.79854965209961, "minFDE6": 34.456321716308594, "b-minFDE6": 34.59615707397461}
+[ 1] Avg over 2 batches: 151/47 ms - MR: 0.938 minADE1: 16.299 minADE6: 15.982 minFDE1: 33.736 minFDE6: 33.644 b-minFDE6: 33.726
+0.938 & 15.982 & 33.644 & 33.726
+`Trainer.fit` stopped: `max_epochs=2` reached.
+PHASE_END=smoke_resume status=0
+PHASE_START=train attempt=20260906-144208_4
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+[rank: 1] Seed set to 2333
+[rank: 0] Seed set to 2333
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+COMBINED_ARCHITECTURE_OK={"qknorm": 20, "geometry": 1, "uncertainty": 1, "future_head": 1, "plain_mha": 0}
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+`Trainer(limit_train_batches=1.0)` was configured so 100% of the batches per epoch will be used..
+`Trainer(limit_val_batches=1.0)` was configured so 100% of the batches will be used..
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+AV2 DS SETTINGS: 30 60 False
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name    | Type             | Params | Mode 
+-----------------------------------------------------
+0 | model   | CombinedSeam     | 4.8 M  | train
+1 | metrics | MetricCollection | 0      | train
+-----------------------------------------------------
+4.8 M     Trainable params
+0         Non-trainable params
+4.8 M     Total params
+19.102    Total estimated model params size (MB)
+439       Modules in train mode
+0         Modules in eval mode
+[ 0] Avg over 2 batches: 513/49 ms - MR: 0.906 minADE1: 21.496 minADE6: 21.428 minFDE1: 41.966 minFDE6: 41.888 b-minFDE6: 42.377
+0.906 & 21.428 & 41.888 & 42.377
+[ 0] Avg over 2 batches: 344/36 ms - MR: 1.000 minADE1: 21.117 minADE6: 20.956 minFDE1: 41.457 minFDE6: 41.242 b-minFDE6: 41.809
+1.000 & 20.956 & 41.242 & 41.809
+PROGRESS={"epoch": 0, "global_step": 0, "batch": 0, "batches": 12495, "updated_unix": 1788702139.9065876, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 25, "batch": 50, "batches": 12495, "updated_unix": 1788702156.2394342, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 50, "batch": 100, "batches": 12495, "updated_unix": 1788702172.390518, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 75, "batch": 150, "batches": 12495, "updated_unix": 1788702189.9434805, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 100, "batch": 200, "batches": 12495, "updated_unix": 1788702206.6053429, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 125, "batch": 250, "batches": 12495, "updated_unix": 1788702223.1868427, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 150, "batch": 300, "batches": 12495, "updated_unix": 1788702239.9271536, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 175, "batch": 350, "batches": 12495, "updated_unix": 1788702256.5758681, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 200, "batch": 400, "batches": 12495, "updated_unix": 1788702273.1872458, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 225, "batch": 450, "batches": 12495, "updated_unix": 1788702290.956505, "phase": "train"}
+PROGRESS={"epoch": 0, "global_step": 250, "batch": 500, "batches": 12495, "updated_unix": 1788702307.4028447, "phase": "train"}

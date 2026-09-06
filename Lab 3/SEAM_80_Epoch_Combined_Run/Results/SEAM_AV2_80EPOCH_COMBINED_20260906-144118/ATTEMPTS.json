@@ -1,0 +1,23 @@
+[
+  {
+    "phase": "probe",
+    "attempt": "20260906-144119_1",
+    "exit_status": 0,
+    "seconds": 5.806,
+    "log": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/attempt_logs/20260906-144119_1_probe.log"
+  },
+  {
+    "phase": "smoke",
+    "attempt": "20260906-144125_2",
+    "exit_status": 0,
+    "seconds": 21.578,
+    "log": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/attempt_logs/20260906-144125_2_smoke.log"
+  },
+  {
+    "phase": "smoke_resume",
+    "attempt": "20260906-144147_3",
+    "exit_status": 0,
+    "seconds": 21.708,
+    "log": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/attempt_logs/20260906-144147_3_smoke_resume.log"
+  }
+]
