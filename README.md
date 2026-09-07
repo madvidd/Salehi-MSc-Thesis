@@ -3,8 +3,7 @@
 Research software and recorded Argoverse 2 experiments on uncertainty-aware
 context, relative geometry, attention operators and selective state-space
 modelling in SEAM and SHARP. The repository contains implementations,
-configurations, evaluation records and analysis. The dissertation sources are
-maintained separately in [Dissertation](https://github.com/madvidd/Dissertation).
+configurations, evaluation records and analysis.
 
 ## Start Here
 
