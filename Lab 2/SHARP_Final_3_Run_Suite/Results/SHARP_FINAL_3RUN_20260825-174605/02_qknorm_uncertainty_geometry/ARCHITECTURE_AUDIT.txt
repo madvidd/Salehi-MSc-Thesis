@@ -1,0 +1,6 @@
+variant=qknorm_uncertainty_geometry
+trainable_parameters=4636232
+qknorm=True
+geometry=True
+uncertainty=True
+mamba=False

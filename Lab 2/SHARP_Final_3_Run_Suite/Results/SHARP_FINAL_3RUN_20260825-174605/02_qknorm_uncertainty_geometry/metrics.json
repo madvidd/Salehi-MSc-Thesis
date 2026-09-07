@@ -1,0 +1,16 @@
+{
+  "MR": 0.1555146425962448,
+  "b-minFDE6": 1.9188703298568726,
+  "checkpoint": "/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_79-minADE6_0.6805892586708069.ckpt",
+  "evaluation_batch_size": 32,
+  "evaluation_devices": 1,
+  "minADE1": 1.6774958372116089,
+  "minADE6": 0.6805890798568726,
+  "minFDE1": 4.130601406097412,
+  "minFDE6": 1.2854619026184082,
+  "val/step0_reg_loss": 0.5747207403182983,
+  "val/step1_reg_loss": 0.44743144512176514,
+  "val/step2_reg_loss": 0.3512358069419861,
+  "val/step3_reg_loss": 0.2710828483104706,
+  "val/step4_reg_loss": 0.19811050593852997
+}

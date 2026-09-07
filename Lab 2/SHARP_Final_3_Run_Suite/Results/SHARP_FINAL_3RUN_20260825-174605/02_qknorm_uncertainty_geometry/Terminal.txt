@@ -1,0 +1,273 @@
+
+===== ATTEMPT 1 | 2026-08-31T20:30:20+01:00 | RESUME=none =====
+[2026-08-31 20:30:23,390][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+Seed set to 2333
+[2026-08-31 20:30:23,391][__main__][INFO] - Global Seed set to 2333
+['GPU-111a4d72-7460-005f-5ba4-1f64f89ccf7e', 'GPU-e440a1d0-c375-a053-63b6-958f9b923c4b', 'GPU-5048a8be-b89e-4f80-b0e5-ac61ea8c2653', 'GPU-fe5ef28a-4b28-ea28-dd4f-5c30c5414d40']
+FINAL_SUITE_ARCHITECTURE_OK=qknorm_uncertainty_geometry parameters=4636232
+[2026-08-31 20:30:24,752][__main__][INFO] - StreamLightningModule(
+  (model): Sharp(
+    (h_proj): Linear(in_features=5, out_features=128, bias=True)
+    (h_embed): ModuleList(
+      (0): Block(
+        (norm1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (attn): QKNormMultiheadAttention(
+          (q_proj): Linear(in_features=128, out_features=128, bias=True)
+          (k_proj): Linear(in_features=128, out_features=128, bias=True)
+          (v_proj): Linear(in_features=128, out_features=128, bias=True)
+          (out_proj): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (drop_path1): Identity()
+        (norm2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=128, out_features=512, bias=True)
+          (act): GELU(approximate='none')
+          (drop1): Dropout(p=0.0, inplace=False)
+          (fc2): Linear(in_features=512, out_features=128, bias=True)
+          (drop2): Dropout(p=0.0, inplace=False)
+        (drop_path2): Identity()
+      )
+      (1): Block(
+        (drop_path1): DropPath(drop_prob=0.067)
+        (drop_path2): DropPath(drop_prob=0.067)
+      (2): Block(
+        (drop_path1): DropPath(drop_prob=0.133)
+        (drop_path2): DropPath(drop_prob=0.133)
+      (3): Block(
+        (drop_path1): DropPath(drop_prob=0.200)
+        (drop_path2): DropPath(drop_prob=0.200)
+    )
+    (lane_embed): LaneEmbeddingLayer(
+      (first_conv): Sequential(
+        (0): Conv1d(3, 128, kernel_size=(1,), stride=(1,))
+        (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv1d(128, 256, kernel_size=(1,), stride=(1,))
+      (second_conv): Sequential(
+        (0): Conv1d(512, 256, kernel_size=(1,), stride=(1,))
+        (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): Conv1d(256, 128, kernel_size=(1,), stride=(1,))
+    (pos_embed): Sequential(
+      (0): Linear(in_features=4, out_features=128, bias=True)
+      (1): GELU(approximate='none')
+      (2): Linear(in_features=128, out_features=128, bias=True)
+    (blocks): ModuleList(
+    (MR): MR()
+    (b-minFDE6): brier_minFDE()
+    (minADE1): minADE()
+    (minADE6): minADE()
+    (minFDE1): minFDE()
+    (minFDE6): minFDE()
+[2026-08-31 20:30:27,438][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:30:27,445][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:30:27,451][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+NCCL version 2.27.3+cuda12.9
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 3 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 2 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Trainable params: 4.6 M                                                                                                            
+Total params: 4.6 M                                                                                                                
+Traceback (most recent call last):
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605/variants/02_qknorm_uncertainty_geometry/Code/src/model/pl_modules.py", line 347, in training_step
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605/variants/02_qknorm_uncertainty_geometry/Code/src/model/pl_modules.py", line 40, in forward
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605/variants/02_qknorm_uncertainty_geometry/Code/src/model/sharp.py", line 390, in forward
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605/variants/02_qknorm_uncertainty_geometry/Code/train.py", line 53, in main
+    trainer.fit(model, datamodule=datamodule, ckpt_path=cfg.checkpoint)
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[2026-08-31 20:31:24] server00:1055210:1055845 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
+[2026-08-31 20:31:24] server00:1055210:1055845 [2] init.cc:2018 NCCL WARN commDestroySync: comm 0x5e6cadeaeda0 rank 2 sync hostStream error 1
+[2026-08-31 20:31:24] server00:1055210:1055845 [2] init.cc:2021 NCCL WARN commDestroySync: comm 0x5e6cadeaeda0 rank 2 sync deviceStream error 1
+[2026-08-31 20:47:14,890][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:47:18,989][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:47:19,038][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:47:19,110][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+  File "/home/server00/M/Codes/SHARP_FINAL_3RUN_20260825-174605/variants/02_qknorm_uncertainty_geometry/Code/src/model/sharp.py", line 313, in forward
+[2026-08-31 20:48:48] server00:1062821:1063846 [2] misc/strongstream.cc:399 NCCL WARN Cuda failure 'an illegal memory access was encountered'
+[2026-08-31 20:48:48] server00:1062821:1063846 [2] init.cc:2018 NCCL WARN commDestroySync: comm 0x5997fb663110 rank 2 sync hostStream error 1
+[2026-08-31 20:48:48] server00:1062821:1063846 [2] init.cc:2021 NCCL WARN commDestroySync: comm 0x5997fb663110 rank 2 sync deviceStream error 1
+[2026-08-31 20:56:10,006][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:56:14,040][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:56:14,060][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+[2026-08-31 20:56:14,087][__main__][INFO] - Experiments are stored in /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run
+Epoch 0: 100%|██████████| 6248/6248 [1:51:13<00:00,  0.94it/s, v_num=2, MR=0.650, b-minFDE6=6.770, minADE1=5.570, minADE6=2.950, minFDE1=12.50, minFDE6=6.130]
+Epoch 1: 100%|██████████| 6248/6248 [1:52:26<00:00,  0.93it/s, v_num=2, MR=0.535, b-minFDE6=5.110, minADE1=4.000, minADE6=2.050, minFDE1=9.570, minFDE6=4.470]
+Epoch 2: 100%|██████████| 6248/6248 [1:52:51<00:00,  0.92it/s, v_num=2, MR=0.467, b-minFDE6=3.470, minADE1=3.210, minADE6=1.410, minFDE1=8.060, minFDE6=2.820]
+Epoch 3: 100%|██████████| 6248/6248 [1:53:20<00:00,  0.92it/s, v_num=2, MR=0.403, b-minFDE6=3.010, minADE1=3.060, minADE6=1.260, minFDE1=7.600, minFDE6=2.380]
+Epoch 4: 100%|██████████| 6248/6248 [1:53:27<00:00,  0.92it/s, v_num=2, MR=0.356, b-minFDE6=2.830, minADE1=2.900, minADE6=1.210, minFDE1=6.970, minFDE6=2.180]
+Epoch 5: 100%|██████████| 6248/6248 [1:53:27<00:00,  0.92it/s, v_num=2, MR=0.362, b-minFDE6=2.880, minADE1=2.610, minADE6=1.170, minFDE1=6.620, minFDE6=2.240]
+Epoch 6: 100%|██████████| 6248/6248 [1:53:45<00:00,  0.92it/s, v_num=2, MR=0.351, b-minFDE6=2.690, minADE1=2.610, minADE6=1.060, minFDE1=6.460, minFDE6=2.050]
+Epoch 7: 100%|██████████| 6248/6248 [1:53:43<00:00,  0.92it/s, v_num=2, MR=0.303, b-minFDE6=2.690, minADE1=2.670, minADE6=1.060, minFDE1=6.520, minFDE6=2.030]
+Epoch 8: 100%|██████████| 6248/6248 [1:53:43<00:00,  0.92it/s, v_num=2, MR=0.291, b-minFDE6=2.490, minADE1=2.350, minADE6=0.954, minFDE1=5.950, minFDE6=1.850]
+Epoch 9: 100%|██████████| 6248/6248 [1:53:44<00:00,  0.92it/s, v_num=2, MR=0.329, b-minFDE6=2.720, minADE1=2.620, minADE6=1.020, minFDE1=6.610, minFDE6=2.060]
+Epoch 10: 100%|██████████| 6248/6248 [1:53:53<00:00,  0.91it/s, v_num=2, MR=0.273, b-minFDE6=2.480, minADE1=2.360, minADE6=0.941, minFDE1=5.950, minFDE6=1.830]
+Epoch 11: 100%|██████████| 6248/6248 [1:53:58<00:00,  0.91it/s, v_num=2, MR=0.263, b-minFDE6=2.380, minADE1=2.420, minADE6=0.918, minFDE1=5.820, minFDE6=1.740]
+Epoch 12: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.274, b-minFDE6=2.370, minADE1=2.230, minADE6=0.896, minFDE1=5.760, minFDE6=1.740]
+Epoch 13: 100%|██████████| 6248/6248 [1:53:46<00:00,  0.92it/s, v_num=2, MR=0.278, b-minFDE6=2.380, minADE1=2.260, minADE6=0.886, minFDE1=5.740, minFDE6=1.750]
+Epoch 14: 100%|██████████| 6248/6248 [1:54:00<00:00,  0.91it/s, v_num=2, MR=0.282, b-minFDE6=2.420, minADE1=2.420, minADE6=0.897, minFDE1=6.350, minFDE6=1.750]
+Epoch 15: 100%|██████████| 6248/6248 [1:54:05<00:00,  0.91it/s, v_num=2, MR=0.257, b-minFDE6=2.280, minADE1=2.090, minADE6=0.858, minFDE1=5.120, minFDE6=1.650]
+Epoch 16: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.254, b-minFDE6=2.290, minADE1=2.230, minADE6=0.885, minFDE1=5.430, minFDE6=1.660]
+Epoch 17: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.252, b-minFDE6=2.270, minADE1=2.040, minADE6=0.846, minFDE1=4.990, minFDE6=1.650]
+Epoch 18: 100%|██████████| 6248/6248 [1:53:53<00:00,  0.91it/s, v_num=2, MR=0.240, b-minFDE6=2.230, minADE1=2.260, minADE6=1.010, minFDE1=5.010, minFDE6=1.600]
+Epoch 19: 100%|██████████| 6248/6248 [1:54:06<00:00,  0.91it/s, v_num=2, MR=0.218, b-minFDE6=2.180, minADE1=2.040, minADE6=0.824, minFDE1=5.050, minFDE6=1.550]
+Epoch 20: 100%|██████████| 6248/6248 [1:54:00<00:00,  0.91it/s, v_num=2, MR=0.205, b-minFDE6=2.140, minADE1=2.010, minADE6=0.814, minFDE1=4.910, minFDE6=1.500]
+Epoch 21: 100%|██████████| 6248/6248 [1:54:25<00:00,  0.91it/s, v_num=2, MR=0.219, b-minFDE6=2.150, minADE1=1.960, minADE6=0.801, minFDE1=4.840, minFDE6=1.530]
+Epoch 22: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.200, b-minFDE6=2.130, minADE1=1.960, minADE6=0.802, minFDE1=4.790, minFDE6=1.500]
+Epoch 23: 100%|██████████| 6248/6248 [1:53:56<00:00,  0.91it/s, v_num=2, MR=0.207, b-minFDE6=2.180, minADE1=2.310, minADE6=0.864, minFDE1=5.390, minFDE6=1.520]
+Epoch 24: 100%|██████████| 6248/6248 [1:54:03<00:00,  0.91it/s, v_num=2, MR=0.249, b-minFDE6=2.320, minADE1=2.270, minADE6=0.853, minFDE1=5.550, minFDE6=1.660]
+Epoch 25: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.207, b-minFDE6=2.180, minADE1=2.260, minADE6=0.856, minFDE1=5.200, minFDE6=1.530]
+Epoch 26: 100%|██████████| 6248/6248 [1:54:00<00:00,  0.91it/s, v_num=2, MR=0.220, b-minFDE6=2.180, minADE1=2.060, minADE6=0.804, minFDE1=5.050, minFDE6=1.540]
+Epoch 27: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.202, b-minFDE6=2.120, minADE1=2.100, minADE6=0.820, minFDE1=4.980, minFDE6=1.480]
+Epoch 28: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.196, b-minFDE6=2.080, minADE1=2.110, minADE6=0.849, minFDE1=4.780, minFDE6=1.450]
+Epoch 29: 100%|██████████| 6248/6248 [1:53:53<00:00,  0.91it/s, v_num=2, MR=0.199, b-minFDE6=2.070, minADE1=1.940, minADE6=0.796, minFDE1=4.660, minFDE6=1.440]
+Epoch 30: 100%|██████████| 6248/6248 [1:54:01<00:00,  0.91it/s, v_num=2, MR=0.195, b-minFDE6=2.060, minADE1=1.870, minADE6=0.761, minFDE1=4.590, minFDE6=1.440]
+Epoch 31: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.202, b-minFDE6=2.110, minADE1=1.990, minADE6=0.798, minFDE1=4.780, minFDE6=1.470]
+Epoch 32: 100%|██████████| 6248/6248 [1:53:58<00:00,  0.91it/s, v_num=2, MR=0.199, b-minFDE6=2.110, minADE1=1.870, minADE6=0.796, minFDE1=4.590, minFDE6=1.470]
+Epoch 33: 100%|██████████| 6248/6248 [1:54:05<00:00,  0.91it/s, v_num=2, MR=0.177, b-minFDE6=2.020, minADE1=1.930, minADE6=0.791, minFDE1=4.520, minFDE6=1.390]
+Epoch 34: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.182, b-minFDE6=2.040, minADE1=1.870, minADE6=0.754, minFDE1=4.540, minFDE6=1.400]
+Epoch 35: 100%|██████████| 6248/6248 [1:54:16<00:00,  0.91it/s, v_num=2, MR=0.186, b-minFDE6=2.070, minADE1=1.840, minADE6=0.752, minFDE1=4.560, minFDE6=1.430]
+Epoch 36: 100%|██████████| 6248/6248 [1:53:51<00:00,  0.91it/s, v_num=2, MR=0.215, b-minFDE6=2.210, minADE1=2.130, minADE6=0.810, minFDE1=5.200, minFDE6=1.560]
+Epoch 37: 100%|██████████| 6248/6248 [1:53:53<00:00,  0.91it/s, v_num=2, MR=0.178, b-minFDE6=2.010, minADE1=1.860, minADE6=0.742, minFDE1=4.490, minFDE6=1.380]
+Epoch 38: 100%|██████████| 6248/6248 [1:54:02<00:00,  0.91it/s, v_num=2, MR=0.179, b-minFDE6=2.030, minADE1=1.760, minADE6=0.733, minFDE1=4.340, minFDE6=1.400]
+Epoch 39: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.184, b-minFDE6=2.030, minADE1=1.860, minADE6=0.745, minFDE1=4.490, minFDE6=1.400]
+Epoch 40: 100%|██████████| 6248/6248 [1:54:00<00:00,  0.91it/s, v_num=2, MR=0.181, b-minFDE6=2.030, minADE1=1.860, minADE6=0.729, minFDE1=4.590, minFDE6=1.400]
+Epoch 41: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.174, b-minFDE6=1.990, minADE1=1.860, minADE6=0.754, minFDE1=4.380, minFDE6=1.360]
+Epoch 42: 100%|██████████| 6248/6248 [1:54:03<00:00,  0.91it/s, v_num=2, MR=0.176, b-minFDE6=2.000, minADE1=1.800, minADE6=0.734, minFDE1=4.420, minFDE6=1.370]
+Epoch 43: 100%|██████████| 6248/6248 [1:54:10<00:00,  0.91it/s, v_num=2, MR=0.173, b-minFDE6=1.970, minADE1=1.770, minADE6=0.728, minFDE1=4.330, minFDE6=1.340]
+Epoch 44: 100%|██████████| 6248/6248 [1:54:12<00:00,  0.91it/s, v_num=2, MR=0.174, b-minFDE6=1.980, minADE1=1.800, minADE6=0.722, minFDE1=4.410, minFDE6=1.360]
+Epoch 45: 100%|██████████| 6248/6248 [1:54:11<00:00,  0.91it/s, v_num=2, MR=0.176, b-minFDE6=2.010, minADE1=1.770, minADE6=0.721, minFDE1=4.390, minFDE6=1.380]
+Epoch 46: 100%|██████████| 6248/6248 [1:54:09<00:00,  0.91it/s, v_num=2, MR=0.200, b-minFDE6=2.080, minADE1=1.840, minADE6=0.740, minFDE1=4.610, minFDE6=1.450]
+Epoch 47: 100%|██████████| 6248/6248 [1:54:09<00:00,  0.91it/s, v_num=2, MR=0.176, b-minFDE6=2.010, minADE1=1.850, minADE6=0.712, minFDE1=4.590, minFDE6=1.360]
+Epoch 48: 100%|██████████| 6248/6248 [1:54:02<00:00,  0.91it/s, v_num=2, MR=0.171, b-minFDE6=1.960, minADE1=1.780, minADE6=0.712, minFDE1=4.370, minFDE6=1.330]
+Epoch 49: 100%|██████████| 6248/6248 [1:54:07<00:00,  0.91it/s, v_num=2, MR=0.171, b-minFDE6=1.990, minADE1=1.760, minADE6=0.712, minFDE1=4.330, minFDE6=1.350]
+Epoch 50: 100%|██████████| 6248/6248 [1:54:08<00:00,  0.91it/s, v_num=2, MR=0.167, b-minFDE6=1.950, minADE1=1.710, minADE6=0.698, minFDE1=4.220, minFDE6=1.320]
+Epoch 51: 100%|██████████| 6248/6248 [1:53:55<00:00,  0.91it/s, v_num=2, MR=0.160, b-minFDE6=1.940, minADE1=1.750, minADE6=0.708, minFDE1=4.260, minFDE6=1.310]
+Epoch 52: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.164, b-minFDE6=1.950, minADE1=1.720, minADE6=0.705, minFDE1=4.250, minFDE6=1.320]
+Epoch 53: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.177, b-minFDE6=2.000, minADE1=1.770, minADE6=0.712, minFDE1=4.380, minFDE6=1.360]
+Epoch 54: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.170, b-minFDE6=1.970, minADE1=1.740, minADE6=0.708, minFDE1=4.300, minFDE6=1.340]
+Epoch 55: 100%|██████████| 6248/6248 [1:54:09<00:00,  0.91it/s, v_num=2, MR=0.162, b-minFDE6=1.940, minADE1=1.720, minADE6=0.706, minFDE1=4.230, minFDE6=1.320]
+Epoch 56: 100%|██████████| 6248/6248 [1:53:49<00:00,  0.91it/s, v_num=2, MR=0.174, b-minFDE6=2.020, minADE1=1.810, minADE6=0.713, minFDE1=4.480, minFDE6=1.370]
+Epoch 57: 100%|██████████| 6248/6248 [1:53:48<00:00,  0.91it/s, v_num=2, MR=0.169, b-minFDE6=1.980, minADE1=1.750, minADE6=0.705, minFDE1=4.340, minFDE6=1.340]
+Epoch 58: 100%|██████████| 6248/6248 [1:53:53<00:00,  0.91it/s, v_num=2, MR=0.167, b-minFDE6=1.950, minADE1=1.720, minADE6=0.705, minFDE1=4.210, minFDE6=1.320]
+Epoch 59: 100%|██████████| 6248/6248 [1:53:56<00:00,  0.91it/s, v_num=2, MR=0.165, b-minFDE6=1.950, minADE1=1.740, minADE6=0.701, minFDE1=4.290, minFDE6=1.320]
+Epoch 60: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.159, b-minFDE6=1.920, minADE1=1.700, minADE6=0.688, minFDE1=4.190, minFDE6=1.290]
+Epoch 61: 100%|██████████| 6248/6248 [1:53:55<00:00,  0.91it/s, v_num=2, MR=0.166, b-minFDE6=1.960, minADE1=1.710, minADE6=0.705, minFDE1=4.220, minFDE6=1.330]
+Epoch 62: 100%|██████████| 6248/6248 [1:53:49<00:00,  0.91it/s, v_num=2, MR=0.159, b-minFDE6=1.940, minADE1=1.710, minADE6=0.689, minFDE1=4.230, minFDE6=1.310]
+Epoch 63: 100%|██████████| 6248/6248 [1:54:01<00:00,  0.91it/s, v_num=2, MR=0.163, b-minFDE6=1.950, minADE1=1.690, minADE6=0.694, minFDE1=4.180, minFDE6=1.310]
+Epoch 64: 100%|██████████| 6248/6248 [1:53:50<00:00,  0.91it/s, v_num=2, MR=0.159, b-minFDE6=1.930, minADE1=1.700, minADE6=0.689, minFDE1=4.160, minFDE6=1.300]
+Epoch 65: 100%|██████████| 6248/6248 [1:53:58<00:00,  0.91it/s, v_num=2, MR=0.162, b-minFDE6=1.920, minADE1=1.720, minADE6=0.691, minFDE1=4.230, minFDE6=1.290]
+Epoch 66: 100%|██████████| 6248/6248 [1:53:46<00:00,  0.92it/s, v_num=2, MR=0.174, b-minFDE6=2.000, minADE1=1.790, minADE6=0.712, minFDE1=4.380, minFDE6=1.360]
+Epoch 67: 100%|██████████| 6248/6248 [1:53:52<00:00,  0.91it/s, v_num=2, MR=0.162, b-minFDE6=1.940, minADE1=1.700, minADE6=0.690, minFDE1=4.170, minFDE6=1.310]
+Epoch 68: 100%|██████████| 6248/6248 [1:54:04<00:00,  0.91it/s, v_num=2, MR=0.166, b-minFDE6=1.960, minADE1=1.710, minADE6=0.693, minFDE1=4.230, minFDE6=1.320]
+Epoch 69: 100%|██████████| 6248/6248 [1:53:51<00:00,  0.91it/s, v_num=2, MR=0.163, b-minFDE6=1.950, minADE1=1.720, minADE6=0.688, minFDE1=4.280, minFDE6=1.310]
+Epoch 70: 100%|██████████| 6248/6248 [1:53:59<00:00,  0.91it/s, v_num=2, MR=0.155, b-minFDE6=1.930, minADE1=1.710, minADE6=0.686, minFDE1=4.170, minFDE6=1.290]
+Epoch 71: 100%|██████████| 6248/6248 [1:53:57<00:00,  0.91it/s, v_num=2, MR=0.154, b-minFDE6=1.920, minADE1=1.700, minADE6=0.685, minFDE1=4.200, minFDE6=1.280]
+Epoch 72: 100%|██████████| 6248/6248 [1:54:02<00:00,  0.91it/s, v_num=2, MR=0.156, b-minFDE6=1.920, minADE1=1.710, minADE6=0.683, minFDE1=4.220, minFDE6=1.290]
+Epoch 73: 100%|██████████| 6248/6248 [1:54:05<00:00,  0.91it/s, v_num=2, MR=0.162, b-minFDE6=1.960, minADE1=1.780, minADE6=0.690, minFDE1=4.360, minFDE6=1.310]
+Epoch 74: 100%|██████████| 6248/6248 [1:54:06<00:00,  0.91it/s, v_num=2, MR=0.164, b-minFDE6=1.950, minADE1=1.720, minADE6=0.704, minFDE1=4.200, minFDE6=1.310]
+Epoch 75: 100%|██████████| 6248/6248 [1:53:54<00:00,  0.91it/s, v_num=2, MR=0.157, b-minFDE6=1.920, minADE1=1.740, minADE6=0.683, minFDE1=4.250, minFDE6=1.280]
+Epoch 76: 100%|██████████| 6248/6248 [1:54:06<00:00,  0.91it/s, v_num=2, MR=0.159, b-minFDE6=1.940, minADE1=1.690, minADE6=0.693, minFDE1=4.150, minFDE6=1.300]
+Epoch 77: 100%|██████████| 6248/6248 [1:53:51<00:00,  0.91it/s, v_num=2, MR=0.155, b-minFDE6=1.910, minADE1=1.680, minADE6=0.682, minFDE1=4.110, minFDE6=1.280]
+Epoch 78: 100%|██████████| 6248/6248 [1:54:00<00:00,  0.91it/s, v_num=2, MR=0.157, b-minFDE6=1.930, minADE1=1.690, minADE6=0.682, minFDE1=4.160, minFDE6=1.290]
+Epoch 79: 100%|██████████| 6248/6248 [1:50:42<00:00,  0.94it/s, v_num=2, MR=0.157, b-minFDE6=1.930, minADE1=1.690, minADE6=0.682, minFDE1=4.160, minFDE6=1.290]
+Validation DataLoader 0: 100%|██████████| 781/781 [03:42<00:00,  3.51it/s]
+Validation DataLoader 0:  88%|████████▊ | 687/781 [03:17<00:27,  3.47it/s]
+Validation DataLoader 0:  88%|████████▊ | 688/781 [03:18<00:26,  3.47it/s]
+Validation DataLoader 0:  88%|████████▊ | 689/781 [03:18<00:26,  3.47it/s]
+Validation DataLoader 0:  88%|████████▊ | 690/781 [03:18<00:26,  3.47it/s]
+Validation DataLoader 0:  88%|████████▊ | 691/781 [03:19<00:25,  3.47it/s]
+Validation DataLoader 0:  89%|████████▊ | 692/781 [03:19<00:25,  3.47it/s]
+Validation DataLoader 0:  89%|████████▊ | 693/781 [03:19<00:25,  3.47it/s]
+Validation DataLoader 0:  89%|████████▉ | 694/781 [03:19<00:25,  3.47it/s]
+Validation DataLoader 0:  89%|████████▉ | 695/781 [03:20<00:24,  3.47it/s]
+Validation DataLoader 0:  89%|████████▉ | 696/781 [03:20<00:24,  3.47it/s]
+Validation DataLoader 0:  89%|████████▉ | 697/781 [03:20<00:24,  3.47it/s]
+Validation DataLoader 0:  89%|████████▉ | 698/781 [03:21<00:23,  3.47it/s]
+Validation DataLoader 0:  90%|████████▉ | 699/781 [03:21<00:23,  3.47it/s]
+Validation DataLoader 0:  90%|████████▉ | 700/781 [03:21<00:23,  3.47it/s]
+Validation DataLoader 0:  90%|████████▉ | 701/781 [03:21<00:23,  3.47it/s]
+Validation DataLoader 0:  90%|████████▉ | 702/781 [03:22<00:22,  3.47it/s]
+Validation DataLoader 0:  90%|█████████ | 703/781 [03:22<00:22,  3.47it/s]
+Validation DataLoader 0:  90%|█████████ | 704/781 [03:22<00:22,  3.47it/s]
+Validation DataLoader 0:  90%|█████████ | 705/781 [03:23<00:21,  3.47it/s]
+Validation DataLoader 0:  90%|█████████ | 706/781 [03:23<00:21,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 707/781 [03:23<00:21,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 708/781 [03:24<00:21,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 709/781 [03:24<00:20,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 710/781 [03:24<00:20,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 711/781 [03:24<00:20,  3.47it/s]
+Validation DataLoader 0:  91%|█████████ | 712/781 [03:25<00:19,  3.47it/s]
+Validation DataLoader 0:  91%|█████████▏| 713/781 [03:25<00:19,  3.47it/s]
+Validation DataLoader 0:  91%|█████████▏| 714/781 [03:25<00:19,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 715/781 [03:26<00:19,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 716/781 [03:26<00:18,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 717/781 [03:26<00:18,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 718/781 [03:26<00:18,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 719/781 [03:27<00:17,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 720/781 [03:27<00:17,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 721/781 [03:27<00:17,  3.47it/s]
+Validation DataLoader 0:  92%|█████████▏| 722/781 [03:28<00:17,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 723/781 [03:28<00:16,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 724/781 [03:28<00:16,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 725/781 [03:28<00:16,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 726/781 [03:29<00:15,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 727/781 [03:29<00:15,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 728/781 [03:29<00:15,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 729/781 [03:30<00:14,  3.47it/s]
+Validation DataLoader 0:  93%|█████████▎| 730/781 [03:30<00:14,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▎| 731/781 [03:30<00:14,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▎| 732/781 [03:30<00:14,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 733/781 [03:31<00:13,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 734/781 [03:31<00:13,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 735/781 [03:31<00:13,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 736/781 [03:32<00:12,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 737/781 [03:32<00:12,  3.47it/s]
+Validation DataLoader 0:  94%|█████████▍| 738/781 [03:32<00:12,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▍| 739/781 [03:33<00:12,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▍| 740/781 [03:33<00:11,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▍| 741/781 [03:33<00:11,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▌| 742/781 [03:33<00:11,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▌| 743/781 [03:34<00:10,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▌| 744/781 [03:34<00:10,  3.47it/s]
+Validation DataLoader 0:  95%|█████████▌| 745/781 [03:34<00:10,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 746/781 [03:35<00:10,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 747/781 [03:35<00:09,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 748/781 [03:35<00:09,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 749/781 [03:35<00:09,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 750/781 [03:36<00:08,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▌| 751/781 [03:36<00:08,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▋| 752/781 [03:36<00:08,  3.47it/s]
+Validation DataLoader 0:  96%|█████████▋| 753/781 [03:37<00:08,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 754/781 [03:37<00:07,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 755/781 [03:37<00:07,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 756/781 [03:37<00:07,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 757/781 [03:38<00:06,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 758/781 [03:38<00:06,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 759/781 [03:38<00:06,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 760/781 [03:39<00:06,  3.47it/s]
+Validation DataLoader 0:  97%|█████████▋| 761/781 [03:39<00:05,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 762/781 [03:39<00:05,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 763/781 [03:39<00:05,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 764/781 [03:40<00:04,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 765/781 [03:40<00:04,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 766/781 [03:40<00:04,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 767/781 [03:41<00:04,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 768/781 [03:41<00:03,  3.47it/s]
+Validation DataLoader 0:  98%|█████████▊| 769/781 [03:41<00:03,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▊| 770/781 [03:41<00:03,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▊| 771/781 [03:42<00:02,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 772/781 [03:42<00:02,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 773/781 [03:42<00:02,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 774/781 [03:42<00:02,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 775/781 [03:43<00:01,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 776/781 [03:43<00:01,  3.47it/s]
+Validation DataLoader 0:  99%|█████████▉| 777/781 [03:43<00:01,  3.47it/s]
+Validation DataLoader 0: 100%|█████████▉| 778/781 [03:43<00:00,  3.47it/s]
+Validation DataLoader 0: 100%|█████████▉| 779/781 [03:44<00:00,  3.47it/s]
+Validation DataLoader 0: 100%|█████████▉| 780/781 [03:44<00:00,  3.47it/s]
+Validation DataLoader 0: 100%|██████████| 781/781 [03:44<00:00,  3.47it/s]
+                                                                          
+Epoch 79: 100%|██████████| 6248/6248 [1:54:43<00:00,  0.91it/s, v_num=2, MR=0.156, b-minFDE6=1.920, minADE1=1.680, minADE6=0.681, minFDE1=4.130, minFDE6=1.290]
+Epoch 79: 100%|██████████| 6248/6248 [1:54:43<00:00,  0.91it/s, v_num=2, MR=0.156, b-minFDE6=1.920, minADE1=1.680, minADE6=0.681, minFDE1=4.130, minFDE6=1.290]`Trainer.fit` stopped: `max_epochs=80` reached.
+Epoch 79: 100%|██████████| 6248/6248 [1:54:44<00:00,  0.91it/s, v_num=2, MR=0.156, b-minFDE6=1.920, minADE1=1.680, minADE6=0.681, minFDE1=4.130, minFDE6=1.290]
+FINAL_BEST_CHECKPOINT=/home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_79-minADE6_0.6805892586708069.ckpt

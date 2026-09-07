@@ -1,0 +1,11 @@
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_60-minADE6_0.6879696249961853.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_62-minADE6_0.6887727975845337.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_69-minADE6_0.6877217292785645.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_70-minADE6_0.6864549517631531.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_71-minADE6_0.6845399141311646.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_72-minADE6_0.6833810806274414.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_75-minADE6_0.6834391355514526.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_77-minADE6_0.6817266941070557.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_78-minADE6_0.6824726462364197.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/epoch_79-minADE6_0.6805892586708069.ckpt
+56180707 bytes  /home/server00/M/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/run/checkpoints/last.ckpt
