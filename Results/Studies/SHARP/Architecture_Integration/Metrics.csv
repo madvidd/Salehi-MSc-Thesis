@@ -1,0 +1,3 @@
+variant,selected_minADE6,MR,b-minFDE6,minADE1,minADE6,minFDE1,minFDE6,source,evaluation_basis
+SHARP reference,0.6792822480201721,0.15595485270023346,1.9245601892471313,1.6768673658370972,0.6792822480201721,4.138639450073242,1.2876970767974854,Studies/SHARP/Architecture_Integration/Results/SHARP_FINAL_3RUN_20260825-174605/01_official_sharp_baseline/metrics.json,single-device selected-checkpoint evaluation
+SHARP + QKNorm + uncertainty + geometry,0.6805890798568726,0.1555146425962448,1.9188703298568726,1.6774958372116089,0.6805890798568726,4.130601406097412,1.2854619026184082,Studies/SHARP/Architecture_Integration/Results/SHARP_FINAL_3RUN_20260825-174605/02_qknorm_uncertainty_geometry/metrics.json,single-device selected-checkpoint evaluation

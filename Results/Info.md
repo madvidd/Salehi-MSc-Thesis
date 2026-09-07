@@ -1,135 +1,112 @@
-# Architecture Modification Glossary and Outcomes
+# Architectural Modifications: Mechanisms and Evidence
 
-Updated: 2026-08-25
+SEAM and SHARP forecast multiple possible agent trajectories while transferring
+context between observations. SEAM emphasises endpoint-aware streaming; SHARP
+processes short observation windows with instance-aware context transfer. Each
+study changes defined operators or pathways while retaining the corresponding
+streaming structure. An architectural rationale is a hypothesis; the measured
+outcome is reported separately.
 
-This document explains what each tested modification changes, why it was a plausible accuracy improvement, and what the retained experiment showed. Lower metric values are better. A plausible mechanism is a hypothesis, not evidence of improvement; the outcome column records the evidence.
+## Context and Attention Mechanisms
 
-## SHARP Features Preserved by the Ablations
-
-Original SHARP uses Transformer attention and does not contain Mamba. Its central design is preserved unless a row explicitly says otherwise:
-
-- short observation windows are processed incrementally;
-- matched agent instances propagate latent context between windows;
-- streaming and non-streaming passes share the forecasting model;
-- previous predictions and target-centric context are used by later windows;
-- multimodal trajectories are trained with SHARP's original losses.
-
-The controlled ablations change a local operator or auxiliary pathway rather than removing SHARP's short-window, instance-aware streaming mechanism.
-
-## Lab 3 Attention Operators
-
-The Lab 3 suite replaced all 18 `MultiheadAttention` constructors in the single-agent SHARP model while preserving embedding dimension, block counts, eight heads, MLPs, positional encodings, streaming memory, decoder, losses, optimizer, data, and seed.
-
-| Operator | What changes | Why it might improve accuracy | Recorded outcome |
+| Mechanism | Implementation and location | Motivation | Recorded outcome |
 |---|---|---|---|
-| Baseline MHA | Standard scaled dot-product multi-head attention. Query-key dot products produce logits, softmax produces weights, and each head aggregates values. | It is the original SHARP control and provides unrestricted content-based interaction. | Best minADE6 `0.673460`. |
-| QKNorm | L2-normalizes each projected query and key head before their dot product and learns a scale per head. | It prevents query/key magnitude from arbitrarily sharpening attention, controls logit scale, and can make optimization and head specialization more stable. | Best minADE6 `0.669777`, an improvement of `0.003683` or `0.55%`. b-minFDE6 and minFDE6 also improved in the retained vector; MR was slightly worse. |
-| Talking-Heads | Applies identity-initialized learned mixing across attention heads before softmax and again after softmax. | Heads can exchange information instead of remaining independent, potentially coordinating complementary spatial and temporal patterns. | Best minADE6 `0.674991`, `0.001531` or `0.23%` worse than local MHA. It did not lead any listed metric. |
-| QKNorm + Talking-Heads | Combines normalized/scaled query-key logits with learned head mixing. | QKNorm could stabilize logits while head mixing increases interaction capacity. | Best minADE6 `0.674492`, `0.001032` or `0.15%` worse than local MHA. It produced the best MR (`0.152064`) but did not improve displacement error. |
+| Multi-head attention (MHA) | Scaled query-key dot products produce softmax weights that aggregate values within each head. | Content-dependent interaction provides the reference operator. | Unchanged control within each attention study. |
+| Query-key normalisation (QKNorm) | Projected queries and keys are L2-normalised within each head, with a learned logit scale. Surrounding attention topology is preserved. | Decouple vector magnitude from attention sharpness and control logit scale. | Selected minADE6 improves by 3.27% in the SEAM context/attention study and 0.55% in the SHARP attention study. |
+| Uncertainty-aware target context | Previous mode probabilities adjust the radius and feature gain of endpoint-centred target context. | Ambiguous predictions may benefit from broader context than confident predictions. | Selected minADE6 improves by 2.60% in the SEAM ablation and 0.32% in the SHARP architectural ablation. |
+| Relative-geometry attention bias | Learned per-head biases encode relative displacement, distance and heading in current-window scene attention. | Spatial interaction depends on geometry, not content features alone. | Selected minADE6 improves by 1.43% in the SEAM ablation and 0.35% in the SHARP architectural ablation. |
+| Talking-Heads | Identity-initialised learned mixing across heads before and after softmax. | Exchange complementary information between heads. | SHARP selected minADE6 is 0.23% higher than MHA; combining it with QKNorm gives 0.15% higher error. |
 
-The QKNorm result supports carrying QKNorm into a longer controlled SHARP combination run. The Talking-Heads results do not support adding its extra mixing solely to improve minADE6.
+Percentages use each study's own control. Implementation references:
+[SEAM operators](../Studies/SEAM/Context_Attention_Ablation/upstream/seam-main/src/model/layers/controlled_ablation.py),
+[SHARP operators](../Studies/SHARP/Attention_Operators/attention_variants.py).
 
-Evidence: [Lab 3 completed attention summary](../Lab%203/Main_Results/Attention_Experiments/Runs/SHARP_ATTENTION_ABLATION_20260717-123916/Summary.md).
+## SEAM State-Space Integration
 
-## Lab 2 20-Epoch Screening Modifications
+Mamba uses an input-dependent state-space recurrence to select which sequence
+information is retained or suppressed. Sequence order is therefore part of the
+architectural choice, rather than simply another implementation of attention.
 
-The ten-test suite independently compared one baseline with nine modifications. All used the same 20-epoch AV2 training controls. Deltas below are variant minADE6 minus baseline `0.752339`; negative is better.
+| Placement | Modification | Rationale | Selected minADE6 |
+|---|---|---|---:|
+| Reference | SEAM without added Mamba | Matched endpoint-aware control | 0.662859 |
+| Agent history | Residual refinement of observed agent-history features | Accumulate chronological evidence without removing the reference pathway | 0.664814 |
+| Future head | Replace the coordinate MLP with a two-block Mamba head over future steps | Model dependencies between ordered future coordinates | 0.648480 |
 
-| Modification | What changes | Why it might help | Outcome |
-|---|---|---|---|
-| Confidence-gated memory | Learns a reliability gate between current tokens and instance-aware streamed updates. | Noisy or stale memory could be suppressed while reliable history is retained. | `0.755349`, delta `+0.003010`: worse. |
-| Cross-window consistency | Adds a `0.05`-weight Smooth L1 term between confidence-weighted current predictions and transformed previous predictions. | Adjacent streaming windows should describe a physically consistent future and fluctuate less. | `0.776207`, delta `+0.023868`: worse. The fixed auxiliary weight likely constrained early learning too strongly. |
-| Learned temporal pooling | Replaces temporal max pooling with masked learned attention pooling. | The model can weight informative timesteps instead of selecting each feature dimension independently by a hard maximum. | `0.757637`, delta `+0.005298`: worse. |
-| Uncertainty-aware target context | Uses previous mode probabilities to adapt endpoint-centric context radius and gate target features. | Ambiguous prior predictions should use broader or more cautious context, while confident predictions can focus on a smaller relevant region. | `0.749961`, delta `-0.002378`: improved. |
-| Relative-geometry attention bias | Adds learned per-head relative position and heading biases to the four scene-attention blocks. | Motion interactions depend strongly on relative distance, bearing, and orientation; an explicit geometric prior reduces how much must be inferred from content embeddings alone. | `0.749679`, delta `-0.002660`: best screen. It also improved MR, b-minFDE6, minFDE1, and minFDE6. |
-| Kinematic motion stem | Adds masked velocity, acceleration, and speed-change embeddings before temporal encoding. | Explicit derivatives can expose braking, turning, and acceleration patterns that raw positions make the network learn implicitly. | `0.785164`, delta `+0.032825`: worst screen. Derivative noise or redundant features likely hurt this short schedule. |
-| Endpoint refinement decoder | Adds endpoint-conditioned trajectory/logit refinement and a `0.2`-weight auxiliary coarse-prediction loss. | Correcting endpoints directly could reduce final displacement and improve mode separation. | `0.755898`, delta `+0.003559`: worse minADE6, but minFDE1 improved from `4.672195` to `4.641530`. |
-| Lane topology graph | Adds sparse, geometry-derived lane-neighbor message passing before scene encoding. | Explicit lane connectivity can improve route continuity and legal maneuver reasoning. | `0.754238`, delta `+0.001899`: slightly worse. |
-| Agent temporal Mamba replacement | Replaces all four temporal agent-history attention blocks with four unidirectional Mamba blocks (`d_state=16`, `d_conv=4`, `expand=2`) and keeps max pooling. | A selective state-space model could efficiently accumulate chronological motion state and regularize the short history. | `0.780190`, delta `+0.027851`: worse. Complete replacement removed useful attention behavior and was not supported by the screen. |
+Future-head replacement improves selected minADE6 by 2.17%; history addition
+does not improve that metric. These are different insertion locations, not
+equivalent increases in capacity. See the
+[architecture audit](../Studies/SEAM/State_Space_Integration/ARTICLE_AND_CODE_AUDIT.md)
+and [results](../Studies/SEAM/State_Space_Integration/Summary.md).
 
-These 20-epoch results identify candidates, not final 80-epoch conclusions. Relative geometry and uncertainty-aware context were selected for the prepared final suite because they improved under identical screening controls.
+## SHARP Architectural Ablation
 
-## Mamba Placements Tested in SHARP
+Each intervention was trained independently against the same control. The
+shortened training horizon is specified in the protocol, not treated as a
+replacement for the separate full-length integration experiment.
 
-### Scene-Token Mamba Addition
+| Intervention | What changes | Why it was tested | Selected minADE6 |
+|---|---|---|---:|
+| Baseline | Original architecture | Shared control | 0.752339 |
+| Confidence-gated memory | Gate between current tokens and streamed updates | Attenuate stale or noisy history | 0.755349 |
+| Cross-window consistency | Smooth L1 agreement with weight 0.05 between aligned adjacent-window predictions | Reduce inconsistent forecasts across observations | 0.776207 |
+| Learned temporal pooling | Masked learned pooling replaces max pooling | Weight informative observations before compression | 0.757637 |
+| Uncertainty-aware context | Probability-conditioned context radius and gain | Adapt selection to multimodal ambiguity | 0.749961 |
+| Relative geometry | Per-head scene-attention bias | Introduce a geometric interaction prior | 0.749679 |
+| Kinematic stem | Masked velocity, acceleration and speed-change embeddings | Expose motion derivatives before temporal encoding | 0.785164 |
+| Endpoint refinement | Endpoint-conditioned trajectory/logit correction and 0.2-weight coarse-prediction loss | Improve endpoint localisation and mode separation | 0.755898 |
+| Lane topology graph | Sparse geometry-derived lane-neighbour message passing | Represent lane connectivity before scene interaction | 0.754238 |
+| Temporal Mamba replacement | Four unidirectional Mamba blocks replace history attention; max pooling remains | Test recurrence as a complete history encoder | 0.780190 |
 
-The first Lab 2 Mamba experiment ran after temporal histories had already been encoded and pooled. Mamba processed the combined scene-token sequence containing agent and lane tokens. That token order is not inherently chronological, so the state-space scan had a weak sequence interpretation.
+Only uncertainty and geometry improve selected minADE6 in this screen. Endpoint
+refinement improves minFDE1 but not minADE6. The measurements identify candidates;
+they do not establish causal explanations for every unsuccessful intervention.
+See the [manifest](../Studies/SHARP/Architecture_Ablation/EXPERIMENT_MANIFEST.md)
+and [complete comparison](../Studies/SHARP/Architecture_Ablation/Summary.md).
 
-Result: best minADE6 `0.680362` at epoch 78 of 80. This was worse than unmodified Lab 2 SHARP (`0.661463`).
+## SHARP State-Space Placements
 
-### Residual Temporal-Agent Mamba Addition
+The scene-token experiment applies recurrence after agent-history pooling over
+combined scene tokens. The temporal-agent addition instead places a small
+bidirectional residual module between history-attention blocks two and three,
+before pooling. All four attention blocks remain in the addition experiment.
 
-The scene-token Mamba was removed. A bidirectional residual Mamba module was inserted inside each agent's chronological history encoder:
+The temporal addition uses feature dimension 128, state size 8, convolution
+width 3, expansion 1, pre-normalisation, dropout 0.1 and residual LayerScale
+0.01. A learned gate combines scan directions. It differs from the architectural
+ablation's complete replacement: four unidirectional blocks with state size 16,
+convolution width 4 and expansion 2.
 
-```text
-10 observed timesteps
-  -> SHARP temporal attention 1
-  -> SHARP temporal attention 2
-  -> bidirectional residual Mamba
-  -> SHARP temporal attention 3
-  -> SHARP temporal attention 4
-  -> temporal pooling
-```
+Chronological agent histories provide a clearer sequence interpretation than
+scene-token ordering. Selected errors are 0.680362 for scene recurrence and
+0.673736 for temporal recurrence. See
+[placement evidence](../Studies/SHARP/State_Space_Integration/Summary.md).
 
-All four original attention blocks remain. Mamba is not applied to lane tokens, scene encoding, streaming memory, or the decoder.
+## Composed Mechanisms
 
-| Property | Configuration |
-|---|---|
-| Feature dimension | 128 |
-| Direction | Separate forward and backward scans |
-| `d_state`, `d_conv`, `expand` | `8`, `3`, `1` |
-| Normalization | Pre-Mamba `LayerNorm(128)` |
-| Fusion | Learned per-channel sigmoid gate, initialized to equal directions |
-| Residual stabilization | Dropout `0.1`, LayerScale `0.01` |
-| Padding | Valid observations compacted before recurrence |
-| Agent chunking | 128 agents; time is never chunked |
-| CUDA path | Fused selective scan; cuDNN `Conv1d` |
+The [SHARP integration study](../Studies/SHARP/Architecture_Integration/Summary.md)
+combines QKNorm, uncertainty and geometry. It improves four secondary metrics,
+including MR, while selected minADE6 is 0.19% higher than the matched reference.
+Complementary motivations do not imply additive empirical gains.
 
-This placement was plausible because an agent history is genuinely ordered, it acts before pooling discards timestep detail, and the small residual update starts close to original SHARP. It improved over scene-token Mamba: best minADE6 fell from `0.680362` to `0.673736` (`0.97%`). It still did not beat unmodified SHARP. Ten observations may be too short for Mamba to add value beyond SHARP's four temporal-attention blocks.
+The residual-Mamba SHARP extension and the
+[combined SEAM extension](../Studies/SEAM/Combined_Extension/README.md) retain
+their implementations and observations, but no committed final evaluation
+supports an accuracy claim for either. A SEAM composition without Mamba is not
+a recorded completed experiment.
 
-Implementation: [temporal-agent Mamba setup](../Lab%202/Codes/setup_lab2_temporal_agent_mamba_rotationfix80.py).
+## Metric Definitions
 
-### Full Temporal-Attention Replacement
+- **minADE6:** minimum average displacement error among six forecast modes,
+  following the selection rule in the corresponding model's metric code.
+- **minFDE6:** minimum final displacement error among six modes.
+- **minADE1 / minFDE1:** corresponding single-mode criteria.
+- **MR:** miss rate, the fraction exceeding the evaluation's endpoint threshold.
+- **b-minFDE6:** Brier-adjusted final displacement error, incorporating a
+  probability penalty alongside endpoint error.
 
-The 20-epoch screen replaced all four temporal attention blocks with four unidirectional Mamba blocks. Unlike the residual addition, no temporal attention remained.
-
-Result: minADE6 `0.780190` versus the screen baseline `0.752339`. This is evidence against wholesale temporal-attention replacement in the tested configuration.
-
-## SEAM Mamba Hypotheses
-
-The Lab 3 SEAM suite contains one partial baseline and two not-yet-run Mamba variants. No accuracy conclusion should be drawn for the Mamba variants yet.
-
-| Variant | Change | Rationale | Evidence status |
-|---|---|---|---|
-| Agent-history Mamba addition | Adds a residual Mamba refinement over chronological observed-agent features while preserving SEAM's endpoint-aware streaming and decoder. | The observed history is a semantically ordered sequence and may benefit from selective recurrent state without removing attention. | Pending; no metric. |
-| Future-head Mamba replacement | Replaces the trajectory-coordinate MLP with a Mamba sequence head over ordered future steps. | Future coordinates form an ordered sequence; recurrence could promote smooth, dynamically consistent trajectories. | Pending; no metric. |
-
-The latest committed SEAM baseline snapshot is partial, so even the baseline is not yet a final comparison row.
-
-## Prepared Final SHARP Combination
-
-The final three-run Lab 2 package is prepared but has no committed metrics:
-
-1. pinned official SHARP baseline;
-2. baseline plus QKNorm, uncertainty-aware target context, and relative-geometry bias;
-3. run 2 plus the small residual bidirectional temporal-agent Mamba.
-
-This design combines only modifications that either improved a controlled screen or have a conservative residual formulation. The third run tests whether Mamba can add value after the empirically supported attention/context changes. Until those runs finish, this remains a hypothesis.
-
-Specification: [final three-run suite](../Lab%202/SHARP_Final_3_Run_Suite/README.md).
-
-## Mamba in DeMo, SEAM, and Original SHARP
-
-| Original model | Uses Mamba? | Main mechanism |
-|---|---|---|
-| DeMo | Yes | Unidirectional Mamba for observed agent histories and bidirectional Mamba in future-state and hybrid coupling modules, combined with attention |
-| SEAM | No | Transformer attention with endpoint-aware streaming |
-| SHARP | No | Transformer attention with instance-aware short-window streaming |
-
-The Lab 2 temporal-agent addition is conceptually closest to DeMo's historical-agent encoder, but it is not a DeMo reproduction. DeMo uses a deeper Mamba design and additional decoder Mamba modules; modified SHARP retains its own decoder and streaming architecture.
-
-- [DeMo paper](https://papers.nips.cc/paper_files/paper/2024/file/c0ff9e52e94ae331bc0f2d28be06a9ca-Paper-Conference.pdf)
-- [SEAM paper](https://openaccess.thecvf.com/content/WACV2026/papers/Prutsch_Streaming_Real-Time_Trajectory_Prediction_Using_Endpoint-Aware_Modeling_WACV_2026_paper.pdf)
-- [SHARP paper](https://openaccess.thecvf.com/content/CVPR2026/html/Prutsch_SHARP_Short-Window_Streaming_for_Accurate_and_Robust_Prediction_in_Motion_Forecasting_CVPR_2026_paper.html)
-
-See [the complete run registry](Main/All_Run_Registry.md) for statuses and [the consolidated metric tables](Main/SHARP_AV2_Main_Results.md) for exact values.
+Displacement errors are measured in metres; MR is a fraction. The probability
+penalty in b-minFDE6 is dimensionless, making it a composite score. All are
+lower-is-better. Selection values and full vectors are distinguished wherever
+their evaluation records differ. [Source attribution](../Documentation/Source_Attribution.md)
+identifies the baseline implementations and audits.

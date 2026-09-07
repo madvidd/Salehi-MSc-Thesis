@@ -1,0 +1,3 @@
+variant,selected_minADE6,MR,b-minFDE6,minADE1,minADE6,minFDE1,minFDE6,source,evaluation_basis
+Scene-token Mamba,0.6803619265556335,0.1573532074689865,1.9264185428619385,1.6803642511367798,0.6803619265556335,4.130002975463867,1.2904220819473267,Studies/SHARP/State_Space_Integration/Main_Results/Mamba_Encoder_Addition_Results/FINAL_METRICS.txt,selected-checkpoint evaluation
+Residual temporal-agent Mamba,0.6737359166145325,,,,,,,Studies/SHARP/State_Space_Integration/Main_Results/Mamba_Encoder_Addition_Results/Temporal_Agent_Mamba/Snapshots/20260803-045226/BEST_CHECKPOINT.txt,selected-checkpoint filename only

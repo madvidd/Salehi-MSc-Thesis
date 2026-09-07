@@ -1,0 +1,5 @@
+variant,selected_minADE6,MR,b-minFDE6,minADE1,minADE6,minFDE1,minFDE6,source,evaluation_basis
+Baseline MHA,0.67346,0.153231,1.927635,1.671288,0.686853,4.063601,1.287932,Studies/SHARP/Attention_Operators/Main_Results/Attention_Experiments/Runs/SHARP_ATTENTION_ABLATION_20260717-123916/Summary.md,MHA final vector; alternatives selected evaluations
+QK-Norm,0.669777,0.154471,1.899642,1.671904,0.669777,4.119903,1.26624,Studies/SHARP/Attention_Operators/Main_Results/Attention_Experiments/Runs/SHARP_ATTENTION_ABLATION_20260717-123916/Summary.md,MHA final vector; alternatives selected evaluations
+Talking-Heads,0.674991,0.15651,1.927414,1.675181,0.674991,4.130968,1.285642,Studies/SHARP/Attention_Operators/Main_Results/Attention_Experiments/Runs/SHARP_ATTENTION_ABLATION_20260717-123916/Summary.md,MHA final vector; alternatives selected evaluations
+QK-Norm + Talking-Heads,0.674492,0.152064,1.931623,1.663308,0.674492,4.09039,1.291059,Studies/SHARP/Attention_Operators/Main_Results/Attention_Experiments/Runs/SHARP_ATTENTION_ABLATION_20260717-123916/Summary.md,MHA final vector; alternatives selected evaluations

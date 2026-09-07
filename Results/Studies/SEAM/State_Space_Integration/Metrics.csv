@@ -1,0 +1,4 @@
+variant,selected_minADE6,MR,b-minFDE6,minADE1,minADE6,minFDE1,minFDE6,source,evaluation_basis
+SEAM baseline,0.662859,0.158,1.872,1.614,0.662,3.996,1.262,Studies/SEAM/State_Space_Integration/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/Summary.md,checkpoint selection; rounded final log vector separate
+SEAM + agent-history Mamba,0.664814,0.156,1.869,1.622,0.664,3.999,1.257,Studies/SEAM/State_Space_Integration/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/Summary.md,checkpoint selection; rounded final log vector separate
+SEAM with future-head Mamba replacement,0.64848,0.142,1.855,1.588,0.644,3.945,1.23,Studies/SEAM/State_Space_Integration/Results/SEAM_AV2_MAMBA_3RUN_20260824-202936/Summary.md,checkpoint selection; rounded final log vector separate
