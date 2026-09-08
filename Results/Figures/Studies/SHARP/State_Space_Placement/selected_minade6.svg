@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1762" height="517.606960" viewBox="19 37.213040 1762 517.606960" data-compact-factor="0.86">
+  <rect x="19" y="37.213040" width="1762" height="517.606960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP state-space placement: metric comparison</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Best validation minADE6 on Argoverse 2; lower is better</tspan>
+  </text>
+  <polyline points="300.000000,164.120000 300.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="300.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="300.0" dy="0.0">0.64</tspan>
+  </text>
+  <polyline points="590.000000,164.120000 590.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="590.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="590.0" dy="0.0">0.65</tspan>
+  </text>
+  <polyline points="880.000000,164.120000 880.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="880.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="880.0" dy="0.0">0.66</tspan>
+  </text>
+  <polyline points="1170.000000,164.120000 1170.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1170.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1170.0" dy="0.0">0.68</tspan>
+  </text>
+  <polyline points="1460.000000,164.120000 1460.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1460.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1460.0" dy="0.0">0.69</tspan>
+  </text>
+  <polyline points="1750.000000,164.120000 1750.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1750.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1750.0" dy="0.0">0.70</tspan>
+  </text>
+  <text x="150.0" y="231.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Official SHARP baseline</tspan>
+  </text>
+  <rect x="300.0" y="194.220000" width="949.3" height="60.200000" rx="5" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="1267.3" y="231.171400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1267.3" dy="0.0">0.679</tspan>
+  </text>
+  <text x="150.0" y="342.964400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Residual scene-token Mamba</tspan>
+  </text>
+  <rect x="300.0" y="306.020000" width="975.4" height="60.200000" rx="5" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="1293.4" y="342.971400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1293.4" dy="0.0">0.680</tspan>
+  </text>
+  <text x="150.0" y="442.564400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Residual temporal-agent</tspan>
+    <tspan x="150.0" dy="24.4">Mamba</tspan>
+  </text>
+  <rect x="300.0" y="417.820000" width="815.3" height="60.200000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1133.3" y="454.771400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1133.3" dy="0.0">0.674</tspan>
+  </text>
+  <text x="900.0" y="542.480000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Lower is better</tspan>
+  </text>
+</svg>

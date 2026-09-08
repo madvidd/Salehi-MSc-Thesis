@@ -8,6 +8,7 @@ configurations, evaluation records and analysis.
 ## Start Here
 
 - [Results overview](Results/README.md): current evidence and within-study comparisons.
+- [Research figures](Results/Figures/README.md): architecture diagrams, study plots and graphical overview, indexed by figure number in SVG, PDF and PNG formats.
 - [Experiment registry](Results/Main/All_Run_Registry.md): every study and its recorded outputs.
 - [Modification guide](Results/Info.md): implementation locations, hypotheses and outcomes.
 - [Repository guide](Documentation/Repository_Guide.md): file conventions and evidence hierarchy.
@@ -33,7 +34,7 @@ study, not ranked across different training or evaluation settings.
 
 ```text
 Studies/        Model-specific source, protocols, tests and original run records
-Results/        Curated study summaries and machine-readable comparison tables
+Results/        Curated summaries, comparison tables and indexed research figures
 Documentation/ Repository guide, reproduction instructions and migration audit
 Tools/          Log-inspection utilities and repository validation
 LICENSE         Repository licence; upstream attribution is retained separately

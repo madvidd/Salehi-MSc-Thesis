@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="724.171360" viewBox="60 37.213040 1680 724.171360" data-compact-factor="0.86">
+  <rect x="60" y="37.213040" width="1680" height="724.171360" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP architectural ablation: metric comparison</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Validation minADE6 under matched architectural-ablation controls; lower is better</tspan>
+  </text>
+  <polyline points="125.000000,693.880000 1727.000000,693.880000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="700.724400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.72</tspan>
+  </text>
+  <polyline points="125.000000,589.820000 1727.000000,589.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="596.664400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.74</tspan>
+  </text>
+  <polyline points="125.000000,485.760000 1727.000000,485.760000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="492.604400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.75</tspan>
+  </text>
+  <polyline points="125.000000,381.700000 1727.000000,381.700000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="388.544400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.77</tspan>
+  </text>
+  <polyline points="125.000000,277.640000 1727.000000,277.640000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="284.484400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.78</tspan>
+  </text>
+  <polyline points="125.000000,173.580000 1727.000000,173.580000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="180.424400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.80</tspan>
+  </text>
+  <rect x="155.4" y="483.524000" width="99.3" height="210.356000" rx="4" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="205.1" y="468.875400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="205.1" dy="0.0">0.752</tspan>
+  </text>
+  <text x="205.1" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="205.1" dy="0.0">Baseline</tspan>
+  </text>
+  <rect x="315.6" y="464.002000" width="99.3" height="229.878000" rx="4" fill="#167c80" stroke="#167c80" stroke-width="3" />
+  <text x="365.3" y="449.353400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="365.3" dy="0.0">0.755</tspan>
+  </text>
+  <text x="365.3" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="365.3" dy="0.0">Confidence</tspan>
+    <tspan x="365.3" dy="24.4">gate</tspan>
+  </text>
+  <rect x="475.8" y="328.294000" width="99.3" height="365.586000" rx="4" fill="#a84a44" stroke="#a84a44" stroke-width="3" />
+  <text x="525.5" y="313.645400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="525.5" dy="0.0">0.776</tspan>
+  </text>
+  <text x="525.5" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="525.5" dy="0.0">Consistency</tspan>
+  </text>
+  <rect x="636.0" y="449.124000" width="99.3" height="244.756000" rx="4" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="685.7" y="434.475400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="685.7" dy="0.0">0.758</tspan>
+  </text>
+  <text x="685.7" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="685.7" dy="0.0">Learned</tspan>
+    <tspan x="685.7" dy="24.4">pool</tspan>
+  </text>
+  <rect x="796.2" y="499.004000" width="99.3" height="194.876000" rx="4" fill="#3f7d44" stroke="#3f7d44" stroke-width="3" />
+  <text x="845.9" y="484.355400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="845.9" dy="0.0">0.750</tspan>
+  </text>
+  <text x="845.9" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="845.9" dy="0.0">Uncertainty</tspan>
+  </text>
+  <rect x="956.4" y="500.896000" width="99.3" height="192.984000" rx="4" fill="#b58a2a" stroke="#b58a2a" stroke-width="3" />
+  <text x="1006.1" y="486.247400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1006.1" dy="0.0">0.750</tspan>
+  </text>
+  <text x="1006.1" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1006.1" dy="0.0">Geometry</tspan>
+  </text>
+  <rect x="1116.6" y="270.072000" width="99.3" height="423.808000" rx="4" fill="#a84a44" stroke="#a84a44" stroke-width="3" />
+  <text x="1166.3" y="255.423400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1166.3" dy="0.0">0.785</tspan>
+  </text>
+  <text x="1166.3" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1166.3" dy="0.0">Kinematic</tspan>
+  </text>
+  <rect x="1276.8" y="460.390000" width="99.3" height="233.490000" rx="4" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1326.5" y="445.741400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1326.5" dy="0.0">0.756</tspan>
+  </text>
+  <text x="1326.5" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1326.5" dy="0.0">Endpoint</tspan>
+  </text>
+  <rect x="1437.0" y="471.226000" width="99.3" height="222.654000" rx="4" fill="#167c80" stroke="#167c80" stroke-width="3" />
+  <text x="1486.7" y="456.577400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1486.7" dy="0.0">0.754</tspan>
+  </text>
+  <text x="1486.7" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1486.7" dy="0.0">Lane</tspan>
+  </text>
+  <rect x="1597.2" y="302.408000" width="99.3" height="391.472000" rx="4" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="1646.9" y="287.759400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1646.9" dy="0.0">0.780</tspan>
+  </text>
+  <text x="1646.9" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1646.9" dy="0.0">Full</tspan>
+    <tspan x="1646.9" dy="24.4">Mamba</tspan>
+  </text>
+  <text x="926.0" y="138.424400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="926.0" dy="0.0">minADE6 (m)</tspan>
+  </text>
+</svg>

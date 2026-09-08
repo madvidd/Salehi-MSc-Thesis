@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "collection": "Streaming motion forecasting research figures",
+  "scope": "23 numbered figures and the graphical abstract used in the current report",
+  "figure_count": 24,
+  "asset_count": 72,
+  "figures": [
+    {
+      "source_stem": "graphical_abstract",
+      "figure": "Graphical abstract",
+      "title": "Streaming motion forecasting: research contributions",
+      "group": "Overview",
+      "related_records": [
+        "Documentation/Repository_Guide.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Overview/graphical_abstract.svg",
+          "bytes": 13926,
+          "sha256": "2313db1fa809648648a937c6b8bb1dd5aa3d341adf21d9a3468bb3fd1f5be0c0"
+        },
+        "pdf": {
+          "path": "Overview/graphical_abstract.pdf",
+          "bytes": 4791,
+          "sha256": "9ded20f6540e18135a4c6616b605820ca1307936ca9497c3abafc1d78fc8650f"
+        },
+        "png": {
+          "path": "Overview/graphical_abstract.png",
+          "bytes": 195869,
+          "sha256": "01fd94956a7903a4a656f02b8621f1ca4b996828aba6c03c29632dcb513e23a3"
+        }
+      }
+    },
+    {
+      "source_stem": "forecasting_research_landscape",
+      "figure": "2.1",
+      "title": "Evolution of learned motion forecasting",
+      "group": "Foundations",
+      "related_records": [
+        "Documentation/Source_Attribution.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Foundations/forecasting_research_landscape.svg",
+          "bytes": 9202,
+          "sha256": "ca0c9c0f295ed87ad5ce8b9f2f1bbf4c4299aa92a582a9a1a1b46f7754b233a7"
+        },
+        "pdf": {
+          "path": "Foundations/forecasting_research_landscape.pdf",
+          "bytes": 4252,
+          "sha256": "bb0a7c8b4d6cbff0eb0c02e1fd4377fa7a1102934c58200feb8875cf71412a37"
+        },
+        "png": {
+          "path": "Foundations/forecasting_research_landscape.png",
+          "bytes": 132552,
+          "sha256": "05937f5b84030067b8c8acb1a9ae9ee75997ba651edb692329aa16e6d5815a78"
+        }
+      }
+    },
+    {
+      "source_stem": "attention_state_space_comparison",
+      "figure": "2.2",
+      "title": "Attention and state-space inductive biases",
+      "group": "Foundations",
+      "related_records": [
+        "Documentation/Source_Attribution.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Foundations/attention_state_space_comparison.svg",
+          "bytes": 13358,
+          "sha256": "177e65ae14d6c83c976cba90b7c9ab8ab25e8d69bf37ee29c29d6632316be6a0"
+        },
+        "pdf": {
+          "path": "Foundations/attention_state_space_comparison.pdf",
+          "bytes": 4911,
+          "sha256": "0a7c58f890ead5436d2839d62e13f95d785a78cc8d33ee036ad7ff0a2333c7dd"
+        },
+        "png": {
+          "path": "Foundations/attention_state_space_comparison.png",
+          "bytes": 130540,
+          "sha256": "ee8c49546b2b21082a5f32461e1d8eb13537e4e80fb4ade7d7881d782db0bc22"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_endpoint_aware_flow",
+      "figure": "2.3",
+      "title": "SEAM endpoint-aware streaming",
+      "group": "Architectures/SEAM",
+      "related_records": [
+        "Studies/SEAM/README.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Architectures/SEAM/endpoint_aware_streaming.svg",
+          "bytes": 10643,
+          "sha256": "b761db75fca7a5d45999214d8200aa09265d93c2b49c4054af4858ea1873a7fa"
+        },
+        "pdf": {
+          "path": "Architectures/SEAM/endpoint_aware_streaming.pdf",
+          "bytes": 4503,
+          "sha256": "5ecbc112a711012501fbef5db9ff12c2f4d4f794c08b8bfa12ec68c82a216f9d"
+        },
+        "png": {
+          "path": "Architectures/SEAM/endpoint_aware_streaming.png",
+          "bytes": 141364,
+          "sha256": "43544ea59b0dce91398b3a5fe7e7e4c9498509b1186fc700b185f112077a8498"
+        }
+      }
+    },
+    {
+      "source_stem": "experimental_programme",
+      "figure": "3.1",
+      "title": "Experimental programme",
+      "group": "Overview",
+      "related_records": [
+        "Documentation/Repository_Guide.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Overview/experimental_programme.svg",
+          "bytes": 9724,
+          "sha256": "2a583374ebbfd224b5ad4274f2e52ed4b911aef963cefc3ae6228731f663d0ed"
+        },
+        "pdf": {
+          "path": "Overview/experimental_programme.pdf",
+          "bytes": 4347,
+          "sha256": "3505d1343e2043a58440ab794eba8103cf8c7951678fe06e478643250e821142"
+        },
+        "png": {
+          "path": "Overview/experimental_programme.png",
+          "bytes": 112289,
+          "sha256": "4e04167ba522e2a316ae9d7e664b58bdf38c398bd80ef627605196db27428bd3"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_architecture_mamba_detailed",
+      "figure": "3.2",
+      "title": "SEAM architecture and Mamba placements",
+      "group": "Architectures/SEAM",
+      "related_records": [
+        "Studies/SEAM/README.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Architectures/SEAM/state_space_intervention_locations.svg",
+          "bytes": 14081,
+          "sha256": "0bebff93ef6debf251ae64e7a9fa1274d56cdfb6a2ff1a159b7efa7dc6cf60f2"
+        },
+        "pdf": {
+          "path": "Architectures/SEAM/state_space_intervention_locations.pdf",
+          "bytes": 5107,
+          "sha256": "6df6ed46f4dc6a1d0f48b3b85331a4eaab4204fe98d0bc9e776c8e9a3db85610"
+        },
+        "png": {
+          "path": "Architectures/SEAM/state_space_intervention_locations.png",
+          "bytes": 156195,
+          "sha256": "3cb740cecf7c982263f186f219ad29edc741d856e8c93cffa2efff071c877713"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_controlled_interventions_detailed",
+      "figure": "3.3",
+      "title": "SEAM context and attention interventions",
+      "group": "Architectures/SEAM",
+      "related_records": [
+        "Studies/SEAM/README.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Architectures/SEAM/context_attention_intervention_locations.svg",
+          "bytes": 14752,
+          "sha256": "ca94147c7aff9fdb19f29c680b007692cd00d8c4fd588e7fe41218dd6c2d1c5c"
+        },
+        "pdf": {
+          "path": "Architectures/SEAM/context_attention_intervention_locations.pdf",
+          "bytes": 5303,
+          "sha256": "7e92879ea9f2b48c20c886ee9997afbc95f47590a6084cbc327f44b0387a809f"
+        },
+        "png": {
+          "path": "Architectures/SEAM/context_attention_intervention_locations.png",
+          "bytes": 147421,
+          "sha256": "dcb63bf890227c4a41124e5acf7bb588ed0e6ef71f5c6a64e326a4dec213a802"
+        }
+      }
+    },
+    {
+      "source_stem": "sharp_architecture_detailed",
+      "figure": "3.4",
+      "title": "SHARP reference architecture",
+      "group": "Architectures/SHARP",
+      "related_records": [
+        "Studies/SHARP/README.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Architectures/SHARP/reference_architecture.svg",
+          "bytes": 15519,
+          "sha256": "709d4d9e66cb82f8c79b871418acd5bf9b0ebdcfd0ce4db7cfd2b03d4689272d"
+        },
+        "pdf": {
+          "path": "Architectures/SHARP/reference_architecture.pdf",
+          "bytes": 5611,
+          "sha256": "c3b4256fcb7bc16c72a2dc6b5bea7a36b9939fa874a3640ee7cc8036a0a46827"
+        },
+        "png": {
+          "path": "Architectures/SHARP/reference_architecture.png",
+          "bytes": 195940,
+          "sha256": "453674820db643610ffa10248bffaffba13866fd5b9923d36d1981c11ca247b9"
+        }
+      }
+    },
+    {
+      "source_stem": "sharp_modification_placements_detailed",
+      "figure": "3.5",
+      "title": "SHARP intervention locations",
+      "group": "Architectures/SHARP",
+      "related_records": [
+        "Studies/SHARP/README.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Architectures/SHARP/intervention_locations.svg",
+          "bytes": 14435,
+          "sha256": "d28e130a0abe6c15a1a52ba4b9ca2be23d6ca38be96b2db84ad6057dfcf66f54"
+        },
+        "pdf": {
+          "path": "Architectures/SHARP/intervention_locations.pdf",
+          "bytes": 5439,
+          "sha256": "ac7276b938889475b9afaaaf32dabf0d68015fa88bc2e719079a6bcb6c959a68"
+        },
+        "png": {
+          "path": "Architectures/SHARP/intervention_locations.png",
+          "bytes": 187642,
+          "sha256": "f4a27a698225f6e79b0070e68b1ed72beeea18a9aa34ecaf1a05f80fbb64ae44"
+        }
+      }
+    },
+    {
+      "source_stem": "experiment_integrity_pipeline",
+      "figure": "3.6",
+      "title": "Experiment and evidence pipeline",
+      "group": "Supporting_Evidence",
+      "related_records": [
+        "Documentation/Reproduction.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Supporting_Evidence/experiment_evidence_pipeline.svg",
+          "bytes": 5686,
+          "sha256": "b5a33fabbdf0aba50a31db2aea833db396fefaf2563080ddc39ec9a687572d28"
+        },
+        "pdf": {
+          "path": "Supporting_Evidence/experiment_evidence_pipeline.pdf",
+          "bytes": 3336,
+          "sha256": "5d724a47710de953cccf676a2b98c037e89163cf909e039ff2bd11dc7658f189"
+        },
+        "png": {
+          "path": "Supporting_Evidence/experiment_evidence_pipeline.png",
+          "bytes": 94658,
+          "sha256": "51be99b3fdd4466bbcef68ecf735f0a77391d5d54f3fee3330c701cba3d60af1"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_mamba_minade6",
+      "figure": "4.1",
+      "title": "SEAM state-space integration: minADE6",
+      "group": "Studies/SEAM/State_Space_Integration",
+      "related_records": [
+        "Studies/SEAM/State_Space_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SEAM/State_Space_Integration/selected_minade6.svg",
+          "bytes": 4831,
+          "sha256": "13a6d18b0b56ee8c7a2b4e268eef31f8814dc011eca4828855bd6254fdc7de5c"
+        },
+        "pdf": {
+          "path": "Studies/SEAM/State_Space_Integration/selected_minade6.pdf",
+          "bytes": 2607,
+          "sha256": "19f52d4edb4c5864cc39ba61487d2fac551c30f33432dd17c68ecb92b3a3c5b9"
+        },
+        "png": {
+          "path": "Studies/SEAM/State_Space_Integration/selected_minade6.png",
+          "bytes": 50982,
+          "sha256": "8b4eadcba16b32ef9a3f72da0be950fc8802a0eb30e15c6dd5a07cc8dfbfa16b"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_mamba_runtime",
+      "figure": "4.2",
+      "title": "SEAM state-space integration: training time",
+      "group": "Studies/SEAM/State_Space_Integration",
+      "related_records": [
+        "Studies/SEAM/State_Space_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SEAM/State_Space_Integration/training_time.svg",
+          "bytes": 4815,
+          "sha256": "0b09b88ff4cb85ea9e9cff1adc6b42e6f3f10212e69a09f7788dd07ca2335c9b"
+        },
+        "pdf": {
+          "path": "Studies/SEAM/State_Space_Integration/training_time.pdf",
+          "bytes": 2597,
+          "sha256": "56270566f1cc7b96a506a7613a568e935ffff7c22bc2d2ec5b229b538b264187"
+        },
+        "png": {
+          "path": "Studies/SEAM/State_Space_Integration/training_time.png",
+          "bytes": 49335,
+          "sha256": "d75b10d61bea1ef2b309274830465ff850026a8ac7eed8687ecf855e63d3f60d"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_20epoch_minade6",
+      "figure": "4.3",
+      "title": "SEAM context and attention ablation: minADE6",
+      "group": "Studies/SEAM/Context_Attention_Ablation",
+      "related_records": [
+        "Studies/SEAM/Context_Attention_Ablation/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/selected_minade6.svg",
+          "bytes": 5354,
+          "sha256": "20ae978b01cec62f41722dae7fb2987a00239eb720bd8b081e48fcc622aef90a"
+        },
+        "pdf": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/selected_minade6.pdf",
+          "bytes": 2766,
+          "sha256": "8d74daec4d3cf95e3f0e415534dfd92954e57d285d95e5d3db86f253e232fbbb"
+        },
+        "png": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/selected_minade6.png",
+          "bytes": 50833,
+          "sha256": "a79f3eff859263acb2fccedbfa05a7bcc49cadf5206a282174d698940999fc16"
+        }
+      }
+    },
+    {
+      "source_stem": "seam_20epoch_runtime",
+      "figure": "4.4",
+      "title": "SEAM context and attention ablation: training time",
+      "group": "Studies/SEAM/Context_Attention_Ablation",
+      "related_records": [
+        "Studies/SEAM/Context_Attention_Ablation/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/training_time.svg",
+          "bytes": 5370,
+          "sha256": "19f1bf7c3584465a3a54b28fbf4c55d6a6cd4494cfdf1c699f99b3564ac4ede6"
+        },
+        "pdf": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/training_time.pdf",
+          "bytes": 2761,
+          "sha256": "cc24c6644e811723e4643e44b2b7e92b7fbc9468b96a8c18035596e4b9b2a0a8"
+        },
+        "png": {
+          "path": "Studies/SEAM/Context_Attention_Ablation/training_time.png",
+          "bytes": 50060,
+          "sha256": "fcd9d0747933321a2520da1df87f870f5e3ea23b2ac377e0094c0ff3632ce62c"
+        }
+      }
+    },
+    {
+      "source_stem": "screening_minade6",
+      "figure": "4.5",
+      "title": "SHARP architectural ablation: minADE6",
+      "group": "Studies/SHARP/Architecture_Ablation",
+      "related_records": [
+        "Studies/SHARP/Architecture_Ablation/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Architecture_Ablation/selected_minade6.svg",
+          "bytes": 8710,
+          "sha256": "5371c1ba239a414cce93dc4c79e13126e306725b21f614d94cad1922ced14916"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Architecture_Ablation/selected_minade6.pdf",
+          "bytes": 3774,
+          "sha256": "1854e8589e7a681260e0a837e978268652a50e36697891fb8310e2f1c25371df"
+        },
+        "png": {
+          "path": "Studies/SHARP/Architecture_Ablation/selected_minade6.png",
+          "bytes": 70090,
+          "sha256": "b9313e5fd77df0d72cf8f09745e51f9989c23b2818787130329c29bbf425fff2"
+        }
+      }
+    },
+    {
+      "source_stem": "screening_runtime",
+      "figure": "4.6",
+      "title": "SHARP architectural ablation: training time",
+      "group": "Studies/SHARP/Architecture_Ablation",
+      "related_records": [
+        "Studies/SHARP/Architecture_Ablation/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Architecture_Ablation/training_time.svg",
+          "bytes": 8661,
+          "sha256": "ff01b743c9b12da4915ba31bc49ec445ed610659618bcb44509aaa43b5b98e3b"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Architecture_Ablation/training_time.pdf",
+          "bytes": 3671,
+          "sha256": "55006d77199320db7f7439665089035970f1ecc4e35651240b7f8a365b19676a"
+        },
+        "png": {
+          "path": "Studies/SHARP/Architecture_Ablation/training_time.png",
+          "bytes": 86603,
+          "sha256": "988a557e7350fc2dff0434fd71f688c9a97bd1b914e09bd761c04ceba888f58a"
+        }
+      }
+    },
+    {
+      "source_stem": "attention_operator_minade6",
+      "figure": "4.7",
+      "title": "SHARP attention operators: minADE6",
+      "group": "Studies/SHARP/Attention_Operators",
+      "related_records": [
+        "Studies/SHARP/Attention_Operators/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Attention_Operators/selected_minade6.svg",
+          "bytes": 5493,
+          "sha256": "098e777409ddbbc9cb638f10ce44fb4182c831bf442ce9620cdf031c454710ad"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Attention_Operators/selected_minade6.pdf",
+          "bytes": 2864,
+          "sha256": "1dd727d771e4220dcf3e233da7e799c4408f8cdb025b8500bb69a82a02aef0e6"
+        },
+        "png": {
+          "path": "Studies/SHARP/Attention_Operators/selected_minade6.png",
+          "bytes": 58759,
+          "sha256": "075a31e93b5b949781e6d66a22f7b4e3b1d10a93ae7ab8d1ef201bfb6ec3c9d5"
+        }
+      }
+    },
+    {
+      "source_stem": "attention_operator_runtime",
+      "figure": "4.8",
+      "title": "SHARP attention operators: training time",
+      "group": "Studies/SHARP/Attention_Operators",
+      "related_records": [
+        "Studies/SHARP/Attention_Operators/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Attention_Operators/training_time.svg",
+          "bytes": 5357,
+          "sha256": "ba3effffe19f2cde490f07a96409a7b0981e3750d306724319040c755279730f"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Attention_Operators/training_time.pdf",
+          "bytes": 2755,
+          "sha256": "659a858604cf54b2211077462b2b5cf850d7334ec76e22592a323ab4ce7b71fb"
+        },
+        "png": {
+          "path": "Studies/SHARP/Attention_Operators/training_time.png",
+          "bytes": 53333,
+          "sha256": "52fb832bb2861539a10cf4c383e2153b1929aac6fa0bdc9435bca67338b4d06c"
+        }
+      }
+    },
+    {
+      "source_stem": "mamba_placement_results",
+      "figure": "4.9",
+      "title": "SHARP state-space placement: minADE6",
+      "group": "Studies/SHARP/State_Space_Placement",
+      "related_records": [
+        "Studies/SHARP/State_Space_Integration/Summary.md",
+        "Studies/SHARP/Architecture_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/State_Space_Placement/selected_minade6.svg",
+          "bytes": 4888,
+          "sha256": "0390b2519f2cc843812930c5788ebdff227567a13a64f0521a839e636b4ffffa"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/State_Space_Placement/selected_minade6.pdf",
+          "bytes": 2621,
+          "sha256": "0541c7d44bc7fbc3fe37314be315f535920b705bb9581dcd41cf4755a4a43428"
+        },
+        "png": {
+          "path": "Studies/SHARP/State_Space_Placement/selected_minade6.png",
+          "bytes": 50209,
+          "sha256": "64a3799e49e78c34939232e2533746eb4c2d82f708eee092db06ec5f45069728"
+        }
+      }
+    },
+    {
+      "source_stem": "training_time_context",
+      "figure": "4.10",
+      "title": "SHARP state-space placement: training time",
+      "group": "Studies/SHARP/State_Space_Placement",
+      "related_records": [
+        "Studies/SHARP/State_Space_Integration/Summary.md",
+        "Studies/SHARP/Architecture_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/State_Space_Placement/training_time.svg",
+          "bytes": 4867,
+          "sha256": "a1625b58f865279f5a50626c137163576b51d13a5656ff7392e5e065e43578a9"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/State_Space_Placement/training_time.pdf",
+          "bytes": 2617,
+          "sha256": "bd81f68d05b76f3dfd573b0e751fa780d3d32a6fa364fe82e4e8b22ad115bc98"
+        },
+        "png": {
+          "path": "Studies/SHARP/State_Space_Placement/training_time.png",
+          "bytes": 52376,
+          "sha256": "fd5b6a3fd560aa06dae597fd0f2cc17860067db26d929b441140633a493e2b38"
+        }
+      }
+    },
+    {
+      "source_stem": "final_sharp_minade6",
+      "figure": "4.11",
+      "title": "SHARP mechanism composition: minADE6",
+      "group": "Studies/SHARP/Mechanism_Composition",
+      "related_records": [
+        "Studies/SHARP/Architecture_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Mechanism_Composition/selected_minade6.svg",
+          "bytes": 4304,
+          "sha256": "b5c48ea5a5fc7dd980e9e1781aa5244547f80195ff5b6e1152046819d2afdb9f"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Mechanism_Composition/selected_minade6.pdf",
+          "bytes": 2471,
+          "sha256": "1b0504ff34d3e53f1ee1a611f645b656b3ed57bba3c7887521bbabcee1ee80df"
+        },
+        "png": {
+          "path": "Studies/SHARP/Mechanism_Composition/selected_minade6.png",
+          "bytes": 43712,
+          "sha256": "60979606407ff54262ba55fc56fea580be593c9762af4ce82e9b3915d154c47c"
+        }
+      }
+    },
+    {
+      "source_stem": "final_sharp_mr",
+      "figure": "4.12",
+      "title": "SHARP mechanism composition: miss rate",
+      "group": "Studies/SHARP/Mechanism_Composition",
+      "related_records": [
+        "Studies/SHARP/Architecture_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Mechanism_Composition/miss_rate.svg",
+          "bytes": 4307,
+          "sha256": "c3eeae33e772b25a05f4b66bb10d7f81a315eb6d5b360b4f7a70fe82a6d4e227"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Mechanism_Composition/miss_rate.pdf",
+          "bytes": 2465,
+          "sha256": "b496415f21b84a32cb77331364147b7884726acdc41770426c3b6b3c826b2695"
+        },
+        "png": {
+          "path": "Studies/SHARP/Mechanism_Composition/miss_rate.png",
+          "bytes": 40922,
+          "sha256": "7f7eeba81566610e45676825a7a9b08da3ae54afc37d5943cebca6690339ce1c"
+        }
+      }
+    },
+    {
+      "source_stem": "final_sharp_runtime",
+      "figure": "4.13",
+      "title": "SHARP mechanism composition: training time",
+      "group": "Studies/SHARP/Mechanism_Composition",
+      "related_records": [
+        "Studies/SHARP/Architecture_Integration/Summary.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Studies/SHARP/Mechanism_Composition/training_time.svg",
+          "bytes": 4255,
+          "sha256": "019eb1e44e0510192cb94da062e58bddc73b5ef23a6359a7b40132893011f3bc"
+        },
+        "pdf": {
+          "path": "Studies/SHARP/Mechanism_Composition/training_time.pdf",
+          "bytes": 2427,
+          "sha256": "d9c9851f7ab12ffe41193bb30e88fae40d4629e56ea31e4ecaf2fc75586d68c5"
+        },
+        "png": {
+          "path": "Studies/SHARP/Mechanism_Composition/training_time.png",
+          "bytes": 40274,
+          "sha256": "ed933f3df338585bc3599a7c576065073716122bf2bd0e831867848867e28130"
+        }
+      }
+    },
+    {
+      "source_stem": "reproducibility_evidence_chain",
+      "figure": "A.1",
+      "title": "Research evidence traceability",
+      "group": "Supporting_Evidence",
+      "related_records": [
+        "Documentation/Reproduction.md"
+      ],
+      "files": {
+        "svg": {
+          "path": "Supporting_Evidence/research_evidence_traceability.svg",
+          "bytes": 6645,
+          "sha256": "772cfb435cc12f663699bf1cfdaf8caca6f5d75a0c68b4a5ce3a971349e8f6a8"
+        },
+        "pdf": {
+          "path": "Supporting_Evidence/research_evidence_traceability.pdf",
+          "bytes": 3526,
+          "sha256": "ba29c356710cee0a5a1988588dfdc3b5d6ec3819cb38ba7f4d395d681783c775"
+        },
+        "png": {
+          "path": "Supporting_Evidence/research_evidence_traceability.png",
+          "bytes": 99159,
+          "sha256": "040de7fa0cd40eb4ff6f2172761fcea8347800deac3b1c4f75cbd06cd000a33f"
+        }
+      }
+    }
+  ]
+}

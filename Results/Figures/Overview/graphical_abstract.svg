@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -7.410000 840 1112.830000" width="840.000pt" height="1112.830000pt" role="img" aria-label="Dissertation contribution map: SEAM followed by SHARP" data-compact-factor="0.99">
+  <rect id="page" x="0" y="-7.410000" width="840" height="1112.830000" rx="0" fill="#ffffff" stroke="none" stroke-width="0.8" />
+  <text x="420.0" y="24.380000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-role="heading">
+    <tspan x="420.0" dy="0">Graphical abstract: streaming motion forecasting</tspan>
+    <tspan x="420.0" dy="26.0">Argoverse 2; original streaming architecture preserved</tspan>
+  </text>
+  <rect id="seam" x="1" y="88.110000" width="838" height="45.540000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="420.0" y="115.590000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="seam">
+    <tspan x="420.0" dy="0">SEAM: endpoint-aware context and future prediction</tspan>
+  </text>
+  <polyline points="420.000000,133.650000 420.000000,146.520000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="200.000000,146.520000 640.000000,146.520000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="200.000000,146.520000 200.000000,159.390000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="200.000000,159.390000 197.825172,154.932787 202.174828,154.932787" fill="#167c80" />
+  <polyline points="640.000000,146.520000 640.000000,159.390000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="640.000000,159.390000 637.825172,154.932787 642.174828,154.932787" fill="#167c80" />
+  <rect id="seam-ssm" x="1" y="159.390000" width="398" height="47.520000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="200.0" y="187.860000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="seam-ssm">
+    <tspan x="200.0" dy="0">State-space integration</tspan>
+  </text>
+  <rect id="seam-context" x="441" y="159.390000" width="398" height="47.520000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="640.0" y="187.860000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="seam-context">
+    <tspan x="640.0" dy="0">Context and attention ablation</tspan>
+  </text>
+  <polyline points="200.000000,206.910000 200.000000,220.275000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="95.000000,220.275000 305.000000,220.275000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="95.000000,220.275000 95.000000,233.640000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="95.000000,233.640000 92.825172,229.182787 97.174828,229.182787" fill="#167c80" />
+  <polyline points="305.000000,220.275000 305.000000,233.640000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="305.000000,233.640000 302.825172,229.182787 307.174828,229.182787" fill="#167c80" />
+  <rect id="history" x="1" y="233.640000" width="188" height="130.680000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="95.0" y="277.640000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="history">
+    <tspan x="95.0" dy="0">History Mamba</tspan>
+    <tspan x="95.0" dy="26.0">Residual addition</tspan>
+    <tspan x="95.0" dy="26.0">No minADE6 gain</tspan>
+  </text>
+  <rect id="head" x="211" y="233.640000" width="188" height="130.680000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="305.0" y="277.690000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="head">
+    <tspan x="305.0" dy="0">Mamba replaces</tspan>
+    <tspan x="305.0" dy="26.0">future head</tspan>
+    <tspan x="305.0" dy="26.0">minADE6 -2.17%</tspan>
+  </text>
+  <polyline points="305.000000,364.320000 305.000000,393.030000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="305.000000,393.030000 302.825172,388.572787 307.174828,388.572787" fill="#167c80" />
+  <rect id="head-insight" x="1" y="393.030000" width="398" height="61.380000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="200.0" y="415.380000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="head-insight">
+    <tspan x="200.0" dy="0">Future-head Mamba improves</tspan>
+    <tspan x="200.0" dy="26.0">all six evaluation metrics</tspan>
+  </text>
+  <polyline points="441.000000,183.150000 424.000000,183.150000 424.000000,261.360000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="424.000000,261.360000 441.000000,261.360000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="441.000000,261.360000 436.497764,263.513079 436.497764,259.206921" fill="#167c80" />
+  <rect id="seam-uncertainty" x="441" y="226.710000" width="398" height="69.300000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="640.0" y="253.020000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="seam-uncertainty">
+    <tspan x="640.0" dy="0">Uncertainty: adaptive target context</tspan>
+    <tspan x="640.0" dy="26.0">minADE6 -2.60%</tspan>
+  </text>
+  <polyline points="441.000000,183.150000 424.000000,183.150000 424.000000,340.560000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="424.000000,340.560000 441.000000,340.560000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="441.000000,340.560000 436.497764,342.713079 436.497764,338.406921" fill="#167c80" />
+  <rect id="seam-geometry" x="441" y="305.910000" width="398" height="69.300000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="640.0" y="332.220000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="seam-geometry">
+    <tspan x="640.0" dy="0">Geometry: relative scene relations</tspan>
+    <tspan x="640.0" dy="26.0">minADE6 -1.43%</tspan>
+  </text>
+  <polyline points="441.000000,183.150000 424.000000,183.150000 424.000000,419.760000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polyline points="424.000000,419.760000 441.000000,419.760000" fill="none" stroke="#167c80" stroke-width="0.8" />
+  <polygon points="441.000000,419.760000 436.497764,421.913079 436.497764,417.606921" fill="#167c80" />
+  <rect id="seam-qknorm" x="441" y="385.110000" width="398" height="69.300000" rx="0" fill="#ffffff" stroke="#167c80" stroke-width="0.8" />
+  <text x="640.0" y="411.420000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="seam-qknorm">
+    <tspan x="640.0" dy="0">QKNorm: normalised query-key scores</tspan>
+    <tspan x="640.0" dy="26.0">minADE6 -3.27%</tspan>
+  </text>
+  <rect id="sharp" x="1" y="479.210000" width="838" height="45.540000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="420.0" y="506.690000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="sharp">
+    <tspan x="420.0" dy="0">SHARP: short-window encoding and instance-aware memory</tspan>
+  </text>
+  <polyline points="420.000000,524.750000 420.000000,539.105000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polyline points="132.000000,539.105000 708.000000,539.105000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polyline points="132.000000,539.105000 132.000000,553.460000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="132.000000,553.460000 129.825172,549.002787 134.174828,549.002787" fill="#3b6ea8" />
+  <polyline points="420.000000,539.105000 420.000000,553.460000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="420.000000,553.460000 417.825172,549.002787 422.174828,549.002787" fill="#3b6ea8" />
+  <polyline points="708.000000,539.105000 708.000000,553.460000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="708.000000,553.460000 705.825172,549.002787 710.174828,549.002787" fill="#3b6ea8" />
+  <rect id="sharp-ablation" x="1" y="553.460000" width="262" height="47.520000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="132.0" y="581.930000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="sharp-ablation">
+    <tspan x="132.0" dy="0">Architectural ablation</tspan>
+  </text>
+  <polyline points="132.000000,600.980000 132.000000,626.720000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="132.000000,626.720000 129.825172,622.262787 134.174828,622.262787" fill="#3b6ea8" />
+  <rect id="sharp-attention" x="289" y="553.460000" width="262" height="47.520000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="420.0" y="581.930000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="sharp-attention">
+    <tspan x="420.0" dy="0">Attention operators</tspan>
+  </text>
+  <polyline points="420.000000,600.980000 420.000000,626.720000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="420.000000,626.720000 417.825172,622.262787 422.174828,622.262787" fill="#3b6ea8" />
+  <rect id="sharp-integration" x="577" y="553.460000" width="262" height="47.520000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="708.0" y="581.930000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="sharp-integration">
+    <tspan x="708.0" dy="0">Architecture integration</tspan>
+  </text>
+  <polyline points="708.000000,600.980000 708.000000,626.720000" fill="none" stroke="#3b6ea8" stroke-width="0.8" />
+  <polygon points="708.000000,626.720000 705.825172,622.262787 710.174828,622.262787" fill="#3b6ea8" />
+  <rect id="screen-results" x="1" y="626.720000" width="262" height="297.000000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="132.0" y="701.880000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="screen-results">
+    <tspan x="132.0" dy="0">Nine isolated changes</tspan>
+    <tspan x="132.0" dy="26.0">Geometry: -0.35%</tspan>
+    <tspan x="132.0" dy="26.0">Uncertainty: -0.32%</tspan>
+    <tspan x="132.0" dy="26.0">in minADE6</tspan>
+    <tspan x="132.0" dy="26.0" />
+    <tspan x="132.0" dy="26.0">Other tested changes:</tspan>
+    <tspan x="132.0" dy="26.0">no minADE6 gain</tspan>
+  </text>
+  <rect id="attention-results" x="289" y="626.720000" width="262" height="297.000000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="420.0" y="714.880000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="attention-results">
+    <tspan x="420.0" dy="0">QKNorm: -0.55%</tspan>
+    <tspan x="420.0" dy="26.0">in minADE6</tspan>
+    <tspan x="420.0" dy="26.0" />
+    <tspan x="420.0" dy="26.0">Talking-Heads and</tspan>
+    <tspan x="420.0" dy="26.0">QKNorm + Talking-Heads:</tspan>
+    <tspan x="420.0" dy="26.0">no minADE6 gain</tspan>
+  </text>
+  <rect id="placement" x="577" y="626.720000" width="262" height="130.680000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="708.0" y="657.720000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="placement">
+    <tspan x="708.0" dy="0">Residual Mamba placement</tspan>
+    <tspan x="708.0" dy="26.0">Scene: +0.16%</tspan>
+    <tspan x="708.0" dy="26.0">Agent: -0.82%</tspan>
+    <tspan x="708.0" dy="26.0">in minADE6</tspan>
+  </text>
+  <rect id="composition" x="577" y="783.140000" width="262" height="140.580000" rx="0" fill="#ffffff" stroke="#3b6ea8" stroke-width="0.8" />
+  <text x="708.0" y="819.090000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="composition">
+    <tspan x="708.0" dy="0">QKNorm + uncertainty</tspan>
+    <tspan x="708.0" dy="26.0">+ geometry</tspan>
+    <tspan x="708.0" dy="26.0">minADE6 +0.19%</tspan>
+    <tspan x="708.0" dy="26.0">Miss rate -0.28%</tspan>
+  </text>
+  <rect id="shared" x="1" y="948.520000" width="838" height="67.320000" rx="0" fill="#ffffff" stroke="#a5adb4" stroke-width="0.8" />
+  <text x="420.0" y="973.890000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1f2933" data-box="shared">
+    <tspan x="420.0" dy="0">Shared contributions</tspan>
+    <tspan x="420.0" dy="26.0">Mechanism placement, matched ablations and reusable research evidence</tspan>
+  </text>
+  <rect id="metric-key" x="1" y="1037.620000" width="838" height="59.400000" rx="0" fill="#ffffff" stroke="#a5adb4" stroke-width="0.8" />
+  <text x="420.0" y="1058.980000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1f2933" data-box="metric-key">
+    <tspan x="420.0" dy="0">Changes use each study's own baseline; lower is better.</tspan>
+    <tspan x="420.0" dy="26.0">minADE6: minimum average path error over six predicted futures.</tspan>
+  </text>
+</svg>

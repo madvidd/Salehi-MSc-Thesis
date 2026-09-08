@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1716" height="538.211360" viewBox="42 37.213040 1716 538.211360" data-compact-factor="0.86">
+  <rect x="42" y="37.213040" width="1716" height="538.211360" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Experiment integrity and artefact pipeline</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Pinned source, verified configuration, retained checkpoints and common evaluation preserve comparability</tspan>
+  </text>
+  <rect x="55.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="175.0" y="192.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="175.0" dy="0.0">Pin source and</tspan>
+    <tspan x="175.0" dy="24.4">record hashes</tspan>
+  </text>
+  <polyline points="295.000000,199.224400 327.000000,199.224400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="327.000000,199.224400 313.100000,206.104400 313.100000,192.344400" fill="#718096" />
+  <rect x="345.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="465.0" y="192.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="465.0" dy="0.0">Audit configuration</tspan>
+    <tspan x="465.0" dy="24.4">and optimiser groups</tspan>
+  </text>
+  <polyline points="585.000000,199.224400 617.000000,199.224400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="617.000000,199.224400 603.100000,206.104400 603.100000,192.344400" fill="#718096" />
+  <rect x="635.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="755.0" y="192.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="755.0" dy="0.0">Run real-data CUDA</tspan>
+    <tspan x="755.0" dy="24.4">and DDP preflight</tspan>
+  </text>
+  <polyline points="875.000000,199.224400 907.000000,199.224400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="907.000000,199.224400 893.100000,206.104400 893.100000,192.344400" fill="#718096" />
+  <rect x="925.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="1045.0" y="192.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1045.0" dy="0.0">Train with per-epoch</tspan>
+    <tspan x="1045.0" dy="24.4">last checkpoint</tspan>
+  </text>
+  <polyline points="1165.000000,199.224400 1197.000000,199.224400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1197.000000,199.224400 1183.100000,206.104400 1183.100000,192.344400" fill="#718096" />
+  <rect x="1215.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1335.0" y="192.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1335.0" dy="0.0">Validate best minADE6</tspan>
+    <tspan x="1335.0" dy="24.4">checkpoint</tspan>
+  </text>
+  <polyline points="1455.000000,199.224400 1487.000000,199.224400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1487.000000,199.224400 1473.100000,206.104400 1473.100000,192.344400" fill="#718096" />
+  <rect x="1505.0" y="133.004400" width="240.0" height="133.300000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="1625.0" y="179.964400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1625.0" dy="0.0">Publish compact</tspan>
+    <tspan x="1625.0" dy="24.4">evidence and retain</tspan>
+    <tspan x="1625.0" dy="24.4">large files locally</tspan>
+  </text>
+  <rect x="290.0" y="395.304400" width="1220.0" height="129.000000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="900.0" y="452.314400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Traceability record</tspan>
+    <tspan x="900.0" dy="24.4">source revision  -&gt;  resolved configuration  -&gt;  selected checkpoint  -&gt;  common evaluation  -&gt;  repository artefact</tspan>
+  </text>
+  <polyline points="900.000000,266.304400 900.000000,378.104400" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="900.000000,378.104400 892.000000,366.150400 908.000000,366.150400" fill="#3b6ea8" />
+  <text x="900.0" y="563.324400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">A result is admitted only when every element of this chain is retained</tspan>
+  </text>
+</svg>

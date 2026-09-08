@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1734" height="758.439960" viewBox="33 37.213040 1734 758.439960" data-compact-factor="0.86">
+  <rect x="33" y="37.213040" width="1734" height="758.439960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP architecture and streaming dataflow</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">One-second agent windows are encoded locally; identity-aware context and trajectory state connect prediction origins</tspan>
+  </text>
+  <text x="55.0" y="145.024400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Current observation window</tspan>
+  </text>
+  <rect x="45.0" y="164.833000" width="190.0" height="82.560000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="140.0" y="198.623000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="140.0" dy="0.0">Agent history</tspan>
+    <tspan x="140.0" dy="24.4">N_a x 10 x F</tspan>
+  </text>
+  <rect x="270.0" y="164.833000" width="170.0" height="82.560000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="355.0" y="198.573000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="355.0" dy="0.0">Input projection</tspan>
+    <tspan x="355.0" dy="24.4">F -&gt; D=128</tspan>
+  </text>
+  <rect x="475.0" y="164.833000" width="180.0" height="82.560000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="565.0" y="198.623000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="565.0" dy="0.0">Temporal MHA</tspan>
+    <tspan x="565.0" dy="24.4">4 blocks, 8 heads</tspan>
+  </text>
+  <rect x="690.0" y="164.833000" width="145.0" height="82.560000" rx="10" fill="#ffffff" stroke="#718096" stroke-width="3" />
+  <text x="762.5" y="198.573000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="762.5" dy="0.0">Masked max</tspan>
+    <tspan x="762.5" dy="24.4">over time</tspan>
+  </text>
+  <polyline points="235.000000,206.113000 252.000000,206.113000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="252.000000,206.113000 238.100000,212.993000 238.100000,199.233000" fill="#3b6ea8" />
+  <polyline points="440.000000,206.113000 457.000000,206.113000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="457.000000,206.113000 443.100000,212.993000 443.100000,199.233000" fill="#3b6ea8" />
+  <polyline points="655.000000,206.113000 672.000000,206.113000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="672.000000,206.113000 658.100000,212.993000 658.100000,199.233000" fill="#3b6ea8" />
+  <rect x="45.0" y="293.833000" width="190.0" height="82.560000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="140.0" y="327.623000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="140.0" dy="0.0">Lane polylines</tspan>
+    <tspan x="140.0" dy="24.4">N_l x P x F_l</tspan>
+  </text>
+  <rect x="270.0" y="293.833000" width="170.0" height="82.560000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="355.0" y="327.573000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="355.0" dy="0.0">Lane encoder</tspan>
+    <tspan x="355.0" dy="24.4">geometry + type</tspan>
+  </text>
+  <polyline points="235.000000,335.113000 252.000000,335.113000" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="252.000000,335.113000 238.100000,341.993000 238.100000,328.233000" fill="#c87533" />
+  <rect x="885.0" y="220.733000" width="185.0" height="98.900000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="977.5" y="250.493000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="977.5" dy="0.0">Concatenate</tspan>
+    <tspan x="977.5" dy="24.4">agent + lane tokens</tspan>
+    <tspan x="977.5" dy="24.4">(N_a+N_l) x D</tspan>
+  </text>
+  <polyline points="835.000000,206.113000 860.000000,206.113000 860.000000,255.133000 885.000000,255.133000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="860.000000,255.133000 885.000000,255.133000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="885.000000,255.133000 871.100000,262.013000 871.100000,248.253000" fill="#3b6ea8" />
+  <polyline points="440.000000,335.113000 860.000000,335.113000 860.000000,287.813000 885.000000,287.813000" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="860.000000,287.813000 885.000000,287.813000" fill="none" stroke="#c87533" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="885.000000,287.813000 871.100000,294.693000 871.100000,280.933000" fill="#c87533" />
+  <rect x="1110.0" y="220.733000" width="180.0" height="98.900000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="1200.0" y="250.493000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1200.0" dy="0.0">Scene MHA</tspan>
+    <tspan x="1200.0" dy="24.4">4 blocks</tspan>
+    <tspan x="1200.0" dy="24.4">all entity pairs</tspan>
+  </text>
+  <rect x="1330.0" y="220.733000" width="185.0" height="98.900000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1422.5" y="250.493000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1422.5" dy="0.0">Instance memory</tspan>
+    <tspan x="1422.5" dy="24.4">2 attention blocks</tspan>
+    <tspan x="1422.5" dy="24.4">identity matched</tspan>
+  </text>
+  <rect x="1555.0" y="220.733000" width="195.0" height="98.900000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1652.5" y="250.493000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1652.5" dy="0.0">Current scene</tspan>
+    <tspan x="1652.5" dy="24.4">context and</tspan>
+    <tspan x="1652.5" dy="24.4">streamed features</tspan>
+  </text>
+  <polyline points="1070.000000,270.613000 1092.000000,270.613000" fill="none" stroke="#167c80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1092.000000,270.613000 1078.100000,277.493000 1078.100000,263.733000" fill="#167c80" />
+  <polyline points="1290.000000,270.613000 1312.000000,270.613000" fill="none" stroke="#167c80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1312.000000,270.613000 1298.100000,277.493000 1298.100000,263.733000" fill="#167c80" />
+  <polyline points="1515.000000,270.613000 1537.000000,270.613000" fill="none" stroke="#3f7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1537.000000,270.613000 1523.100000,277.493000 1523.100000,263.733000" fill="#3f7d44" />
+  <text x="55.0" y="455.484400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Mode-conditioned prediction</tspan>
+  </text>
+  <rect x="45.0" y="483.033000" width="205.0" height="90.300000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="147.5" y="520.693000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="147.5" dy="0.0">Previous endpoints</tspan>
+    <tspan x="147.5" dy="24.4">and K=6 mode states</tspan>
+  </text>
+  <rect x="290.0" y="483.033000" width="190.0" height="90.300000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="385.0" y="508.443000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="385.0" dy="0.0">Endpoint-centred</tspan>
+    <tspan x="385.0" dy="24.4">scene retrieval</tspan>
+    <tspan x="385.0" dy="24.4">radius r</tspan>
+  </text>
+  <rect x="520.0" y="483.033000" width="180.0" height="90.300000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="610.0" y="508.493000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="610.0" dy="0.0">Target MHA</tspan>
+    <tspan x="610.0" dy="24.4">2 blocks per</tspan>
+    <tspan x="610.0" dy="24.4">mode context</tspan>
+  </text>
+  <rect x="740.0" y="483.033000" width="165.0" height="90.300000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="822.5" y="520.643000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="822.5" dy="0.0">Mode queries</tspan>
+    <tspan x="822.5" dy="24.4">K x D</tspan>
+  </text>
+  <rect x="950.0" y="452.933000" width="225.0" height="150.500000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1062.5" y="496.293000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1062.5" dy="0.0">Dual-context decoder</tspan>
+    <tspan x="1062.5" dy="24.4">3 scene cross-attn</tspan>
+    <tspan x="1062.5" dy="24.4">+ 3 target cross-attn</tspan>
+    <tspan x="1062.5" dy="24.4">+ feed-forward heads</tspan>
+  </text>
+  <rect x="1220.0" y="483.033000" width="200.0" height="90.300000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1320.0" y="520.693000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1320.0" dy="0.0">Six trajectories</tspan>
+    <tspan x="1320.0" dy="24.4">+ confidence logits</tspan>
+  </text>
+  <rect x="1480.0" y="457.233000" width="270.0" height="141.900000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1615.0" y="496.293000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1615.0" dy="0.0">Streaming state for t+1</tspan>
+    <tspan x="1615.0" dy="24.4">instance features (x2)</tspan>
+    <tspan x="1615.0" dy="24.4">trajectory relay (x2)</tspan>
+    <tspan x="1615.0" dy="24.4">endpoints and mode features</tspan>
+  </text>
+  <polyline points="250.000000,528.613000 272.000000,528.613000" fill="none" stroke="#b58a2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="272.000000,528.613000 258.100000,535.493000 258.100000,521.733000" fill="#b58a2a" />
+  <polyline points="480.000000,528.613000 502.000000,528.613000" fill="none" stroke="#b58a2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="502.000000,528.613000 488.100000,535.493000 488.100000,521.733000" fill="#b58a2a" />
+  <polyline points="700.000000,528.613000 722.000000,528.613000" fill="none" stroke="#167c80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="722.000000,528.613000 708.100000,535.493000 708.100000,521.733000" fill="#167c80" />
+  <polyline points="905.000000,528.613000 932.000000,528.613000" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="932.000000,528.613000 918.100000,535.493000 918.100000,521.733000" fill="#3b6ea8" />
+  <polyline points="1175.000000,528.613000 1202.000000,528.613000" fill="none" stroke="#3f7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1202.000000,528.613000 1188.100000,535.493000 1188.100000,521.733000" fill="#3f7d44" />
+  <polyline points="1420.000000,528.613000 1462.000000,528.613000" fill="none" stroke="#3f7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1462.000000,528.613000 1448.100000,535.493000 1448.100000,521.733000" fill="#3f7d44" />
+  <polyline points="1650.000000,319.633000 1650.000000,397.033000 1060.000000,397.033000 1060.000000,452.933000" fill="none" stroke="#3f7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="1060.000000,397.033000 1060.000000,452.933000" fill="none" stroke="#3f7d44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1060.000000,452.933000 1052.000000,440.979000 1068.000000,440.979000" fill="#3f7d44" />
+  <polyline points="1615.000000,457.233000 1615.000000,405.633000 1422.000000,405.633000 1422.000000,319.633000" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="1422.000000,341.133000 1422.000000,319.633000" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1422.000000,319.633000 1430.000000,331.587000 1414.000000,331.587000" fill="#745b99" />
+  <polyline points="1615.000000,599.133000 1615.000000,637.833000 145.000000,637.833000 145.000000,573.333000" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="145.000000,594.833000 145.000000,573.333000" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="145.000000,573.333000 153.000000,585.287000 137.000000,585.287000" fill="#745b99" />
+  <polyline points="55.000000,664.333000 1745.000000,664.333000" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="900.0" y="702.853000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Preserved SHARP mechanisms</tspan>
+  </text>
+  <text x="900.0" y="744.613000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">short-window encoding  |  identity-aware memory  |  endpoint retrieval  |  trajectory relay  |  dual streaming/non-streaming training</tspan>
+  </text>
+  <text x="900.0" y="783.313000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Attention inventory: 4 temporal + 4 scene + 2 memory + 2 relay + 2 target + 3 scene decoder + 3 target decoder = 20 sites</tspan>
+  </text>
+</svg>

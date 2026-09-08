@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1754" height="440.206960" viewBox="23 37.213040 1754 440.206960" data-compact-factor="0.86">
+  <rect x="23" y="37.213040" width="1754" height="440.206960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP mechanism composition: training time</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Matched 80-epoch, global-batch-32 protocol on four GPUs</tspan>
+  </text>
+  <polyline points="245.000000,164.120000 245.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="245.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="245.0" dy="0.0">0</tspan>
+  </text>
+  <polyline points="546.000000,164.120000 546.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="546.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="546.0" dy="0.0">34</tspan>
+  </text>
+  <polyline points="847.000000,164.120000 847.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="847.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="847.0" dy="0.0">68</tspan>
+  </text>
+  <polyline points="1148.000000,164.120000 1148.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1148.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1148.0" dy="0.0">102</tspan>
+  </text>
+  <polyline points="1449.000000,164.120000 1449.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1449.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1449.0" dy="0.0">136</tspan>
+  </text>
+  <polyline points="1750.000000,164.120000 1750.000000,426.420000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1750.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1750.0" dy="0.0">170</tspan>
+  </text>
+  <text x="122.5" y="232.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="122.5" dy="0.0">Baseline</tspan>
+  </text>
+  <rect x="245.0" y="194.220000" width="1112.8" height="63.640000" rx="5" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="1375.8" y="232.891400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1375.8" dy="0.0">125.704 h</tspan>
+  </text>
+  <text x="122.5" y="361.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="122.5" dy="0.0">Q+U+G</tspan>
+  </text>
+  <rect x="245.0" y="323.220000" width="1344.7" height="63.640000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1607.7" y="361.891400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1607.7" dy="0.0">151.889 h</tspan>
+  </text>
+  <text x="900.0" y="465.080000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Training time (hours)</tspan>
+  </text>
+</svg>

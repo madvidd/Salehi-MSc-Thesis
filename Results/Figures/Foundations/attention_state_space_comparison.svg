@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1736" height="736.444360" viewBox="32 37.213040 1736 736.444360" data-compact-factor="0.86">
+  <rect x="32" y="37.213040" width="1736" height="736.444360" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Attention and selective state-space information paths</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">The operators differ in what they compare directly and in the meaning assigned to sequence order</tspan>
+  </text>
+  <rect x="45.0" y="133.004400" width="560.0" height="524.600000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="325.0" y="402.148800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="325.0" dy="0.0" />
+  </text>
+  <rect x="45.0" y="133.004400" width="560.0" height="70.520000" rx="8" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="325.0" y="172.974400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#3b6ea8" text-anchor="middle">
+    <tspan x="325.0" dy="0.0">Multi-head attention</tspan>
+  </text>
+  <rect x="620.0" y="133.004400" width="560.0" height="524.600000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="900.0" y="402.148800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0" />
+  </text>
+  <rect x="620.0" y="133.004400" width="560.0" height="70.520000" rx="8" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="900.0" y="172.974400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#167c80" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Normalised, relation-aware attention</tspan>
+  </text>
+  <rect x="1195.0" y="133.004400" width="560.0" height="524.600000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1475.0" y="402.148800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1475.0" dy="0.0" />
+  </text>
+  <rect x="1195.0" y="133.004400" width="560.0" height="70.520000" rx="8" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1475.0" y="172.974400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#745b99" text-anchor="middle">
+    <tspan x="1475.0" dy="0.0">Selective SSM / Mamba</tspan>
+  </text>
+  <polyline points="155.000000,296.404400 300.000000,262.004400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="155.000000,296.404400 450.000000,296.404400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="155.000000,296.404400 225.000000,399.604400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="155.000000,296.404400 380.000000,408.204400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="300.000000,262.004400 450.000000,296.404400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="300.000000,262.004400 225.000000,399.604400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="300.000000,262.004400 380.000000,408.204400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="450.000000,296.404400 225.000000,399.604400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="450.000000,296.404400 380.000000,408.204400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="225.000000,399.604400 380.000000,408.204400" fill="none" stroke="#b8c4d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="155.0" cy="296.404400" r="27.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="155.0" y="303.255800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="155.0" dy="0.0">1</tspan>
+  </text>
+  <circle cx="300.0" cy="262.004400" r="27.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="300.0" y="268.855800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="300.0" dy="0.0">2</tspan>
+  </text>
+  <circle cx="450.0" cy="296.404400" r="27.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="450.0" y="303.255800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="450.0" dy="0.0">3</tspan>
+  </text>
+  <circle cx="225.0" cy="399.604400" r="27.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="225.0" y="406.455800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="225.0" dy="0.0">4</tspan>
+  </text>
+  <circle cx="380.0" cy="408.204400" r="27.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="380.0" y="415.055800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="380.0" dy="0.0">5</tspan>
+  </text>
+  <text x="325.0" y="492.455800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="325.0" dy="0.0">explicit all-to-all retrieval</tspan>
+  </text>
+  <text x="325.0" y="537.168800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="325.0" dy="0.0">content score: q dot k</tspan>
+  </text>
+  <text x="325.0" y="583.608800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="325.0" dy="0.0">sequence cost: O(L^2)</tspan>
+  </text>
+  <circle cx="765.0" cy="309.304400" r="58.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <circle cx="1035.0" cy="309.304400" r="58.0" fill="#3f7d44" stroke="#3f7d44" stroke-width="2" />
+  <text x="765.0" y="316.155800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="765.0" dy="0.0">q / ||q||</tspan>
+  </text>
+  <text x="1035.0" y="316.155800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1035.0" dy="0.0">k / ||k||</tspan>
+  </text>
+  <polyline points="830.000000,309.304400 970.000000,309.304400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="970.000000,309.304400 956.100000,316.184400 956.100000,302.424400" fill="#718096" />
+  <rect x="785.0" y="399.604400" width="230.0" height="65.360000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="900.0" y="436.994400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">relative geometry</tspan>
+  </text>
+  <polyline points="900.000000,399.604400 900.000000,356.604400" fill="none" stroke="#b58a2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="900.000000,356.604400 908.000000,368.558400 892.000000,368.558400" fill="#b58a2a" />
+  <text x="900.0" y="519.975800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">scaled cosine similarity</tspan>
+  </text>
+  <text x="900.0" y="559.528800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">+ pairwise physical bias</tspan>
+  </text>
+  <text x="900.0" y="600.808800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">sequence cost: O(L^2)</tspan>
+  </text>
+  <circle cx="1265.0" cy="326.504400" r="27.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="1265.0" y="333.355800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1265.0" dy="0.0">x1</tspan>
+  </text>
+  <polyline points="1294.000000,326.504400 1344.000000,326.504400" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1344.000000,326.504400 1330.100000,333.384400 1330.100000,319.624400" fill="#745b99" />
+  <circle cx="1375.0" cy="326.504400" r="27.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="1375.0" y="333.355800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1375.0" dy="0.0">x2</tspan>
+  </text>
+  <polyline points="1404.000000,326.504400 1454.000000,326.504400" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1454.000000,326.504400 1440.100000,333.384400 1440.100000,319.624400" fill="#745b99" />
+  <circle cx="1485.0" cy="326.504400" r="27.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="1485.0" y="333.355800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1485.0" dy="0.0">x3</tspan>
+  </text>
+  <polyline points="1514.000000,326.504400 1564.000000,326.504400" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1564.000000,326.504400 1550.100000,333.384400 1550.100000,319.624400" fill="#745b99" />
+  <circle cx="1595.0" cy="326.504400" r="27.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="1595.0" y="333.355800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1595.0" dy="0.0">x4</tspan>
+  </text>
+  <polyline points="1624.000000,326.504400 1674.000000,326.504400" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1674.000000,326.504400 1660.100000,333.384400 1660.100000,319.624400" fill="#745b99" />
+  <circle cx="1705.0" cy="326.504400" r="27.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="1705.0" y="333.355800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <tspan x="1705.0" dy="0.0">x5</tspan>
+  </text>
+  <rect x="1375.0" y="408.204400" width="220.0" height="65.360000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1485.0" y="445.594400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1485.0" dy="0.0">selective state h</tspan>
+  </text>
+  <polyline points="1485.000000,389.284400 1485.000000,352.304400" fill="none" stroke="#745b99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1485.000000,352.304400 1493.000000,364.258400 1477.000000,364.258400" fill="#745b99" />
+  <text x="1475.0" y="519.975800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1475.0" dy="0.0">ordered recurrent summary</tspan>
+  </text>
+  <text x="1475.0" y="559.528800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1475.0" dy="0.0">input-dependent retain / forget</tspan>
+  </text>
+  <text x="1475.0" y="600.808800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1475.0" dy="0.0">sequence cost: O(L)</tspan>
+  </text>
+  <polyline points="85.000000,684.104400 1715.000000,684.104400" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="900.0" y="722.624400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Hybrid design principle</tspan>
+  </text>
+  <text x="900.0" y="761.317400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Use attention for explicit interaction and selective recurrence for a genuinely ordered temporal axis</tspan>
+  </text>
+</svg>

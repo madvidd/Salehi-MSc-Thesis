@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1736" height="762.838880" viewBox="32 42.040520 1736 762.838880" data-compact-factor="0.93">
+  <rect x="32" y="42.040520" width="1736" height="762.838880" fill="white" />
+  <text x="900.0" y="71.672520" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP modification map</tspan>
+  </text>
+  <text x="900.0" y="111.182200" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Mechanism composition and state-space placement are separate matched comparisons</tspan>
+  </text>
+  <text x="55.0" y="153.042200" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Attention-context composition</tspan>
+  </text>
+  <rect x="45.0" y="173.916500" width="240.0" height="83.700000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="165.0" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="165.0" dy="0.0">Agent history</tspan>
+    <tspan x="165.0" dy="24.4">+ input projection</tspan>
+  </text>
+  <polyline points="285.000000,215.766500 325.000000,215.766500" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="325.000000,215.766500 311.100000,223.206500 311.100000,208.326500" fill="#718096" />
+  <rect x="340.0" y="173.916500" width="240.0" height="83.700000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="460.0" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="460.0" dy="0.0">Temporal QKNorm</tspan>
+    <tspan x="460.0" dy="24.4">4 blocks</tspan>
+  </text>
+  <polyline points="580.000000,215.766500 620.000000,215.766500" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="620.000000,215.766500 606.100000,223.206500 606.100000,208.326500" fill="#718096" />
+  <rect x="635.0" y="173.916500" width="205.0" height="83.700000" rx="10" fill="#ffffff" stroke="#718096" stroke-width="3" />
+  <text x="737.5" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="737.5" dy="0.0">Masked temporal</tspan>
+    <tspan x="737.5" dy="24.4">max pool</tspan>
+  </text>
+  <polyline points="840.000000,215.766500 880.000000,215.766500" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="880.000000,215.766500 866.100000,223.206500 866.100000,208.326500" fill="#718096" />
+  <rect x="895.0" y="173.916500" width="250.0" height="83.700000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="1020.0" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1020.0" dy="0.0">Scene QKNorm x4</tspan>
+    <tspan x="1020.0" dy="24.4">+ geometry bias</tspan>
+  </text>
+  <polyline points="1145.000000,215.766500 1185.000000,215.766500" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1185.000000,215.766500 1171.100000,223.206500 1171.100000,208.326500" fill="#718096" />
+  <rect x="1200.0" y="173.916500" width="250.0" height="83.700000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="1325.0" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1325.0" dy="0.0">Uncertainty-aware</tspan>
+    <tspan x="1325.0" dy="24.4">target retrieval</tspan>
+  </text>
+  <polyline points="1450.000000,215.766500 1490.000000,215.766500" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1490.000000,215.766500 1476.100000,223.206500 1476.100000,208.326500" fill="#718096" />
+  <rect x="1505.0" y="173.916500" width="250.0" height="83.700000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1630.0" y="208.276500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1630.0" dy="0.0">Target context</tspan>
+    <tspan x="1630.0" dy="24.4">+ dual decoder</tspan>
+  </text>
+  <rect x="55.0" y="284.616500" width="535.0" height="60.450000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="322.5" y="307.301500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="322.5" dy="0.0">QKNorm: all 20 attention sites,</tspan>
+    <tspan x="322.5" dy="24.4">including instance memory and trajectory relay</tspan>
+  </text>
+  <rect x="630.0" y="284.616500" width="535.0" height="60.450000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="897.5" y="307.301500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="897.5" dy="0.0">Geometry: per-head relation bias</tspan>
+    <tspan x="897.5" dy="24.4">in the four scene-attention blocks</tspan>
+  </text>
+  <rect x="1205.0" y="284.616500" width="550.0" height="60.450000" rx="10" fill="#ffffff" stroke="#b58a2a" stroke-width="3" />
+  <text x="1480.0" y="307.301500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1480.0" dy="0.0">Uncertainty: probability-dependent radius</tspan>
+    <tspan x="1480.0" dy="24.4">and target-feature gate</tspan>
+  </text>
+  <text x="55.0" y="384.086500" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Separate temporal-agent residual addition</tspan>
+  </text>
+  <rect x="45.0" y="409.610800" width="260.0" height="93.000000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="175.0" y="460.770800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="175.0" dy="0.0">Input projection</tspan>
+  </text>
+  <polyline points="305.000000,456.110800 350.000000,456.110800" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="350.000000,456.110800 336.100000,463.550800 336.100000,448.670800" fill="#718096" />
+  <rect x="365.0" y="409.610800" width="270.0" height="93.000000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="500.0" y="448.570800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="500.0" dy="0.0">Temporal MHA</tspan>
+    <tspan x="500.0" dy="24.4">blocks 1-2</tspan>
+  </text>
+  <polyline points="635.000000,456.110800 680.000000,456.110800" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="680.000000,456.110800 666.100000,463.550800 666.100000,448.670800" fill="#718096" />
+  <rect x="695.0" y="409.610800" width="350.0" height="93.000000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="870.0" y="436.420800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="870.0" dy="0.0">Bidirectional Mamba</tspan>
+    <tspan x="870.0" dy="24.4">state 8; conv 3; expansion 1</tspan>
+    <tspan x="870.0" dy="24.4">LayerScale 0.01</tspan>
+  </text>
+  <polyline points="1045.000000,456.110800 1090.000000,456.110800" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1090.000000,456.110800 1076.100000,463.550800 1076.100000,448.670800" fill="#718096" />
+  <rect x="1105.0" y="409.610800" width="280.0" height="93.000000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="1245.0" y="448.570800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1245.0" dy="0.0">Temporal MHA</tspan>
+    <tspan x="1245.0" dy="24.4">blocks 3-4</tspan>
+  </text>
+  <polyline points="1385.000000,456.110800 1430.000000,456.110800" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1430.000000,456.110800 1416.100000,463.550800 1416.100000,448.670800" fill="#718096" />
+  <rect x="1445.0" y="409.610800" width="310.0" height="93.000000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1600.0" y="448.570800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1600.0" dy="0.0">Max pool; unchanged</tspan>
+    <tspan x="1600.0" dy="24.4">scene and decoder</tspan>
+  </text>
+  <text x="55.0" y="541.630800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Separate scene-token residual addition</tspan>
+  </text>
+  <rect x="45.0" y="567.155100" width="350.0" height="79.050000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="220.0" y="611.340100" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="220.0" dy="0.0">Temporal MHA x4</tspan>
+  </text>
+  <polyline points="395.000000,606.215100 475.000000,606.215100" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="475.000000,606.215100 461.100000,613.655100 461.100000,598.775100" fill="#718096" />
+  <rect x="490.0" y="567.155100" width="300.0" height="79.050000" rx="10" fill="#ffffff" stroke="#718096" stroke-width="3" />
+  <text x="640.0" y="611.340100" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="640.0" dy="0.0">Temporal max pool</tspan>
+  </text>
+  <polyline points="790.000000,606.215100 870.000000,606.215100" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="870.000000,606.215100 856.100000,613.655100 856.100000,598.775100" fill="#718096" />
+  <rect x="885.0" y="567.155100" width="415.0" height="79.050000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1092.5" y="599.190100" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1092.5" dy="0.0">Scene-token Mamba</tspan>
+    <tspan x="1092.5" dy="24.4">implementation-defined entity order</tspan>
+  </text>
+  <polyline points="1300.000000,606.215100 1380.000000,606.215100" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1380.000000,606.215100 1366.100000,613.655100 1366.100000,598.775100" fill="#718096" />
+  <rect x="1395.0" y="567.155100" width="360.0" height="79.050000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1575.0" y="599.140100" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1575.0" dy="0.0">Unchanged scene MHA</tspan>
+    <tspan x="1575.0" dy="24.4">and decoder</tspan>
+  </text>
+  <text x="55.0" y="685.225100" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="55.0" dy="0.0">Separate temporal-attention replacement</tspan>
+  </text>
+  <rect x="45.0" y="711.679400" width="350.0" height="83.700000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="220.0" y="758.189400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="220.0" dy="0.0">Input projection</tspan>
+  </text>
+  <polyline points="395.000000,753.529400 475.000000,753.529400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="475.000000,753.529400 461.100000,760.969400 461.100000,746.089400" fill="#718096" />
+  <rect x="490.0" y="711.679400" width="415.0" height="83.700000" rx="10" fill="#ffffff" stroke="#a84a44" stroke-width="3" />
+  <text x="697.5" y="746.039400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="697.5" dy="0.0">Unidirectional Mamba x4</tspan>
+    <tspan x="697.5" dy="24.4">state 16; conv 4; expansion 2</tspan>
+  </text>
+  <polyline points="905.000000,753.529400 985.000000,753.529400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="985.000000,753.529400 971.100000,760.969400 971.100000,746.089400" fill="#718096" />
+  <rect x="1000.0" y="711.679400" width="300.0" height="83.700000" rx="10" fill="#ffffff" stroke="#718096" stroke-width="3" />
+  <text x="1150.0" y="758.189400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1150.0" dy="0.0">Temporal max pool</tspan>
+  </text>
+  <polyline points="1300.000000,753.529400 1380.000000,753.529400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1380.000000,753.529400 1366.100000,760.969400 1366.100000,746.089400" fill="#718096" />
+  <rect x="1395.0" y="711.679400" width="360.0" height="83.700000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1575.0" y="745.989400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1575.0" dy="0.0">Unchanged scene MHA</tspan>
+    <tspan x="1575.0" dy="24.4">and decoder</tspan>
+  </text>
+</svg>

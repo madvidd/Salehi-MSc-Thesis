@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1716" height="593.315760" viewBox="42 37.213040 1716 593.315760" data-compact-factor="0.86">
+  <rect x="42" y="37.213040" width="1716" height="593.315760" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Conceptual progression of learned motion forecasting</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Representations evolve from isolated histories toward reusable state in continuous driving</tspan>
+  </text>
+  <rect x="55.0" y="133.004400" width="385.0" height="253.700000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="247.5" y="266.698800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="247.5" dy="0.0" />
+  </text>
+  <rect x="55.0" y="133.004400" width="385.0" height="67.080000" rx="8" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="247.0" y="159.054400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#3b6ea8" text-anchor="middle">
+    <tspan x="247.0" dy="0.0">Recurrent and</tspan>
+    <tspan x="247.0" dy="24.4">generative models</tspan>
+  </text>
+  <text x="247.0" y="257.348800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="247.0" dy="0.0">ordered history</tspan>
+    <tspan x="247.0" dy="24.4">social pooling</tspan>
+    <tspan x="247.0" dy="24.4">multimodal sampling</tspan>
+  </text>
+  <text x="247.0" y="363.448800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="247.0" dy="0.0">Social LSTM | Social GAN</tspan>
+  </text>
+  <polyline points="440.000000,259.424400 472.000000,259.424400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="472.000000,259.424400 458.100000,266.304400 458.100000,252.544400" fill="#718096" />
+  <rect x="490.0" y="133.004400" width="385.0" height="253.700000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="682.5" y="266.698800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="682.5" dy="0.0" />
+  </text>
+  <rect x="490.0" y="133.004400" width="385.0" height="67.080000" rx="8" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="682.0" y="159.054400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#167c80" text-anchor="middle">
+    <tspan x="682.0" dy="0.0">Vector and</tspan>
+    <tspan x="682.0" dy="24.4">graph models</tspan>
+  </text>
+  <text x="682.0" y="257.348800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="682.0" dy="0.0">map polylines</tspan>
+    <tspan x="682.0" dy="24.4">agent-lane relations</tspan>
+    <tspan x="682.0" dy="24.4">sparse scene structure</tspan>
+  </text>
+  <text x="682.0" y="363.448800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="682.0" dy="0.0">VectorNet | LaneGCN</tspan>
+  </text>
+  <polyline points="875.000000,259.424400 907.000000,259.424400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="907.000000,259.424400 893.100000,266.304400 893.100000,252.544400" fill="#718096" />
+  <rect x="925.0" y="133.004400" width="385.0" height="253.700000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1117.5" y="266.698800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1117.5" dy="0.0" />
+  </text>
+  <rect x="925.0" y="133.004400" width="385.0" height="67.080000" rx="8" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="1117.0" y="159.054400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#745b99" text-anchor="middle">
+    <tspan x="1117.0" dy="0.0">Attention and</tspan>
+    <tspan x="1117.0" dy="24.4">query models</tspan>
+  </text>
+  <text x="1117.0" y="257.348800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1117.0" dy="0.0">pairwise retrieval</tspan>
+    <tspan x="1117.0" dy="24.4">hierarchical context</tspan>
+    <tspan x="1117.0" dy="24.4">mode queries</tspan>
+  </text>
+  <text x="1117.0" y="363.448800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1117.0" dy="0.0">HiVT | QCNet</tspan>
+  </text>
+  <polyline points="1310.000000,259.424400 1342.000000,259.424400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1342.000000,259.424400 1328.100000,266.304400 1328.100000,252.544400" fill="#718096" />
+  <rect x="1360.0" y="133.004400" width="385.0" height="253.700000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="1552.5" y="266.698800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1552.5" dy="0.0" />
+  </text>
+  <rect x="1360.0" y="133.004400" width="385.0" height="67.080000" rx="8" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="1552.0" y="159.054400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#c87533" text-anchor="middle">
+    <tspan x="1552.0" dy="0.0">Streaming</tspan>
+    <tspan x="1552.0" dy="24.4">models</tspan>
+  </text>
+  <text x="1552.0" y="257.348800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1552.0" dy="0.0">reusable features</tspan>
+    <tspan x="1552.0" dy="24.4">persistent context</tspan>
+    <tspan x="1552.0" dy="24.4">trajectory relay</tspan>
+  </text>
+  <text x="1552.0" y="363.448800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1552.0" dy="0.0">RealMotion | SEAM | SHARP</tspan>
+  </text>
+  <text x="900.0" y="425.724400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Ideas retained in modern systems</tspan>
+  </text>
+  <circle cx="160.0" cy="477.824400" r="23.0" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="2" />
+  <text x="160.0" y="525.788800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="160.0" dy="0.0">Chronological</tspan>
+    <tspan x="160.0" dy="24.4">agent state</tspan>
+  </text>
+  <circle cx="520.0" cy="477.824400" r="23.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <text x="520.0" y="525.788800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="520.0" dy="0.0">Explicit map and</tspan>
+    <tspan x="520.0" dy="24.4">interaction structure</tspan>
+  </text>
+  <circle cx="900.0" cy="477.824400" r="23.0" fill="#745b99" stroke="#745b99" stroke-width="2" />
+  <text x="900.0" y="525.788800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Direct context</tspan>
+    <tspan x="900.0" dy="24.4">retrieval</tspan>
+  </text>
+  <circle cx="1280.0" cy="477.824400" r="23.0" fill="#b58a2a" stroke="#b58a2a" stroke-width="2" />
+  <text x="1280.0" y="525.788800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1280.0" dy="0.0">Multiple plausible</tspan>
+    <tspan x="1280.0" dy="24.4">futures</tspan>
+  </text>
+  <circle cx="1640.0" cy="477.824400" r="23.0" fill="#c87533" stroke="#c87533" stroke-width="2" />
+  <text x="1640.0" y="525.788800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1640.0" dy="0.0">State reuse across</tspan>
+    <tspan x="1640.0" dy="24.4">invocations</tspan>
+  </text>
+  <polyline points="95.000000,579.528800 1705.000000,579.528800" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="900.0" y="618.188800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">The categories overlap: SHARP and SEAM combine vector tokens, attention and streaming memory</tspan>
+  </text>
+</svg>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1696" height="592.568760" viewBox="52 37.213040 1696 592.568760" data-compact-factor="0.86">
+  <rect x="52" y="37.213040" width="1696" height="592.568760" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Experimental programme</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Evidence-led progression through separate, internally matched SEAM and SHARP comparison families</tspan>
+  </text>
+  <text x="75.0" y="321.144400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="75.0" dy="0.0">SHARP architecture studies</tspan>
+  </text>
+  <rect x="65.0" y="370.193000" width="270.0" height="116.100000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="200.0" y="420.753000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="200.0" dy="0.0">Reference</tspan>
+    <tspan x="200.0" dy="24.4">reproduction</tspan>
+  </text>
+  <circle cx="95.0" cy="352.993000" r="22.0" fill="#3b6ea8" stroke="#ffffff" stroke-width="2" />
+  <text x="95.0" y="359.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <tspan x="95.0" dy="0.0">1</tspan>
+  </text>
+  <polyline points="335.000000,428.673000 397.000000,428.673000" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="397.000000,428.673000 383.100000,435.553000 383.100000,421.793000" fill="#718096" />
+  <rect x="415.0" y="370.193000" width="270.0" height="116.100000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="550.0" y="420.753000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="550.0" dy="0.0">State-space</tspan>
+    <tspan x="550.0" dy="24.4">placement</tspan>
+  </text>
+  <circle cx="445.0" cy="352.993000" r="22.0" fill="#745b99" stroke="#ffffff" stroke-width="2" />
+  <text x="445.0" y="359.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <tspan x="445.0" dy="0.0">2</tspan>
+  </text>
+  <polyline points="685.000000,428.673000 747.000000,428.673000" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="747.000000,428.673000 733.100000,435.553000 733.100000,421.793000" fill="#718096" />
+  <rect x="765.0" y="370.193000" width="270.0" height="116.100000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="900.0" y="420.753000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Architectural</tspan>
+    <tspan x="900.0" dy="24.4">ablation</tspan>
+  </text>
+  <circle cx="795.0" cy="352.993000" r="22.0" fill="#c87533" stroke="#ffffff" stroke-width="2" />
+  <text x="795.0" y="359.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <tspan x="795.0" dy="0.0">3</tspan>
+  </text>
+  <polyline points="1035.000000,428.673000 1097.000000,428.673000" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1097.000000,428.673000 1083.100000,435.553000 1083.100000,421.793000" fill="#718096" />
+  <rect x="1115.0" y="370.193000" width="270.0" height="116.100000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="1250.0" y="420.753000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1250.0" dy="0.0">Attention-operator</tspan>
+    <tspan x="1250.0" dy="24.4">study</tspan>
+  </text>
+  <circle cx="1145.0" cy="352.993000" r="22.0" fill="#167c80" stroke="#ffffff" stroke-width="2" />
+  <text x="1145.0" y="359.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <tspan x="1145.0" dy="0.0">4</tspan>
+  </text>
+  <polyline points="1385.000000,428.673000 1447.000000,428.673000" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1447.000000,428.673000 1433.100000,435.553000 1433.100000,421.793000" fill="#718096" />
+  <rect x="1465.0" y="370.193000" width="270.0" height="116.100000" rx="10" fill="#ffffff" stroke="#3f7d44" stroke-width="3" />
+  <text x="1600.0" y="420.753000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1600.0" dy="0.0">Mechanism</tspan>
+    <tspan x="1600.0" dy="24.4">composition</tspan>
+  </text>
+  <circle cx="1495.0" cy="352.993000" r="22.0" fill="#3f7d44" stroke="#ffffff" stroke-width="2" />
+  <text x="1495.0" y="359.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <tspan x="1495.0" dy="0.0">5</tspan>
+  </text>
+  <text x="75.0" y="145.024400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="75.0" dy="0.0">SEAM studies</tspan>
+  </text>
+  <rect x="90.0" y="174.624400" width="300.0" height="107.500000" rx="10" fill="#ffffff" stroke="#3b6ea8" stroke-width="3" />
+  <text x="240.0" y="220.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="240.0" dy="0.0">Reference</tspan>
+    <tspan x="240.0" dy="24.4">SEAM baseline</tspan>
+  </text>
+  <polyline points="390.000000,228.804400 502.000000,228.804400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="502.000000,228.804400 488.100000,235.684400 488.100000,221.924400" fill="#718096" />
+  <rect x="520.0" y="174.624400" width="300.0" height="107.500000" rx="10" fill="#ffffff" stroke="#745b99" stroke-width="3" />
+  <text x="670.0" y="220.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="670.0" dy="0.0">Add residual Mamba</tspan>
+    <tspan x="670.0" dy="24.4">to agent history</tspan>
+  </text>
+  <polyline points="820.000000,228.804400 932.000000,228.804400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="932.000000,228.804400 918.100000,235.684400 918.100000,221.924400" fill="#718096" />
+  <rect x="950.0" y="174.624400" width="300.0" height="107.500000" rx="10" fill="#ffffff" stroke="#c87533" stroke-width="3" />
+  <text x="1100.0" y="220.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1100.0" dy="0.0">Replace future</tspan>
+    <tspan x="1100.0" dy="24.4">localisation head</tspan>
+  </text>
+  <polyline points="1250.000000,228.804400 1362.000000,228.804400" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="1362.000000,228.804400 1348.100000,235.684400 1348.100000,221.924400" fill="#718096" />
+  <rect x="1380.0" y="174.624400" width="300.0" height="107.500000" rx="10" fill="#ffffff" stroke="#167c80" stroke-width="3" />
+  <text x="1530.0" y="220.884400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1530.0" dy="0.0">Context and</tspan>
+    <tspan x="1530.0" dy="24.4">attention ablation</tspan>
+  </text>
+  <text x="900.0" y="525.313000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Controls and evidence rules</tspan>
+  </text>
+  <circle cx="170.0" cy="564.413000" r="10.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <text x="194.0" y="571.257400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="start">
+    <tspan x="194.0" dy="0.0">immutable code and result directory</tspan>
+  </text>
+  <circle cx="1020.0" cy="564.413000" r="10.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <text x="1044.0" y="571.257400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="start">
+    <tspan x="1044.0" dy="0.0">matched data, seed and schedule within each suite</tspan>
+  </text>
+  <circle cx="170.0" cy="610.597400" r="10.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <text x="194.0" y="617.441800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="start">
+    <tspan x="194.0" dy="0.0">lowest validation minADE6 selects the checkpoint</tspan>
+  </text>
+  <circle cx="1020.0" cy="610.597400" r="10.0" fill="#167c80" stroke="#167c80" stroke-width="2" />
+  <text x="1044.0" y="617.441800" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="start">
+    <tspan x="1044.0" dy="0.0">checkpoint-linked metric and timing records</tspan>
+  </text>
+</svg>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1726" height="517.606960" viewBox="37 37.213040 1726 517.606960" data-compact-factor="0.86">
+  <rect x="37" y="37.213040" width="1726" height="517.606960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP state-space placement: training time</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Approximate elapsed time for protocol-matched 80-epoch, global-batch-32 runs</tspan>
+  </text>
+  <polyline points="300.000000,164.120000 300.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="300.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="300.0" dy="0.0">115.00</tspan>
+  </text>
+  <polyline points="581.000000,164.120000 581.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="581.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="581.0" dy="0.0">126.00</tspan>
+  </text>
+  <polyline points="862.000000,164.120000 862.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="862.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="862.0" dy="0.0">137.00</tspan>
+  </text>
+  <polyline points="1143.000000,164.120000 1143.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1143.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1143.0" dy="0.0">148.00</tspan>
+  </text>
+  <polyline points="1424.000000,164.120000 1424.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1424.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1424.0" dy="0.0">159.00</tspan>
+  </text>
+  <polyline points="1705.000000,164.120000 1705.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1705.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1705.0" dy="0.0">170.00</tspan>
+  </text>
+  <text x="150.0" y="231.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Official SHARP baseline</tspan>
+  </text>
+  <rect x="300.0" y="194.220000" width="273.3" height="60.200000" rx="5" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="591.3" y="231.171400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="591.3" dy="0.0">125.7 h</tspan>
+  </text>
+  <text x="150.0" y="342.964400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Scene-token Mamba</tspan>
+  </text>
+  <rect x="300.0" y="306.020000" width="364.8" height="60.200000" rx="5" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="682.8" y="342.971400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="682.8" dy="0.0">129.3 h</tspan>
+  </text>
+  <text x="150.0" y="454.764400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Temporal-agent Mamba</tspan>
+  </text>
+  <rect x="300.0" y="417.820000" width="1158.0" height="60.200000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1476.0" y="454.771400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1476.0" dy="0.0">160.3 h</tspan>
+  </text>
+  <text x="900.0" y="542.480000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Elapsed time (hours)</tspan>
+  </text>
+</svg>

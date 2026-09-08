@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1694" height="766.786960" viewBox="53 37.213040 1694 766.786960" data-compact-factor="0.86">
+  <rect x="53" y="37.213040" width="1694" height="766.786960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP architectural ablation: training time</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Wall-clock hours under the matched four-GPU protocol</tspan>
+  </text>
+  <polyline points="380.000000,146.200000 380.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="380.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="380.0" dy="0.0">25</tspan>
+  </text>
+  <polyline points="649.000000,146.200000 649.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="649.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="649.0" dy="0.0">30</tspan>
+  </text>
+  <polyline points="918.000000,146.200000 918.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="918.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="918.0" dy="0.0">35</tspan>
+  </text>
+  <polyline points="1187.000000,146.200000 1187.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1187.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1187.0" dy="0.0">40</tspan>
+  </text>
+  <polyline points="1456.000000,146.200000 1456.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1456.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1456.0" dy="0.0">45</tspan>
+  </text>
+  <polyline points="1725.000000,146.200000 1725.000000,752.500000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1725.0" y="127.244400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1725.0" dy="0.0">50</tspan>
+  </text>
+  <text x="190.0" y="200.344400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Baseline</tspan>
+  </text>
+  <rect x="380.0" y="176.300000" width="549.7" height="34.400000" rx="5" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="947.7" y="200.351400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="947.7" dy="0.0">35.2 h</tspan>
+  </text>
+  <text x="190.0" y="260.544400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Confidence-gated memory</tspan>
+  </text>
+  <rect x="380.0" y="236.500000" width="439.4" height="34.400000" rx="5" fill="#167c80" stroke="#167c80" stroke-width="3" />
+  <text x="837.4" y="260.551400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="837.4" dy="0.0">33.2 h</tspan>
+  </text>
+  <text x="190.0" y="320.744400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Cross-window consistency</tspan>
+  </text>
+  <rect x="380.0" y="296.700000" width="203.5" height="34.400000" rx="5" fill="#a84a44" stroke="#a84a44" stroke-width="3" />
+  <text x="601.5" y="320.751400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="601.5" dy="0.0">28.8 h</tspan>
+  </text>
+  <text x="190.0" y="380.944400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Learned temporal pooling</tspan>
+  </text>
+  <rect x="380.0" y="356.900000" width="512.9" height="34.400000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="910.9" y="380.951400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="910.9" dy="0.0">34.5 h</tspan>
+  </text>
+  <text x="190.0" y="441.144400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Uncertainty-aware context</tspan>
+  </text>
+  <rect x="380.0" y="417.100000" width="295.0" height="34.400000" rx="5" fill="#3f7d44" stroke="#3f7d44" stroke-width="3" />
+  <text x="693.0" y="441.151400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="693.0" dy="0.0">30.5 h</tspan>
+  </text>
+  <text x="190.0" y="501.344400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Relative geometry</tspan>
+  </text>
+  <rect x="380.0" y="477.300000" width="722.7" height="34.400000" rx="5" fill="#b58a2a" stroke="#b58a2a" stroke-width="3" />
+  <text x="1120.7" y="501.351400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1120.7" dy="0.0">38.4 h</tspan>
+  </text>
+  <text x="190.0" y="561.544400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Kinematic stem</tspan>
+  </text>
+  <rect x="380.0" y="537.500000" width="675.2" height="34.400000" rx="5" fill="#a84a44" stroke="#a84a44" stroke-width="3" />
+  <text x="1073.2" y="561.551400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1073.2" dy="0.0">37.5 h</tspan>
+  </text>
+  <text x="190.0" y="621.744400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Endpoint refinement</tspan>
+  </text>
+  <rect x="380.0" y="597.700000" width="693.1" height="34.400000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1091.1" y="621.751400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1091.1" dy="0.0">37.9 h</tspan>
+  </text>
+  <text x="190.0" y="681.944400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Lane topology</tspan>
+  </text>
+  <rect x="380.0" y="657.900000" width="686.0" height="34.400000" rx="5" fill="#167c80" stroke="#167c80" stroke-width="3" />
+  <text x="1084.0" y="681.951400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1084.0" dy="0.0">37.8 h</tspan>
+  </text>
+  <text x="190.0" y="742.144400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="190.0" dy="0.0">Temporal Mamba replacement</tspan>
+  </text>
+  <rect x="380.0" y="718.100000" width="1137.9" height="34.400000" rx="5" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="1535.9" y="742.151400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1535.9" dy="0.0">46.1 h</tspan>
+  </text>
+  <text x="900.0" y="791.660000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Elapsed time (hours)</tspan>
+  </text>
+</svg>

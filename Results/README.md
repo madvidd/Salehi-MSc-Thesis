@@ -18,3 +18,5 @@ Curated summaries are regenerated from retained source records. Each model is co
 - [Evidence and filename conventions](../Documentation/Repository_Guide.md)
 
 `Metrics.csv` files are derived comparisons with explicit source paths, not replacements for raw evaluations. Run `python Tools/Repository/build_results_catalog.py --check` from the repository root to check that the maintained summaries agree with the retained records.
+
+The [research figure catalogue](Figures/README.md) and [visual gallery](Figures/Gallery.md) link every current numbered figure and the graphical abstract to SVG, vector PDF and PNG files, with separate architecture, metric and training-time groups.

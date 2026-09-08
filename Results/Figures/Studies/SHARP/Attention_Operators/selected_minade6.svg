@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="724.171360" viewBox="50 37.213040 1700 724.171360" data-compact-factor="0.86">
+  <rect x="50" y="37.213040" width="1700" height="724.171360" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SHARP attention-operator study: metric comparison</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Best validation minADE6 under matched attention-operator controls; lower is better</tspan>
+  </text>
+  <polyline points="125.000000,693.880000 1727.000000,693.880000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="700.724400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.665</tspan>
+  </text>
+  <polyline points="125.000000,589.820000 1727.000000,589.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="596.664400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.668</tspan>
+  </text>
+  <polyline points="125.000000,485.760000 1727.000000,485.760000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="492.604400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.671</tspan>
+  </text>
+  <polyline points="125.000000,381.700000 1727.000000,381.700000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="388.544400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.674</tspan>
+  </text>
+  <polyline points="125.000000,277.640000 1727.000000,277.640000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="284.484400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.677</tspan>
+  </text>
+  <polyline points="125.000000,173.580000 1727.000000,173.580000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="107.0" y="180.424400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="end">
+    <tspan x="107.0" dy="0.0">0.680</tspan>
+  </text>
+  <rect x="201.1" y="400.448000" width="248.3" height="293.432000" rx="4" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="325.2" y="385.799400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="325.2" dy="0.0">0.673</tspan>
+  </text>
+  <text x="325.2" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="325.2" dy="0.0">Baseline</tspan>
+    <tspan x="325.2" dy="24.4">MHA</tspan>
+  </text>
+  <rect x="601.6" y="528.158000" width="248.3" height="165.722000" rx="4" fill="#3f7d44" stroke="#3f7d44" stroke-width="3" />
+  <text x="725.8" y="513.509400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="725.8" dy="0.0">0.670</tspan>
+  </text>
+  <text x="725.8" y="736.844400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="725.8" dy="0.0">QKNorm</tspan>
+  </text>
+  <rect x="1002.1" y="347.300000" width="248.3" height="346.580000" rx="4" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="1126.2" y="332.651400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1126.2" dy="0.0">0.675</tspan>
+  </text>
+  <text x="1126.2" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1126.2" dy="0.0">Talking</tspan>
+    <tspan x="1126.2" dy="24.4">Heads</tspan>
+  </text>
+  <rect x="1402.6" y="364.672000" width="248.3" height="329.208000" rx="4" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="1526.8" y="350.023400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="1526.8" dy="0.0">0.674</tspan>
+  </text>
+  <text x="1526.8" y="724.644400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="1526.8" dy="0.0">QKNorm +</tspan>
+    <tspan x="1526.8" dy="24.4">Talking Heads</tspan>
+  </text>
+  <text x="926.0" y="138.424400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="926.0" dy="0.0">minADE6 (m)</tspan>
+  </text>
+</svg>

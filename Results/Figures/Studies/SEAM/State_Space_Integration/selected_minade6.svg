@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1758" height="517.606960" viewBox="21 37.213040 1758 517.606960" data-compact-factor="0.86">
+  <rect x="21" y="37.213040" width="1758" height="517.606960" fill="white" />
+  <text x="900.0" y="66.845040" font-family="Times New Roman, Times, serif" font-size="32" font-weight="700" fill="#1f2933" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">SEAM state-space integration: metric comparison</tspan>
+  </text>
+  <text x="900.0" y="103.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Best validation minADE6 under the matched 80-epoch two-GPU protocol</tspan>
+  </text>
+  <polyline points="300.000000,164.120000 300.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="300.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="300.0" dy="0.0">0.63</tspan>
+  </text>
+  <polyline points="590.000000,164.120000 590.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="590.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="590.0" dy="0.0">0.64</tspan>
+  </text>
+  <polyline points="880.000000,164.120000 880.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="880.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="880.0" dy="0.0">0.65</tspan>
+  </text>
+  <polyline points="1170.000000,164.120000 1170.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1170.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1170.0" dy="0.0">0.66</tspan>
+  </text>
+  <polyline points="1460.000000,164.120000 1460.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1460.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1460.0" dy="0.0">0.67</tspan>
+  </text>
+  <polyline points="1750.000000,164.120000 1750.000000,503.820000" fill="none" stroke="#d5d9dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="1750.0" y="145.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="1750.0" dy="0.0">0.68</tspan>
+  </text>
+  <text x="150.0" y="231.164400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">SEAM baseline</tspan>
+  </text>
+  <rect x="300.0" y="194.220000" width="952.9" height="60.200000" rx="5" fill="#3b6ea8" stroke="#3b6ea8" stroke-width="3" />
+  <text x="1270.9" y="231.171400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1270.9" dy="0.0">0.663</tspan>
+  </text>
+  <text x="150.0" y="342.964400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Agent-history Mamba</tspan>
+  </text>
+  <rect x="300.0" y="306.020000" width="1009.6" height="60.200000" rx="5" fill="#745b99" stroke="#745b99" stroke-width="3" />
+  <text x="1327.6" y="342.971400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="1327.6" dy="0.0">0.665</tspan>
+  </text>
+  <text x="150.0" y="454.764400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#1f2933" text-anchor="middle">
+    <tspan x="150.0" dy="0.0">Future-head Mamba</tspan>
+  </text>
+  <rect x="300.0" y="417.820000" width="535.9" height="60.200000" rx="5" fill="#c87533" stroke="#c87533" stroke-width="3" />
+  <text x="853.9" y="454.771400" font-family="Times New Roman, Times, serif" font-size="20" font-weight="700" fill="#1f2933" text-anchor="start">
+    <tspan x="853.9" dy="0.0">0.648</tspan>
+  </text>
+  <text x="900.0" y="542.480000" font-family="Times New Roman, Times, serif" font-size="20" font-weight="400" fill="#5c6670" text-anchor="middle">
+    <tspan x="900.0" dy="0.0">Lower is better</tspan>
+  </text>
+</svg>

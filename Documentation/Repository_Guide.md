@@ -27,6 +27,8 @@ Python modules and `runtime/` or bundled source tree.
 | `CHECKPOINTS.txt`, checkpoint inventories | Checkpoint names and storage locations, not binary weights |
 | `Terminal.txt`, `LOG_TAIL.txt` | Recorded or compacted output, with its original capture scope |
 | `Documentation/Archive/` | Superseded consolidated documentation retained for provenance |
+| `Results/Figures/` | Current numbered research figures and graphical abstract, organised by scientific subject |
+| `Results/Figures/Figure_Index.csv`, `Manifest.json` | Figure-number index, vector/preview locations and per-file SHA-256 digests |
 
 Descriptive study folders replace machine labels in navigation. Original
 timestamped run names, script version suffixes and captured filenames remain
@@ -34,6 +36,13 @@ unchanged because manifests, checkpoint records and resume scripts refer to them
 These identifiers are provenance, not additional model variants.
 
 ## Evidence Hierarchy
+
+The [figure catalogue](../Results/Figures/README.md) provides architecture diagrams,
+within-study accuracy and training-time plots and supporting-evidence diagrams.
+The [gallery](../Results/Figures/Gallery.md) provides previews. SVG masters and PDF
+exports remain vector-based; PNG files are previews rather than print masters.
+No training results are regenerated when inspecting these files. Run
+`python Tools/Figures/validate_figure_collection.py` to check all 72 figure files.
 
 1. Explicit selected-checkpoint evaluation files support a full metric vector.
 2. A checkpoint filename supports its recorded selection metric, not all metrics.
