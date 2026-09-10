@@ -1,0 +1,6 @@
+{
+  "checkpoint": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/combined/checkpoints/last.ckpt",
+  "epoch": 79,
+  "global_step": 499840,
+  "rejected": []
+}

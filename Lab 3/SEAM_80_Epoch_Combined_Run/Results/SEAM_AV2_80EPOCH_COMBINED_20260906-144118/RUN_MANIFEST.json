@@ -1,0 +1,47 @@
+{
+  "experiment": "/home/server01/M/Codes/SEAM_AV2_80EPOCH_COMBINED_20260906-144118",
+  "results": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118",
+  "base": "/home/server01/M",
+  "data_root": "/home/server01/M/Datasets/AV2/sharp_processed",
+  "protocol": {
+    "name": "SEAM uncertainty + geometry + QKNorm + future-head Mamba",
+    "reference_run": "SEAM_AV2_MAMBA_3RUN_20260824-202936",
+    "seed": 2333,
+    "epochs": 80,
+    "global_batch": 32,
+    "devices": 2,
+    "microbatch": 8,
+    "accumulation": 2,
+    "validation_batch": 16,
+    "precision": "32-true",
+    "sync_batchnorm": true,
+    "learning_rate": 0.001,
+    "minimum_learning_rate": 1e-05,
+    "warmup_ratio": 0.167,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 5.0,
+    "num_grad_frame": 3,
+    "mamba": {
+      "d_state": 16,
+      "d_conv": 4,
+      "expand": 2,
+      "depth": 2
+    },
+    "dataset": {
+      "num_historical_steps": 30,
+      "split_points": [
+        30,
+        40,
+        50
+      ],
+      "radius": 150.0,
+      "ma": false,
+      "num_future_steps": 60
+    }
+  },
+  "workers_per_rank": 12,
+  "cpu_threads_per_rank": 4,
+  "created": "2026-09-06T14:41:19.017830+01:00",
+  "training_gpus": "0,1",
+  "evaluation_gpu": "2"
+}

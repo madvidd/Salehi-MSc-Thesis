@@ -1,0 +1,8 @@
+{
+  "epoch": 79,
+  "global_step": 499817,
+  "batch": 12450,
+  "batches": 12495,
+  "updated_unix": 1789046301.692963,
+  "phase": "train"
+}

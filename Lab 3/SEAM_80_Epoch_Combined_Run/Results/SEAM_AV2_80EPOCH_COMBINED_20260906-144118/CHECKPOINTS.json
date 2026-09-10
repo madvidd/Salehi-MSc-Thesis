@@ -1,0 +1,407 @@
+[
+  {
+    "file": "epoch_000-minADE6_1.45680618.ckpt",
+    "bytes": 57873675,
+    "sha256": "841744cce493ac1205bbeb3bfe279e1ac77773ede7b3a983a9b0b065685c2874"
+  },
+  {
+    "file": "epoch_001-minADE6_1.44636452.ckpt",
+    "bytes": 57874186,
+    "sha256": "d57c568efb701e6d79f9bd87396c7c54de0f9c1fa37990b7e301c460ef18a3fa"
+  },
+  {
+    "file": "epoch_002-minADE6_1.19801176.ckpt",
+    "bytes": 57874505,
+    "sha256": "292bdedb37594faa16886cc59652e0d1a6d53cd189c114e79985e69382345dd6"
+  },
+  {
+    "file": "epoch_003-minADE6_1.25950861.ckpt",
+    "bytes": 57874952,
+    "sha256": "fbbbf16bca23aa5a5b2a7a661471016b28e014113c0e843d2424f829bffa6408"
+  },
+  {
+    "file": "epoch_004-minADE6_1.02271950.ckpt",
+    "bytes": 57875399,
+    "sha256": "8a6ccf5c2f0025fcb836e6c40d0c02eef7aaf4cb67b1115323ade8701d6fdd66"
+  },
+  {
+    "file": "epoch_005-minADE6_1.19154751.ckpt",
+    "bytes": 57875718,
+    "sha256": "10f90405319ac25a7dfe3cfef2415cfa187aa031a655b7860f0583a0bdf47cf4"
+  },
+  {
+    "file": "epoch_006-minADE6_1.02959192.ckpt",
+    "bytes": 57876165,
+    "sha256": "cabecbd9d062879bb2e59ae1a77d142ecd50131fb7c017ebe3c3770c3140c81e"
+  },
+  {
+    "file": "epoch_007-minADE6_1.01440573.ckpt",
+    "bytes": 57876548,
+    "sha256": "61756fc329e834c4d572be96411eed279567096f53cd17bf8f07d1d59ca7a4ea"
+  },
+  {
+    "file": "epoch_008-minADE6_0.93096375.ckpt",
+    "bytes": 57876867,
+    "sha256": "ddb97a5fdce39ca27e4200c40d3e463fec7965d414479c16569bbc2965954250"
+  },
+  {
+    "file": "epoch_009-minADE6_1.13284051.ckpt",
+    "bytes": 57877378,
+    "sha256": "20ae5d597a3de4016cebf90ea07a6f5700810ac90fdd9cd8cca02a8f3ec1b401"
+  },
+  {
+    "file": "epoch_010-minADE6_1.02318835.ckpt",
+    "bytes": 57877761,
+    "sha256": "85ea5410ff7bf87a0e6413530223a1671525b96a35d0bf20c2edf01fe58dd2c2"
+  },
+  {
+    "file": "epoch_011-minADE6_1.00828350.ckpt",
+    "bytes": 57878080,
+    "sha256": "ce5554703c7c0f8d139eced7a3f3d3c2e49f298ae17ab3c7b19510ed8d26d05f"
+  },
+  {
+    "file": "epoch_012-minADE6_0.89921898.ckpt",
+    "bytes": 57878527,
+    "sha256": "a8a4063056a0ee54c870182535e2cd410fc2cfd5fb22196c25c567108488b971"
+  },
+  {
+    "file": "epoch_013-minADE6_0.86238432.ckpt",
+    "bytes": 57878974,
+    "sha256": "ffa7e2b21a8348a25ba85e215fd72771fd5b2870807ac4092ec61d3ca47001d6"
+  },
+  {
+    "file": "epoch_014-minADE6_0.85210294.ckpt",
+    "bytes": 57879293,
+    "sha256": "44aabea7f842f54459f2089e3cbe55ea353c5446dab9892503cd7c8c148dc772"
+  },
+  {
+    "file": "epoch_015-minADE6_0.94511789.ckpt",
+    "bytes": 57879740,
+    "sha256": "5e1edde70057232736d2889bcc198e8be42203753e718893028a0b0a23fc4dc5"
+  },
+  {
+    "file": "epoch_016-minADE6_0.89639115.ckpt",
+    "bytes": 57880123,
+    "sha256": "89d921aa7deb2e26f8e41e7f08e93dad4f203ef23aa6b3061870bb94700d8fb1"
+  },
+  {
+    "file": "epoch_017-minADE6_0.90924907.ckpt",
+    "bytes": 57880442,
+    "sha256": "cbaaa58629134293cbd8a7feb816c646b2c16f0f222f597531666f2905fb14ce"
+  },
+  {
+    "file": "epoch_018-minADE6_0.91762906.ckpt",
+    "bytes": 57880953,
+    "sha256": "241dbe313578e1958e814601b79fd7441ca87c516f8f7f4e2423b9f57acea1fc"
+  },
+  {
+    "file": "epoch_019-minADE6_0.87248862.ckpt",
+    "bytes": 57881336,
+    "sha256": "1d57b4ad04015a09c336e8ba575ea4cede272f63ea46013edd3f4b5c2171cefd"
+  },
+  {
+    "file": "epoch_020-minADE6_0.85029614.ckpt",
+    "bytes": 57881655,
+    "sha256": "d9786cfed603c411026c0f73de9f03772331d78be1fb6a6d4063efb0c1f7587c"
+  },
+  {
+    "file": "epoch_021-minADE6_0.82463145.ckpt",
+    "bytes": 57882102,
+    "sha256": "cb5a64be23c7400f5f7754980526407b15a48747f76e1790fd78196111c96573"
+  },
+  {
+    "file": "epoch_022-minADE6_0.84591430.ckpt",
+    "bytes": 57882485,
+    "sha256": "d6fc9b92859ade1d09289a7c0025c2e603126924015f25426c8d7689856b43bb"
+  },
+  {
+    "file": "epoch_023-minADE6_0.82222414.ckpt",
+    "bytes": 57882804,
+    "sha256": "2383e2757bc4418f83aae759e34db60f66932fd34cafa6deea44792d9a59874e"
+  },
+  {
+    "file": "epoch_024-minADE6_0.83797520.ckpt",
+    "bytes": 57883315,
+    "sha256": "b7f04562d518d283a909333cbd421d90ded47650c558ac5d014d3e5431860f7c"
+  },
+  {
+    "file": "epoch_025-minADE6_0.84738141.ckpt",
+    "bytes": 57883698,
+    "sha256": "7d610d3acd4c28cddd650eaab92afabb03dd4ad591ecbd4c2d0d661e08521cf4"
+  },
+  {
+    "file": "epoch_026-minADE6_0.77957934.ckpt",
+    "bytes": 57884017,
+    "sha256": "0b2f41550544553854e6865228949e3b90b1e971fbd00a9fe676fc239c1f5449"
+  },
+  {
+    "file": "epoch_027-minADE6_0.82006431.ckpt",
+    "bytes": 57884464,
+    "sha256": "07e23b2842fb93a786999e3ce46dfbf9552b210ae72207ea8bea38db599801fe"
+  },
+  {
+    "file": "epoch_028-minADE6_0.83019519.ckpt",
+    "bytes": 57884847,
+    "sha256": "16b80540ba3b617a705e80207c01d0115a99a60ea24c476e882f9dfc20c1fa89"
+  },
+  {
+    "file": "epoch_029-minADE6_0.81990200.ckpt",
+    "bytes": 57885230,
+    "sha256": "ab47267ecaf86d8b17f2ac58a97e784e223e720d976305179cffcc4746168675"
+  },
+  {
+    "file": "epoch_030-minADE6_0.81914383.ckpt",
+    "bytes": 57885677,
+    "sha256": "bfa57e35998136b4171a4f1449ba78bdb5d5def3f55eee85b736c7b7f0709118"
+  },
+  {
+    "file": "epoch_031-minADE6_0.79839200.ckpt",
+    "bytes": 57886124,
+    "sha256": "e8be3febc9d13c829e11d4b13f0d0d7bb42e0a226fbf40af09f3e4891142b9e2"
+  },
+  {
+    "file": "epoch_032-minADE6_0.79593438.ckpt",
+    "bytes": 57886443,
+    "sha256": "bfa38a80b5db64f8aa3c11e9ffd9657a7a9ef2e964a19d474fed711ec7c8c1e7"
+  },
+  {
+    "file": "epoch_033-minADE6_0.76677287.ckpt",
+    "bytes": 57886826,
+    "sha256": "201d08475faf4b605c7bb8c5163f696fca79cc03475266da77cb54e8ca13d043"
+  },
+  {
+    "file": "epoch_034-minADE6_0.77368259.ckpt",
+    "bytes": 57887337,
+    "sha256": "eb634d7c9988e1740c1e52397936b30fb82343d151da576bd695f018acad67e2"
+  },
+  {
+    "file": "epoch_035-minADE6_0.77190459.ckpt",
+    "bytes": 57887656,
+    "sha256": "e489af3d20d5cae488ab46191f4b3df417c6878dd6c907e2b0be4aab14c7059f"
+  },
+  {
+    "file": "epoch_036-minADE6_0.79503953.ckpt",
+    "bytes": 57888039,
+    "sha256": "7e2b729f2a47957cc4c81c2eaf9aa7f7c3806020e0058c96400f876414ef7834"
+  },
+  {
+    "file": "epoch_037-minADE6_0.82911932.ckpt",
+    "bytes": 57888486,
+    "sha256": "9d4c73a91035d7eae1ec1b51e09962fd304f443e6fa3616dd3521d1c61afe2ee"
+  },
+  {
+    "file": "epoch_038-minADE6_0.75902230.ckpt",
+    "bytes": 57888805,
+    "sha256": "3e93b3605ecd4677eead36022a0b14120289b85065a2a94672e7472ac37eeecc"
+  },
+  {
+    "file": "epoch_039-minADE6_0.79304129.ckpt",
+    "bytes": 57889188,
+    "sha256": "6c5404612c74228428225d8ffbdf842e1de984c18568aff7284bb20fd7067480"
+  },
+  {
+    "file": "epoch_040-minADE6_0.78827894.ckpt",
+    "bytes": 57889699,
+    "sha256": "22a392b1bcd542b39a4d727dedaf6c1270eacb050e72ef9939d91fdf607c6677"
+  },
+  {
+    "file": "epoch_041-minADE6_0.80413878.ckpt",
+    "bytes": 57890018,
+    "sha256": "ec203d8585000332586743580c0bf68b37ae8cdfb25e19098445ce051fa66f80"
+  },
+  {
+    "file": "epoch_042-minADE6_0.73609990.ckpt",
+    "bytes": 57890401,
+    "sha256": "4d84a0b1869f98161606b5930708c9077d5941e2c823b59bc1c7e7ee5e65a35d"
+  },
+  {
+    "file": "epoch_043-minADE6_0.76880997.ckpt",
+    "bytes": 57890848,
+    "sha256": "fcb3c9711ee4528d730dd6455f03b3538e7b80b2bbe74a8b0436664bc4a42e3a"
+  },
+  {
+    "file": "epoch_044-minADE6_0.75426453.ckpt",
+    "bytes": 57891167,
+    "sha256": "06cdcc9dfa6dafbddde2b7fe4bb3994d4811d0bf29557e96fe0154f700f406da"
+  },
+  {
+    "file": "epoch_045-minADE6_0.78906924.ckpt",
+    "bytes": 57891614,
+    "sha256": "1135c903c51088f11817636b7bf00143bf10ec80d2b8b291b7102d841183bb77"
+  },
+  {
+    "file": "epoch_046-minADE6_0.74024171.ckpt",
+    "bytes": 57892061,
+    "sha256": "7cc3f8cedff02538a14db5020072c498f03d119891c2af580b48b9cb97be8320"
+  },
+  {
+    "file": "epoch_047-minADE6_0.73771018.ckpt",
+    "bytes": 57892380,
+    "sha256": "909bfb951c4dc5416208f59682005318031f919cccf12c3759161009d004c519"
+  },
+  {
+    "file": "epoch_048-minADE6_0.75332355.ckpt",
+    "bytes": 57892763,
+    "sha256": "595f383bc855bd34e85565e7fcb3adf8420620f825a83a14f3b4ec7a969f8ea8"
+  },
+  {
+    "file": "epoch_049-minADE6_0.72152030.ckpt",
+    "bytes": 57893210,
+    "sha256": "3482274fe925dc817666fbbb6f79fadbb1cd98f449b4cac645ac8d99de8c9b71"
+  },
+  {
+    "file": "epoch_050-minADE6_0.73126465.ckpt",
+    "bytes": 57893593,
+    "sha256": "bc8ef7e04f9276895f43a00fc6102c512b0401e8e919b57eb1f879ff21de1135"
+  },
+  {
+    "file": "epoch_051-minADE6_0.69887251.ckpt",
+    "bytes": 57893976,
+    "sha256": "ccebcadff9c67df071567383efa605c78f86c55910b748c61704561bf9f07be6"
+  },
+  {
+    "file": "epoch_052-minADE6_0.72228026.ckpt",
+    "bytes": 57894423,
+    "sha256": "37fce6401c916f8c2a453cc6a520159377582e8b38098d847be5d35f8f0c2fd6"
+  },
+  {
+    "file": "epoch_053-minADE6_0.71573544.ckpt",
+    "bytes": 57894742,
+    "sha256": "1354bcab49381f431318bac11634a74801af4ba870c35df5037a646fb6cd6539"
+  },
+  {
+    "file": "epoch_054-minADE6_0.69668818.ckpt",
+    "bytes": 57895125,
+    "sha256": "b8b1d6dd2b5b198caa19dd566f16ef27dc8910c6e0ded7e2dfb0b32ee6b9c18a"
+  },
+  {
+    "file": "epoch_055-minADE6_0.69876570.ckpt",
+    "bytes": 57895572,
+    "sha256": "beb16508f148ab1ecd0077c0b2f45abb6119d028abec65ca7e8ce1219e85cb5e"
+  },
+  {
+    "file": "epoch_056-minADE6_0.71441805.ckpt",
+    "bytes": 57895955,
+    "sha256": "fdf92d0896f2cad2f6b60125a3b924288e4164dbc551baf19e6d6b4a636a94f9"
+  },
+  {
+    "file": "epoch_057-minADE6_0.69552279.ckpt",
+    "bytes": 57896338,
+    "sha256": "0bfbb20f7339d47fd5c49ebb6a3fda06e5cdf98ef4052c215570a8541557f05f"
+  },
+  {
+    "file": "epoch_058-minADE6_0.68954659.ckpt",
+    "bytes": 57896785,
+    "sha256": "3ddbb7cfee3062778a65d2e871218ace8fb101230fe7c129483f99632dfbec2e"
+  },
+  {
+    "file": "epoch_059-minADE6_0.69623160.ckpt",
+    "bytes": 57897104,
+    "sha256": "cb297af3165d51536bd1ee224a4960277d7a78b488fd96375f67f907d615652e"
+  },
+  {
+    "file": "epoch_060-minADE6_0.67057878.ckpt",
+    "bytes": 57897487,
+    "sha256": "9562e1d19cd0fbcc66424c62da655f67ce9076edef109c9a3c3bc0bba4b187c0"
+  },
+  {
+    "file": "epoch_061-minADE6_0.69986486.ckpt",
+    "bytes": 57897998,
+    "sha256": "a82599163a2527360ce70397f64876a3f38bec868ff6131039b23731afcedd9a"
+  },
+  {
+    "file": "epoch_062-minADE6_0.67700124.ckpt",
+    "bytes": 57898317,
+    "sha256": "12e603f75365909412754958d747d6cb4c4d08f537f48863e12bab116607ffb6"
+  },
+  {
+    "file": "epoch_063-minADE6_0.67814380.ckpt",
+    "bytes": 57898700,
+    "sha256": "1ba89e7547939aefd171015381cde068f6a2dd07c365720ea099f9cd47505ae8"
+  },
+  {
+    "file": "epoch_064-minADE6_0.66860545.ckpt",
+    "bytes": 57899147,
+    "sha256": "5b33451b3292748de96995af5f7e612efff6c383af6fc753ad251eb8b23fc01b"
+  },
+  {
+    "file": "epoch_065-minADE6_0.66875511.ckpt",
+    "bytes": 57899466,
+    "sha256": "dc26e66294ec5c5833c7153205974a67d897397bfb108206e13f8b05e5840a28"
+  },
+  {
+    "file": "epoch_066-minADE6_0.66022831.ckpt",
+    "bytes": 57899913,
+    "sha256": "e0f8a570822ee70d48b37a862cc0b8da67125e8f2a50dd177ef0fa7aaf2d5f94"
+  },
+  {
+    "file": "epoch_067-minADE6_0.66252285.ckpt",
+    "bytes": 57900360,
+    "sha256": "53d1fae3d65ca15ad0e7e504e609ec0397d11401ff478d74063eb84c4847b4d4"
+  },
+  {
+    "file": "epoch_068-minADE6_0.65748936.ckpt",
+    "bytes": 57900679,
+    "sha256": "d6626c11eaf497556220b12cff612f0afffdbe89377d0310503ee117248b9d48"
+  },
+  {
+    "file": "epoch_069-minADE6_0.66066808.ckpt",
+    "bytes": 57901062,
+    "sha256": "248bb70b9c09d0ac66e6c52691766a30250053d88047caa67bc2999fc67714f2"
+  },
+  {
+    "file": "epoch_070-minADE6_0.65649277.ckpt",
+    "bytes": 57901509,
+    "sha256": "fbdd287ce48b512a61d04fbe76f295a62d8e955815f1f1e858e3728a062c773b"
+  },
+  {
+    "file": "epoch_071-minADE6_0.65190893.ckpt",
+    "bytes": 57901828,
+    "sha256": "c0c6d80625cab1d8db3b0158c0d730a0716b30fe90014e8986caddb7eabb772b"
+  },
+  {
+    "file": "epoch_072-minADE6_0.65454751.ckpt",
+    "bytes": 57902275,
+    "sha256": "aed86967d2ef35b18496b765afc23642d7cf9e70777619bcb402badf188bc760"
+  },
+  {
+    "file": "epoch_073-minADE6_0.65987390.ckpt",
+    "bytes": 57902722,
+    "sha256": "ab11e68eddd6412e7a4eab925027634aff840658a4eb9c96c17a0b5479f1c960"
+  },
+  {
+    "file": "epoch_074-minADE6_0.65216875.ckpt",
+    "bytes": 57903041,
+    "sha256": "a34b2045b69d14c05382bcf78e9b5ca5e0a1e361e05b5396c15911faa5a18be8"
+  },
+  {
+    "file": "epoch_075-minADE6_0.65063107.ckpt",
+    "bytes": 57903424,
+    "sha256": "f53c583d8dc90956e51dfd3c9684fd0ea729d704ba0dd7adbf66d417c357d303"
+  },
+  {
+    "file": "epoch_076-minADE6_0.64802957.ckpt",
+    "bytes": 57903871,
+    "sha256": "5bdb4310f07dab06bd98ef9f725746608bb7a28f4205ac2f9d46f85908c55115"
+  },
+  {
+    "file": "epoch_077-minADE6_0.64727980.ckpt",
+    "bytes": 57904254,
+    "sha256": "d0d9b8022f8a1e03ed2772c63316f2d992c38a9090da545980e89073d8a9a37f"
+  },
+  {
+    "file": "epoch_078-minADE6_0.64951390.ckpt",
+    "bytes": 57904637,
+    "sha256": "2bc40a3ba8a12a37e6f46858f88f8b7c7f678030d17ffaaa422101e4c899f98c"
+  },
+  {
+    "file": "epoch_079-minADE6_0.64746231.ckpt",
+    "bytes": 57905084,
+    "sha256": "2549d5da8b98dad39fc74b13fb738ae90f43b55a739879aa31b2910973e0b3f2"
+  },
+  {
+    "file": "last.ckpt",
+    "bytes": 57905084,
+    "sha256": "2549d5da8b98dad39fc74b13fb738ae90f43b55a739879aa31b2910973e0b3f2"
+  }
+]

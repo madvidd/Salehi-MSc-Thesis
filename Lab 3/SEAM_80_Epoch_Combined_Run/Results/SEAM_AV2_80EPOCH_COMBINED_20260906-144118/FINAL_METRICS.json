@@ -1,0 +1,13 @@
+{
+  "checkpoint": "/home/server01/M/Results/SEAM_AV2_80EPOCH_COMBINED_20260906-144118/combined/checkpoints/epoch_077-minADE6_0.64727980.ckpt",
+  "selected_epoch": 77,
+  "evaluation": "one GPU, complete validation split, batch 16",
+  "metrics": {
+    "MR": 0.14611013233661652,
+    "minADE1": 1.575836420059204,
+    "minADE6": 0.6472800970077515,
+    "minFDE1": 3.902212142944336,
+    "minFDE6": 1.2383430004119873,
+    "b-minFDE6": 1.8594443798065186
+  }
+}
